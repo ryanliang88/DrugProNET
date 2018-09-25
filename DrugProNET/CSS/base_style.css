@@ -1,0 +1,287 @@
+html {
+    height: 100%;
+}
+
+body {
+    background-color: #000;
+    color: white;
+    height: 100vh;
+}
+
+.float-left {
+    float: left;
+    clear: both;
+}
+
+.main-container {
+    width: 1024px;
+    text-align: center;
+    margin: auto;
+}
+
+.banner {
+    margin-top: 0;
+    padding-top: 0;
+    text-align: center;
+}
+
+#banner-image {
+    width: 100%;
+}
+
+nav {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.horizontal-list {
+    margin: 0;
+    list-style: none;
+}
+
+.horizontal-list:after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+}
+
+.horizontal-list li {
+    display: inline-block;
+}
+
+.navigation-links {
+    font-size: 14px;
+    font-weight: bold;
+
+    padding-left: 2em;
+    padding-right: 2em;
+
+    text-align: justify;
+    width: 100%;
+
+    line-height: .8em;
+    padding-top: .8em;
+
+    border-color: skyblue;
+    border-style: solid;
+    border-width: 0 0 1px 0;
+
+    background-color: rgb(80, 80, 80);
+}
+
+.navigation-links a {
+    color: #9999cc;
+    text-decoration: none;
+}
+
+.navigation-links a:hover {
+    color: #7777ac;
+}
+
+.left-sidebar {
+    text-align: center;
+
+    width: 15%;
+    height: 100%;
+
+    border-color: skyblue;
+    border-style: solid;
+    border-width: 0 1px 0 1px;
+}
+
+.left-sidebar-links {
+    bottom: 0;
+    position: fixed;
+    font-size: 14px;
+    font-weight: bold;
+
+    margin: 0;
+    list-style: none;
+    text-align: justify;
+    width: inherit;
+
+    line-height: .5em;
+    padding-top: .8em;
+
+    color: #FFC300;
+}
+
+.left-sidebar-links a {
+    color: #FFC300;
+}
+
+.left-sidebar-links a:hover {
+    color: rgb(199, 152, 0);
+    text-decoration: none;
+}
+
+.left-sidebar-links li {
+    display: inline-block;
+}
+
+.left-sidebar-links-wrapper {
+    bottom: 0;
+    position: fixed;
+}
+
+.content-body {
+    text-align: left;
+    width: 85%;
+    margin: auto;
+    height: 100%;
+    padding: 2em;
+    color: rgb(238, 238, 238);
+    padding-bottom: 0;
+}
+
+.content-body h2 {
+    color: #FFC300;
+    font-size: 12pt;
+    font-weight: bolder;
+}
+
+.col-container {
+    display: table;
+    width: 100%;
+}
+
+.col {
+    display: table-cell;
+}
+
+footer {
+    padding-top: 3em;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+}
+
+footer h2 {
+    color: #738569 !important;
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+.query {
+    font-size: 14px;
+    font-weight: bold;
+    color: #738569;
+
+    padding-left: 2em;
+    padding-right: 0;
+
+    text-align: left;
+    width: 50%;
+
+    border-style: solid;
+    border-color: skyblue;
+    border-width: 0 0 1px 1px;
+
+    line-height: .6em;
+    padding-top: .8em;
+}
+
+.query li>select {
+    border-radius: .3em;
+    margin-left: 2em;
+    font-weight: normal;
+    color: black;
+}
+
+.secondary-navigation {
+    font-size: 14px;
+    font-weight: bold;
+    color: #FFC300;
+
+    padding-left: 2em;
+    padding-right: 2em;
+
+    text-align: right;
+    width: 50%;
+
+    border-style: solid;
+    border-color: skyblue;
+    border-width: 0 1px 1px 0;
+
+    line-height: .6em;
+    padding-top: .8em;
+}
+
+.secondary-navigation li:first-of-type {
+    color: #9999cc;
+}
+
+.secondary-navigation li a {
+    color: #FFC300;
+}
+
+/* ########################################################################## */
+/* # Below is the CSS for creating two divs side by side with equal heights # */
+/* ########################################################################## */
+.c-row {
+    display: flex;
+}
+
+.c-col {
+    flex: 1;
+}
+
+.c-footer-row {
+    height: 1000px;
+}
+
+.body-content {
+    width: 85%;
+    flex: 0 0 85%;
+    flex-direction: column;
+
+    padding-left: 1em;
+    padding-right: 1em;
+
+    border-style: solid;
+    border-width: 0 0 0 1px;
+    border-color: skyblue;
+
+    text-align: left;
+}
+
+.body-content h2 {
+    padding-top: 1.5em;
+    font-size: 14pt;
+    font-weight: bold;
+    color: #FFC300;
+}
+
+.side-content {
+    width: 15%;
+    flex: 0 0 15%;
+
+    padding-right: 1em;
+
+    border-style: solid;
+    border-width: 0 0 0 1px;
+    border-color: skyblue;
+
+    text-align: right;
+}
+
+.advertisment-content {
+    flex: 0 0 40%;
+    padding-top: 1.5em;
+}
+
+.footer-content {
+    flex: 1 0 85% !important;
+    text-align: center;
+}
+
+.footer-content h2 {
+    font-size: 12pt;
+}
+
+.button {
+    color: black;
+    border-radius: .5em;
+}
