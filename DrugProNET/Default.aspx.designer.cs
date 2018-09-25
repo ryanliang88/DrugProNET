@@ -7,7 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-
-
-public partial class Default {
+namespace DrugProNET {
+    
+    
+    public partial class Default {
+    }
 }
