@@ -1,0 +1,87 @@
+<Advertisements>
+  <Ad>
+    <ImageUrl>~/images/10MY25WebsiteBannerAds-1v0.1.jpg</ImageUrl>
+    <NavigatorUrl>http://www.kinexus.ca/ourServices/cellCulture/cellpreparation/cellpreparation.html</NavigatorUrl>
+    <AlternateText>Need cells cultured and treated to your specification? Try our Custom Cell Preparation Services</AlternateText>
+  </Ad>
+  <Ad>
+    <ImageUrl>~/images/10MY25WebsiteBannerAds-2v0.1.jpg</ImageUrl>
+    <NavigateUrl>http://www.kinexus.ca/ourServices/substrate_profiling/index.html</NavigateUrl>
+    <AlternateText>Want to identify kinase substrates, their phospho-sites and detection antibodies? Try our unique Custom Kinase-Substrate Profiling Services</AlternateText>
+  </Ad>
+  <Ad>
+    <ImageUrl>~/images/10MY25WebsiteBannerAds-3v0.1.jpg</ImageUrl>
+    <NavigateUrl>http://www.kinexus.ca/ourServices/cellCulture/index.html</NavigateUrl>
+    <AlternateText>Need to inexpensively test the specificity of your kinase inhibitors? Try our Protein Kinase Microarray Services for US$1.67 per kinase</AlternateText>
+  </Ad>
+  <Ad>
+    <ImageUrl>~/images/10MY25WebsiteBannerAds-4v0.1.jpg</ImageUrl>
+    <NavigateUrl>http://www.kinexus.ca/ourServices/microarrays/antibody_microarrays/antibody_microarrays.html</NavigateUrl>
+    <AlternateText>Want to screen your cell/tissue lysates against > 800 antibodies? Try our Antibody Microarray Services for US$1.10 per antibody</AlternateText>
+  </Ad>
+  <Ad>
+    <ImageUrl>~/images/10MY25WebsiteBannerAds-5v0.1.jpg</ImageUrl>
+    <NavigateUrl>http://www.kinexus.ca/ourServices/microarrays/antibody_microarrays/antibody_microarrays.html</NavigateUrl>
+    <AlternateText>Looking for a cost-effective strategy for biomarker discovery and validation? Try our Antibody Microarray and Custom Multi-immunoblotting Services</AlternateText>
+  </Ad>
+  <Ad>
+    <ImageUrl>~/images/10MY25WebsiteBannerAds-6v0.1.jpg</ImageUrl>
+    <NavigateUrl>http://www.kinexus.ca/ourServices/microarrays/antibody_microarrays/antibody_microarrays.html</NavigateUrl>
+    <AlternateText>Want to screen cells/tissues for altered protein expression and phosphorylation? Our Antibody Microarray Services track over 500 signalling proteins</AlternateText>
+  </Ad>
+  <Ad>
+    <ImageUrl>~/images/10MY25WebsiteBannerAds-7v0.1.jpg</ImageUrl>
+    <NavigateUrl>http://www.kinexus.ca/ourServices/microarrays/reverse_microarrays/reverse_microarrays.html</NavigateUrl>
+    <AlternateText>Need to rapidly characterize a new protein or phospho-site for regulation? Try our Standard Reverse Lysate Microarray Services</AlternateText>
+  </Ad>
+  <Ad>
+    <ImageUrl>~/images/10MY25WebsiteBannerAds-8v0.1.jpg</ImageUrl>
+    <NavigateUrl>http://www.kinexus.ca/ourServices/microarrays/reverse_microarrays/reverse_microarrays.html</NavigateUrl>
+    <AlternateText>Need to evaluate hundreds of your tissue lysates for biomarker validation? Try our Custom Reverse Lysate Microarray Services</AlternateText>
+  </Ad>
+  <Ad>
+    <ImageUrl>~/images/10MY25WebsiteBannerAds-9v0.1.jpg</ImageUrl>
+    <NavigateUrl>http://www.kinexus.ca/ourServices/immunoblotting/custom_profiling/custom_profiling.html</NavigateUrl>
+    <AlternateText>Need to inexpensively and rapidly validate gene or protein microarray data? Try our Custom Kinetworks Multi-immunoblotting Services</AlternateText>
+  </Ad>
+  <Ad>
+    <ImageUrl>~/images/10MY25WebsiteBannerAds-10v0.1.jpg</ImageUrl>
+    <NavigateUrl>http://www.kinexus.ca/ourServices/immunoblotting/phosphosite_profiling/phosphosite_profiling.html</NavigateUrl>
+    <AlternateText>Want to accurately quantify protein phosphorylation in your cell tissue lysates? Try our Phospho-site Multi-immunoblotting Services for US$20 per target</AlternateText>
+  </Ad>
+  <Ad>
+    <ImageUrl>~/images/10MY25WebsiteBannerAds-11v0.1.jpg</ImageUrl>
+    <NavigateUrl>http://www.kinexus.ca/ourServices/immunoblotting/kinase_profiling/kinase_profiling.html</NavigateUrl>
+    <AlternateText>Want to accurately quantify kinase expression in your cell tissue lysates? Try our Protein Kinase Multi-immunoblotting Services for US$10 per target</AlternateText>
+  </Ad>
+  <Ad>
+    <ImageUrl>~/images/10MY25WebsiteBannerAds-12v0.1.jpg</ImageUrl>
+    <NavigateUrl>http://www.kinet.ca</NavigateUrl>
+    <AlternateText>Want to compare your Kinexus proteomics data with thousands of other studies? Query our KiNET Immunoblotting DataBase online with free access</AlternateText>
+  </Ad>
+  <Ad>
+    <ImageUrl>~/images/10MY25WebsiteBannerAds-13v0.1.jpg</ImageUrl>
+    <NavigateUrl>http://www.kinexus.ca/ourServices/immunohistochemistry/immunohistochemistry.html</NavigateUrl>
+    <AlternateText>Want to visualize the locations of proteins and phosphorylation recreations in cells? Check out our Custom Immunohistochemistry Services</AlternateText>
+  </Ad>
+  <Ad>
+    <ImageUrl>~/images/10MY25WebsiteBannerAds-14v0.1.jpg</ImageUrl>
+    <NavigateUrl>http://www.kinexus.ca/ourServices/proteinAndPeptide/recombinantproteinsynthesis/index.html</NavigateUrl>
+    <AlternateText>Need mg to gram quantities of recombinant forms of your favorite proteins? Try our Custom Recombinant Protein Production Services</AlternateText>
+  </Ad>
+  <Ad>
+    <ImageUrl>~/images/10MY25WebsiteBannerAds-15v0.1.jpg</ImageUrl>
+    <NavigateUrl>http://www.kinexus.ca/ourServices/proteinAndPeptide/peptidesynthesis/index.html</NavigateUrl>
+    <AlternateText>Need mg quantities of synthetic peptides with special modifications? Try our Custom Peptide Synthesis Services</AlternateText>
+  </Ad>
+  <Ad>
+    <ImageUrl>~/images/10MY25WebsiteBannerAds-16v0.1.jpg</ImageUrl>
+    <NavigateUrl>http://www.kinexus.ca/ourServices/proteinAndPeptide/peptidearraysynthesis/index.html</NavigateUrl>
+    <AlternateText>Need to identify optimal peptide substrates or perform epitope mapping? Try our Custom Peptide Array Production Services</AlternateText>
+  </Ad>
+  <Ad>
+    <ImageUrl>~/images/10MY25WebsiteBannerAds-17v0.1.jpg</ImageUrl>
+    <NavigateUrl>http://www.kinexus.ca/ourServices/custom_graphics/custom_graphics.html</NavigateUrl>
+    <AlternateText>Need help with presentation of your proteomics data from Kinexus? Try our Custom Graphics Services for US$89 per figure</AlternateText>
+  </Ad>
+</Advertisements>

@@ -105,10 +105,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-10v0.1.jpg" />
+    <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-11v0.1.jpg" />
+    <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-12v0.1.jpg" />
+    <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-13v0.1.jpg" />
+    <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-14v0.1.jpg" />
+    <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-15v0.1.jpg" />
+    <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-16v0.1.jpg" />
+    <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-17v0.1.jpg" />
+    <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-1v0.1.jpg" />
+    <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-2v0.1.jpg" />
+    <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-3v0.1.jpg" />
+    <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-4v0.1.jpg" />
+    <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-5v0.1.jpg" />
+    <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-6v0.1.jpg" />
+    <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-7v0.1.jpg" />
+    <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-8v0.1.jpg" />
+    <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-9v0.1.jpg" />
+    <Content Include="Advertisement\Images\ads_xml.xml" />
     <Content Include="CSS\3_column.css" />
     <Content Include="CSS\base_style.css" />
     <Content Include="CSS\drug_info.css" />
     <Content Include="CSS\protein_info.css" />
+    <Content Include="DrugInfo.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Images\10MY25WebsiteBannerAds-10v0.1.jpg" />
@@ -184,6 +203,16 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Advertisement\Ad.cs" />
+    <Compile Include="Advertisement\RandomPicker.cs" />
+    <Compile Include="Advertisement\XmlParser.cs" />
+    <Compile Include="DrugInfo.aspx.cs">
+      <DependentUpon>DrugInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DrugInfo.aspx.designer.cs">
+      <DependentUpon>DrugInfo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
