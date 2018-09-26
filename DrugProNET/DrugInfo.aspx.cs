@@ -22,6 +22,11 @@ namespace DrugProNET
 
         protected void Page_LoadComplete(object sender, EventArgs e)
         {
+            SetAdvertisement();
+        }
+
+        private void SetAdvertisement()
+        {
             XmlParser xmlp = new XmlParser();
             XmlNode node = xmlp.Parse(Server.MapPath("./Advertisement/Images/ads_xml.xml"), "/Advertisements");
             List<XmlNode> nodes = xmlp.GetAllUnder(node);
