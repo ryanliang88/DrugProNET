@@ -15,8 +15,8 @@ namespace DrugProNET
 {
     public partial class DrugInfo : System.Web.UI.Page
     {
-        Image adBanner;
-        HyperLink adLink;
+        private Image adBanner;
+        private HyperLink adLink;
 
         protected void Page_Load(object sender, EventArgs e)
         {
