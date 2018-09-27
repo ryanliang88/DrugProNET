@@ -177,6 +177,7 @@
     <Content Include="Images\navBar_08.png" />
     <Content Include="Images\unchecked.png" />
     <Content Include="Default.aspx" />
+    <Content Include="Other\ASP.NET Templates\3 Column Template.aspx" />
     <Content Include="Other\template_2_column.html" />
     <Content Include="Other\template_3_column.html" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
@@ -223,6 +224,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Other\ASP.NET Templates\3 Column Template.aspx.cs">
+      <DependentUpon>3 Column Template.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Other\ASP.NET Templates\3 Column Template.aspx.designer.cs">
+      <DependentUpon>3 Column Template.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

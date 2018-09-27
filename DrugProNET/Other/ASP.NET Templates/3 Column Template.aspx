@@ -1,9 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DrugInfo.aspx.cs" Inherits="DrugProNET.DrugInfo" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="3 Column Template.aspx.cs" Inherits="DrugProNET.Other.ASP.NET_Templates._3_Column_Templates" %>
 
 <!DOCTYPE html>
-<html lang="en">
 
-<head>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -16,12 +16,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="./css/base_style.css">
-    <link rel="stylesheet" href="./css/drug_info.css">
     <link rel="stylesheet" href="./css/3_column.css">
     <script src="./js/option_select_redirect.js"></script>
-    <title>DrugProNET | Drug Information</title>
+    <title>DrugProNET | Your Title Here</title>
 </head>
-
 <body>
     <form runat="server">
         <asp:ScriptManager ID="script_manager" runat="server" />
@@ -94,16 +92,8 @@
             </div>
             <div class="c-row">
                 <div class="c-col side-content">
-                    <h3 class="h3-side-title">Query Type</h3>
                 </div>
                 <div class="c-col body-content">
-                    <h3 class="h3-body-title">Drug Information</h3>
-                    <p>
-                        This query provides detailed information on over 2000 compounds
-                    that have been experimentally identified as inhibitors of one or
-                    more human proteins. Follow the instructions below to retrieve
-                    information on a specific drug of interest.
-                    </p>
                 </div>
                 <div class="c-col advertisment-content">
                     <asp:Timer ID="ad_refresh_timer" runat="server" Interval="3000" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
@@ -117,7 +107,6 @@
                             <asp:AsyncPostBackTrigger ControlID="ad_refresh_timer" EventName="Tick"></asp:AsyncPostBackTrigger>
                         </Triggers>
                     </asp:UpdatePanel>
-
                 </div>
             </div>
             <div class="c-row">
@@ -169,6 +158,4 @@
         </div>
     </form>
 </body>
-
 </html>
-
