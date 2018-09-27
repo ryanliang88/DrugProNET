@@ -285,3 +285,19 @@ footer h2 {
     color: black;
     border-radius: .5em;
 }
+
+.button:active {
+    outline: none;
+    border: none;
+}
+
+.textBox {
+    width: 300px;
+    color: black;
+    border-radius: .5em
+}
+
+.textBox:active {
+    outline: none;
+    border: none;
+}
