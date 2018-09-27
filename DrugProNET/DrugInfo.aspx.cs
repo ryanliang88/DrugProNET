@@ -17,7 +17,7 @@ namespace DrugProNET
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         protected void Page_LoadComplete(object sender, EventArgs e)
@@ -39,5 +39,11 @@ namespace DrugProNET
             HyperLink adLink = (HyperLink)FindControl("ad_link");
             adLink.NavigateUrl = ad.GetNavigateURL();
         }
+
+        protected void RenewAdvertisement(object sender, EventArgs e)
+        {
+            SetAdvertisement();
+        }
+
     }
 }

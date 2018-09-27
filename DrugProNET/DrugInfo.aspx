@@ -23,105 +23,116 @@
 </head>
 
 <body>
-    <div class="main-container">
-        <div id="website-banner" class="banner">
-            <img id="banner-image" src="./images/DrugProNETBanner.jpg" alt="Unable to display image" usemap="#banner-map">
-            <map name="banner-map">
-                <area shape="rect" coords="0, 0, 1024, 90" href="index.html" alt="Error">
-                <area shape="rect" coords="0,57.2, 655, 147.2 " href="index.html" alt="Error">
-                <area shape="rect" coords="655, 57.2, 1024, 147.2" href="http://www.kinexus.ca" target="_blank" alt="Error">
-            </map>
-        </div>
-        <nav>
-            <ul class="navigation-links horizontal-list">
-                <li><a id="1" href="http://kinatlas.ca:8080" target="_blank">KinATLAS</a></li>
-                <li><a id="2" href="http://www.transcriptonet.ca" target="_blank">TranscriptoNET</a></li>
-                <li><a id="3" href="http://www.phosphonet.ca" target="_blank">PhosphoNET</a></li>
-                <li><a id="4" href="http://www.onconet.ca" target="_blank">OncoNET</a></li>
-                <li><a id="5" href="http://www.kinasenet.ca" target="_blank">KinaseNET</a></li>
-                <li><a id="6" href="http://www.drugkinet.ca" target="_blank">DrugKiNET</a></li>
-                <li><a id="7" href="http://www.kinet-am.ca" target="_blank">KiNET-AM</a></li>
-                <li><a id="8" href="http://www.kinexus.ca/kinetica" target="_blank">Kinetica Online</a></li>
-            </ul>
-        </nav>
-        <div class="col-container">
-            <ul class="query horizontal-list col">
-                <li>
-                    <p>Select type of query desired</p>
-                </li>
-                <li>
-                    <select id="query-selector">
-                        <option value="">Hover to view options</option>
-                        <option value="ProteinDrugQuery.html">Protein-focused Drug Interaction</option>
-                        <option value="DrugProteinQuery.html">Drug-focused Protein Interaction</option>
-                        <option value="ProteinInfo.html">Protein Information</option>
-                        <option value="DrugInfo.html">Drug Information</option>
-                    </select>
-                </li>
-            </ul>
-            <ul class="secondary-navigation horizontal-list col">
-                <div class="float-left">
-                    <li>
-                        <p>Updated September 2018</p>
-                    </li>
-                </div>
-                <div>
-                    <li>
-                        <a href="index.html">Home</a>
-                    </li>
-                    <li>
-                        <p>|</p>
-                    </li>
-                    <li>
-                        <a href="">Kinexus</a>
-                    </li>
-                    <li>
-                        <p>|</p>
-                    </li>
-                    <li>
-                        <a href="">Contact</a>
-                    </li>
-                    <li>
-                        <p>|</p>
-                    </li>
-                    <li>
-                        <a href="">Credits</a>
-                    </li>
-                </div>
-            </ul>
-        </div>
-        <div class="c-row">
-            <div class="c-col side-content">
-                <h3 class="h3-side-title">Query Type</h3>
+    <form runat="server">
+        <div class="main-container">
+            <div id="website-banner" class="banner">
+                <img id="banner-image" src="./images/DrugProNETBanner.jpg" alt="Unable to display image" usemap="#banner-map">
+                <map name="banner-map">
+                    <area shape="rect" coords="0, 0, 1024, 90" href="index.html" alt="Error">
+                    <area shape="rect" coords="0,57.2, 655, 147.2 " href="index.html" alt="Error">
+                    <area shape="rect" coords="655, 57.2, 1024, 147.2" href="http://www.kinexus.ca" target="_blank" alt="Error">
+                </map>
             </div>
-            <div class="c-col body-content">
-                <h3 class="h3-body-title">Drug Information</h3>
-                <p>
-                    This query provides detailed information on over 2000 compounds
+            <nav>
+                <ul class="navigation-links horizontal-list">
+                    <li><a id="1" href="http://kinatlas.ca:8080" target="_blank">KinATLAS</a></li>
+                    <li><a id="2" href="http://www.transcriptonet.ca" target="_blank">TranscriptoNET</a></li>
+                    <li><a id="3" href="http://www.phosphonet.ca" target="_blank">PhosphoNET</a></li>
+                    <li><a id="4" href="http://www.onconet.ca" target="_blank">OncoNET</a></li>
+                    <li><a id="5" href="http://www.kinasenet.ca" target="_blank">KinaseNET</a></li>
+                    <li><a id="6" href="http://www.drugkinet.ca" target="_blank">DrugKiNET</a></li>
+                    <li><a id="7" href="http://www.kinet-am.ca" target="_blank">KiNET-AM</a></li>
+                    <li><a id="8" href="http://www.kinexus.ca/kinetica" target="_blank">Kinetica Online</a></li>
+                </ul>
+            </nav>
+            <div class="col-container">
+                <ul class="query horizontal-list col">
+                    <li>
+                        <p>Select type of query desired</p>
+                    </li>
+                    <li>
+                        <select id="query-selector">
+                            <option value="">Hover to view options</option>
+                            <option value="ProteinDrugQuery.html">Protein-focused Drug Interaction</option>
+                            <option value="DrugProteinQuery.html">Drug-focused Protein Interaction</option>
+                            <option value="ProteinInfo.html">Protein Information</option>
+                            <option value="DrugInfo.html">Drug Information</option>
+                        </select>
+                    </li>
+                </ul>
+                <ul class="secondary-navigation horizontal-list col">
+                    <div class="float-left">
+                        <li>
+                            <p>Updated September 2018</p>
+                        </li>
+                    </div>
+                    <div>
+                        <li>
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li>
+                            <p>|</p>
+                        </li>
+                        <li>
+                            <a href="">Kinexus</a>
+                        </li>
+                        <li>
+                            <p>|</p>
+                        </li>
+                        <li>
+                            <a href="">Contact</a>
+                        </li>
+                        <li>
+                            <p>|</p>
+                        </li>
+                        <li>
+                            <a href="">Credits</a>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+            <div class="c-row">
+                <div class="c-col side-content">
+                    <h3 class="h3-side-title">Query Type</h3>
+                </div>
+                <div class="c-col body-content">
+                    <h3 class="h3-body-title">Drug Information</h3>
+                    <p>
+                        This query provides detailed information on over 2000 compounds
                     that have been experimentally identified as inhibitors of one or
                     more human proteins. Follow the instructions below to retrieve
                     information on a specific drug of interest.
-                </p>
+                    </p>
+                </div>
+                <div class="c-col advertisment-content">
+
+                    <asp:ScriptManager ID="ad_script_manager" runat="server" />
+                    <asp:Timer ID="ad_refresh_timer" runat="server" Interval="3000" OnTick="RenewAdvertisement"></asp:Timer>
+                    <asp:UpdatePanel ID="ad_update_panel" runat="server">
+                        <ContentTemplate>
+                            <asp:HyperLink ID="ad_link" NavigateUrl="navigateurl" runat="server">
+                                <asp:Image ImageUrl="imageUrl" runat="server" ID="ad_banner" AlternateText="" />
+                            </asp:HyperLink>
+                        </ContentTemplate>
+                        <Triggers>
+                            <asp:AsyncPostBackTrigger ControlID="ad_refresh_timer" EventName="Tick"></asp:AsyncPostBackTrigger>
+                        </Triggers>
+                    </asp:UpdatePanel>
+
+                </div>
             </div>
-            <div class="c-col advertisment-content">
-                <asp:HyperLink ID="ad_link" NavigateUrl="navigateurl" runat="server">
-                    <asp:Image ImageUrl="imageUrl" runat="server" ID="ad_banner" AlternateText="" />
-                </asp:HyperLink>
-            </div>
-        </div>
-        <div class="c-row">
-            <div class="c-col side-content">
-                <h3 class="h3-side-title">Filters</h3>
-            </div>
-            <div class="c-col body-content">
-                <form id="submit_form" runat="server">
+            <div class="c-row">
+                <div class="c-col side-content">
+                    <h3 class="h3-side-title">Filters</h3>
+                </div>
+                <div class="c-col body-content">
                     <h3 class="h3-body-title">Step 1 - Drug Specification</h3>
                     <p>
                         Enter the first few characters for a compound name, CAS ID,
                     PubChem ID or ChEMBL ID and then select the desired search
                     term from the Drop Down List.
                     </p>
-                    <asp:TextBox CssClass="textBox" ID="search_textBox" runat="server" value="Test" placeholder="Type in at least 3 letters of the search term"/>
+                    <asp:TextBox CssClass="textBox" ID="search_textBox" runat="server" value="" placeholder="Type in at least 3 letters of the search term" />
                     <h3 class="h3-body-title">Step 2 - Retrieve Compound Information</h3>
                     <p>
                         Click on the buttons below to retrieve information on the
@@ -131,33 +142,33 @@
                     <asp:Button ID="retrieve_button" CssClass="button" Text="Retrieve Information" runat="server" />
                     <span>&emsp;&emsp;</span>
                     <asp:Button ID="reset_button" CssClass="button" Text="Reset" runat="server" />
-                </form>
+                </div>
             </div>
-        </div>
 
-        <div class="c-row">
-            <div class="c-col side-content"></div>
-            <footer class="c-col body-content footer-content">
-                <h2>Copyright © 2018 Kinexus Bioinformatics Corporation. All rights reserved.</h2>
-            </footer>
-        </div>
-        <!-- This must be at bottom! -->
-        <div class="c-col side-content">
-            <div>
-                <ul class="left-sidebar-links">
-                    <li>
-                        <a href="index.html">Home</a>
-                    </li>
-                    <li>
-                        <p>|</p>
-                    </li>
-                    <li>
-                        <a href="#website-banner">Top</a>
-                    </li>
-                </ul>
+            <div class="c-row">
+                <div class="c-col side-content"></div>
+                <footer class="c-col body-content footer-content">
+                    <h2>Copyright © 2018 Kinexus Bioinformatics Corporation. All rights reserved.</h2>
+                </footer>
+            </div>
+            <!-- This must be at bottom! -->
+            <div class="c-col side-content">
+                <div>
+                    <ul class="left-sidebar-links">
+                        <li>
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li>
+                            <p>|</p>
+                        </li>
+                        <li>
+                            <a href="#website-banner">Top</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
 </body>
 
 </html>
