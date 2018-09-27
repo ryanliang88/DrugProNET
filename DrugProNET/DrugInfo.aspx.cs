@@ -15,35 +15,23 @@ namespace DrugProNET
 {
     public partial class DrugInfo : System.Web.UI.Page
     {
+        Image adBanner;
+        HyperLink adLink;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            adBanner = (Image)FindControl("ad_banner");
+            adLink = (HyperLink)FindControl("ad_link");
         }
 
         protected void Page_LoadComplete(object sender, EventArgs e)
         {
-            SetAdvertisement();
-        }
-
-        private void SetAdvertisement()
-        {
-            XmlParser xmlp = new XmlParser();
-            XmlNode node = xmlp.Parse(Server.MapPath("./Advertisement/Images/ads_xml.xml"), "/Advertisements");
-            List<XmlNode> nodes = xmlp.GetAllUnder(node);
-            Ad ad = new Ad(RandomPicker.PickRandom(nodes, 0, nodes.Count));
-
-            Image adBanner = (Image)FindControl("ad_banner");
-            adBanner.ImageUrl = ad.GetImageURL();
-            adBanner.AlternateText = ad.GetAlternateText();
-
-            HyperLink adLink = (HyperLink)FindControl("ad_link");
-            adLink.NavigateUrl = ad.GetNavigateURL();
+            AdLoader.SetAdvertisement(adBanner, adLink, Server.MapPath("./Advertisement/Images/ads_xml.xml"));
         }
 
         protected void RenewAdvertisement(object sender, EventArgs e)
         {
-            SetAdvertisement();
+            AdLoader.SetAdvertisement(adBanner, adLink, Server.MapPath("./Advertisement/Images/ads_xml.xml"));
         }
-
     }
 }

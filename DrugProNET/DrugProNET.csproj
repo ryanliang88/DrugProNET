@@ -204,6 +204,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Advertisement\Ad.cs" />
+    <Compile Include="Advertisement\AdLoader.cs" />
     <Compile Include="Advertisement\RandomPicker.cs" />
     <Compile Include="Advertisement\XmlParser.cs" />
     <Compile Include="DrugInfo.aspx.cs">

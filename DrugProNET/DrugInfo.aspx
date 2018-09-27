@@ -24,6 +24,7 @@
 
 <body>
     <form runat="server">
+        <asp:ScriptManager ID="script_manager" runat="server" />
         <div class="main-container">
             <div id="website-banner" class="banner">
                 <img id="banner-image" src="./images/DrugProNETBanner.jpg" alt="Unable to display image" usemap="#banner-map">
@@ -105,8 +106,6 @@
                     </p>
                 </div>
                 <div class="c-col advertisment-content">
-
-                    <asp:ScriptManager ID="ad_script_manager" runat="server" />
                     <asp:Timer ID="ad_refresh_timer" runat="server" Interval="3000" OnTick="RenewAdvertisement"></asp:Timer>
                     <asp:UpdatePanel ID="ad_update_panel" runat="server">
                         <ContentTemplate>

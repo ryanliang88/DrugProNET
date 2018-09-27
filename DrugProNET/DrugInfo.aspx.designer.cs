@@ -13,13 +13,13 @@ namespace DrugProNET {
     public partial class DrugInfo {
         
         /// <summary>
-        /// ad_script_manager control.
+        /// script_manager control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ad_script_manager;
+        protected global::System.Web.UI.ScriptManager script_manager;
         
         /// <summary>
         /// ad_refresh_timer control.
