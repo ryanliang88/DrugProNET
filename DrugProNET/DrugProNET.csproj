@@ -210,6 +210,13 @@
     </Compile>
     <Compile Include="Advertisement\RandomPicker.cs" />
     <Compile Include="Advertisement\XmlParser.cs" />
+    <Compile Include="BasePage.Master.cs">
+      <DependentUpon>BasePage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BasePage.Master.designer.cs">
+      <DependentUpon>BasePage.Master</DependentUpon>
+    </Compile>
     <Compile Include="DrugInfo.aspx.cs">
       <DependentUpon>DrugInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -231,6 +238,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="BasePage.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
