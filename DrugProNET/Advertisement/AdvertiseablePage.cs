@@ -1,14 +1,13 @@
-﻿using DrugProNET.Advertisement;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
+using System.Text;
+using System.Threading.Tasks;
 using System.Web.UI.WebControls;
 
-namespace DrugProNET.Other.ASP.NET_Templates
+namespace DrugProNET.Advertisement
 {
-    public partial class _3_Column_Templates : System.Web.UI.Page
+    public class AdvertiseablePage : System.Web.UI.Page
     {
         private Image adBanner;
         private HyperLink adLink;

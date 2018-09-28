@@ -13,11 +13,8 @@ using DrugProNET.Advertisement;
 
 namespace DrugProNET
 {
-    public partial class DrugInfo : DrugProNET.Other.ASP.NET_Templates._3_Column_Templates
+    public partial class DrugInfo : AdvertiseablePage
     {
-        protected void RenewAdvertisement(object sender, EventArgs e)
-        {
-            base.RenewAdvertisement(null, null);
-        }
+
     }
 }
