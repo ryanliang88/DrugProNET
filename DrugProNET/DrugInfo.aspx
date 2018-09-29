@@ -1,5 +1,10 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/BasePage.Master" CodeBehind="DrugInfo.aspx.cs" Inherits="DrugProNET.DrugInfo" %>
 
+<asp:Content runat="server" ContentPlaceHolderID="CSSContentPlaceHolder">
+    <link rel="stylesheet" href="./css/3_column.css">
+    <link rel="stylesheet" href="./css/drug_info.css">
+</asp:Content>
+
 <asp:Content runat="server" ContentPlaceHolderID="BodyContentPlaceHolder">
     <div class="c-row">
         <div class="c-col side-content">

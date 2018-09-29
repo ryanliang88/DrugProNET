@@ -1,6 +1,11 @@
 ﻿
 <%-- THIS PAGE IS INTENDED TO BE AS A TEMPLATE FOR CREATING OTHER PAGES WITH 3 COLUMNS, THIS PAGE SHOULD NEVER BE LINKED TO! --%>
 
+<%-- Use:
+        To add content, the first thing you must do is the the <div class="c-row"> tag, this will declare a row in the webpage.
+        Next you should have 3 <div class="c-col side-content"> tags, since this page is a 3 column page, you will add your content
+        in between each <div class="c-col side-content"> tag --%>
+
 <%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/BasePage.Master" CodeBehind="Form 3 Column Template.aspx.cs" Inherits="DrugProNET.Form_3_Column_Template" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="BodyContentPlaceHolder">

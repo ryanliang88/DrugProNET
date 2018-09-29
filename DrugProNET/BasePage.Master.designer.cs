@@ -13,6 +13,15 @@ namespace DrugProNET {
     public partial class BasePage {
         
         /// <summary>
+        /// CSSContentPlaceHolder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder CSSContentPlaceHolder;
+        
+        /// <summary>
         /// script_manager control.
         /// </summary>
         /// <remarks>
