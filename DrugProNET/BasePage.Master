@@ -91,10 +91,8 @@
                     </div>
                 </ul>
             </div>
-            <div>
-                <asp:ContentPlaceHolder ID="BodyContentPlaceHolder" runat="server">
-                </asp:ContentPlaceHolder>
-            </div>
+            <asp:ContentPlaceHolder ID="BodyContentPlaceHolder" runat="server">
+            </asp:ContentPlaceHolder>
             <div class="c-row">
                 <div class="c-col side-content"></div>
                 <footer class="c-col body-content footer-content">

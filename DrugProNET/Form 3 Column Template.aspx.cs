@@ -1,5 +1,4 @@
-﻿using DrugProNET.Advertisement;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace DrugProNET
 {
-    public partial class BasePage : MasterPage
+    public partial class Form_3_Column_Template : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
