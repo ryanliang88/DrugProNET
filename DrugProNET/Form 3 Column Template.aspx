@@ -2,11 +2,11 @@
 
 <%-- Use:
         To add content, the first thing you must do is the the <div class="c-row"> tag, this will declare a row in the webpage.
-        Next you should have 3 <div class="c-col side-content"> tags, since this page is a 3 column page, you will add your content
-        in between each <div class="c-col side-content"> tag --%>
+        Next you should have 3 <div class="c-col side-content"> tags between the <div class="c-row"> tags since this page is a 3 
+        column page, you will add your content in between each <div class="c-col side-content"> tag --%>
 
 <%-- Set the title of your page via the "Title" attribute! --%>
-<%@ Page Language="C#" Title="Your title here" AutoEventWireup="true" MasterPageFile="~/BasePage.Master" CodeBehind="Form 3 Column Template.aspx.cs" Inherits="DrugProNET.Form_3_Column_Template" %>
+<%@ Page Language="C#" Title="Your Title Here" AutoEventWireup="true" MasterPageFile="~/BasePage.Master" CodeBehind="Form 3 Column Template.aspx.cs" Inherits="DrugProNET.Form_3_Column_Template" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="CSSContentPlaceHolder">
     <%-- Place your CSS link tags here, do NOT add the base_style.css in this tag, it is already included in the master page --%>

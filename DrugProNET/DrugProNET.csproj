@@ -130,6 +130,7 @@
     <Content Include="CSS\protein_info.css" />
     <Content Include="DrugInfo.aspx" />
     <Content Include="favicon.ico" />
+    <Content Include="Form 2 Column Template.aspx" />
     <Content Include="Form 3 Column Template.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Images\10MY25WebsiteBannerAds-10v0.1.jpg" />
@@ -242,6 +243,13 @@
     </Compile>
     <Compile Include="DrugInfo.aspx.designer.cs">
       <DependentUpon>DrugInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form 2 Column Template.aspx.cs">
+      <DependentUpon>Form 2 Column Template.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form 2 Column Template.aspx.designer.cs">
+      <DependentUpon>Form 2 Column Template.aspx</DependentUpon>
     </Compile>
     <Compile Include="Form 3 Column Template.aspx.cs">
       <DependentUpon>Form 3 Column Template.aspx</DependentUpon>
