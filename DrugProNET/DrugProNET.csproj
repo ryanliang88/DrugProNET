@@ -130,8 +130,8 @@
     <Content Include="CSS\protein_info.css" />
     <Content Include="DrugInfo.aspx" />
     <Content Include="favicon.ico" />
-    <Content Include="Form 2 Column Template.aspx" />
-    <Content Include="Form 3 Column Template.aspx" />
+    <Content Include="Other\Templates\Form 2 Column Template.aspx" />
+    <Content Include="Other\Templates\Form 3 Column Template.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Images\10MY25WebsiteBannerAds-10v0.1.jpg" />
     <Content Include="Images\10MY25WebsiteBannerAds-11v0.1.jpg" />
@@ -180,8 +180,6 @@
     <Content Include="Images\navBar_08.png" />
     <Content Include="Images\unchecked.png" />
     <Content Include="Default.aspx" />
-    <Content Include="Other\template_2_column.html" />
-    <Content Include="Other\template_3_column.html" />
     <Content Include="Libraries\Bootstrap 3.3.7\css\bootstrap-theme.css" />
     <Content Include="Libraries\Bootstrap 3.3.7\css\bootstrap-theme.min.css" />
     <Content Include="Libraries\Bootstrap 3.3.7\css\bootstrap.css" />
@@ -244,18 +242,18 @@
     <Compile Include="DrugInfo.aspx.designer.cs">
       <DependentUpon>DrugInfo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Form 2 Column Template.aspx.cs">
+    <Compile Include="Other\Templates\Form 2 Column Template.aspx.cs">
       <DependentUpon>Form 2 Column Template.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Form 2 Column Template.aspx.designer.cs">
+    <Compile Include="Other\Templates\Form 2 Column Template.aspx.designer.cs">
       <DependentUpon>Form 2 Column Template.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Form 3 Column Template.aspx.cs">
+    <Compile Include="Other\Templates\Form 3 Column Template.aspx.cs">
       <DependentUpon>Form 3 Column Template.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Form 3 Column Template.aspx.designer.cs">
+    <Compile Include="Other\Templates\Form 3 Column Template.aspx.designer.cs">
       <DependentUpon>Form 3 Column Template.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
