@@ -31,21 +31,21 @@ namespace DrugProNET {
         protected global::System.Web.UI.UpdatePanel ad_update_panel;
         
         /// <summary>
-        /// ad_link control.
+        /// adLink control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink ad_link;
+        protected global::System.Web.UI.WebControls.HyperLink adLink;
         
         /// <summary>
-        /// ad_banner control.
+        /// adBanner control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image ad_banner;
+        protected global::System.Web.UI.WebControls.Image adBanner;
     }
 }

@@ -12,7 +12,7 @@
     <%-- Place your CSS link tags here, do NOT add the base_style.css in this tag, it is already included in the master page --%>
 
     <%-- This stylesheet should be included since this is a 3 column template --%>
-    <link rel="stylesheet" href="./css/3_column.css">
+    <link rel="stylesheet" href="~/css/3_column.css" runat="server">
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="BodyContentPlaceHolder">
@@ -29,8 +29,8 @@
             <asp:Timer ID="ad_refresh_timer" runat="server" Interval="3000" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
             <asp:UpdatePanel ID="ad_update_panel" runat="server">
                 <ContentTemplate>
-                    <asp:HyperLink ID="ad_link" NavigateUrl="navigateurl" runat="server">
-                        <asp:Image ImageUrl="imageUrl" runat="server" ID="ad_banner" AlternateText="" />
+                    <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server">
+                        <asp:Image ImageUrl="imageUrl" runat="server" ID="adBanner" AlternateText="" />
                     </asp:HyperLink>
                 </ContentTemplate>
                 <Triggers>

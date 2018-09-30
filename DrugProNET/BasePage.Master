@@ -11,7 +11,7 @@
     <link rel="icon" href="./images/icon.png">
 
     <!-- Bootstrap CDNs -->
-    <link rel="stylesheet" href="./Libraries/Bootstrap 3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="./Libraries/Bootstrap 3.3.7/css/bootstrap.min.css">
     <script src="./Libraries/Jquery 3.3.1/jquery-3.3.1.min.js"></script>
     <script src="./Libraries/Bootstrap 3.3.7/js/bootstrap.min.js"></script>
 
@@ -61,8 +61,8 @@
                 </ul>
                 <ul class="secondary-navigation horizontal-list col">
                     <div class="float-left">
-                        <li>
-                            <p>Updated September 2018</p>
+                        <li class="updated_text">
+                            <p class="updated_text">Updated October 2018</p>
                         </li>
                     </div>
                     <div>

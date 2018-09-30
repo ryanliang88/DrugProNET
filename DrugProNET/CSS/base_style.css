@@ -301,3 +301,7 @@ footer h2 {
     outline: none;
     border: none;
 }
+
+.updated_text {
+    color: #9999cc;
+}
