@@ -7,19 +7,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+    <title></title>
     <link rel="icon" href="./images/icon.png">
 
     <!-- Bootstrap CDNs -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./Libraries/Bootstrap 3.3.7/css/bootstrap.min.css"/>
+    <script src="./Libraries/Jquery 3.3.1/jquery-3.3.1.min.js"></script>
+    <script src="./Libraries/Bootstrap 3.3.7/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="./css/base_style.css">
     <asp:ContentPlaceHolder ID="CSSContentPlaceHolder" runat="server">
     </asp:ContentPlaceHolder>
-    <script src="./js/option_select_redirect.js"></script>
-    <title>DrugProNET | Drug Information</title>
+    <script src="./Scripts/OptionSelectRedirection.js"></script>
 </head>
 <body>
     <form runat="server">
@@ -53,10 +52,10 @@
                     <li>
                         <select id="query-selector">
                             <option value="">Hover to view options</option>
-                            <option value="ProteinDrugQuery.html">Protein-focused Drug Interaction</option>
-                            <option value="DrugProteinQuery.html">Drug-focused Protein Interaction</option>
-                            <option value="ProteinInfo.html">Protein Information</option>
-                            <option value="DrugInfo.html">Drug Information</option>
+                            <option value="ProteinDrugQuery">Protein-focused Drug Interaction</option>
+                            <option value="DrugProteinQuery">Drug-focused Protein Interaction</option>
+                            <option value="ProteinInfo">Protein Information</option>
+                            <option value="DrugInfo">Drug Information</option>
                         </select>
                     </li>
                 </ul>
@@ -68,25 +67,25 @@
                     </div>
                     <div>
                         <li>
-                            <a href="index.html">Home</a>
+                            <a href="Default.aspx">Home</a>
                         </li>
                         <li>
                             <p>|</p>
                         </li>
                         <li>
-                            <a href="">Kinexus</a>
+                            <a href="http://www.kinexus.ca/kinetica">Kinexus</a>
                         </li>
                         <li>
                             <p>|</p>
                         </li>
                         <li>
-                            <a href="">Contact</a>
+                            <a href="http://www.kinexus.ca/contact/contact.html">Contact</a>
                         </li>
                         <li>
                             <p>|</p>
                         </li>
                         <li>
-                            <a href="">Credits</a>
+                            <a href="Credits.aspx">Credits</a>
                         </li>
                     </div>
                 </ul>
@@ -106,7 +105,7 @@
                     <div>
                         <ul class="left-sidebar-links">
                             <li>
-                                <a href="index.html">Home</a>
+                                <a href="Default.aspx">Home</a>
                             </li>
                             <li>
                                 <p>|</p>

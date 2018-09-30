@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/BasePage.Master" CodeBehind="DrugInfo.aspx.cs" Inherits="DrugProNET.DrugInfo" %>
+﻿<%@ Page Language="C#" Title="DrugProNET | Drug Information" AutoEventWireup="true" MasterPageFile="~/BasePage.Master" CodeBehind="DrugInfo.aspx.cs" Inherits="DrugProNET.DrugInfo" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="CSSContentPlaceHolder">
     <link rel="stylesheet" href="./css/3_column.css">
