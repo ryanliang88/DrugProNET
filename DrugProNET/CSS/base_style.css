@@ -268,7 +268,8 @@ footer h2 {
 .textBox {
     width: 300px;
     color: black;
-    border-radius: .5em
+    border-radius: .5em;
+    padding-left: 1em;
 }
 
 .textBox:active {
