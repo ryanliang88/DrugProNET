@@ -114,11 +114,6 @@ nav {
     display: inline-block;
 }
 
-.left-sidebar-links-wrapper {
-    bottom: 0;
-    position: fixed;
-}
-
 .content-body {
     text-align: left;
     width: 85%;
