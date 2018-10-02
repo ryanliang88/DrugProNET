@@ -126,6 +126,7 @@
     <Content Include="Credits.aspx" />
     <Content Include="CSS\3_column.css" />
     <Content Include="CSS\base_style.css" />
+    <Content Include="CSS\credits.css" />
     <Content Include="CSS\drug_info.css" />
     <Content Include="CSS\protein_info.css" />
     <Content Include="DrugInfo.aspx" />
