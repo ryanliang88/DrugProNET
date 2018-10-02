@@ -2,6 +2,7 @@
 
 
 <asp:Content runat="server" ContentPlaceHolderID="CSSContentPlaceHolder">
+    <link rel="stylesheet" href="./css/credits.css"
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="BodyContentPlaceHolder">
