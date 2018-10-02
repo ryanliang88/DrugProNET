@@ -6,6 +6,7 @@
 
 <asp:Content runat="server" ContentPlaceHolderID="BodyContentPlaceHolder">
     <div class="c-row">
+        <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="sidebar-text">Credits</p>
         </div>

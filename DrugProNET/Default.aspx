@@ -5,6 +5,7 @@
 
 <asp:Content runat="server" ContentPlaceHolderID="BodyContentPlaceHolder">
     <div class="c-row">
+          <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <%-- Needs to be here as a place holder for the side bar, since the base style of the website is 2 columns for each row, 
                 without it the sidebar will disappear --%>

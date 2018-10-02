@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background-color: #002430;
+    background-color: #011A2D;
     color: white;
     height: 100vh;
 }
@@ -231,9 +231,16 @@ footer h2 {
     color: #FFC300;
 }
 
+.side-spacing {
+    flex: 0 0 2.5%;
+    padding-right: 1em;
+    border-style: solid;
+    border-width: 0 0 0 1px;
+    border-color: #7DAED4;
+}
+
 .side-content {
-    width: 15%;
-    flex: 0 0 15%;
+    flex: 0 0 12.5%;
     padding-right: 1em;
     border-style: solid;
     border-width: 0 0 0 1px;

@@ -93,6 +93,7 @@
             <asp:ContentPlaceHolder ID="BodyContentPlaceHolder" runat="server">
             </asp:ContentPlaceHolder>
             <div class="c-row">
+                <div class="c-col side-spacing"></div>
                 <div class="c-col side-content"></div>
                 <footer class="c-col body-content footer-content">
                     <h2>Copyright © 2018 Kinexus Bioinformatics Corporation. All rights reserved.</h2>

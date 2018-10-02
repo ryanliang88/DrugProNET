@@ -7,6 +7,7 @@
 
 <asp:Content runat="server" ContentPlaceHolderID="BodyContentPlaceHolder">
     <div class="c-row">
+        <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <h3 class="h3-side-title">Query Type</h3>
         </div>
@@ -33,6 +34,7 @@
         </div>
     </div>
     <div class="c-row">
+        <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <h3 class="h3-side-title">Filters</h3>
         </div>

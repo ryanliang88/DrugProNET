@@ -6,6 +6,7 @@
         2 column page, you will add your content in between each <div class="c-col side-content"> tag --%>
 
 <%-- Set the title of your page via the "Title" attribute! --%>
+
 <%@ Page Language="C#" Title="Your Title Here" AutoEventWireup="true" MasterPageFile="~/BasePage.Master" CodeBehind="Form 2 Column Template.aspx.cs" Inherits="DrugProNET.Credits" %>
 
 
@@ -15,6 +16,7 @@
 
 <asp:Content runat="server" ContentPlaceHolderID="BodyContentPlaceHolder">
     <div class="c-row">
+        <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <%-- Your side bar content here! --%>
         </div>
