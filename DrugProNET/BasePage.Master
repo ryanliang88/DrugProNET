@@ -1,0 +1,123 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="BasePage.master.cs" Inherits="DrugProNET.BasePage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="icon" href="./images/icon.png">
+
+    <!-- Bootstrap CDNs -->
+    <link rel="stylesheet" href="./Libraries/Bootstrap 3.3.7/css/bootstrap.min.css">
+    <script src="./Libraries/Jquery 3.3.1/jquery-3.3.1.min.js"></script>
+    <script src="./Libraries/Bootstrap 3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="./css/base_style.css">
+    <asp:ContentPlaceHolder ID="CSSContentPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
+    <script src="./Scripts/OptionSelectRedirection.js"></script>
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager ID="script_manager" runat="server" />
+        <div class="main-container">
+            <div id="website-banner" class="banner">
+                <img id="banner-image" src="./images/DrugProNETBanner.jpg" alt="Unable to display image" usemap="#banner-map">
+                <map name="banner-map">
+                    <area shape="rect" coords="0, 0, 1024, 90" href="index.html" alt="Error">
+                    <area shape="rect" coords="0,57.2, 655, 147.2 " href="index.html" alt="Error">
+                    <area shape="rect" coords="655, 57.2, 1024, 147.2" href="http://www.kinexus.ca" target="_blank" alt="Error">
+                </map>
+            </div>
+            <nav>
+                <ul class="navigation-links horizontal-list">
+                    <li><a id="1" href="http://kinatlas.ca:8080" target="_blank">KinATLAS</a></li>
+                    <li><a id="2" href="http://www.transcriptonet.ca" target="_blank">TranscriptoNET</a></li>
+                    <li><a id="3" href="http://www.phosphonet.ca" target="_blank">PhosphoNET</a></li>
+                    <li><a id="4" href="http://www.onconet.ca" target="_blank">OncoNET</a></li>
+                    <li><a id="5" href="http://www.kinasenet.ca" target="_blank">KinaseNET</a></li>
+                    <li><a id="6" href="http://www.drugkinet.ca" target="_blank">DrugKiNET</a></li>
+                    <li><a id="7" href="http://www.kinet-am.ca" target="_blank">KiNET-AM</a></li>
+                    <li><a id="8" href="http://www.kinexus.ca/kinetica" target="_blank">Kinetica Online</a></li>
+                </ul>
+            </nav>
+            <div class="col-container">
+                <ul class="query horizontal-list col">
+                    <li>
+                        <p>Select type of query desired</p>
+                    </li>
+                    <li>
+                        <select id="query-selector">
+                            <option value="">Hover to view options</option>
+                            <option value="ProteinDrugQuery">Protein-focused Drug Interaction</option>
+                            <option value="DrugProteinQuery">Drug-focused Protein Interaction</option>
+                            <option value="ProteinInfo">Protein Information</option>
+                            <option value="DrugInfo">Drug Information</option>
+                        </select>
+                    </li>
+                </ul>
+                <ul class="secondary-navigation horizontal-list col">
+                    <div class="float-left">
+                        <li class="updated_text">
+                            <p class="updated_text">Updated October 2018</p>
+                        </li>
+                    </div>
+                    <div>
+                        <li>
+                            <a href="Default.aspx">Home</a>
+                        </li>
+                        <li>
+                            <p>|</p>
+                        </li>
+                        <li>
+                            <a href="http://www.kinexus.ca/kinetica">Kinexus</a>
+                        </li>
+                        <li>
+                            <p>|</p>
+                        </li>
+                        <li>
+                            <a href="http://www.kinexus.ca/contact/contact.html">Contact</a>
+                        </li>
+                        <li>
+                            <p>|</p>
+                        </li>
+                        <li>
+                            <a href="Credits.aspx">Credits</a>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+            <asp:ContentPlaceHolder ID="BodyContentPlaceHolder" runat="server">
+            </asp:ContentPlaceHolder>
+            <div class="c-row">
+                <div class="c-col side-content"></div>
+                <footer class="c-col body-content footer-content">
+                    <h2>Copyright © 2018 Kinexus Bioinformatics Corporation. All rights reserved.</h2>
+                </footer>
+            </div>
+
+            <div class="c-row">
+                <!-- This must be at bottom! -->
+                <div class="c-col side-content">
+                    <div>
+                        <ul class="left-sidebar-links">
+                            <li>
+                                <a href="Default.aspx">Home</a>
+                            </li>
+                            <li>
+                                <p>|</p>
+                            </li>
+                            <li>
+                                <a href="#website-banner">Top</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

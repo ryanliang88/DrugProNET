@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background-color: #000;
+    background-color: #002430;
     color: white;
     height: 100vh;
 }
@@ -54,25 +54,20 @@ nav {
 .navigation-links {
     font-size: 14px;
     font-weight: bold;
-
     padding-left: 2em;
     padding-right: 2em;
-
     text-align: justify;
     width: 100%;
-
     line-height: .8em;
     padding-top: .8em;
-
     border-color: skyblue;
     border-style: solid;
     border-width: 0 0 1px 0;
-
-    background-color: rgb(80, 80, 80);
+    background-color: #002430;
+    border-top: 1px solid black;
 }
-
 .navigation-links a {
-    color: #9999cc;
+    color: #9FBCD8;
     text-decoration: none;
 }
 
@@ -82,11 +77,9 @@ nav {
 
 .left-sidebar {
     text-align: center;
-
     width: 15%;
     height: 100%;
-
-    border-color: skyblue;
+    border-color: #7DAED4;
     border-style: solid;
     border-width: 0 1px 0 1px;
 }
@@ -119,11 +112,6 @@ nav {
 
 .left-sidebar-links li {
     display: inline-block;
-}
-
-.left-sidebar-links-wrapper {
-    bottom: 0;
-    position: fixed;
 }
 
 .content-body {
@@ -168,17 +156,13 @@ footer h2 {
     font-size: 14px;
     font-weight: bold;
     color: #738569;
-
     padding-left: 2em;
     padding-right: 0;
-
     text-align: left;
     width: 50%;
-
     border-style: solid;
-    border-color: skyblue;
+    border-color: #7DAED4;
     border-width: 0 0 1px 1px;
-
     line-height: .6em;
     padding-top: .8em;
 }
@@ -194,17 +178,13 @@ footer h2 {
     font-size: 14px;
     font-weight: bold;
     color: #FFC300;
-
     padding-left: 2em;
     padding-right: 2em;
-
     text-align: right;
     width: 50%;
-
     border-style: solid;
-    border-color: skyblue;
+    border-color: #7DAED4;
     border-width: 0 1px 1px 0;
-
     line-height: .6em;
     padding-top: .8em;
 }
@@ -236,14 +216,11 @@ footer h2 {
     width: 85%;
     flex: 0 0 85%;
     flex-direction: column;
-
     padding-left: 1em;
     padding-right: 1em;
-
     border-style: solid;
     border-width: 0 0 0 1px;
-    border-color: skyblue;
-
+    border-color: #7DAED4;
     text-align: left;
 }
 
@@ -257,13 +234,10 @@ footer h2 {
 .side-content {
     width: 15%;
     flex: 0 0 15%;
-
     padding-right: 1em;
-
     border-style: solid;
     border-width: 0 0 0 1px;
-    border-color: skyblue;
-
+    border-color: #7DAED4;
     text-align: right;
 }
 
@@ -284,4 +258,25 @@ footer h2 {
 .button {
     color: black;
     border-radius: .5em;
+}
+
+.button:active {
+    outline: none;
+    border: none;
+}
+
+.textBox {
+    width: 300px;
+    color: black;
+    border-radius: .5em;
+    padding-left: 1em;
+}
+
+.textBox:active {
+    outline: none;
+    border: none;
+}
+
+.updated_text {
+    color: #8D86C0 !important;
 }

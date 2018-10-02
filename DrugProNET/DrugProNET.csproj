@@ -123,11 +123,16 @@
     <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-8v0.1.jpg" />
     <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-9v0.1.jpg" />
     <Content Include="Advertisement\Images\ads_xml.xml" />
+    <Content Include="Credits.aspx" />
     <Content Include="CSS\3_column.css" />
     <Content Include="CSS\base_style.css" />
+    <Content Include="CSS\credits.css" />
     <Content Include="CSS\drug_info.css" />
     <Content Include="CSS\protein_info.css" />
+    <Content Include="DrugInfo.aspx" />
     <Content Include="favicon.ico" />
+    <Content Include="Other\Templates\Form 2 Column Template.aspx" />
+    <Content Include="Other\Templates\Form 3 Column Template.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Images\10MY25WebsiteBannerAds-10v0.1.jpg" />
     <Content Include="Images\10MY25WebsiteBannerAds-11v0.1.jpg" />
@@ -176,8 +181,17 @@
     <Content Include="Images\navBar_08.png" />
     <Content Include="Images\unchecked.png" />
     <Content Include="Default.aspx" />
-    <Content Include="Other\template_2_column.html" />
-    <Content Include="Other\template_3_column.html" />
+    <Content Include="Libraries\Bootstrap 3.3.7\css\bootstrap-theme.css" />
+    <Content Include="Libraries\Bootstrap 3.3.7\css\bootstrap-theme.min.css" />
+    <Content Include="Libraries\Bootstrap 3.3.7\css\bootstrap.css" />
+    <Content Include="Libraries\Bootstrap 3.3.7\css\bootstrap.min.css" />
+    <Content Include="Libraries\Bootstrap 3.3.7\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Libraries\Bootstrap 3.3.7\js\bootstrap.js" />
+    <Content Include="Libraries\Bootstrap 3.3.7\js\bootstrap.min.js" />
+    <Content Include="Libraries\Bootstrap 3.3.7\js\npm.js" />
+    <Content Include="Libraries\JQuery 3.3.1\jquery-3.3.1.min.js" />
+    <Content Include="ProteinInfo.aspx" />
+    <Content Include="Scripts\OptionSelectRedirection.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />
     <Content Include="Scripts\WebForms\GridView.js" />
@@ -200,11 +214,51 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Web.config" />
+    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Advertisement\Ad.cs" />
+    <Compile Include="Advertisement\AdLoader.cs" />
+    <Compile Include="Advertisement\AdvertiseablePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Advertisement\RandomPicker.cs" />
     <Compile Include="Advertisement\XmlParser.cs" />
+    <Compile Include="BasePage.Master.cs">
+      <DependentUpon>BasePage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BasePage.Master.designer.cs">
+      <DependentUpon>BasePage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Credits.aspx.cs">
+      <DependentUpon>Credits.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Credits.aspx.designer.cs">
+      <DependentUpon>Credits.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DrugInfo.aspx.cs">
+      <DependentUpon>DrugInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DrugInfo.aspx.designer.cs">
+      <DependentUpon>DrugInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Other\Templates\Form 2 Column Template.aspx.cs">
+      <DependentUpon>Form 2 Column Template.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Other\Templates\Form 2 Column Template.aspx.designer.cs">
+      <DependentUpon>Form 2 Column Template.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Other\Templates\Form 3 Column Template.aspx.cs">
+      <DependentUpon>Form 3 Column Template.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Other\Templates\Form 3 Column Template.aspx.designer.cs">
+      <DependentUpon>Form 3 Column Template.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -216,10 +270,33 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProteinInfo.aspx.cs">
+      <DependentUpon>ProteinInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProteinInfo.aspx.designer.cs">
+      <DependentUpon>ProteinInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="BasePage.Master" />
     <None Include="packages.config" />
+    <Content Include="Libraries\Bootstrap 3.3.7\css\bootstrap-theme.css.map" />
+    <Content Include="Libraries\Bootstrap 3.3.7\css\bootstrap-theme.min.css.map" />
+    <Content Include="Libraries\Bootstrap 3.3.7\css\bootstrap.css.map" />
+    <Content Include="Libraries\Bootstrap 3.3.7\css\bootstrap.min.css.map" />
+    <Content Include="Libraries\Bootstrap 3.3.7\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Libraries\Bootstrap 3.3.7\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Libraries\Bootstrap 3.3.7\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Libraries\Bootstrap 3.3.7\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
