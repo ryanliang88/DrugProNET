@@ -1,8 +1,10 @@
 .sidebar-text{
     color: #ffc300;
+    font-weight: bold;
     padding-top: 2em;
 }
 
 .body-paragraphs{
-    padding: 2em;
+    padding-top: 2em;
+    padding-left: .5em;
 }
