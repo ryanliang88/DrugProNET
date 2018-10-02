@@ -10,7 +10,7 @@
 namespace DrugProNET {
     
     
-    public partial class DrugInfo {
+    public partial class ProteinInfo {
         
         /// <summary>
         /// ad_refresh_timer control.

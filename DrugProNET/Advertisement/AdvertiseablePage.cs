@@ -14,8 +14,9 @@ namespace DrugProNET.Advertisement
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            adBanner = (Image)FindControl("ad_banner");
-            adLink = (HyperLink)FindControl("ad_link");
+            // MUST go through the master page's ContentPlaceHolder tag to find the control in the child page!
+            adBanner = Master.FindControl("BodyContentPlaceHolder").FindControl("adBanner") as Image;
+            adLink = Master.FindControl("BodyContentPlaceHolder").FindControl("adLink") as HyperLink;
         }
 
         protected void RenewAdvertisement(object sender, EventArgs e)
