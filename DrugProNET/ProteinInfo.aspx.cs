@@ -10,5 +10,14 @@ namespace DrugProNET
 {
     public partial class ProteinInfo : AdvertiseablePage
     {
+        protected void retrieve_button_Click(object sender, EventArgs e)
+        {
+            retrieve_button.Text = "This should be starting a query";
+        }
+
+        protected void reset_button_Click(object sender, EventArgs e)
+        {
+            search_textBox.Text = string.Empty;
+        }
     }
 }

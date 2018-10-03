@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" Title="DrugProNET | Protein Information" MasterPageFile="~/BasePage.Master" AutoEventWireup="true" CodeBehind="ProteinInfo.aspx.cs" Inherits="DrugProNET.ProteinInfo" %>
+﻿<%@ Page Language="C#" Title="DrugProNET | Protein Information" MasterPageFile="~/BasePage.Master" AutoEventWireup="true" CodeBehind="ProteinInfo.aspx.cs" Inherits="DrugProNET.ProteinInfo" MaintainScrollPositionOnPostback="true" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="CSSContentPlaceHolder">
     <link rel="stylesheet" href="./css/3_column.css">
@@ -21,7 +21,7 @@
         </div>
         <div class="c-col advertisment-content">
             <asp:Timer ID="ad_refresh_timer" runat="server" Interval="3000" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
-            <asp:UpdatePanel ID="ad_update_panel" runat="server">
+            <asp:UpdatePanel ID="ad_update_panel" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
                     <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server">
                         <asp:Image ImageUrl="imageUrl" runat="server" ID="adBanner" AlternateText="" />
@@ -50,9 +50,10 @@
                 Click on the buttons below to retrieve information on the
                     protein of interest or to reset the parameters for a new query.
             </p>
-            <asp:Button ID="retrieve_button" CssClass="button" Text="Retrieve Information" runat="server" />
+            <asp:Button ID="retrieve_button" CssClass="button" Text="Retrieve Information" runat="server" OnClick="retrieve_button_Click" />
             <span>&emsp;&emsp;</span>
-            <asp:Button ID="reset_button" CssClass="button" Text="Reset" runat="server" />
+            <asp:Button ID="reset_button" CssClass="button" Text="Reset" runat="server" OnClick="reset_button_Click" />
+            <asp:TextBox runat="server" ID="DBTest" value=""/>
         </div>
     </div>
 </asp:Content>
