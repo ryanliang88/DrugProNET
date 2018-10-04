@@ -129,6 +129,7 @@
     <Content Include="CSS\credits.css" />
     <Content Include="CSS\drug_info.css" />
     <Content Include="CSS\protein_info.css" />
+    <Content Include="CSS\protein_info_result.css" />
     <Content Include="DrugInfo.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Other\Templates\Form 2 Column Template.aspx" />
@@ -190,7 +191,9 @@
     <Content Include="Libraries\Bootstrap 3.3.7\js\bootstrap.min.js" />
     <Content Include="Libraries\Bootstrap 3.3.7\js\npm.js" />
     <Content Include="Libraries\JQuery 3.3.1\jquery-3.3.1.min.js" />
+    <Content Include="Other\WebForm1.aspx" />
     <Content Include="ProteinInfo.aspx" />
+    <Content Include="ProteinInfoResult.aspx" />
     <Content Include="Scripts\OptionSelectRedirection.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />
@@ -268,6 +271,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Other\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Other\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProteinInfo.aspx.cs">
       <DependentUpon>ProteinInfo.aspx</DependentUpon>
@@ -275,6 +285,13 @@
     </Compile>
     <Compile Include="ProteinInfo.aspx.designer.cs">
       <DependentUpon>ProteinInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProteinInfoResult.aspx.cs">
+      <DependentUpon>ProteinInfoResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProteinInfoResult.aspx.designer.cs">
+      <DependentUpon>ProteinInfoResult.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

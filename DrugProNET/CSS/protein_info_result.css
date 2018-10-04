@@ -1,0 +1,29 @@
+﻿.h3-body-title {
+    color: #FFC300;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.h3-side-title {
+    color: #9999cc;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.h3-side-title-gold {
+    color: #FFC300;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.p-general-info {
+    color: #738569;
+}
+
+.p-side {
+    color: #758089;
+}
+
+p {
+    color: white;
+}

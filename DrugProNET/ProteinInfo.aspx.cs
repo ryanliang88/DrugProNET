@@ -12,12 +12,14 @@ namespace DrugProNET
     {
         protected void retrieve_button_Click(object sender, EventArgs e)
         {
-            retrieve_button.Text = "This should be starting a query";
+            Response.Redirect("ProteinInfoResult.aspx?query_string=" + search_textBox.Text);
         }
 
         protected void reset_button_Click(object sender, EventArgs e)
         {
             search_textBox.Text = string.Empty;
+            var updatePanel = Master.FindControl("BodyContentPlaceHolder").FindControl("button_update_panel") as UpdatePanel;
+            updatePanel.Update();
         }
     }
 }

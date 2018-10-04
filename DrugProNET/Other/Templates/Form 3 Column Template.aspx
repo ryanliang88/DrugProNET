@@ -13,7 +13,7 @@
     <%-- Place your CSS link tags here, do NOT add the base_style.css in this tag, it is already included in the master page --%>
 
     <%-- This stylesheet should be included since this is a 3 column template --%>
-    <link rel="stylesheet" href="~/css/3_column.css" runat="server">
+    <link rel="stylesheet" href="./css/3_column.css">
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="BodyContentPlaceHolder">
