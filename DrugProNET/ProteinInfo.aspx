@@ -52,9 +52,9 @@
                         Click on the buttons below to retrieve information on the
                     protein of interest or to reset the parameters for a new query.
                     </p>
-                    <asp:Button ID="retrieve_button" CssClass="button" Text="Retrieve Information" runat="server" OnClick="retrieve_button_Click" />
+                    <asp:Button ID="retrieve_button" CssClass="button" Text="Retrieve Information" runat="server" OnClick="RetrieveData" />
                     <span>&emsp;&emsp;</span>
-                    <asp:Button ID="reset_button" CssClass="button" Text="Reset" runat="server" OnClick="reset_button_Click" />
+                    <asp:Button ID="reset_button" CssClass="button" Text="Reset" runat="server" OnClick="ResetForm" />
                 </ContentTemplate>
             </asp:UpdatePanel>
         </div>
