@@ -1,4 +1,8 @@
 ﻿$(document).ready(function () {
+
+    var path = window.location.pathname;
+    var pageName = path.split("/").pop();
+
     Sys.WebForms.PageRequestManager.getInstance().add_endRequest(autoComplete);
     function autoComplete(sender, args) {
         $("#search_textBox").autocomplete({
@@ -6,7 +10,7 @@
                 $.ajax({
                     type: "POST",
                     contentType: "application/json; charset=utf-8",
-                    url: "ProteinInfo.aspx/GetAutoCompleteData",
+                    url: pageName + "/GetAutoCompleteData",
                     data: "{'value': '" + document.getElementById('search_textBox').value + "'}",
                     dataType: "json",
                     success: function (data) {
