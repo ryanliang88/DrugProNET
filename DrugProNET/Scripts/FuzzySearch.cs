@@ -10,7 +10,9 @@ namespace DrugProNET.Scripts
 {
     public class FuzzySearch
     {
-        public static List<string> Search(string word, List<string> list, double fuzziness = 0.5)
+        private const double DEFAULT_FUZZINESS = 0.75;
+
+        public static List<string> Search(string word, List<string> list, double fuzziness = DEFAULT_FUZZINESS)
         {
             List<string> foundWords = new List<string>();
 

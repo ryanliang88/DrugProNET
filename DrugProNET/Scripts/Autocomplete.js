@@ -6,6 +6,8 @@
     Sys.WebForms.PageRequestManager.getInstance().add_endRequest(autoComplete);
     function autoComplete(sender, args) {
         $("#search_textBox").autocomplete({
+            minLength: 0,
+            delay: 0,
             source: function (request, response) {
                 $.ajax({
                     type: "POST",

@@ -13,6 +13,14 @@ namespace DrugProNET
 {
     public partial class ProteinInfo : AdvertiseablePage
     {
+        UpdatePanel panel;
+
+        protected void Page_Loaded(object sender, EventArgs e)
+        {
+            panel = Master.FindControl("BodyContentPlaceHolder").FindControl("button_update_panel") as UpdatePanel;
+            panel.Update();
+        }
+
         protected void RetrieveData(object sender, EventArgs e)
         {
             Response.Redirect("ProteinInfoResult.aspx?query_string=" + search_textBox.Text);
@@ -21,19 +29,33 @@ namespace DrugProNET
         protected void ResetForm(object sender, EventArgs e)
         {
             search_textBox.Text = string.Empty;
-            var updatePanel = Master.FindControl("BodyContentPlaceHolder").FindControl("button_update_panel") as UpdatePanel;
-            updatePanel.Update();
+            panel.Update();
         }
 
+        // Consider using an interface!
         [WebMethod]
         public static List<string> GetAutoCompleteData(string value)
         {
             Debug.WriteLine(value);
-            List<string> values = new List<string>();
-            values.Add("Dog");
-            values.Add("Giraffe");
-            values.Add("Hippo");
-            values.Add("Elephant");
+            List<string> values = new List<string>
+            {
+                "Dog",
+                "Giraffe",
+                "Hippo",
+                "Elephant",
+                "Cat",
+                "Zebra",
+                "Kangaroo",
+                "Koala",
+                "Ant",
+                "Whale",
+                "Dolphin",
+                "Shark",
+                "Eagle",
+                "Java",
+                "Python",
+                "C#"
+            };
 
             return FuzzySearch.Search(value, values);
         }
