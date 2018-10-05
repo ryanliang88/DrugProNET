@@ -1,6 +1,7 @@
 ﻿using DrugProNET.Advertisement;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
@@ -24,8 +25,9 @@ namespace DrugProNET
         }
 
         [WebMethod]
-        public static List<string> GetAutoCompleteData()
+        public static List<string> GetAutoCompleteData(string value)
         {
+            Debug.WriteLine(value);
             List<string> values = new List<string>();
             for (int i = 0; i < 100; i++)
             {
