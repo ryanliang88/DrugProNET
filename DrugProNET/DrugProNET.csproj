@@ -132,6 +132,9 @@
     <Content Include="CSS\protein_info_result.css" />
     <Content Include="DrugInfo.aspx" />
     <Content Include="favicon.ico" />
+    <Content Include="Libraries\JQuery UI 1.12.1\jquery-ui.min.css" />
+    <Content Include="Libraries\JQuery UI 1.12.1\jquery-ui.min.js" />
+    <Content Include="Libraries\JQuery UI 1.12.1\LICENSE.txt" />
     <Content Include="Other\Templates\Form 2 Column Template.aspx" />
     <Content Include="Other\Templates\Form 3 Column Template.aspx" />
     <Content Include="Global.asax" />
@@ -194,6 +197,7 @@
     <Content Include="Other\WebForm1.aspx" />
     <Content Include="ProteinInfo.aspx" />
     <Content Include="ProteinInfoResult.aspx" />
+    <Content Include="Scripts\Autocomplete.js" />
     <Content Include="Scripts\OptionSelectRedirection.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />

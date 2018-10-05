@@ -1,8 +1,11 @@
-﻿<%@ Page Language="C#" Title="DrugProNET | Protein Information" MasterPageFile="~/BasePage.Master" AutoEventWireup="true" CodeBehind="ProteinInfo.aspx.cs" Inherits="DrugProNET.ProteinInfo" MaintainScrollPositionOnPostback="true" %>
+﻿<%@ Page ClientIDMode="Static" Language="C#" Title="DrugProNET | Protein Information" MasterPageFile="~/BasePage.Master" AutoEventWireup="true" CodeBehind="ProteinInfo.aspx.cs" Inherits="DrugProNET.ProteinInfo" MaintainScrollPositionOnPostback="true" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="CSSContentPlaceHolder">
     <link rel="stylesheet" href="./css/3_column.css">
     <link rel="stylesheet" href="./css/protein_info.css">
+    <link href="./Libraries/JQuery UI 1.12.1/jquery-ui.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="./Scripts/Autocomplete.js"></script>
+    <script type="text/javascript" src="./Libraries/JQuery UI 1.12.1/jquery-ui.min.js"></script>
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="BodyContentPlaceHolder">
