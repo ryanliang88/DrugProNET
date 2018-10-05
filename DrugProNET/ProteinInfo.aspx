@@ -49,7 +49,7 @@
                         Enter the first few characters for a gene name, protein name, UniProtID or NCBI RefSeq ID of the
                     target human protein and then select the desired search term from the Drop Down list;
                     </p>
-                    <asp:TextBox CssClass="textBox" ID="search_textBox" runat="server" value="" placeholder="Type in at least 3 letters of the search term" />
+                    <asp:TextBox CssClass="textBox" ID="search_textBox" runat="server" value="" placeholder="Type in at least 3 letters of the search term" autocomplete="off" AutoCompleteType="Disabled"/>
                     <h3 class="h3-body-title">Step 2 - Retrieve Protein Information</h3>
                     <p>
                         Click on the buttons below to retrieve information on the

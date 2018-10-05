@@ -1,4 +1,5 @@
 ﻿using DrugProNET.Advertisement;
+using DrugProNET.Scripts;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -29,12 +30,12 @@ namespace DrugProNET
         {
             Debug.WriteLine(value);
             List<string> values = new List<string>();
-            for (int i = 0; i < 100; i++)
-            {
-                values.Add("T" + i);
-            }
+            values.Add("Dog");
+            values.Add("Giraffe");
+            values.Add("Hippo");
+            values.Add("Elephant");
 
-            return values;
+            return FuzzySearch.Search(value, values);
         }
     }
 }

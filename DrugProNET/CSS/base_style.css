@@ -285,9 +285,13 @@ footer h2 {
     outline: none;
 }
 
+.textBox:active {
+    border: inset !important;
+}
+
 .textBox:focus {
     outline: none;
-    border: none;
+    border: inset !important;
 }
 
 .updated_text {

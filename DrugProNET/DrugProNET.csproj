@@ -297,6 +297,7 @@
     <Compile Include="ProteinInfoResult.aspx.designer.cs">
       <DependentUpon>ProteinInfoResult.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Scripts\FuzzySearch.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
