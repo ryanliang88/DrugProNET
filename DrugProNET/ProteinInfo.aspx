@@ -23,15 +23,14 @@
             </p>
         </div>
         <div class="c-col advertisment-content">
-            <asp:Timer ID="ad_refresh_timer" runat="server" Interval="3000" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
-            <asp:UpdatePanel ID="ad_update_panel" runat="server" UpdateMode="Conditional">
+            <asp:UpdatePanel ID="ad_update_panel" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
                 <ContentTemplate>
                     <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server">
                         <asp:Image ImageUrl="imageUrl" runat="server" ID="adBanner" AlternateText="" />
                     </asp:HyperLink>
                 </ContentTemplate>
                 <Triggers>
-                    <asp:AsyncPostBackTrigger ControlID="ad_refresh_timer" EventName="Tick"></asp:AsyncPostBackTrigger>
+                    <asp:AsyncPostBackTrigger ControlID="adRefreshTimer" EventName="Tick"></asp:AsyncPostBackTrigger>
                 </Triggers>
             </asp:UpdatePanel>
         </div>
@@ -42,24 +41,34 @@
             <h3 class="h3-side-title">Filters</h3>
         </div>
         <div class="c-col body-content">
-            <asp:UpdatePanel ID="button_update_panel" runat="server" UpdateMode="Conditional">
-                <ContentTemplate>
-                    <h3 class="h3-body-title">Step 1 - Protein Specification</h3>
-                    <p>
-                        Enter the first few characters for a gene name, protein name, UniProtID or NCBI RefSeq ID of the
+
+            <h3 class="h3-body-title">Step 1 - Protein Specification</h3>
+            <p>
+                Enter the first few characters for a gene name, protein name, UniProtID or NCBI RefSeq ID of the
                     target human protein and then select the desired search term from the Drop Down list;
-                    </p>
-                    <asp:TextBox CssClass="textBox" ID="search_textBox" runat="server" value="" placeholder="Type in at least 3 letters of the search term" autocomplete="off" AutoCompleteType="Disabled"/>
-                    <h3 class="h3-body-title">Step 2 - Retrieve Protein Information</h3>
-                    <p>
-                        Click on the buttons below to retrieve information on the
-                    protein of interest or to reset the parameters for a new query.
-                    </p>
-                    <asp:Button ID="retrieve_button" CssClass="button" Text="Retrieve Information" runat="server" OnClick="RetrieveData" />
-                    <span>&emsp;&emsp;</span>
-                    <asp:Button ID="reset_button" CssClass="button" Text="Reset" runat="server" OnClick="ResetForm" />
+            </p>
+
+            <asp:UpdatePanel ID="search_textBox_updatePanel" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
+                <ContentTemplate>
+                    <asp:TextBox CssClass="textBox" ID="search_textBox" runat="server" value="" placeholder="Type in at least 3 letters of the search term" AutoCompleteType="Disabled" />
                 </ContentTemplate>
+                <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="InitialPostBackTimer" EventName="Tick"></asp:AsyncPostBackTrigger>
+                </Triggers>
             </asp:UpdatePanel>
+
+            <h3 class="h3-body-title">Step 2 - Retrieve Protein Information</h3>
+            <p>
+                Click on the buttons below to retrieve information on the
+                    protein of interest or to reset the parameters for a new query.
+            </p>
+            <asp:Button ID="retrieve_button" CssClass="button" Text="Retrieve Information" runat="server" OnClick="RetrieveData" />
+            <span>&emsp;&emsp;</span>
+            <asp:Button ID="reset_button" CssClass="button" Text="Reset" runat="server" OnClick="ResetForm" />
         </div>
     </div>
+    <asp:Timer ID="adRefreshTimer" runat="server" Interval="3000" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
+
+    <%-- Needed to allow for the autocomplete to function without waiting 3000ms for every update --%>
+    <asp:Timer ID="InitialPostBackTimer" runat="server" Interval="1" OnTick="InitialPostBack" />
 </asp:Content>

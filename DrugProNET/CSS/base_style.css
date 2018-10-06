@@ -217,8 +217,8 @@ footer h2 {
 }
 
 .body-content {
-    width: 85%;
-    flex: 0 0 85%;
+    width: 83.5%;
+    flex: 0 0 83.5%;
     flex-direction: column;
     padding-left: 1em;
     padding-right: 1em;
@@ -244,7 +244,7 @@ footer h2 {
 }
 
 .side-content {
-    flex: 0 0 12.5%;
+    flex: 0 0 14%;
     padding-right: 1em;
     border-style: solid;
     border-width: 0 0 0 1px;
@@ -253,7 +253,7 @@ footer h2 {
 }
 
 .advertisment-content {
-    flex: 0 0 40%;
+    flex: 0 0 38.5%;
     padding-top: 1.5em;
 }
 

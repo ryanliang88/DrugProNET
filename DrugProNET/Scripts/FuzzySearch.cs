@@ -19,7 +19,7 @@ namespace DrugProNET.Scripts
             foreach (string s in list) {
                 int distance = LevenshteinDistance(word, s);
                 int length = Math.Max(word.Length, s.Length);
-                double score = 1.0 - (double)(distance / length);
+                double score = 1.0 - (distance / length);
                 if (score > fuzziness) foundWords.Add(s);
             }
 

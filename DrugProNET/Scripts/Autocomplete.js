@@ -13,10 +13,14 @@
                     type: "POST",
                     contentType: "application/json; charset=utf-8",
                     url: pageName + "/GetAutoCompleteData",
-                    data: "{'value': '" + document.getElementById('search_textBox').value + "'}",
+                    data: "{'value': '" + request.term + "'}",
                     dataType: "json",
                     success: function (data) {
-                        response(data.d);
+                        response($.map(data.d, function (item) {
+                            return {
+                                value: item
+                            }
+                        }));
                     },
                     error: function (result) {
                         alert("error");

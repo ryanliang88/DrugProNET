@@ -13,12 +13,10 @@ namespace DrugProNET
 {
     public partial class ProteinInfo : AdvertiseablePage
     {
-        UpdatePanel panel;
 
         protected void Page_Loaded(object sender, EventArgs e)
         {
-            panel = Master.FindControl("BodyContentPlaceHolder").FindControl("button_update_panel") as UpdatePanel;
-            panel.Update();
+
         }
 
         protected void RetrieveData(object sender, EventArgs e)
@@ -29,7 +27,6 @@ namespace DrugProNET
         protected void ResetForm(object sender, EventArgs e)
         {
             search_textBox.Text = string.Empty;
-            panel.Update();
         }
 
         // Consider using an interface!
@@ -43,21 +40,14 @@ namespace DrugProNET
                 "Giraffe",
                 "Hippo",
                 "Elephant",
-                "Cat",
-                "Zebra",
-                "Kangaroo",
-                "Koala",
-                "Ant",
-                "Whale",
-                "Dolphin",
-                "Shark",
-                "Eagle",
-                "Java",
-                "Python",
-                "C#"
+                "Cat"
             };
-
             return FuzzySearch.Search(value, values);
+        }
+
+        protected void InitialPostBack(object sender, EventArgs r)
+        {
+            InitialPostBackTimer.Interval = int.MaxValue;
         }
     }
 }
