@@ -12,6 +12,7 @@ namespace DrugProNET.Scripts
     public class FuzzySearch
     {
         private const double DEFAULT_FUZZINESS = 0.75;
+        private const int MAX_RESULT_LENGTH = 5;
 
         public static List<string> Search(string word, List<string> list, double fuzziness = DEFAULT_FUZZINESS)
         {
@@ -32,10 +33,9 @@ namespace DrugProNET.Scripts
 
             foreach(Pair<string, int> p in pairs)
             {
+                if (foundWords.Count >= MAX_RESULT_LENGTH) break;
                 foundWords.Add(p.First);
             }
-
-            foundWords.Take(20);
 
             return foundWords;
         }

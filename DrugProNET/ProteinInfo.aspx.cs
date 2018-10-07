@@ -33,7 +33,16 @@ namespace DrugProNET
         [WebMethod]
         public static List<string> GetAutoCompleteData(string value)
         {
-            //Debug.WriteLine(value);
+
+            if (value == null || value == "")
+            {
+                Debug.WriteLine("Null");
+            }
+            else
+            {
+                Debug.WriteLine(value);
+            }
+
             List<string> values = new List<string>
             {
                 "Dog",
