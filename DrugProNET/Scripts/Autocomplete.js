@@ -14,17 +14,14 @@
                     type: "POST",
                     contentType: "application/json; charset=utf-8",
                     url: pageName + "/GetAutoCompleteData",
-                    data: "{'value': '" + request.term + "'}",
+                    data: "{'value': '" + request.term + "'}", // 'value' in this line should match the name of the parameter in the webmethod
                     dataType: "json",
                     success: function (data) {
-                        response($.map(data.d, function (item) {
-                            return {
-                                value: item
-                            }
-                        }));
+                        console.log(data);
+                        response(data.d);
                     },
                     error: function (result) {
-                        alert("error");
+                        console.error("An error occured while obtaining search terms from server.");
                     }
                 });
             }
