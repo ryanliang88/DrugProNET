@@ -92,18 +92,11 @@
             </div>
             <asp:ContentPlaceHolder ID="BodyContentPlaceHolder" runat="server">
             </asp:ContentPlaceHolder>
-            <div class="c-row">
-                <div class="c-col side-spacing"></div>
-                <div class="c-col side-content"></div>
-                <footer class="c-col body-content footer-content">
-                    <h2>Copyright © 2018 Kinexus Bioinformatics Corporation. All rights reserved.</h2>
-                </footer>
-            </div>
 
             <div class="c-row">
-                <!-- This must be at bottom! -->
+                <div class="c-col side-spacing"></div>
                 <div class="c-col side-content">
-                    <div>
+                    <div class="left-sidebar-links-container">
                         <ul class="left-sidebar-links">
                             <li>
                                 <a href="Default.aspx">Home</a>
@@ -116,6 +109,9 @@
                             </li>
                         </ul>
                     </div>
+                </div>
+                <div class="c-col body-content footer-content">
+                    <h2>Copyright © 2018 Kinexus Bioinformatics Corporation. All rights reserved.</h2>
                 </div>
             </div>
         </div>

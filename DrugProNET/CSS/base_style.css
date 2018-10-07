@@ -89,18 +89,15 @@ nav {
 }
 
 .left-sidebar-links {
-    bottom: 0;
-    position: fixed;
+    padding: 0;
+    margin: 0;
+
+    margin-top: 3em;
+    padding-left: 2.5em;
     font-size: 14px;
     font-weight: bold;
-
-    margin: 0;
     list-style: none;
     text-align: justify;
-    width: inherit;
-
-    line-height: .5em;
-    padding-top: .8em;
 
     color: #FFC300;
 }
@@ -116,6 +113,24 @@ nav {
 
 .left-sidebar-links li {
     display: inline-block;
+}
+
+.left-sidebar-links-containe {
+    position: relative;
+    bottom: 0;
+}
+
+.footer-content {
+    flex: 1 0 83.5% !important;
+    text-align: center !important;
+}
+
+.footer-content h2 {
+    font-size: 12pt;
+    padding: 0 !important;
+    margin: 0 !important;
+    margin-top: 2.3em !important;
+    color: #738569 !important;
 }
 
 .content-body {
@@ -257,14 +272,6 @@ footer h2 {
     padding-top: 1.5em;
 }
 
-.footer-content {
-    flex: 1 0 85% !important;
-    text-align: center;
-}
-
-.footer-content h2 {
-    font-size: 12pt;
-}
 
 .button {
     color: black;
