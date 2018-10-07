@@ -33,7 +33,7 @@ namespace DrugProNET
         [WebMethod]
         public static List<string> GetAutoCompleteData(string value)
         {
-            Debug.WriteLine(value);
+            //Debug.WriteLine(value);
             List<string> values = new List<string>
             {
                 "Dog",
@@ -42,6 +42,7 @@ namespace DrugProNET
                 "Elephant",
                 "Cat"
             };
+
             return FuzzySearch.Search(value, values);
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 
@@ -15,13 +16,26 @@ namespace DrugProNET.Scripts
         public static List<string> Search(string word, List<string> list, double fuzziness = DEFAULT_FUZZINESS)
         {
             List<string> foundWords = new List<string>();
+            List<Pair<string, int>> pairs = new List<Pair<string, int>>();
 
             foreach (string s in list) {
                 int distance = LevenshteinDistance(word, s);
                 int length = Math.Max(word.Length, s.Length);
                 double score = 1.0 - (distance / length);
-                if (score > fuzziness) foundWords.Add(s);
+                if (score > fuzziness)
+                {
+                    pairs.Add(new Pair<string, int>(s, distance));
+                }
             }
+
+            pairs.Sort((a, b) => a.Second.CompareTo(b.Second));
+
+            foreach(Pair<string, int> p in pairs)
+            {
+                foundWords.Add(p.First);
+            }
+
+            foundWords.Take(20);
 
             return foundWords;
         }

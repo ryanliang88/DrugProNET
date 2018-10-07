@@ -298,6 +298,7 @@
       <DependentUpon>ProteinInfoResult.aspx</DependentUpon>
     </Compile>
     <Compile Include="Scripts\FuzzySearch.cs" />
+    <Compile Include="Scripts\Pair.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
