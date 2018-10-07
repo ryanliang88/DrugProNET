@@ -1,0 +1,101 @@
+﻿.main-container {
+    width: 1024px;
+    text-align: center;
+    margin: auto;
+}
+
+.h3-body-title {
+    color: #FFC300;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.c-row {
+    display: flex;
+}
+
+.body-content-long {
+    width: 83.5%;
+    flex: 0 0 83.5%;
+    flex-direction: column;
+    padding-left: 1em;
+    padding-right: 1em;
+    border-style: solid;
+    border-width: 0 0 0 1px;
+    border-color: #7DAED4;
+    text-align: left;
+}
+
+.body-content-long-full {
+    width: 97.5%;
+    flex: 0 0 97.5%;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.flex-row {
+    flex-direction: row;
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+    display: flex;
+}
+
+.side {
+    text-align: right;
+    padding-right: 1em;
+    flex: 1 1 auto;
+    width: 143.36px; /* I don't know if this can be changed to be perecentages */
+    border-left: 1px solid #7daed4;
+}
+
+.body {
+    flex: 1 1 auto;
+    width: 460.8px;
+    text-align: left;
+    padding-left: 1em;
+    border-left: 1px solid #7daed4;
+}
+
+.image-content {
+    text-align: center;
+    flex: 1 1 auto;
+    width: 394.23px;
+}
+
+.image-label {
+    padding-left: 3.7em;
+    text-align: left;
+}
+
+.h3-side-title {
+    color: #9999cc;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.h3-side-title-gold {
+    color: #FFC300;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.p-general-info {
+    color: #738569;
+}
+
+.p-side {
+    color: #708591;
+}
+
+p {
+    color: white;
+}
+
+.image-content {
+    flex: 0 0 38.5%;
+}
