@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" Title="DrugProNET | Drug Information" AutoEventWireup="true" MasterPageFile="~/BasePage.Master" CodeBehind="DrugInfo.aspx.cs" Inherits="DrugProNET.DrugInfo" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
 <asp:Content runat="server" ContentPlaceHolderID="CSSContentPlaceHolder">
     <link rel="stylesheet" href="./css/3_column.css">
     <link rel="stylesheet" href="./css/drug_info.css">
@@ -46,16 +48,20 @@
                     PubChem ID or ChEMBL ID and then select the desired search
                     term from the Drop Down List.
             </p>
-            <asp:TextBox CssClass="textBox" ID="search_textBox" runat="server" value="" placeholder="Type in at least 3 letters of the search term" />
+            <asp:UpdatePanel ID="search_textBox_UpdatePanel" runat="server" UpdateMode="Conditional">
+                <ContentTemplate>
+                    <asp:TextBox CssClass="textBox" ID="search_textBox" runat="server" value="" placeholder="Type in at least 3 letters of the search term" />
+                    <asp:AutoCompleteExtender ID="AutoCompleteExtender" runat="server" ServiceMethod="GetAutoCompleteData" TargetControlID="search_textBox" CompletionInterval="100" CompletionSetCount="5" MinimumPrefixLength="1"></asp:AutoCompleteExtender>
+                </ContentTemplate>
+            </asp:UpdatePanel>
             <h3 class="h3-body-title">Step 2 - Retrieve Compound Information</h3>
             <p>
                 Click on the buttons below to retrieve information on the
                     compound of interest or to reset the parameters for a new query.
             </p>
-
-            <asp:Button ID="retrieve_button" CssClass="button" Text="Retrieve Information" runat="server" />
+            <asp:Button ID="retrieve_button" CssClass="button" Text="Retrieve Information" runat="server" OnClick="RetrieveData" />
             <span>&emsp;&emsp;</span>
-            <asp:Button ID="reset_button" CssClass="button" Text="Reset" runat="server" />
+            <asp:Button ID="reset_button" CssClass="button" Text="Reset" runat="server" OnClick="ResetForm" />
         </div>
     </div>
 </asp:Content>

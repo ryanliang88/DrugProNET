@@ -9,9 +9,11 @@ namespace DrugProNET
 {
     public partial class DrugInfoResult : Advertisement.AdvertiseablePage
     {
-        protected void Page_Load(object sender, EventArgs e)
+        protected new void Page_Load(object sender, EventArgs e)
         {
             base.Page_Load(sender, e);
+            string query = Request.QueryString["query_string"];
+            drug_formula.InnerText = query;
         }
     }
 }

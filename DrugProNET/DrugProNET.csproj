@@ -134,6 +134,7 @@
     <Content Include="CSS\protein_info.css" />
     <Content Include="CSS\protein_info_result.css" />
     <Content Include="DrugInfo.aspx" />
+    <Content Include="DrugInfoResult.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Other\Templates\Form 2 Column Template.aspx" />
     <Content Include="Other\Templates\Form 3 Column Template.aspx" />
@@ -249,6 +250,13 @@
     </Compile>
     <Compile Include="DrugInfo.aspx.designer.cs">
       <DependentUpon>DrugInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DrugInfoResult.aspx.cs">
+      <DependentUpon>DrugInfoResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DrugInfoResult.aspx.designer.cs">
+      <DependentUpon>DrugInfoResult.aspx</DependentUpon>
     </Compile>
     <Compile Include="Other\Templates\Form 2 Column Template.aspx.cs">
       <DependentUpon>Form 2 Column Template.aspx</DependentUpon>
