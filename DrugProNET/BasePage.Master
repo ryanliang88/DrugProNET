@@ -22,7 +22,7 @@
 </head>
 <body>
     <form runat="server">
-        <asp:ScriptManager ID="script_manager" runat="server" />
+        <asp:ScriptManager ID="script_manager" runat="server" EnablePageMethods="true" />
         <div class="main-container">
             <div id="website-banner" class="banner">
                 <img id="banner-image" src="./images/DrugProNETBanner.jpg" alt="Unable to display image" usemap="#banner-map">

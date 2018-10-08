@@ -1,11 +1,10 @@
 ﻿<%@ Page ClientIDMode="Static" Language="C#" Title="DrugProNET | Protein Information" MasterPageFile="~/BasePage.Master" AutoEventWireup="true" CodeBehind="ProteinInfo.aspx.cs" Inherits="DrugProNET.ProteinInfo" MaintainScrollPositionOnPostback="true" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
 <asp:Content runat="server" ContentPlaceHolderID="CSSContentPlaceHolder">
     <link rel="stylesheet" href="./css/3_column.css">
     <link rel="stylesheet" href="./css/protein_info.css">
-    <link href="./Libraries/JQuery UI 1.12.1/jquery-ui.min.css" rel="stylesheet" />
-    <script type="text/javascript" src="./Scripts/Autocomplete.js"></script>
-    <script type="text/javascript" src="./Libraries/JQuery UI 1.12.1/jquery-ui.min.js"></script>
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="BodyContentPlaceHolder">
@@ -23,6 +22,7 @@
             </p>
         </div>
         <div class="c-col advertisment-content">
+            <asp:Timer ID="adRefreshTimer" runat="server" Interval="3000" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
             <asp:UpdatePanel ID="ad_update_panel" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
                 <ContentTemplate>
                     <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server">
@@ -47,16 +47,12 @@
                 Enter the first few characters for a gene name, protein name, UniProtID or NCBI RefSeq ID of the
                     target human protein and then select the desired search term from the Drop Down list;
             </p>
-
-            <asp:UpdatePanel ID="search_textBox_updatePanel" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
+            <asp:UpdatePanel ID="search_textBox_UpdatePanel" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
-                    <asp:TextBox CssClass="textBox" ID="search_textBox" runat="server" value="" placeholder="Type in at least 3 letters of the search term" AutoCompleteType="Disabled" />
+                    <asp:TextBox CssClass="textBox" ID="search_textBox" runat="server" value="" placeholder="Type in at least 3 letters of the search term" />
+                    <asp:AutoCompleteExtender ID="AutoCompleteExtender" runat="server" ServiceMethod="GetAutoCompleteData" TargetControlID="search_textBox" CompletionInterval="100" CompletionSetCount="5" MinimumPrefixLength="1"></asp:AutoCompleteExtender>
                 </ContentTemplate>
-                <Triggers>
-                    <asp:AsyncPostBackTrigger ControlID="InitialPostBackTimer" EventName="Tick"></asp:AsyncPostBackTrigger>
-                </Triggers>
             </asp:UpdatePanel>
-
             <h3 class="h3-body-title">Step 2 - Retrieve Protein Information</h3>
             <p>
                 Click on the buttons below to retrieve information on the
@@ -67,8 +63,4 @@
             <asp:Button ID="reset_button" CssClass="button" Text="Reset" runat="server" OnClick="ResetForm" />
         </div>
     </div>
-    <asp:Timer ID="adRefreshTimer" runat="server" Interval="3000" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
-
-    <%-- Needed to allow for the autocomplete to function without waiting 3000ms for every update --%>
-    <asp:Timer ID="InitialPostBackTimer" runat="server" Interval="1" OnTick="InitialPostBack" />
 </asp:Content>

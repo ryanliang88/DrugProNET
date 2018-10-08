@@ -44,6 +44,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=18.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.18.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
@@ -132,9 +135,6 @@
     <Content Include="CSS\protein_info_result.css" />
     <Content Include="DrugInfo.aspx" />
     <Content Include="favicon.ico" />
-    <Content Include="Libraries\JQuery UI 1.12.1\jquery-ui.min.css" />
-    <Content Include="Libraries\JQuery UI 1.12.1\jquery-ui.min.js" />
-    <Content Include="Libraries\JQuery UI 1.12.1\LICENSE.txt" />
     <Content Include="Other\Templates\Form 2 Column Template.aspx" />
     <Content Include="Other\Templates\Form 3 Column Template.aspx" />
     <Content Include="Global.asax" />
@@ -197,7 +197,6 @@
     <Content Include="Other\WebForm1.aspx" />
     <Content Include="ProteinInfo.aspx" />
     <Content Include="ProteinInfoResult.aspx" />
-    <Content Include="Scripts\Autocomplete.js" />
     <Content Include="Scripts\OptionSelectRedirection.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />
@@ -297,8 +296,7 @@
     <Compile Include="ProteinInfoResult.aspx.designer.cs">
       <DependentUpon>ProteinInfoResult.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Scripts\FuzzySearch.cs" />
-    <Compile Include="Scripts\Pair.cs" />
+    <Compile Include="Scripts\MatchFinder.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

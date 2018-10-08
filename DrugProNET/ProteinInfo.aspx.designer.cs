@@ -13,6 +13,15 @@ namespace DrugProNET {
     public partial class ProteinInfo {
         
         /// <summary>
+        /// adRefreshTimer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.Timer adRefreshTimer;
+        
+        /// <summary>
         /// ad_update_panel control.
         /// </summary>
         /// <remarks>
@@ -40,13 +49,13 @@ namespace DrugProNET {
         protected global::System.Web.UI.WebControls.Image adBanner;
         
         /// <summary>
-        /// search_textBox_updatePanel control.
+        /// search_textBox_UpdatePanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel search_textBox_updatePanel;
+        protected global::System.Web.UI.UpdatePanel search_textBox_UpdatePanel;
         
         /// <summary>
         /// search_textBox control.
@@ -56,6 +65,15 @@ namespace DrugProNET {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox search_textBox;
+        
+        /// <summary>
+        /// AutoCompleteExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.AutoCompleteExtender AutoCompleteExtender;
         
         /// <summary>
         /// retrieve_button control.
@@ -74,23 +92,5 @@ namespace DrugProNET {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button reset_button;
-        
-        /// <summary>
-        /// adRefreshTimer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.Timer adRefreshTimer;
-        
-        /// <summary>
-        /// InitialPostBackTimer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.Timer InitialPostBackTimer;
     }
 }
