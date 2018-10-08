@@ -42,7 +42,7 @@
         <div class="c-col advertisment-content"></div>
     </div>
 
-    <%--  --%>
+    <%-- ------- --%>
 
     <div class="c-row">
         <div class="c-col side-spacing"></div>
@@ -55,7 +55,7 @@
                                 <p class="p-side">Compound Alias:</p>
                             </div>
                             <div class="body">
-                                <p id="compound_alias" runat="server">gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd </p>
+                                <p id="compound_alias" runat="server"></p>
                             </div>
                         </div>
                         <div class="flex-row">
@@ -71,7 +71,7 @@
                                 <p class="p-side">Molecular Mass</p>
                             </div>
                             <div class="body">
-                                <p id="molecular_mass" runat="server">gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd gfd </p>
+                                <p id="molecular_mass" runat="server"></p>
                             </div>
                         </div>
                         <div class="flex-row">
@@ -266,7 +266,7 @@
         </div>
     </div>
 
-    <%--  --%>
+    <%-- ---------- --%>
 
     <div class="c-row">
         <div class="c-col side-spacing"></div>
