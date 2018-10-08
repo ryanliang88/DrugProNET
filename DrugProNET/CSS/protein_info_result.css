@@ -27,3 +27,12 @@
 p {
     color: white;
 }
+
+.white-link {
+    color: white !important;
+    text-decoration: underline;
+}
+
+    .white-link:hover {
+        color: #d6d6d6 !important;
+    }

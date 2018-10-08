@@ -74,7 +74,17 @@
         <div class="c-col body-content">
             <p id="alias" runat="server"></p>
         </div>
-         <div class="c-col advertisment-content"></div>
+        <div class="c-col advertisment-content"></div>
+    </div>
+    <div class="c-row">
+        <div class="c-col side-spacing"></div>
+        <div class="c-col side-content">
+            <p class="p-side">Protein Type:</p>
+        </div>
+        <div class="c-col body-content">
+            <p id="protein_type" runat="server"></p>
+        </div>
+        <div class="c-col advertisment-content"></div>
     </div>
     <div class="c-row">
         <div class="c-col side-spacing"></div>
@@ -84,7 +94,7 @@
         <div class="c-col body-content">
             <p id="protein_group" runat="server"></p>
         </div>
-         <div class="c-col advertisment-content"></div>
+        <div class="c-col advertisment-content"></div>
     </div>
     <div class="c-row">
         <div class="c-col side-spacing"></div>
@@ -94,7 +104,7 @@
         <div class="c-col body-content">
             <p id="kinase_group" runat="server"></p>
         </div>
-         <div class="c-col advertisment-content"></div>
+        <div class="c-col advertisment-content"></div>
     </div>
     <div class="c-row">
         <div class="c-col side-spacing"></div>
@@ -104,7 +114,7 @@
         <div class="c-col body-content">
             <p id="kinase_family" runat="server"></p>
         </div>
-         <div class="c-col advertisment-content"></div>
+        <div class="c-col advertisment-content"></div>
     </div>
     <div class="c-row">
         <div class="c-col side-spacing"></div>
@@ -114,7 +124,7 @@
         <div class="c-col body-content">
             <p id="kinase_subfamilty" runat="server"></p>
         </div>
-         <div class="c-col advertisment-content"></div>
+        <div class="c-col advertisment-content"></div>
     </div>
     <div class="c-row">
         <div class="c-col side-spacing"></div>
@@ -123,7 +133,7 @@
         </div>
         <div class="c-col body-content">
         </div>
-         <div class="c-col advertisment-content"></div>
+        <div class="c-col advertisment-content"></div>
     </div>
     <div class="c-row">
         <div class="c-col side-spacing"></div>
@@ -131,9 +141,16 @@
             <p class="p-side">Cell Component:</p>
         </div>
         <div class="c-col body-content">
-            <p id="cell_component" runat="server"></p>
+            <div>
+                <asp:HyperLink class="white-link" ID="cell_component1" NavigateUrl="navigateurl" runat="server" />
+                &nbsp;&nbsp;&nbsp;
+                <asp:HyperLink class="white-link" ID="cell_component2" NavigateUrl="navigateurl" runat="server" />
+                &nbsp;&nbsp;&nbsp;
+                <asp:HyperLink class="white-link" ID="cell_component3" NavigateUrl="navigateurl" runat="server" />
+                &nbsp;&nbsp;&nbsp;
+            </div>
         </div>
-         <div class="c-col advertisment-content"></div>
+        <div class="c-col advertisment-content"></div>
     </div>
     <div class="c-row">
         <div class="c-col side-spacing"></div>
@@ -141,9 +158,13 @@
             <p class="p-side">Molecular Function:</p>
         </div>
         <div class="c-col body-content">
-            <p id="molecular_function" runat="server"></p>
+            <asp:HyperLink class="white-link" ID="mo1" NavigateUrl="navigateurl" runat="server" />
+            &nbsp;&nbsp;&nbsp;
+            <asp:HyperLink class="white-link" ID="mo2" NavigateUrl="navigateurl" runat="server" />
+            &nbsp;&nbsp;&nbsp;
+            <asp:HyperLink class="white-link" ID="mo3" NavigateUrl="navigateurl" runat="server" />
         </div>
-         <div class="c-col advertisment-content"></div>
+        <div class="c-col advertisment-content"></div>
     </div>
     <div class="c-row">
         <div class="c-col side-spacing"></div>
@@ -151,9 +172,13 @@
             <p class="p-side">Biological Process:</p>
         </div>
         <div class="c-col body-content">
-            <p id="biological_process" runat="server"></p>
+            <asp:HyperLink class="white-link" ID="bo1" NavigateUrl="navigateurl" runat="server" />
+            &nbsp;&nbsp;&nbsp;
+            <asp:HyperLink class="white-link" ID="bo2" NavigateUrl="navigateurl" runat="server" />
+            &nbsp;&nbsp;&nbsp;
+            <asp:HyperLink class="white-link" ID="bo3" NavigateUrl="navigateurl" runat="server" />
         </div>
-         <div class="c-col advertisment-content"></div>
+        <div class="c-col advertisment-content"></div>
     </div>
 
     <div class="c-row">
@@ -163,7 +188,7 @@
         </div>
         <div class="c-col body-content">
         </div>
-         <div class="c-col advertisment-content"></div>
+        <div class="c-col advertisment-content"></div>
     </div>
 
     <div class="c-row">
@@ -174,7 +199,7 @@
         <div class="c-col body-content">
             <p id="mass_da" runat="server"></p>
         </div>
-         <div class="c-col advertisment-content"></div>
+        <div class="c-col advertisment-content"></div>
     </div>
     <div class="c-row">
         <div class="c-col side-spacing"></div>
@@ -184,7 +209,7 @@
         <div class="c-col body-content">
             <p id="number_aa" runat="server"></p>
         </div>
-         <div class="c-col advertisment-content"></div>
+        <div class="c-col advertisment-content"></div>
     </div>
     <div class="c-row">
         <div class="c-col side-spacing"></div>
@@ -192,9 +217,21 @@
             <p class="p-side">UniProt ID:</p>
         </div>
         <div class="c-col body-content">
-            <p id="uniprot_id" runat="server"></p>
+            <asp:HyperLink class="white-link" ID="uniprot_id" NavigateUrl="navigateurl" runat="server" value="" />
+            <br />
+            <asp:HyperLink class="white-link" ID="uniprot_entry" NavigateUrl="navigateurl" runat="server" />
         </div>
-         <div class="c-col advertisment-content"></div>
+        <div class="c-col advertisment-content"></div>
+    </div>
+    <div class="c-row">
+        <div class="c-col side-spacing"></div>
+        <div class="c-col side-content">
+            <p class="p-side">NCBI RefSeq ID:</p>
+        </div>
+        <div class="c-col body-content">
+            <asp:HyperLink class="white-link" ID="ncbi_refseq_id" NavigateUrl="navigateurl" runat="server" value="" />
+        </div>
+        <div class="c-col advertisment-content"></div>
     </div>
     <div class="c-row">
         <div class="c-col side-spacing"></div>
@@ -204,17 +241,18 @@
         <div class="c-col body-content">
             <p id="int_protein_id" runat="server"></p>
         </div>
-         <div class="c-col advertisment-content"></div>
+        <div class="c-col advertisment-content"></div>
     </div>
+
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">PhosphoNET ID:</p>
         </div>
         <div class="c-col body-content">
-            <p id="phosphonet_id" runat="server"></p>
+            <asp:HyperLink class="white-link" ID="phosphonet_id" NavigateUrl="navigateurl" runat="server" />
         </div>
-         <div class="c-col advertisment-content"></div>
+        <div class="c-col advertisment-content"></div>
     </div>
     <div class="c-row">
         <div class="c-col side-spacing"></div>
@@ -222,9 +260,9 @@
             <p class="p-side">PhosphoSitePlus:</p>
         </div>
         <div class="c-col body-content">
-            <p id="phosphositeplus" runat="server"></p>
+            <asp:HyperLink class="white-link" ID="phosphositeplus" NavigateUrl="navigateurl" runat="server" />
         </div>
-         <div class="c-col advertisment-content"></div>
+        <div class="c-col advertisment-content"></div>
     </div>
     <div class="c-row">
         <div class="c-col side-spacing"></div>
@@ -232,9 +270,9 @@
             <p class="p-side">KinaseNET ID:</p>
         </div>
         <div class="c-col body-content">
-            <p id="kineasenet_id" runat="server"></p>
+            <asp:HyperLink class="white-link" ID="kinasenet_id" NavigateUrl="navigateurl" runat="server" />
         </div>
-         <div class="c-col advertisment-content"></div>
+        <div class="c-col advertisment-content"></div>
     </div>
     <div class="c-row">
         <div class="c-col side-spacing"></div>
@@ -242,9 +280,9 @@
             <p class="p-side">OncoNET ID:</p>
         </div>
         <div class="c-col body-content">
-            <p id="onconet_id" runat="server"></p>
+            <asp:HyperLink class="white-link" ID="onconet_id" NavigateUrl="navigateurl" runat="server" />
         </div>
-         <div class="c-col advertisment-content"></div>
+        <div class="c-col advertisment-content"></div>
     </div>
     <div class="c-row">
         <div class="c-col side-spacing"></div>
@@ -252,8 +290,8 @@
             <p class="p-side">PDB Entries:</p>
         </div>
         <div class="c-col body-content">
-            <p id="pdb_entries" runat="server"></p>
+            <asp:HyperLink class="white-link" ID="pdb_entries" NavigateUrl="navigateurl" runat="server" />
         </div>
-         <div class="c-col advertisment-content"></div>
+        <div class="c-col advertisment-content"></div>
     </div>
 </asp:Content>
