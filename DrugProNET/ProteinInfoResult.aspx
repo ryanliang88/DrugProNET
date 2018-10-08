@@ -61,7 +61,9 @@
         <div class="c-col side-content">
             <p class="p-side">Protein Full Name:</p>
         </div>
-        <div class="c-col body-content"></div>
+        <div class="c-col body-content">
+            <p id="protein_full_name" runat="server"></p>
+        </div>
         <div class="c-col advertisment-content"></div>
     </div>
     <div class="c-row">
