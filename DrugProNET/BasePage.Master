@@ -100,7 +100,7 @@
                             <a href="Default.aspx">Home</a>
                         </li>
                         <li>
-                            <p>|</p>
+                            <span class="left-sidebar-link-divider">|</span>
                         </li>
                         <li>
                             <a href="#website-banner">Top</a>
