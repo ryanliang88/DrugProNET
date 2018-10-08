@@ -37,6 +37,8 @@ namespace DrugProNET
             protein_short_name.InnerText = protein.Protein_Short_Name;
             protein_full_name.InnerText = protein.Protein_Full_Name;
 
+            gene_name.InnerText = protein.NCBI_Gene_Name;
+
             alias.InnerText = protein.Protein_Alias;
 
             protein_type.InnerText = protein.Protein_Type_Specific_;
@@ -72,6 +74,7 @@ namespace DrugProNET
 
             uniprot_id.Text = protein.Uniprot_ID;
             uniprot_id.NavigateUrl = protein.UniProt_Entry_URL;
+
             uniprot_entry.Text = protein.Entry_ID;
             uniprot_entry.NavigateUrl = protein.UniProt_Entry_URL;
 
@@ -92,9 +95,15 @@ namespace DrugProNET
             onconet_id.Text = protein.Uniprot_ID;
             onconet_id.NavigateUrl = protein.OncoNET_URL;
 
-            // PDB entry doesn't exist in the database!
-            //pdb_entries.Text = protein.;
-            //pdb_entries.NavigateUrl = "http://www.rcsb.org/structure/" + protein.PDB_Protein_Name;
+            chromosome_no.InnerText = protein.Human_Chromosome_Number;
+            chromosome_location.InnerText = protein.Human_Chromosome_Location;
+            gene_location.InnerText = protein.Human_Gene_Location;
+
+            ncbi_nucleotide_id.Text = protein.NCBI_Nucleotide_ID;
+            ncbi_nucleotide_id.NavigateUrl = protein.NCBI_Nucleotide_ID_URL;
+
+            ncbi_gene_id.Text = protein.NCBI__Gene_ID;
+            ncbi_gene_id.NavigateUrl = protein.NCBI_Gene_URL;
         }
     }
 }

@@ -67,6 +67,15 @@ namespace DrugProNET {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl protein_full_name;
         
         /// <summary>
+        /// gene_name control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl gene_name;
+        
+        /// <summary>
         /// alias control.
         /// </summary>
         /// <remarks>
@@ -83,15 +92,6 @@ namespace DrugProNET {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl protein_type;
-        
-        /// <summary>
-        /// protein_group control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl protein_group;
         
         /// <summary>
         /// kinase_group control.
@@ -292,12 +292,48 @@ namespace DrugProNET {
         protected global::System.Web.UI.WebControls.HyperLink onconet_id;
         
         /// <summary>
-        /// pdb_entries control.
+        /// chromosome_no control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink pdb_entries;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl chromosome_no;
+        
+        /// <summary>
+        /// chromosome_location control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl chromosome_location;
+        
+        /// <summary>
+        /// gene_location control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl gene_location;
+        
+        /// <summary>
+        /// ncbi_nucleotide_id control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink ncbi_nucleotide_id;
+        
+        /// <summary>
+        /// ncbi_gene_id control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink ncbi_gene_id;
     }
 }

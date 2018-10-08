@@ -69,6 +69,16 @@
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
+            <p class="p-side">Gene Name:</p>
+        </div>
+        <div class="c-col body-content">
+            <p id="gene_name" runat="server"></p>
+        </div>
+        <div class="c-col advertisment-content"></div>
+    </div>
+    <div class="c-row">
+        <div class="c-col side-spacing"></div>
+        <div class="c-col side-content">
             <p class="p-side">Alias:</p>
         </div>
         <div class="c-col body-content">
@@ -83,16 +93,6 @@
         </div>
         <div class="c-col body-content">
             <p id="protein_type" runat="server"></p>
-        </div>
-        <div class="c-col advertisment-content"></div>
-    </div>
-    <div class="c-row">
-        <div class="c-col side-spacing"></div>
-        <div class="c-col side-content">
-            <p class="p-side">Protein Group:</p>
-        </div>
-        <div class="c-col body-content">
-            <p id="protein_group" runat="server"></p>
         </div>
         <div class="c-col advertisment-content"></div>
     </div>
@@ -287,10 +287,60 @@
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
-            <p class="p-side">PDB Entries:</p>
+            <h3 class="h3-side-title-gold">Gene Specific Info</h3>
         </div>
         <div class="c-col body-content">
-            <asp:HyperLink class="white-link" ID="pdb_entries" NavigateUrl="navigateurl" runat="server" />
+        </div>
+        <div class="c-col advertisment-content"></div>
+    </div>
+    <div class="c-row">
+        <div class="c-col side-spacing"></div>
+        <div class="c-col side-content">
+            <p class="p-side">Chromosome No.:</p>
+        </div>
+        <div class="c-col body-content">
+            <p id="chromosome_no" runat="server"></p>
+        </div>
+        <div class="c-col advertisment-content"></div>
+    </div>
+
+    <div class="c-row">
+        <div class="c-col side-spacing"></div>
+        <div class="c-col side-content">
+            <p class="p-side">Chomosome Location:</p>
+        </div>
+        <div class="c-col body-content">
+            <p id="chromosome_location" runat="server"></p>
+        </div>
+        <div class="c-col advertisment-content"></div>
+    </div>
+    <div class="c-row">
+        <div class="c-col side-spacing"></div>
+        <div class="c-col side-content">
+            <p class="p-side">Gene Location:</p>
+        </div>
+        <div class="c-col body-content">
+            <p id="gene_location" runat="server"></p>
+        </div>
+        <div class="c-col advertisment-content"></div>
+    </div>
+    <div class="c-row">
+        <div class="c-col side-spacing"></div>
+        <div class="c-col side-content">
+            <p class="p-side">NCBI Nucleotide ID:</p>
+        </div>
+        <div class="c-col body-content">
+            <asp:HyperLink class="white-link" ID="ncbi_nucleotide_id" NavigateUrl="navigateurl" runat="server" />
+        </div>
+        <div class="c-col advertisment-content"></div>
+    </div>
+    <div class="c-row">
+        <div class="c-col side-spacing"></div>
+        <div class="c-col side-content">
+            <p class="p-side">NCBI Gene ID:</p>
+        </div>
+        <div class="c-col body-content">
+            <asp:HyperLink class="white-link" ID="ncbi_gene_id" NavigateUrl="navigateurl" runat="server" />
         </div>
         <div class="c-col advertisment-content"></div>
     </div>
