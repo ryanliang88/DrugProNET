@@ -47,12 +47,20 @@
     <Reference Include="AjaxControlToolkit, Version=18.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
       <HintPath>..\packages\AjaxControlToolkit.18.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -136,6 +144,16 @@
     <Content Include="CSS\protein_info_result.css" />
     <Content Include="DrugInfo.aspx" />
     <Content Include="DrugInfoResult.aspx" />
+    <Content Include="EF_DB_Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EF_DB_Model.edmx</DependentUpon>
+      <LastGenOutput>EF_DB_Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EF_DB_Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EF_DB_Model.edmx</DependentUpon>
+      <LastGenOutput>EF_DB_Model.cs</LastGenOutput>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="Other\Templates\Form 2 Column Template.aspx" />
     <Content Include="Other\Templates\Form 3 Column Template.aspx" />
@@ -238,6 +256,21 @@
     <Compile Include="BasePage.Master.designer.cs">
       <DependentUpon>BasePage.Master</DependentUpon>
     </Compile>
+    <Compile Include="C18OC3_DrugProNET_A_Protein_Info.cs">
+      <DependentUpon>EF_DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C18OC3_DrugProNET_B_Drug_Info.cs">
+      <DependentUpon>EF_DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C18OC3_DrugProNET_C_PDB_Info.cs">
+      <DependentUpon>EF_DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C18OC3_DrugProNET_D_Drug_Protein_AA_Interaction.cs">
+      <DependentUpon>EF_DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C18OC3_DrugProNET_E_Mutation_SNV.cs">
+      <DependentUpon>EF_DB_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Credits.aspx.cs">
       <DependentUpon>Credits.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -258,6 +291,21 @@
     </Compile>
     <Compile Include="DrugInfoResult.aspx.designer.cs">
       <DependentUpon>DrugInfoResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EF_DB_Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EF_DB_Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF_DB_Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EF_DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF_DB_Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EF_DB_Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Other\Templates\Form 2 Column Template.aspx.cs">
       <DependentUpon>Form 2 Column Template.aspx</DependentUpon>
@@ -306,10 +354,22 @@
       <DependentUpon>ProteinInfoResult.aspx</DependentUpon>
     </Compile>
     <Compile Include="Scripts\MatchFinder.cs" />
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>EF_DB_Model.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="BasePage.Master" />
+    <EntityDeploy Include="EF_DB_Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EF_DB_Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="EF_DB_Model.edmx.diagram">
+      <DependentUpon>EF_DB_Model.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <Content Include="Libraries\Bootstrap 3.3.7\css\bootstrap-theme.css.map" />
     <Content Include="Libraries\Bootstrap 3.3.7\css\bootstrap-theme.min.css.map" />
