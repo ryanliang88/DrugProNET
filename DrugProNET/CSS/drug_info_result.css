@@ -38,11 +38,13 @@
 .flex-row {
     flex-direction: row;
     display: flex;
+    width: inherit;
 }
 
 .flex-col {
     flex-direction: column;
     display: flex;
+    width: inherit;
 }
 
 .side {
@@ -66,6 +68,11 @@
     flex: 1 1 auto;
     width: 394.23px;
 }
+
+    .image-content img {
+        width: 288px;
+        height: auto;
+    }
 
 .image-label {
     padding-left: 3.7em;
