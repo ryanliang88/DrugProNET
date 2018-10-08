@@ -94,29 +94,22 @@
             </asp:ContentPlaceHolder>
             <div class="c-row">
                 <div class="c-col side-spacing"></div>
-                <div class="c-col side-content"></div>
+                <div class="c-col side-content">
+                    <ul class="left-sidebar-links">
+                        <li>
+                            <a href="Default.aspx">Home</a>
+                        </li>
+                        <li>
+                            <p>|</p>
+                        </li>
+                        <li>
+                            <a href="#website-banner">Top</a>
+                        </li>
+                    </ul>
+                </div>
                 <footer class="c-col body-content footer-content">
                     <h2>Copyright © 2018 Kinexus Bioinformatics Corporation. All rights reserved.</h2>
                 </footer>
-            </div>
-
-            <div class="c-row">
-                <!-- This must be at bottom! -->
-                <div class="c-col side-content">
-                    <div>
-                        <ul class="left-sidebar-links">
-                            <li>
-                                <a href="Default.aspx">Home</a>
-                            </li>
-                            <li>
-                                <p>|</p>
-                            </li>
-                            <li>
-                                <a href="#website-banner">Top</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
             </div>
         </div>
     </form>

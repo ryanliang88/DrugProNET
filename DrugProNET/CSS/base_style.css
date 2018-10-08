@@ -45,15 +45,15 @@ nav {
     list-style: none;
 }
 
-.horizontal-list:after {
-    content: '';
-    display: inline-block;
-    width: 100%;
-}
+    .horizontal-list:after {
+        content: '';
+        display: inline-block;
+        width: 100%;
+    }
 
-.horizontal-list li {
-    display: inline-block;
-}
+    .horizontal-list li {
+        display: inline-block;
+    }
 
 .navigation-links {
     font-size: 14px;
@@ -70,14 +70,31 @@ nav {
     background-color: #002430;
     border-top: 1px solid black;
 }
-.navigation-links a {
-    color: #9FBCD8;
-    text-decoration: none;
+
+    .navigation-links a {
+        color: #9FBCD8;
+        text-decoration: none;
+    }
+
+        .navigation-links a:hover {
+            color: #7777ac;
+        }
+
+footer {
+    text-align: center;
+    bottom: 0;
+    width: 100%;
 }
 
-.navigation-links a:hover {
-    color: #7777ac;
-}
+    footer h2 {
+        color: #738569 !important;
+        font-size: 12pt;
+        font-weight: bold;
+        margin: 0 !important;
+        padding: 0 !important;
+        padding-top: 3em !important;
+        padding-bottom: 1em !important;
+    }
 
 .left-sidebar {
     text-align: center;
@@ -89,34 +106,33 @@ nav {
 }
 
 .left-sidebar-links {
-    bottom: 0;
-    position: fixed;
+    margin: 0;
+    padding: 0;
     font-size: 14px;
     font-weight: bold;
-
     margin: 0;
     list-style: none;
     text-align: justify;
     width: inherit;
-
     line-height: .5em;
-    padding-top: .8em;
-
     color: #FFC300;
+    padding-top: 3.7em;
+    padding-bottom: 1em;
+    padding-left: 2.5em;
 }
 
-.left-sidebar-links a {
-    color: #FFC300;
-}
+    .left-sidebar-links a {
+        color: #FFC300;
+    }
 
-.left-sidebar-links a:hover {
-    color: rgb(199, 152, 0);
-    text-decoration: none;
-}
+        .left-sidebar-links a:hover {
+            color: rgb(199, 152, 0);
+            text-decoration: none;
+        }
 
-.left-sidebar-links li {
-    display: inline-block;
-}
+    .left-sidebar-links li {
+        display: inline-block;
+    }
 
 .content-body {
     text-align: left;
@@ -128,11 +144,11 @@ nav {
     padding-bottom: 0;
 }
 
-.content-body h2 {
-    color: #FFC300;
-    font-size: 12pt;
-    font-weight: bolder;
-}
+    .content-body h2 {
+        color: #FFC300;
+        font-size: 12pt;
+        font-weight: bolder;
+    }
 
 .col-container {
     display: table;
@@ -141,19 +157,6 @@ nav {
 
 .col {
     display: table-cell;
-}
-
-footer {
-    padding-top: 3em;
-    text-align: center;
-    bottom: 0;
-    width: 100%;
-}
-
-footer h2 {
-    color: #738569 !important;
-    font-size: 12pt;
-    font-weight: bold;
 }
 
 .query {
@@ -171,12 +174,12 @@ footer h2 {
     padding-top: .8em;
 }
 
-.query li>select {
-    border-radius: .3em;
-    margin-left: 2em;
-    font-weight: normal;
-    color: black;
-}
+    .query li > select {
+        border-radius: .3em;
+        margin-left: 2em;
+        font-weight: normal;
+        color: black;
+    }
 
 .secondary-navigation {
     font-size: 14px;
@@ -193,13 +196,13 @@ footer h2 {
     padding-top: .8em;
 }
 
-.secondary-navigation li:first-of-type {
-    color: #9999cc;
-}
+    .secondary-navigation li:first-of-type {
+        color: #9999cc;
+    }
 
-.secondary-navigation li a {
-    color: #FFC300;
-}
+    .secondary-navigation li a {
+        color: #FFC300;
+    }
 
 /* ########################################################################## */
 /* # Below is the CSS for creating two divs side by side with equal heights # */
@@ -228,12 +231,12 @@ footer h2 {
     text-align: left;
 }
 
-.body-content h2 {
-    padding-top: 1.5em;
-    font-size: 14pt;
-    font-weight: bold;
-    color: #FFC300;
-}
+    .body-content h2 {
+        padding-top: 1.5em;
+        font-size: 14pt;
+        font-weight: bold;
+        color: #FFC300;
+    }
 
 .side-spacing {
     flex: 0 0 2.5%;
@@ -262,19 +265,19 @@ footer h2 {
     text-align: center;
 }
 
-.footer-content h2 {
-    font-size: 12pt;
-}
+    .footer-content h2 {
+        font-size: 12pt;
+    }
 
 .button {
     color: black;
     border-radius: .5em;
 }
 
-.button:active {
-    outline: none;
-    border: none;
-}
+    .button:active {
+        outline: none;
+        border: none;
+    }
 
 .textBox {
     width: 300px;
@@ -285,14 +288,14 @@ footer h2 {
     outline: none;
 }
 
-.textBox:active {
-    border: inset !important;
-}
+    .textBox:active {
+        border: inset !important;
+    }
 
-.textBox:focus {
-    outline: none;
-    border: inset !important;
-}
+    .textBox:focus {
+        outline: none;
+        border: inset !important;
+    }
 
 .updated_text {
     color: #8D86C0 !important;
