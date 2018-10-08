@@ -8,11 +8,17 @@ namespace DrugProNET.Scripts
 {
     public class MatchFinder
     {
-        public static List<string> FindMatches(string prefix, List<string> dataList, int start, int count, Comparison<string> compare) {
+        public static List<string> FindMatches(string prefix, List<string> dataList, int start, int count, Comparison<string> compare)
+        {
+
             List<string> matches = new List<string>();
+
             foreach (string data in dataList)
             {
-                if (data.ToLower().StartsWith(prefix.ToLower())) matches.Add(data);
+                if (data.ToLower().StartsWith(prefix.ToLower()))
+                {
+                    matches.Add(data);
+                }
             }
 
             matches.Sort(Comparer<string>.Create(compare));
