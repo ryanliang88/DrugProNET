@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BasePage.Master" AutoEventWireup="true" CodeBehind="ProteinInfoResult.aspx.cs" Inherits="DrugProNET.ProteinInfoResult" %>
+﻿<%@ Page Title="DrugProNET | Protein Information Result" Language="C#" MasterPageFile="~/BasePage.Master" AutoEventWireup="true" CodeBehind="ProteinInfoResult.aspx.cs" Inherits="DrugProNET.ProteinInfoResult" %>
 
 
 <asp:Content runat="server" ContentPlaceHolderID="CSSContentPlaceHolder">
