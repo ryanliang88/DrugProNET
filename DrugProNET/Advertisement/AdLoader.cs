@@ -16,7 +16,10 @@ namespace DrugProNET.Advertisement
             List<XmlNode> nodes = xmlp.GetAllUnder(node);
             Ad ad = new Ad(RandomPicker.PickRandom(nodes, 0, nodes.Count));
 
-            adBanner.ImageUrl = ad.GetImageURL();
+            string url = ad.GetImageURL();
+            url = url.Replace("~", "");
+            adBanner.ImageUrl = "Advertisement" + url;
+
             adBanner.AlternateText = ad.GetAlternateText();
 
             adLink.NavigateUrl = ad.GetNavigateURL();

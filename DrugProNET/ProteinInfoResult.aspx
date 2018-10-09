@@ -307,7 +307,7 @@
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
-            <p class="p-side">Chomosome Location:</p>
+            <p class="p-side">Chromosome Location:</p>
         </div>
         <div class="c-col body-content">
             <p id="chromosome_location" runat="server"></p>
