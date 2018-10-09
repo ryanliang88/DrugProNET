@@ -957,6 +957,7 @@
     <Content Include="Other\WebForm1.aspx" />
     <Content Include="ProteinInfo.aspx" />
     <Content Include="ProteinInfoResult.aspx" />
+    <Content Include="ProteinQuery.aspx" />
     <Content Include="Scripts\OptionSelectRedirection.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />
@@ -1099,6 +1100,13 @@
     </Compile>
     <Compile Include="ProteinInfoResult.aspx.designer.cs">
       <DependentUpon>ProteinInfoResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProteinQuery.aspx.cs">
+      <DependentUpon>ProteinQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProteinQuery.aspx.designer.cs">
+      <DependentUpon>ProteinQuery.aspx</DependentUpon>
     </Compile>
     <Compile Include="Scripts\MatchFinder.cs" />
     <Compile Include="sysdiagram.cs">
