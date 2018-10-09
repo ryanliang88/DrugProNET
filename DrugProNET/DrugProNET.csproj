@@ -155,6 +155,8 @@
       <LastGenOutput>EF_DB_Model.cs</LastGenOutput>
     </Content>
     <Content Include="favicon.ico" />
+    <Content Include="Images\DrugProNETBannerN.png" />
+    <Content Include="Images\placeholder.jpg" />
     <Content Include="Other\Templates\Form 2 Column Template.aspx" />
     <Content Include="Other\Templates\Form 3 Column Template.aspx" />
     <Content Include="Global.asax" />
