@@ -51,7 +51,6 @@
         <div class="c-col body-content-long">
             <p id="compound_name" runat="server"></p>
         </div>
-        <div class="c-col advertisment-content"></div>
     </div>
 
      <div class="c-row">
@@ -62,7 +61,6 @@
         <div class="c-col body-content-long">
             <p id="chemical_name" runat="server"></p>
         </div>
-        <div class="c-col advertisment-content"></div>
     </div>
 
      <div class="c-row">
@@ -73,7 +71,6 @@
         <div class="c-col body-content-long">
             <p id="compound_alias" runat="server"></p>
         </div>
-        <div class="c-col advertisment-content"></div>
     </div>
 
      <div class="c-row">
@@ -84,7 +81,6 @@
         <div class="c-col body-content-long">
             <p id="compound_inchl_id" runat="server"></p>
         </div>
-        <div class="c-col advertisment-content"></div>
     </div>
 
      <div class="c-row">
@@ -95,7 +91,6 @@
         <div class="c-col body-content-long">
             <p id="drug_formula" runat="server"></p>
         </div>
-        <div class="c-col advertisment-content"></div>
     </div>
 
     <div class="c-row">
@@ -321,7 +316,6 @@
         <div class="c-col body-content-long">
             <p id="commentary" runat="server"></p>
         </div>
-        <div class="c-col advertisment-content"></div>
     </div>
 
         <div class="c-row">
@@ -332,7 +326,6 @@
         <div class="c-col body-content-long">
             <p id="source_type" runat="server"></p>
         </div>
-        <div class="c-col advertisment-content"></div>
     </div>
 
         <div class="c-row">
@@ -343,7 +336,6 @@
         <div class="c-col body-content-long">
             <p id="living_source1" runat="server"></p>
         </div>
-        <div class="c-col advertisment-content"></div>
     </div>
 
         <div class="c-row">
@@ -354,7 +346,6 @@
         <div class="c-col body-content-long">
             <p id="living_source2" runat="server"></p>
         </div>
-        <div class="c-col advertisment-content"></div>
     </div>
 
     <div class="c-row">
@@ -365,7 +356,6 @@
         <div class="c-col body-content-long">
             <p id="clinically_approved" runat="server"></p>
         </div>
-        <div class="c-col advertisment-content"></div>
     </div>
 
     <div class="c-row">
@@ -376,7 +366,6 @@
         <div class="c-col body-content-long">
             <p id="latest_stage_trials" runat="server"></p>
         </div>
-        <div class="c-col advertisment-content"></div>
     </div>
 
     <div class="c-row">
@@ -387,7 +376,6 @@
         <div class="c-col body-content-long">
             <p id="producer" runat="server"></p>
         </div>
-        <div class="c-col advertisment-content"></div>
     </div>
 
     <div class="c-row">
@@ -398,7 +386,6 @@
         <div class="c-col body-content-long">
             <p id="disease_applications" runat="server"></p>
         </div>
-        <div class="c-col advertisment-content"></div>
     </div>
 
     <div class="c-row">
@@ -409,7 +396,6 @@
         <div class="c-col body-content-long">
             <p id="toxic_effects" runat="server"></p>
         </div>
-        <div class="c-col advertisment-content"></div>
     </div>
 
         <div class="c-row">
@@ -420,7 +406,6 @@
         <div class="c-col body-content-long">
             <p id="reference_1" runat="server"></p>
         </div>
-        <div class="c-col advertisment-content"></div>
     </div>
 
         <div class="c-row">
@@ -431,7 +416,6 @@
         <div class="c-col body-content-long">
             <p id="reference_2" runat="server"></p>
         </div>
-        <div class="c-col advertisment-content"></div>
     </div>
 
     <%-- Copy drug info query below! --%>
