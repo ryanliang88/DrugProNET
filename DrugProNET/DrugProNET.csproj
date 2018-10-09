@@ -142,8 +142,10 @@
     <Content Include="CSS\drug_info_result.css" />
     <Content Include="CSS\protein_info.css" />
     <Content Include="CSS\protein_info_result.css" />
+    <Content Include="CSS\query_page.css" />
     <Content Include="DrugInfo.aspx" />
     <Content Include="DrugInfoResult.aspx" />
+    <Content Include="DrugQuery.aspx" />
     <Content Include="EF_DB_Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>EF_DB_Model.edmx</DependentUpon>
@@ -1029,6 +1031,13 @@
     </Compile>
     <Compile Include="DrugInfoResult.aspx.designer.cs">
       <DependentUpon>DrugInfoResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DrugQuery.aspx.cs">
+      <DependentUpon>DrugQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DrugQuery.aspx.designer.cs">
+      <DependentUpon>DrugQuery.aspx</DependentUpon>
     </Compile>
     <Compile Include="EF_DB_Model.Context.cs">
       <AutoGen>True</AutoGen>
