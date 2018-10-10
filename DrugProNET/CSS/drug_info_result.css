@@ -75,11 +75,6 @@
         height: auto;
     }
 
-.image-label {
-    padding-left: 3.7em;
-    text-align: left;
-}
-
 .h3-side-title {
     color: #9999cc;
     font-weight: bold;
@@ -107,6 +102,7 @@ p {
 .image-content {
     flex: 0 0 38.5%;
 }
+
 .white-link {
     color: white !important;
     text-decoration: underline;
