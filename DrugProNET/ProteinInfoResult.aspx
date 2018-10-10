@@ -82,7 +82,7 @@
             <p id="alias" runat="server"></p>
         </div>
     </div>
-    <div class="c-row" ID="_row" runat="server">
+    <div class="c-row" ID="protein_type_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Protein Type:</p>
