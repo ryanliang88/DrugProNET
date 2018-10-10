@@ -43,7 +43,7 @@
     </div>
 
     <%-- ------- --%>
-    <div class="c-row" ID="compound_name_row" runat="server">
+    <div class="c-row" id="compound_name_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Compound Name:</p>
@@ -53,7 +53,7 @@
         </div>
     </div>
 
-    <div class="c-row" ID="chemical_name_row" runat="server">
+    <div class="c-row" id="chemical_name_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Chemical Name:</p>
@@ -63,7 +63,7 @@
         </div>
     </div>
 
-    <div class="c-row" ID="compound_alias_row" runat="server">
+    <div class="c-row" id="compound_alias_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Compound Alias:</p>
@@ -73,7 +73,7 @@
         </div>
     </div>
 
-    <div class="c-row" ID="compound_inchl_row" runat="server">
+    <div class="c-row" id="compound_inchl_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Compound InChl ID:</p>
@@ -83,7 +83,7 @@
         </div>
     </div>
 
-    <div class="c-row" ID="drug_formula_row" runat="server">
+    <div class="c-row" id="drug_formula_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Drug Formula:</p>
@@ -99,7 +99,7 @@
             <div class="flex-container">
                 <div class="flex-row">
                     <div class="flex-col">
-                        <div class="flex-row" ID="molecular_mass_row" runat="server">
+                        <div class="flex-row" id="molecular_mass_row" runat="server">
                             <div class="side">
                                 <p class="p-side">Molecular Mass:</p>
                             </div>
@@ -107,7 +107,7 @@
                                 <p id="molecular_mass" runat="server"></p>
                             </div>
                         </div>
-                        <div class="flex-row" ID="pdb_drug_id_row" runat="server">
+                        <div class="flex-row" id="pdb_drug_id_row" runat="server">
                             <div class="side">
                                 <p class="p-side">PDB Drug ID:</p>
                             </div>
@@ -115,7 +115,7 @@
                                 <asp:HyperLink class="white-link" ID="pdb_drug_id" NavigateUrl="navigateurl" runat="server" />
                             </div>
                         </div>
-                        <div class="flex-row" ID="compound_cas_id_row" runat="server">
+                        <div class="flex-row" id="compound_cas_id_row" runat="server">
                             <div class="side">
                                 <p class="p-side">Compound CAS ID:</p>
                             </div>
@@ -123,7 +123,7 @@
                                 <p id="compound_cas_id" runat="server"></p>
                             </div>
                         </div>
-                        <div class="flex-row" ID="pubchem_cid_row" runat="server">
+                        <div class="flex-row" id="pubchem_cid_row" runat="server">
                             <div class="side">
                                 <p class="p-side">PubChem CID:</p>
                             </div>
@@ -131,7 +131,7 @@
                                 <asp:HyperLink class="white-link" ID="pubchem_cid" NavigateUrl="navigateurl" runat="server" />
                             </div>
                         </div>
-                        <div class="flex-row" ID="chembl_id_row" runat="server">
+                        <div class="flex-row" id="chembl_id_row" runat="server">
                             <div class="side">
                                 <p class="p-side">ChEMBL ID:</p>
                             </div>
@@ -140,7 +140,7 @@
                             </div>
                         </div>
 
-                        <div class="flex-row" ID="kinase_sarfair_row" runat="server">
+                        <div class="flex-row" id="kinase_sarfair_row" runat="server">
                             <div class="side">
                                 <p class="p-side">Kinase SARfair:</p>
                             </div>
@@ -149,7 +149,7 @@
                             </div>
                         </div>
 
-                        <div class="flex-row" ID="pubchem_sid_row" runat="server">
+                        <div class="flex-row" id="pubchem_sid_row" runat="server">
                             <div class="side">
                                 <p class="p-side">PubChem SID:</p>
                             </div>
@@ -158,7 +158,7 @@
                             </div>
                         </div>
 
-                        <div class="flex-row" ID="chemspider_sid_row" runat="server">
+                        <div class="flex-row" id="chemspider_sid_row" runat="server">
                             <div class="side">
                                 <p class="p-side">ChemSpider SID:</p>
                             </div>
@@ -167,7 +167,7 @@
                             </div>
                         </div>
 
-                        <div class="flex-row" ID="chebi_id_row" runat="server">
+                        <div class="flex-row" id="chebi_id_row" runat="server">
                             <div class="side">
                                 <p class="p-side">ChEBI ID:</p>
                             </div>
@@ -176,7 +176,7 @@
                             </div>
                         </div>
 
-                        <div class="flex-row" ID="bindingdb_id_row" runat="server">
+                        <div class="flex-row" id="bindingdb_id_row" runat="server">
                             <div class="side">
                                 <p class="p-side">BindingDB ID:</p>
                             </div>
@@ -185,7 +185,7 @@
                             </div>
                         </div>
 
-                        <div class="flex-row" ID="drugbank_id_row" runat="server">
+                        <div class="flex-row" id="drugbank_id_row" runat="server">
                             <div class="side">
                                 <p class="p-side">DrugBank ID:</p>
                             </div>
@@ -194,7 +194,7 @@
                             </div>
                         </div>
 
-                        <div class="flex-row" ID="drug_reg_row" runat="server">
+                        <div class="flex-row" id="drug_reg_row" runat="server">
                             <div class="side">
                                 <p class="p-side">Drug Registration:</p>
                             </div>
@@ -203,7 +203,7 @@
                             </div>
                         </div>
 
-                        <div class="flex-row" ID="kegg_drug_id_row" runat="server">
+                        <div class="flex-row" id="kegg_drug_id_row" runat="server">
                             <div class="side">
                                 <p class="p-side">KEGG Drug ID:</p>
                             </div>
@@ -212,7 +212,7 @@
                             </div>
                         </div>
 
-                        <div class="flex-row" ID="therapeautic_target_row" runat="server">
+                        <div class="flex-row" id="therapeautic_target_row" runat="server">
                             <div class="side">
                                 <p class="p-side">Therapeutic Targets ID:</p>
                             </div>
@@ -221,7 +221,7 @@
                             </div>
                         </div>
 
-                        <div class="flex-row" ID="pharmgkb_id_row" runat="server">
+                        <div class="flex-row" id="pharmgkb_id_row" runat="server">
                             <div class="side">
                                 <p class="p-side">PharmGKB ID:</p>
                             </div>
@@ -230,7 +230,7 @@
                             </div>
                         </div>
 
-                        <div class="flex-row" ID="het_id_row" runat="server">
+                        <div class="flex-row" id="het_id_row" runat="server">
                             <div class="side">
                                 <p class="p-side">HET ID:</p>
                             </div>
@@ -239,7 +239,7 @@
                             </div>
                         </div>
 
-                        <div class="flex-row" ID="drug_product_row" runat="server">
+                        <div class="flex-row" id="drug_product_row" runat="server">
                             <div class="side">
                                 <p class="p-side">Drug Product ID:</p>
                             </div>
@@ -248,7 +248,7 @@
                             </div>
                         </div>
 
-                        <div class="flex-row" ID="rxlist_id_row" runat="server">
+                        <div class="flex-row" id="rxlist_id_row" runat="server">
                             <div class="side">
                                 <p class="p-side">RxList ID:</p>
                             </div>
@@ -257,7 +257,7 @@
                             </div>
                         </div>
 
-                        <div class="flex-row" ID="drugs_com_id_row" runat="server">
+                        <div class="flex-row" id="drugs_com_id_row" runat="server">
                             <div class="side">
                                 <p class="p-side">Drugs.com ID:</p>
                             </div>
@@ -266,7 +266,7 @@
                             </div>
                         </div>
 
-                        <div class="flex-row" ID="wikipedia_row" runat="server">
+                        <div class="flex-row" id="wikipedia_row" runat="server">
                             <div class="side">
                                 <p class="p-side">Wikipedia:</p>
                             </div>
@@ -275,7 +275,7 @@
                             </div>
                         </div>
 
-                        <div class="flex-row" ID="general_targets_row" runat="server">
+                        <div class="flex-row" id="general_targets_row" runat="server">
                             <div class="side">
                                 <p class="p-side">General Targets:</p>
                             </div>
@@ -284,7 +284,7 @@
                             </div>
                         </div>
 
-                        <div class="flex-row" ID="general_activity_row" runat="server">
+                        <div class="flex-row" id="general_activity_row" runat="server">
                             <div class="side">
                                 <p class="p-side">General Activity:</p>
                             </div>
@@ -294,7 +294,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex-col" ID="compound_structure_col" runat="server">
+                <div class="flex-col" id="compound_structure_col" runat="server">
                     <div class="image-label">
                         <p class="p-side">Compound Structure:</p>
                     </div>
@@ -308,7 +308,7 @@
 
     <%-- ---------- --%>
 
-    <div class="c-row" ID="commentary_row" runat="server">
+    <div class="c-row" id="commentary_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Commentary:</p>
@@ -318,7 +318,7 @@
         </div>
     </div>
 
-    <div class="c-row" ID="source_type_row" runat="server">
+    <div class="c-row" id="source_type_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Source Type:</p>
@@ -328,7 +328,7 @@
         </div>
     </div>
 
-    <div class="c-row" ID="living1_source_row" runat="server">
+    <div class="c-row" id="living1_source_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Living Source:</p>
@@ -338,7 +338,7 @@
         </div>
     </div>
 
-    <div class="c-row" ID="living2_source_row" runat="server">
+    <div class="c-row" id="living2_source_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Living Source:</p>
@@ -348,7 +348,7 @@
         </div>
     </div>
 
-    <div class="c-row" ID="approved_row" runat="server">
+    <div class="c-row" id="approved_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Clinically Approved:</p>
@@ -358,7 +358,7 @@
         </div>
     </div>
 
-    <div class="c-row" ID="latest_stage_trial_row" runat="server">
+    <div class="c-row" id="latest_stage_trial_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Lastest Stage Trials:</p>
@@ -368,7 +368,7 @@
         </div>
     </div>
 
-    <div class="c-row" ID="producer_row" runat="server">
+    <div class="c-row" id="producer_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Producer:</p>
@@ -378,7 +378,7 @@
         </div>
     </div>
 
-    <div class="c-row" ID="disease_applications_row" runat="server">
+    <div class="c-row" id="disease_applications_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Disease Applications:</p>
@@ -388,7 +388,7 @@
         </div>
     </div>
 
-    <div class="c-row" ID="toxic_effects_row" runat="server">
+    <div class="c-row" id="toxic_effects_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Toxic Effects:</p>
@@ -398,7 +398,7 @@
         </div>
     </div>
 
-    <div class="c-row" ID="reference1_row" runat="server">
+    <div class="c-row" id="reference1_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Reference 1:</p>
@@ -408,7 +408,7 @@
         </div>
     </div>
 
-    <div class="c-row" ID="reference2_row" runat="server">
+    <div class="c-row" id="reference2_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Reference 2:</p>

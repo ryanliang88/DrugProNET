@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace DrugProNET
@@ -32,90 +33,79 @@ namespace DrugProNET
             return drug;
         }
 
+        private void ProcessRow(Control control, Control textControl, string text, string url = null)
+        {
+            string[] arr = { "N/A" };
+            if (!string.IsNullOrEmpty(text) && !Array.Exists(arr, element => element == text))
+            {
+                if (textControl.GetType() == typeof(HtmlGenericControl))
+                {
+                    ((HtmlGenericControl)textControl).InnerText = text;
+                }
+                if (textControl.GetType() == typeof(HyperLink))
+                {
+                    ((HyperLink)textControl).Text = text;
+                    ((HyperLink)textControl).NavigateUrl = url;
+                }
+            }
+            else
+            {
+                ((HtmlGenericControl)control).Visible = false;
+            }
+        }
+
+        private void ProcessImage(Control imageControl, string src)
+        {
+            string[] arr = { "N/A" };
+            if (!string.IsNullOrEmpty(src) && !Array.Exists(arr, e => e == src))
+            {
+                ((HtmlImage)imageControl).Src = src;
+                ((HtmlImage)imageControl).Alt = "No image found";
+            }
+        }
+
         private void LoadData(C18OC3_DrugProNET_B_Drug_Info drug)
         {
-            compound_structure.Src = "./Images/Compound Structure Images/" + drug.Compound_Structure_png;
-            compound_structure.Alt = "No image found in database";
+            ProcessImage(compound_structure, "./Images/Compound Structure Images/" + drug.Compound_Structure_png);
 
-            compound_name.InnerText = drug.Drug_Common_Name;
-            chemical_name.InnerText = drug.Drug_Chemical_Name;
-            compound_alias.InnerText = drug.Other_Drug_Name_Alias;
-            compound_inchl_id.InnerText = drug.Drug_InChl;
-            drug_formula.InnerText = drug.Drug_Formula;
-            molecular_mass.InnerText = drug.Molecular_Mass;
-
-            pdb_drug_id.Text = drug.Drug_PDB_ID;
-            pdb_drug_id.NavigateUrl = drug.Drug_PDB_ID_URL;
-
-            compound_cas_id.InnerText = drug.Compound_CAS_ID;
-
-            pubchem_cid.Text = drug.PubChem_CID;
-            pubchem_cid.NavigateUrl = drug.PubChem_Compound_Link;
-
-            chembl_id.Text = drug.ChEMBL_ID;
-            chembl_id.NavigateUrl = drug.ChEMBL_Link;
-
-            kinase_sarfair.Text = drug.ChEMBL_ID;
-            kinase_sarfair.NavigateUrl = drug.CHEMBL_Kinase_SARFari_Link;
-
-            pubchem_sid.Text = drug.PubChem_SID;
-            pubchem_sid.NavigateUrl = drug.PubChem_Substance_Link;
-
-            chemspider_sid.Text = drug.ChemSpider_ID;
-            chemspider_sid.NavigateUrl = drug.ChemSpider_Link;
-
-            chebi_id.Text = drug.ChEBI_ID;
-            chebi_id.NavigateUrl = drug.ChEBI_Link;
-
-            bindingdb_id.Text = drug.BindingDB_ID;
-            bindingdb_id.NavigateUrl = drug.BindingDB_Link;
-
-            drugbank_id.Text = drug.DrugBank_ID;
-            drugbank_id.NavigateUrl = drug.DrugBank_Link;
-
-            drug_registration.InnerText = drug.Drug_Registration_Number;
-
-            kegg_drug_id.Text = drug.KEGG_Drug_ID;
-            kegg_drug_id.NavigateUrl = drug.KEGG_Drug_Link;
-
-            therapeutic_target_id.Text = drug.Therapeutic_Targets_ID;
-            therapeutic_target_id.NavigateUrl = drug.Therapeutic_Targets_Link;
-
-            pharmgkb_id.Text = drug.PharmGKB_ID;
-            pharmgkb_id.NavigateUrl = drug.PharmGKB_Link;
-
-            het_id.Text = drug.HET_ID;
-            het_id.NavigateUrl = drug.HET_Link;
-
-            drug_product_id.Text = drug.Drug_Product_ID;
-            drug_product_id.NavigateUrl = drug.Drug_Product_ID_Link;
-
-            rxlist_id.Text = drug.RxList_ID;
-            rxlist_id.NavigateUrl = drug.RxList_Link;
-
-            drugs_com_id.Text = drug.Drugs_com_ID;
-            drugs_com_id.NavigateUrl = drug.Drugs_com_Link;
-
-            wikipedia.Text = drug.Wikipedia;
-            wikipedia.NavigateUrl = drug.Wikipedia_Link;
-
-            general_targets.InnerText = drug.General_Targets;
-            general_activity.InnerText = drug.General_Activity;
-
-            commentary.InnerText = drug.Commentary;
-
-            source_type.InnerText = drug.Source_Type;
-            living_source1.InnerText = drug.Living_Source1;
-            living_source2.InnerText = drug.Living_Source2;
-
-            clinically_approved.InnerText = drug.Clinically_Approved;
-
-            latest_stage_trials.InnerText = drug.Latest_Stage_Trials;
-            producer.InnerText = drug.Producer;
-            disease_applications.InnerText = drug.Disease_Applications;
-            toxic_effects.InnerText = drug.Toxic_Effects;
-            reference_1.InnerText = drug.Reference_1;
-            reference_2.InnerText = drug.Reference_2;
+            ProcessRow(compound_name_row, compound_name, drug.Drug_Common_Name);
+            ProcessRow(chemical_name_row, chemical_name, drug.Drug_Chemical_Name);
+            ProcessRow(compound_alias_row, compound_alias, drug.Other_Drug_Name_Alias);
+            ProcessRow(compound_inchl_row, compound_inchl_id, drug.Drug_InChl);
+            ProcessRow(drug_formula_row, drug_formula, drug.Drug_Formula);
+            ProcessRow(molecular_mass_row, molecular_mass, drug.Molecular_Mass);
+            ProcessRow(pdb_drug_id_row, pdb_drug_id, drug.Drug_PDB_ID, drug.Drug_PDB_ID_URL);
+            ProcessRow(compound_cas_id_row, compound_cas_id, drug.Compound_CAS_ID);
+            ProcessRow(chembl_id_row, chembl_id, drug.ChEMBL_ID, drug.ChEMBL_Link);
+            ProcessRow(kinase_sarfair_row, kinase_sarfair, drug.ChEMBL_ID, drug.CHEMBL_Kinase_SARFari_Link);
+            ProcessRow(pubchem_sid_row, pubchem_sid, drug.PubChem_SID, drug.PubChem_Substance_Link);
+            ProcessRow(pubchem_cid_row, pubchem_cid, drug.PubChem_CID, drug.PubChem_Compound_Link);
+            ProcessRow(chemspider_sid_row, chemspider_sid, drug.ChemSpider_ID, drug.ChemSpider_Link);
+            ProcessRow(chebi_id_row, chebi_id, drug.ChEBI_ID, drug.ChEBI_Link);
+            ProcessRow(bindingdb_id_row, bindingdb_id, drug.BindingDB_ID, drug.BindingDB_Link);
+            ProcessRow(drugbank_id_row, drugbank_id, drug.DrugBank_ID, drug.DrugBank_Link);
+            ProcessRow(drug_reg_row, drug_registration, drug.Drug_Registration_Number);
+            ProcessRow(kegg_drug_id_row, kegg_drug_id, drug.KEGG_Drug_ID, drug.KEGG_Drug_Link);
+            ProcessRow(therapeautic_target_row, therapeutic_target_id, drug.Therapeutic_Targets_ID, drug.Therapeutic_Targets_Link);
+            ProcessRow(pharmgkb_id_row, pharmgkb_id, drug.PharmGKB_ID, drug.PharmGKB_Link);
+            ProcessRow(het_id_row, het_id, drug.HET_ID, drug.HET_Link);
+            ProcessRow(drug_product_row, drug_product_id, drug.Drug_Product_ID, drug.Drug_Product_ID_Link);
+            ProcessRow(rxlist_id_row, rxlist_id, drug.RxList_ID, drug.RxList_Link);
+            ProcessRow(drugs_com_id_row, drugs_com_id, drug.Drugs_com_ID, drug.Drugs_com_Link);
+            ProcessRow(wikipedia_row, wikipedia, drug.Wikipedia, drug.Wikipedia_Link);
+            ProcessRow(general_activity_row, general_activity, drug.General_Activity);
+            ProcessRow(general_targets_row, general_targets, drug.General_Targets);
+            ProcessRow(commentary_row, commentary, drug.Commentary);
+            ProcessRow(source_type_row, source_type, drug.Source_Type);
+            ProcessRow(living1_source_row, living_source1, drug.Living_Source1);
+            ProcessRow(living2_source_row, living_source2, drug.Living_Source2);
+            ProcessRow(approved_row, clinically_approved, drug.Clinically_Approved);
+            ProcessRow(latest_stage_trial_row, latest_stage_trials, drug.Latest_Stage_Trials);
+            ProcessRow(producer_row, producer, drug.Producer);
+            ProcessRow(disease_applications_row, disease_applications, drug.Disease_Applications);
+            ProcessRow(toxic_effects_row, toxic_effects, drug.Toxic_Effects);
+            ProcessRow(reference1_row, reference_1, drug.Reference_1);
+            ProcessRow(reference2_row, reference_2, drug.Reference_2);
         }
     }
 }
