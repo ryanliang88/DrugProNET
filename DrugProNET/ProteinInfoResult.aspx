@@ -46,7 +46,7 @@
         <div class="c-col body-content"></div>
     </div>
 
-    <div class="c-row">
+    <div class="c-row" ID="protein_short_name_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Protein Short Name:</p>
@@ -55,7 +55,7 @@
             <p id="protein_short_name" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" ID="protein_full_name_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Protein Full Name:</p>
@@ -64,7 +64,7 @@
             <p id="protein_full_name" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" ID="gene_name_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Gene Name:</p>
@@ -73,7 +73,7 @@
             <p id="gene_name" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" ID="alias_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Alias:</p>
@@ -82,7 +82,7 @@
             <p id="alias" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" ID="_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Protein Type:</p>
@@ -91,7 +91,7 @@
             <p id="protein_type" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" ID="kinase_group_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Kinase Group:</p>
@@ -101,7 +101,7 @@
         </div>
         <div class="c-col advertisment-content"></div>
     </div>
-    <div class="c-row">
+    <div class="c-row" ID="kinase_family_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Kinase Family:</p>
@@ -111,13 +111,13 @@
         </div>
         <div class="c-col advertisment-content"></div>
     </div>
-    <div class="c-row">
+    <div class="c-row" ID="kinase_subfamily_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Kinase Subfamily:</p>
         </div>
         <div class="c-col body-content">
-            <p id="kinase_subfamilty" runat="server"></p>
+            <p id="kinase_subfamily" runat="server"></p>
         </div>
         <div class="c-col advertisment-content"></div>
     </div>
@@ -130,7 +130,7 @@
         </div>
         <div class="c-col advertisment-content"></div>
     </div>
-    <div class="c-row">
+    <div class="c-row" ID="cell_component_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Cell Component:</p>
@@ -147,7 +147,7 @@
         </div>
         <div class="c-col advertisment-content"></div>
     </div>
-    <div class="c-row">
+    <div class="c-row" ID="molecular_function_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Molecular Function:</p>
@@ -161,7 +161,7 @@
         </div>
         <div class="c-col advertisment-content"></div>
     </div>
-    <div class="c-row">
+    <div class="c-row" ID="biological_process_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Biological Process:</p>
@@ -186,7 +186,7 @@
         <div class="c-col advertisment-content"></div>
     </div>
 
-    <div class="c-row">
+    <div class="c-row" ID="mass_da_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Mass(Da):</p>
@@ -196,7 +196,7 @@
         </div>
         <div class="c-col advertisment-content"></div>
     </div>
-    <div class="c-row">
+    <div class="c-row" ID="number_aa_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Number AA:</p>
@@ -206,7 +206,7 @@
         </div>
         <div class="c-col advertisment-content"></div>
     </div>
-    <div class="c-row">
+    <div class="c-row" ID="uniprot_id_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">UniProt ID:</p>
@@ -218,7 +218,7 @@
         </div>
         <div class="c-col advertisment-content"></div>
     </div>
-    <div class="c-row">
+    <div class="c-row" ID="ncbi_refseq_id_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">NCBI RefSeq ID:</p>
@@ -228,7 +228,7 @@
         </div>
         <div class="c-col advertisment-content"></div>
     </div>
-    <div class="c-row">
+    <div class="c-row" ID="int_protein_id_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Int. Protein ID:</p>
@@ -239,7 +239,7 @@
         <div class="c-col advertisment-content"></div>
     </div>
 
-    <div class="c-row">
+    <div class="c-row" ID="phosphonet_id_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">PhosphoNET ID:</p>
@@ -249,7 +249,7 @@
         </div>
         <div class="c-col advertisment-content"></div>
     </div>
-    <div class="c-row">
+    <div class="c-row" ID="phosphositeplus_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">PhosphoSitePlus:</p>
@@ -259,7 +259,7 @@
         </div>
         <div class="c-col advertisment-content"></div>
     </div>
-    <div class="c-row">
+    <div class="c-row" ID="kinasenet_id_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">KinaseNET ID:</p>
@@ -269,7 +269,7 @@
         </div>
         <div class="c-col advertisment-content"></div>
     </div>
-    <div class="c-row">
+    <div class="c-row" ID="onconet_id_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">OncoNET ID:</p>
@@ -288,7 +288,7 @@
         </div>
         <div class="c-col advertisment-content"></div>
     </div>
-    <div class="c-row">
+    <div class="c-row" ID="chromosome_no_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Chromosome No.:</p>
@@ -299,7 +299,7 @@
         <div class="c-col advertisment-content"></div>
     </div>
 
-    <div class="c-row">
+    <div class="c-row" ID="chromosome_location_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Chromosome Location:</p>
@@ -309,7 +309,7 @@
         </div>
         <div class="c-col advertisment-content"></div>
     </div>
-    <div class="c-row">
+    <div class="c-row" ID="gene_location_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Gene Location:</p>
@@ -319,7 +319,7 @@
         </div>
         <div class="c-col advertisment-content"></div>
     </div>
-    <div class="c-row">
+    <div class="c-row" ID="ncbi_nucleotide_id_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">NCBI Nucleotide ID:</p>
@@ -329,7 +329,7 @@
         </div>
         <div class="c-col advertisment-content"></div>
     </div>
-    <div class="c-row">
+    <div class="c-row" ID="ncbi_gene_id_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">NCBI Gene ID:</p>
