@@ -46,7 +46,7 @@ namespace DrugProNET
             kinase_group.InnerText = protein.Kinase_Group;
 
             kinase_family.InnerText = protein.Kinase_Family;
-            kinase_subfamilty.InnerText = protein.Kinase_Subfamily;
+            kinase_subfamily.InnerText = protein.Kinase_Subfamily;
 
             cell_component1.Text = protein.GOCellComponent1;
             cell_component1.NavigateUrl = protein.GOCellComponent1URL;
