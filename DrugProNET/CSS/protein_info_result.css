@@ -22,6 +22,10 @@
     text-align: left;
 }
 
+table > tbody > tr > td {
+    width: 125px;
+}
+
 .h3-side-title-gold {
     color: #FFC300;
     font-weight: bold;

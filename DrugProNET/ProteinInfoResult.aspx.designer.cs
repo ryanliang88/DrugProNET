@@ -193,13 +193,13 @@ namespace DrugProNET {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl kinase_subfamily;
         
         /// <summary>
-        /// cell_component_row control.
+        /// cell_component_table control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cell_component_row;
+        protected global::System.Web.UI.WebControls.Table cell_component_table;
         
         /// <summary>
         /// cell_component1 control.
@@ -238,6 +238,15 @@ namespace DrugProNET {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl molecular_function_row;
         
         /// <summary>
+        /// molecular_function_table control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table molecular_function_table;
+        
+        /// <summary>
         /// mo1 control.
         /// </summary>
         /// <remarks>
@@ -272,6 +281,15 @@ namespace DrugProNET {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl biological_process_row;
+        
+        /// <summary>
+        /// biological_process_table control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table biological_process_table;
         
         /// <summary>
         /// bo1 control.
@@ -337,13 +355,13 @@ namespace DrugProNET {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl number_aa;
         
         /// <summary>
-        /// uniprot_id_row control.
+        /// uniprot_row control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl uniprot_id_row;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl uniprot_row;
         
         /// <summary>
         /// uniprot_id control.
