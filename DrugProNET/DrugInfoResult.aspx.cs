@@ -54,10 +54,19 @@ namespace DrugProNET
             }
         }
 
+        private void ProcessImage(Control imageControl, string src)
+        {
+            string[] arr = { "N/A" };
+            if (!string.IsNullOrEmpty(src) && !Array.Exists(arr, e => e == src))
+            {
+                ((HtmlImage)imageControl).Src = src;
+                ((HtmlImage)imageControl).Alt = "No image found";
+            }
+        }
+
         private void LoadData(C18OC3_DrugProNET_B_Drug_Info drug)
         {
-            compound_structure.Src = "./Images/Compound Structure Images/" + drug.Compound_Structure_png;
-            compound_structure.Alt = "No image found in database";
+            ProcessImage(compound_structure, "./Images/Compound Structure Images/" + drug.Compound_Structure_png);
 
             ProcessRow(compound_name_row, compound_name, drug.Drug_Common_Name);
             ProcessRow(chemical_name_row, chemical_name, drug.Drug_Chemical_Name);

@@ -32,12 +32,6 @@ namespace DrugProNET
             search_textBox.Text = string.Empty;
         }
 
-        private class Pair<T, U>
-        {
-            T first;
-            U second;
-        }
-
         [WebMethod]
         [ScriptMethod]
         public static List<string> GetAutoCompleteData(string prefixText, int count)
