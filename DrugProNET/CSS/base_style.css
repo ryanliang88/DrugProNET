@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background-color: #011A2D;
+    background-color: #071328;
     color: white;
     height: 100vh;
 }
@@ -248,6 +248,7 @@ footer {
 
 .side-content {
     flex: 0 0 14%;
+    padding-left: 1em;
     padding-right: 1em;
     border-style: solid;
     border-width: 0 0 0 1px;

@@ -62,7 +62,7 @@ namespace DrugProNET
             pubchem_sid.NavigateUrl = drug.PubChem_Substance_Link;
 
             chemspider_sid.Text = drug.ChemSpider_ID;
-            chemspider_sid.Text = drug.ChemSpider_Link;
+            chemspider_sid.NavigateUrl = drug.ChemSpider_Link;
 
             chebi_id.Text = drug.ChEBI_ID;
             chebi_id.NavigateUrl = drug.ChEBI_Link;
