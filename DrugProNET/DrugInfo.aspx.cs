@@ -32,6 +32,12 @@ namespace DrugProNET
             search_textBox.Text = string.Empty;
         }
 
+        private class Pair<T, U>
+        {
+            T first;
+            U second;
+        }
+
         [WebMethod]
         [ScriptMethod]
         public static List<string> GetAutoCompleteData(string prefixText, int count)
@@ -81,7 +87,9 @@ namespace DrugProNET
             // cached may be null if (valuesList == 0). 
             // This section has not been fully tested.
 
-            return MatchFinder.FindMatches(prefixText, cached, 0, 10, (a, b) => a.CompareTo(b));
+            return MatchFinder<string>.FindMatches(prefixText, cached, 0, 5,
+                (a, b) => a.ToLower().StartsWith(b.ToLower()),
+                (a, b) => a.CompareTo(b));
         }
     }
 }
