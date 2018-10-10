@@ -51,50 +51,45 @@
         <div class="c-col side-content">
             <p class="p-side">Protein Short Name:</p>
         </div>
-        <div class="c-col body-content">
+        <div class="c-col body-content-long">
             <p id="protein_short_name" runat="server"></p>
         </div>
-        <div class="c-col advertisment-content"></div>
     </div>
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Protein Full Name:</p>
         </div>
-        <div class="c-col body-content">
+        <div class="c-col body-content-long">
             <p id="protein_full_name" runat="server"></p>
         </div>
-        <div class="c-col advertisment-content"></div>
     </div>
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Gene Name:</p>
         </div>
-        <div class="c-col body-content">
+        <div class="c-col body-content-long">
             <p id="gene_name" runat="server"></p>
         </div>
-        <div class="c-col advertisment-content"></div>
     </div>
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Alias:</p>
         </div>
-        <div class="c-col body-content">
+        <div class="c-col body-content-long">
             <p id="alias" runat="server"></p>
         </div>
-        <div class="c-col advertisment-content"></div>
     </div>
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Protein Type:</p>
         </div>
-        <div class="c-col body-content">
+        <div class="c-col body-content-long">
             <p id="protein_type" runat="server"></p>
         </div>
-        <div class="c-col advertisment-content"></div>
     </div>
     <div class="c-row">
         <div class="c-col side-spacing"></div>
