@@ -296,7 +296,7 @@
                 </div>
                 <div class="flex-col" id="compound_structure_col" runat="server">
                     <div class="image-label">
-                        <p class="p-side">Compound Structure:</p>
+                        <p class="p-side">Compound Structure</p>
                     </div>
                     <div class="image-content">
                         <img id="compound_structure" runat="server" src="./Images/placeholder.jpg" alt="Alternate Text" />
