@@ -283,8 +283,8 @@ footer {
 .textBox {
     width: 300px;
     color: black;
-    height: 30px;
-    border-radius: .5em;
+    height: 25px;
+    border-radius: .3em;
     padding-left: .5em;
     outline: none;
 }

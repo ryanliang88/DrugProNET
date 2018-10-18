@@ -142,6 +142,7 @@
     <Content Include="CSS\drug_info_result.css" />
     <Content Include="CSS\protein_info.css" />
     <Content Include="CSS\protein_info_result.css" />
+    <Content Include="CSS\protein_query.css" />
     <Content Include="CSS\query_page.css" />
     <Content Include="DrugInfo.aspx" />
     <Content Include="DrugInfoResult.aspx" />

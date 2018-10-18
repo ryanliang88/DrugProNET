@@ -1,0 +1,52 @@
+﻿.side-content {
+    color: #708591;
+}
+
+    .side-content h3 {
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+.h3-body-title {
+    color: #FFC300;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+p {
+    color: #738569;
+}
+
+.checkbox-toggle {
+    display: block;
+    vertical-align: middle;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin: 0;
+}
+
+    .checkbox-toggle label {
+        font-weight: normal;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        margin: 0;
+        color: #A7A9AC;
+    }
+
+    .checkbox-toggle input {
+        padding-top: 0;
+        margin-top: 0;
+        vertical-align: middle;
+    }
+
+.body-content {
+    padding-bottom: 1.3em;
+}
+
+.pulldown {
+    color: black;
+    height: 25px;
+    border-radius: .3em;
+    padding-left: .5em;
+    outline: none;
+}

@@ -1,19 +1,14 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BasePage.Master" AutoEventWireup="true" CodeBehind="ProteinQuery.aspx.cs" Inherits="DrugProNET.ProteinQuery" %>
+﻿<%@ Page Title="DrugProNET | Protein Query" Language="C#" MasterPageFile="~/BasePage.Master" AutoEventWireup="true" CodeBehind="ProteinQuery.aspx.cs" Inherits="DrugProNET.ProteinQuery" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="CSSContentPlaceHolder">
-    <%-- Place your CSS link tags here, do NOT add the base_style.css in this tag, it is already included in the master page --%>
-
-    <%-- This stylesheet should be included since this is a 3 column template --%>
     <link rel="stylesheet" href="./css/3_column.css" />
-    <link rel="stylesheet" href="./css/drug_info.css" />
-    <link rel="stylesheet" href="./css/query_page.css" />
+    <link rel="stylesheet" href="./css/protein_query.css">
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="BodyContentPlaceHolder">
 
-    <%-- First row --%>
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
@@ -42,9 +37,7 @@
             </asp:UpdatePanel>
         </div>
     </div>
-    <%-- First row end --%>
 
-    <%-- Second row --%>
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
@@ -63,22 +56,28 @@
                     <asp:AutoCompleteExtender ID="AutoCompleteExtender" runat="server" ServiceMethod="GetAutoCompleteData" TargetControlID="search_textBox" CompletionInterval="100" CompletionSetCount="5" MinimumPrefixLength="1"></asp:AutoCompleteExtender>
                 </ContentTemplate>
             </asp:UpdatePanel>
+        </div>
+    </div>
 
-            <br />
-
+    <div class="c-row">
+        <div class="c-col side-spacing"></div>
+        <div class="c-col side-content"></div>
+        <div class="c-col body-content">
             <h3 class="h3-body-title">Step 2 - Drug Specification</h3>
             <p>Use the pull-down menu below to select for the drug of interest.</p>
-
             <asp:DropDownList CssClass="pulldown" ID="search_pullDown" runat="server" value="">
                 <asp:ListItem Text="Select from list of output options" Value="-1"></asp:ListItem>
             </asp:DropDownList>
+        </div>
+    </div>
 
-            <br />
-
+    <div class="c-row">
+        <div class="c-col side-spacing"></div>
+        <div class="c-col side-content"></div>
+        <div class="c-col body-content">
             <h3 class="h3-body-title">Step 3 - Interaction Distance Specification</h3>
             <p>Use the pull-down menu below to select the maximum value for interaction distance (in Angstroms) between atoms.</p>
-
-            <asp:DropDownList CssClass="pulldown" ID="angstrom_distance_pulldown" runat="server" value="">
+            <asp:DropDownList CssClass="pulldown" ID="DropDownList1" runat="server" value="">
                 <asp:ListItem Text="5" Value="5"></asp:ListItem>
                 <asp:ListItem Text="0.5" Value="0.5"></asp:ListItem>
                 <asp:ListItem Text="1" Value="1"></asp:ListItem>
@@ -95,26 +94,32 @@
                 <asp:ListItem Text="7" Value="7"></asp:ListItem>
                 <asp:ListItem Text="7.5" Value="7.5"></asp:ListItem>
             </asp:DropDownList>
-
-            <br />
-
-            <h3 class="h3-body-title">Step 4 - Display Parameter Specification</h3>
-            <p>Boxes that are marked are activated to display. Click on boxes to change status.</p>
-
-            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_chain" runat="server" Text="Show protein chain" AutoPostBack="true" /><br />
-            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_atoms" runat="server" Text="Show protein atoms" AutoPostBack="true" /><br />
-            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_residues" runat="server" Text="Show protein residues" AutoPostBack="true" /><br />
-            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_residue_number" runat="server" Text="Show protein residue number" AutoPostBack="true" /><br />
-            <asp:CheckBox CssClass="checkbox-toggle" ID="drug_atoms" runat="server" Text="Show drug atoms" AutoPostBack="true" /><br />
-
-            <h3 class="h3-body-title">Step 5 - Report Generation</h3>
-            <p>Click on the box below to produce custom tables with results or to reset the parameters.</p>
-
-            <asp:Button ID="generate_table_button" CssClass="button" Text="Generate Table" runat="server" />
-            <span>&emsp;&emsp;</span>
-            <asp:Button ID="reset_button" CssClass="button" Text="Reset" runat="server" />
-
         </div>
     </div>
-    <%-- Second row end --%>
+
+    <div class="c-row">
+        <div class="c-col side-spacing"></div>
+        <div class="c-col side-content"></div>
+        <div class="c-col body-content">
+            <h3 class="h3-body-title">Step 4 - Display Parameter Specification</h3>
+            <p>Boxes that are marked are activated to display. Click on boxes to change status.</p>
+            <asp:CheckBox CssClass="checkbox-toggle" ID="CheckBox1" runat="server" Text="Show protein chain"/>
+            <asp:CheckBox CssClass="checkbox-toggle" ID="CheckBox2" runat="server" Text="Show protein atoms" />
+            <asp:CheckBox CssClass="checkbox-toggle" ID="CheckBox3" runat="server" Text="Show protein residues" />
+            <asp:CheckBox CssClass="checkbox-toggle" ID="CheckBox4" runat="server" Text="Show protein residue number"  />
+            <asp:CheckBox CssClass="checkbox-toggle" ID="CheckBox5" runat="server" Text="Show drug atoms" />
+        </div>
+    </div>
+
+    <div class="c-row">
+        <div class="c-col side-spacing"></div>
+        <div class="c-col side-content"></div>
+        <div class="c-col body-content">
+            <h3 class="h3-body-title">Step 5 - Report Generation</h3>
+            <p>Click on the box below to produce custom tables with results or to reset the parameters.</p>
+            <asp:Button ID="Button1" CssClass="button" Text="Generate Table" runat="server" />
+            <span>&emsp;&emsp;</span>
+            <asp:Button ID="Button2" CssClass="button" Text="Reset" runat="server" />
+        </div>
+    </div>
 </asp:Content>
