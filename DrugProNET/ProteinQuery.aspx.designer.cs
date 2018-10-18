@@ -49,6 +49,15 @@ namespace DrugProNET {
         protected global::System.Web.UI.WebControls.Image adBanner;
         
         /// <summary>
+        /// search_textBox_UpdatePanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel search_textBox_UpdatePanel;
+        
+        /// <summary>
         /// search_textBox control.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,15 @@ namespace DrugProNET {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox search_textBox;
+        
+        /// <summary>
+        /// AutoCompleteExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.AutoCompleteExtender AutoCompleteExtender;
         
         /// <summary>
         /// search_pullDown control.

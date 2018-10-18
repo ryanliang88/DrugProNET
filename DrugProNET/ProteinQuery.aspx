@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BasePage.Master" AutoEventWireup="true" CodeBehind="ProteinQuery.aspx.cs" Inherits="DrugProNET.ProteinQuery" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
 <asp:Content runat="server" ContentPlaceHolderID="CSSContentPlaceHolder">
     <%-- Place your CSS link tags here, do NOT add the base_style.css in this tag, it is already included in the master page --%>
 
@@ -19,10 +21,12 @@
         </div>
         <div class="c-col body-content">
             <h3 class="h3-body-title">Protein-focused Drug Identification</h3>
-            <p>This query provides listings of atom-to-atom interaction pairs between a protein and a small drug molecule. Interactions are 
+            <p>
+                This query provides listings of atom-to-atom interaction pairs between a protein and a small drug molecule. Interactions are 
             defined by distance between the atoms, which are measured in Angstroms. The data in this database are extracted from coordinate 
             information of co-crystallization files in the RCSB PDB Protein Data Bank. The Protein Drug Interaction database currently 
-            contains data from over 4500 co-crystallization files.</p>
+            contains data from over 4500 co-crystallization files.
+            </p>
         </div>
         <div class="c-col advertisment-content">
             <asp:Timer ID="ad_refresh_timer" runat="server" Interval="3000" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
@@ -48,10 +52,17 @@
         </div>
         <div class="c-col body-content">
             <h3 class="h3-body-title">Step 1 - Protein Specification</h3>
-            <p>Provide the gene name, protein name, UniProt ID, or NCBI RefSeq 
-                ID of the target human protein as a search term.</p>
+            <p>
+                Provide the gene name, protein name, UniProt ID, or NCBI RefSeq 
+                ID of the target human protein as a search term.
+            </p>
 
-            <asp:TextBox CssClass="textBox" ID="search_textBox" runat="server" value="" placeholder="Type in at least 3 letters of the search term" />
+            <asp:UpdatePanel ID="search_textBox_UpdatePanel" runat="server" UpdateMode="Conditional">
+                <ContentTemplate>
+                    <asp:TextBox CssClass="textBox" ID="search_textBox" runat="server" value="" placeholder="Type in at least 3 letters of the search term" />
+                    <asp:AutoCompleteExtender ID="AutoCompleteExtender" runat="server" ServiceMethod="GetAutoCompleteData" TargetControlID="search_textBox" CompletionInterval="100" CompletionSetCount="5" MinimumPrefixLength="1"></asp:AutoCompleteExtender>
+                </ContentTemplate>
+            </asp:UpdatePanel>
 
             <br />
 
