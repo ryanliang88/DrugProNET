@@ -142,8 +142,10 @@
     <Content Include="CSS\drug_info_result.css" />
     <Content Include="CSS\protein_info.css" />
     <Content Include="CSS\protein_info_result.css" />
+    <Content Include="CSS\query_page.css" />
     <Content Include="DrugInfo.aspx" />
     <Content Include="DrugInfoResult.aspx" />
+    <Content Include="DrugQuery.aspx" />
     <Content Include="EF_DB_Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>EF_DB_Model.edmx</DependentUpon>
@@ -954,6 +956,7 @@
     <Content Include="Libraries\JQuery 3.3.1\jquery-3.3.1.min.js" />
     <Content Include="ProteinInfo.aspx" />
     <Content Include="ProteinInfoResult.aspx" />
+    <Content Include="ProteinQuery.aspx" />
     <Content Include="Scripts\OptionSelectRedirection.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />
@@ -1029,6 +1032,13 @@
     <Compile Include="DrugInfoResult.aspx.designer.cs">
       <DependentUpon>DrugInfoResult.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DrugQuery.aspx.cs">
+      <DependentUpon>DrugQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DrugQuery.aspx.designer.cs">
+      <DependentUpon>DrugQuery.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EF_DB_Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1082,6 +1092,13 @@
     </Compile>
     <Compile Include="ProteinInfoResult.aspx.designer.cs">
       <DependentUpon>ProteinInfoResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProteinQuery.aspx.cs">
+      <DependentUpon>ProteinQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProteinQuery.aspx.designer.cs">
+      <DependentUpon>ProteinQuery.aspx</DependentUpon>
     </Compile>
     <Compile Include="Scripts\MatchFinder.cs" />
     <Compile Include="sysdiagram.cs">
