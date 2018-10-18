@@ -18,7 +18,7 @@
             <p class="p-general-info">This report provides detailed information on one of over 2000 drugs that have been experimentally identified as inhibitors for proteins and co-crystallized with these proteins. The data has been annotated from multiple sources, including the US National Center for Biotechnology Information,  EMBL and other reputable databases and direct url links are provided to their websites.</p>
         </div>
         <div class="c-col advertisment-content">
-            <asp:Timer ID="ad_refresh_timer" runat="server" Interval="3000" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
+            <asp:Timer ID="ad_refresh_timer" runat="server" Interval="1" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
             <asp:UpdatePanel ID="ad_update_panel" runat="server">
                 <ContentTemplate>
                     <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server">

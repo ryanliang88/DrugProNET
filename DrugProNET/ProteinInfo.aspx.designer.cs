@@ -13,13 +13,13 @@ namespace DrugProNET {
     public partial class ProteinInfo {
         
         /// <summary>
-        /// adRefreshTimer control.
+        /// ad_refresh_timer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.Timer adRefreshTimer;
+        protected global::System.Web.UI.Timer ad_refresh_timer;
         
         /// <summary>
         /// ad_update_panel control.

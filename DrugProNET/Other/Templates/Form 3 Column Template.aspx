@@ -28,7 +28,7 @@
             <%-- Your body conent here! --%>
         </div>
         <div class="c-col advertisment-content">
-            <asp:Timer ID="ad_refresh_timer" runat="server" Interval="3000" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
+            <asp:Timer ID="ad_refresh_timer" runat="server" Interval="1" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
             <asp:UpdatePanel ID="ad_update_panel" runat="server">
                 <ContentTemplate>
                     <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server">

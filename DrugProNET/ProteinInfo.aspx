@@ -22,7 +22,7 @@
             </p>
         </div>
         <div class="c-col advertisment-content">
-            <asp:Timer ID="adRefreshTimer" runat="server" Interval="3000" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
+            <asp:Timer ID="ad_refresh_timer" runat="server" Interval="1" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
             <asp:UpdatePanel ID="ad_update_panel" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
                 <ContentTemplate>
                     <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server">
@@ -30,7 +30,7 @@
                     </asp:HyperLink>
                 </ContentTemplate>
                 <Triggers>
-                    <asp:AsyncPostBackTrigger ControlID="adRefreshTimer" EventName="Tick"></asp:AsyncPostBackTrigger>
+                    <asp:AsyncPostBackTrigger ControlID="ad_refresh_timer" EventName="Tick"></asp:AsyncPostBackTrigger>
                 </Triggers>
             </asp:UpdatePanel>
         </div>
