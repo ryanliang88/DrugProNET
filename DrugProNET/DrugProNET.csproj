@@ -157,6 +157,7 @@
       <LastGenOutput>EF_DB_Model.cs</LastGenOutput>
     </Content>
     <Content Include="favicon.ico" />
+    <Content Include="QueryResult.aspx" />
     <Content Include="Images\Compound Structure Images\AT13148.gif" />
     <Content Include="Images\Compound Structure Images\AuroraAInhibitor1.tif" />
     <Content Include="Images\Compound Structure Images\AuroraAInhibitor23.tif" />
@@ -1054,6 +1055,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EF_DB_Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="QueryResult.aspx.cs">
+      <DependentUpon>QueryResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QueryResult.aspx.designer.cs">
+      <DependentUpon>QueryResult.aspx</DependentUpon>
     </Compile>
     <Compile Include="Other\Templates\Form 2 Column Template.aspx.cs">
       <DependentUpon>Form 2 Column Template.aspx</DependentUpon>
