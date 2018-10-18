@@ -52,7 +52,7 @@
                     <li>
                         <select id="query-selector">
                             <option value="">Hover to view options</option>
-                            <option value="ProteinDrugQuery">Protein-focused Drug Interaction</option>
+                            <option value="ProteinQuery">Protein-focused Drug Interaction</option>
                             <option value="DrugProteinQuery">Drug-focused Protein Interaction</option>
                             <option value="ProteinInfo">Protein Information</option>
                             <option value="DrugInfo">Drug Information</option>
