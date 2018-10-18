@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace DrugProNET
 {
-    public partial class ProteinQuery : System.Web.UI.Page
+    public partial class ProteinQuery : Advertisement.AdvertiseablePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            base.Page_Load(sender, e);
         }
     }
 }
