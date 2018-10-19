@@ -139,21 +139,21 @@ namespace DrugProNET {
         protected global::System.Web.UI.WebControls.CheckBox CheckBox5;
         
         /// <summary>
-        /// Button1 control.
+        /// generate_table control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button generate_table;
         
         /// <summary>
-        /// Button2 control.
+        /// reset control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button reset;
     }
 }
