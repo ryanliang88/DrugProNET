@@ -16,7 +16,7 @@ namespace DrugProNET.Advertisement
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            setTimerInterval();
+            SetTimerInterval();
             // MUST go through the master page's ContentPlaceHolder tag to find the control in the child page!
             adBanner = Master.FindControl("BodyContentPlaceHolder").FindControl("adBanner") as Image;
             adLink = Master.FindControl("BodyContentPlaceHolder").FindControl("adLink") as HyperLink;
@@ -27,7 +27,7 @@ namespace DrugProNET.Advertisement
             AdLoader.SetAdvertisement(adBanner, adLink, Server.MapPath("./Advertisement/Images/ads_xml.xml"));
         }
 
-        public void setTimerInterval()
+        public void SetTimerInterval()
         {
             Timer t = Master.FindControl("BodyContentPlaceHolder").FindControl("ad_refresh_timer") as Timer;
             t.Interval = int.Parse(ConfigurationManager.AppSettings["ad_update_interval"]);

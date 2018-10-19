@@ -134,6 +134,7 @@
     <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-8v0.1.jpg" />
     <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-9v0.1.jpg" />
     <Content Include="Advertisement\Images\ads_xml.xml" />
+    <Content Include="CalculateDistance\1jaq.pdb" />
     <Content Include="Credits.aspx" />
     <Content Include="CSS\3_column.css" />
     <Content Include="CSS\base_style.css" />
@@ -143,6 +144,7 @@
     <Content Include="CSS\protein_info.css" />
     <Content Include="CSS\protein_info_result.css" />
     <Content Include="CSS\query_page.css" />
+    <Content Include="CSS\query_result.css" />
     <Content Include="DrugInfo.aspx" />
     <Content Include="DrugInfoResult.aspx" />
     <Content Include="DrugQuery.aspx" />
@@ -157,6 +159,28 @@
       <LastGenOutput>EF_DB_Model.cs</LastGenOutput>
     </Content>
     <Content Include="favicon.ico" />
+    <Content Include="HtmlPage1.html" />
+    <Content Include="Images\AminoAcidImages\Alanine-Ala-A.jpg" />
+    <Content Include="Images\AminoAcidImages\Arginine-Arg-R.jpg" />
+    <Content Include="Images\AminoAcidImages\Asparagine-Asn-N.jpg" />
+    <Content Include="Images\AminoAcidImages\AsparticAcid-Asp-D.jpg" />
+    <Content Include="Images\AminoAcidImages\Cysteine-Cys-C.jpg" />
+    <Content Include="Images\AminoAcidImages\Default Starting.jpg" />
+    <Content Include="Images\AminoAcidImages\GlutamicAcid-Glu-E.jpg" />
+    <Content Include="Images\AminoAcidImages\Glutamine-Gln-Q.jpg" />
+    <Content Include="Images\AminoAcidImages\Glycine-Gly-G.jpg" />
+    <Content Include="Images\AminoAcidImages\Histidine-His-H.jpg" />
+    <Content Include="Images\AminoAcidImages\Isoleucine-Ile-I.jpg" />
+    <Content Include="Images\AminoAcidImages\Leucine-Leu-L.jpg" />
+    <Content Include="Images\AminoAcidImages\Lysine-Lys-K.jpg" />
+    <Content Include="Images\AminoAcidImages\Methionine-Met-M.jpg" />
+    <Content Include="Images\AminoAcidImages\Phenylalanine-Phe-F.jpg" />
+    <Content Include="Images\AminoAcidImages\Proline-Pro-P.jpg" />
+    <Content Include="Images\AminoAcidImages\Serine-Ser-S.jpg" />
+    <Content Include="Images\AminoAcidImages\Threonine-Thr-T.jpg" />
+    <Content Include="Images\AminoAcidImages\Tryptophan-Trp-W.jpg" />
+    <Content Include="Images\AminoAcidImages\Tyrosine-Tyr-Y.jpg" />
+    <Content Include="Images\AminoAcidImages\Valine-Val-V.jpg" />
     <Content Include="QueryResult.aspx" />
     <Content Include="Images\Compound Structure Images\AT13148.gif" />
     <Content Include="Images\Compound Structure Images\AuroraAInhibitor1.tif" />
@@ -958,7 +982,10 @@
     <Content Include="ProteinInfo.aspx" />
     <Content Include="ProteinInfoResult.aspx" />
     <Content Include="ProteinQuery.aspx" />
+    <Content Include="Scripts\3DViewer\D_3DViewer.js" />
     <Content Include="Scripts\OptionSelectRedirection.js" />
+    <Content Include="Scripts\3DViewer\ngl.js" />
+    <Content Include="Scripts\3DViewer\PDB_3DViewer.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />
     <Content Include="Scripts\WebForms\GridView.js" />
@@ -1012,6 +1039,8 @@
     <Compile Include="C18OC3_DrugProNET_E_Mutation_SNV.cs">
       <DependentUpon>EF_DB_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="CalculateDistance\Atom.cs" />
+    <Compile Include="CalculateDistance\PDBFileParser.cs" />
     <Compile Include="Credits.aspx.cs">
       <DependentUpon>Credits.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1040,6 +1069,7 @@
     <Compile Include="DrugQuery.aspx.designer.cs">
       <DependentUpon>DrugQuery.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EF_Data.cs" />
     <Compile Include="EF_DB_Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1141,6 +1171,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

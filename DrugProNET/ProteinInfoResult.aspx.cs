@@ -17,20 +17,8 @@ namespace DrugProNET
             base.Page_Load(sender, e);
             string query = Request.QueryString["query_string"];
 
-            C18OC3_DrugProNET_A_Protein_Info protein = GetProtein(query);
+            C18OC3_DrugProNET_A_Protein_Info protein = EF_Data.GetProtein(query);
             LoadData(protein);
-        }
-
-        private C18OC3_DrugProNET_A_Protein_Info GetProtein(string query)
-        {
-            C18OC3_DrugProNET_A_Protein_Info theProteinImLookingFor;
-            using (SampleDatabaseEntities context = new SampleDatabaseEntities())
-            {
-                DbSet<C18OC3_DrugProNET_A_Protein_Info> dbSet = context.C18OC3_DrugProNET_A_Protein_Info;
-                theProteinImLookingFor = dbSet.Where(protein => protein.Uniprot_ID == query).ToList()[0];
-            }
-
-            return theProteinImLookingFor;
         }
 
         private static void ProcessRow(Control control, Control textControl, string text, string url = null)

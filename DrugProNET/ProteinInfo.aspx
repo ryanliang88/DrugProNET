@@ -17,7 +17,7 @@
             <h3 class="h3-body-title">Protein Information</h3>
             <p>
                 This query provides detailed information on over 600 proteins that have been experimentally
-                    identified as targets fro inhbitory drugs. Follow the instructions below to retrieve information on
+                    identified as targets for inhibitory drugs. Follow the instructions below to retrieve information on
                     a specific protein of interest.
             </p>
         </div>
@@ -49,7 +49,7 @@
             </p>
             <asp:UpdatePanel ID="search_textBox_UpdatePanel" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
-                    <asp:TextBox CssClass="textBox" ID="search_textBox" runat="server" value="" placeholder="Type in at least 3 letters of the search term" />
+                    <asp:TextBox CssClass="textBox" ID="search_textBox" runat="server" placeholder="Type in at least 3 letters of the search term" />
                     <asp:AutoCompleteExtender ID="AutoCompleteExtender" runat="server" ServiceMethod="GetAutoCompleteData" TargetControlID="search_textBox" CompletionInterval="100" CompletionSetCount="5" MinimumPrefixLength="1"></asp:AutoCompleteExtender>
                 </ContentTemplate>
             </asp:UpdatePanel>

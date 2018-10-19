@@ -139,13 +139,13 @@
             <asp:Table ID="cell_component_table" runat="server">
                 <asp:TableRow>
                     <asp:TableCell>
-                        <asp:HyperLink class="white-link" ID="cell_component1" NavigateUrl="navigateurl" runat="server" />
+                        <asp:HyperLink CssClass="white-link" ID="cell_component1" NavigateUrl="navigateurl" runat="server" />
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:HyperLink class="white-link" ID="cell_component2" NavigateUrl="navigateurl" runat="server" />
+                        <asp:HyperLink CssClass="white-link" ID="cell_component2" NavigateUrl="navigateurl" runat="server" />
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:HyperLink class="white-link" ID="cell_component3" NavigateUrl="navigateurl" runat="server" />
+                        <asp:HyperLink CssClass="white-link" ID="cell_component3" NavigateUrl="navigateurl" runat="server" />
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
@@ -161,13 +161,13 @@
             <asp:Table ID="molecular_function_table" runat="server">
                 <asp:TableRow>
                     <asp:TableCell>
-                        <asp:HyperLink class="white-link" ID="mo1" NavigateUrl="navigateurl" runat="server" />
+                        <asp:HyperLink CssClass="white-link" ID="mo1" NavigateUrl="navigateurl" runat="server" />
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:HyperLink class="white-link" ID="mo2" NavigateUrl="navigateurl" runat="server" />
+                        <asp:HyperLink CssClass="white-link" ID="mo2" NavigateUrl="navigateurl" runat="server" />
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:HyperLink class="white-link" ID="mo3" NavigateUrl="navigateurl" runat="server" />
+                        <asp:HyperLink CssClass="white-link" ID="mo3" NavigateUrl="navigateurl" runat="server" />
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
@@ -183,12 +183,12 @@
             <asp:Table ID="biological_process_table" runat="server">
                 <asp:TableRow>
                     <asp:TableCell>
-                        <asp:HyperLink class="white-link" ID="bo1" NavigateUrl="navigateurl" runat="server" />
+                        <asp:HyperLink CssClass="white-link" ID="bo1" NavigateUrl="navigateurl" runat="server" />
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:HyperLink class="white-link" ID="bo2" NavigateUrl="navigateurl" runat="server" />
+                        <asp:HyperLink CssClass="white-link" ID="bo2" NavigateUrl="navigateurl" runat="server" />
                     </asp:TableCell><asp:TableCell>
-                        <asp:HyperLink class="white-link" ID="bo3" NavigateUrl="navigateurl" runat="server" />
+                        <asp:HyperLink CssClass="white-link" ID="bo3" NavigateUrl="navigateurl" runat="server" />
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
@@ -232,9 +232,9 @@
             <p class="p-side">UniProt ID:</p>
         </div>
         <div class="c-col body-content">
-            <asp:HyperLink class="white-link" ID="uniprot_id" NavigateUrl="navigateurl" runat="server" value="" />
+            <asp:HyperLink CssClass="white-link" ID="uniprot_id" NavigateUrl="navigateurl" runat="server" />
             <br />
-            <asp:HyperLink class="white-link" ID="uniprot_entry" NavigateUrl="navigateurl" runat="server" />
+            <asp:HyperLink CssClass="white-link" ID="uniprot_entry" NavigateUrl="navigateurl" runat="server" />
         </div>
         <div class="c-col advertisment-content"></div>
     </div>
@@ -244,7 +244,7 @@
             <p class="p-side">NCBI RefSeq ID:</p>
         </div>
         <div class="c-col body-content">
-            <asp:HyperLink class="white-link" ID="ncbi_refseq_id" NavigateUrl="navigateurl" runat="server" value="" />
+            <asp:HyperLink CssClass="white-link" ID="ncbi_refseq_id" NavigateUrl="navigateurl" runat="server" />
         </div>
         <div class="c-col advertisment-content"></div>
     </div>
@@ -265,7 +265,7 @@
             <p class="p-side">PhosphoNET ID:</p>
         </div>
         <div class="c-col body-content">
-            <asp:HyperLink class="white-link" ID="phosphonet_id" NavigateUrl="navigateurl" runat="server" />
+            <asp:HyperLink CssClass="white-link" ID="phosphonet_id" NavigateUrl="navigateurl" runat="server" />
         </div>
         <div class="c-col advertisment-content"></div>
     </div>
@@ -275,7 +275,7 @@
             <p class="p-side">PhosphoSitePlus:</p>
         </div>
         <div class="c-col body-content">
-            <asp:HyperLink class="white-link" ID="phosphositeplus" NavigateUrl="navigateurl" runat="server" />
+            <asp:HyperLink CssClass="white-link" ID="phosphositeplus" NavigateUrl="navigateurl" runat="server" />
         </div>
         <div class="c-col advertisment-content"></div>
     </div>
@@ -285,7 +285,7 @@
             <p class="p-side">KinaseNET ID:</p>
         </div>
         <div class="c-col body-content">
-            <asp:HyperLink class="white-link" ID="kinasenet_id" NavigateUrl="navigateurl" runat="server" />
+            <asp:HyperLink CssClass="white-link" ID="kinasenet_id" NavigateUrl="navigateurl" runat="server" />
         </div>
         <div class="c-col advertisment-content"></div>
     </div>
@@ -295,7 +295,7 @@
             <p class="p-side">OncoNET ID:</p>
         </div>
         <div class="c-col body-content">
-            <asp:HyperLink class="white-link" ID="onconet_id" NavigateUrl="navigateurl" runat="server" />
+            <asp:HyperLink CssClass="white-link" ID="onconet_id" NavigateUrl="navigateurl" runat="server" />
         </div>
         <div class="c-col advertisment-content"></div>
     </div>
@@ -345,7 +345,7 @@
             <p class="p-side">NCBI Nucleotide ID:</p>
         </div>
         <div class="c-col body-content">
-            <asp:HyperLink class="white-link" ID="ncbi_nucleotide_id" NavigateUrl="navigateurl" runat="server" />
+            <asp:HyperLink CssClass="white-link" ID="ncbi_nucleotide_id" NavigateUrl="navigateurl" runat="server" />
         </div>
         <div class="c-col advertisment-content"></div>
     </div>
@@ -355,7 +355,7 @@
             <p class="p-side">NCBI Gene ID:</p>
         </div>
         <div class="c-col body-content">
-            <asp:HyperLink class="white-link" ID="ncbi_gene_id" NavigateUrl="navigateurl" runat="server" />
+            <asp:HyperLink CssClass="white-link" ID="ncbi_gene_id" NavigateUrl="navigateurl" runat="server" />
         </div>
         <div class="c-col advertisment-content"></div>
     </div>
