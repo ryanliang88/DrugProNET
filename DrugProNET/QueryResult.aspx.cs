@@ -85,7 +85,7 @@ namespace DrugProNET
                 + " (BINDINGDB); Kd(nM): " + PDB_Info.Kd_nM_
                 + " (BINDINGDB)";
 
-            // drug_information_result_url.NavigateUrl =
+            drug_information_result_url.NavigateUrl = "http://localhost:50542/DrugInfoResult.aspx?query_string=" + drug.Drug_PDB_ID;
         }
 
         public void LoadProtein(C18OC3_DrugProNET_A_Protein_Info protein)
