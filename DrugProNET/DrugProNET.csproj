@@ -1090,9 +1090,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EF_DB_Model.edmx</DependentUpon>
     </Compile>
-    <Compile Include="ExcelWriter\ExcelWriter.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="QueryResult.aspx.cs">
       <DependentUpon>QueryResult.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
