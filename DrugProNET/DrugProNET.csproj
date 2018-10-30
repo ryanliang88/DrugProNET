@@ -138,7 +138,6 @@
     <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-8v0.1.jpg" />
     <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-9v0.1.jpg" />
     <Content Include="Advertisement\Images\ads_xml.xml" />
-    <Content Include="CalculateDistance\1jaq.pdb" />
     <Content Include="Credits.aspx" />
     <Content Include="CSS\3_column.css" />
     <Content Include="CSS\base_style.css" />
@@ -163,6 +162,7 @@
       <DependentUpon>EF_DB_Model.edmx</DependentUpon>
       <LastGenOutput>EF_DB_Model.cs</LastGenOutput>
     </Content>
+    <Content Include="ExcelWriterTestPage.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="HtmlPage1.html" />
     <Content Include="Images\AminoAcidImages\Alanine-Ala-A.jpg" />
@@ -1090,6 +1090,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EF_DB_Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="ExcelWriterTestPage.aspx.cs">
+      <DependentUpon>ExcelWriterTestPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExcelWriterTestPage.aspx.designer.cs">
+      <DependentUpon>ExcelWriterTestPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExcelWriter\ExcelWriter.cs" />
     <Compile Include="QueryResult.aspx.cs">
       <DependentUpon>QueryResult.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1169,6 +1177,7 @@
     <Content Include="Libraries\Bootstrap 3.3.7\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Libraries\Bootstrap 3.3.7\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Libraries\Bootstrap 3.3.7\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Temp\spreadsheet.xlsx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
