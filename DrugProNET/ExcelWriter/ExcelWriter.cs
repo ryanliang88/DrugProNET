@@ -36,11 +36,7 @@ namespace DrugProNET
             excel.Workbook.Worksheets.Add("A");
             ExcelWorksheet worksheet = excel.Workbook.Worksheets["A"];
 
-            if (header != null)
-            {
-                AddHeader(worksheet, header);
-            }
-
+            AddHeader(worksheet, header);
             AddData(worksheet, data);
 
             // Must be called AFTER filling with data
