@@ -30,10 +30,12 @@ namespace DrugProNET
 
             ExcelWriter.CreateInTemp(header, data);
 
+            Response.ClearContent();
             Response.Clear();
-            Response.ContentType = "application/force-download";
-            Response.AddHeader("content-disposition", "attachment; filename=file.xlsx");
+            Response.ContentType = "application/octet-stream";
+            Response.AddHeader("Content-Disposition", "attachment; filename=spreadsheet.xlsx");
             Response.BinaryWrite(ExcelWriter.CreateAsStream(header, data).ToArray());
+            Response.Flush();
             Response.End();
         }
     }
