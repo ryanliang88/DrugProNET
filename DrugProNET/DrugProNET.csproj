@@ -53,7 +53,11 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="EPPlus, Version=4.5.2.1, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.5.2.1\lib\net40\EPPlus.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PresentationCore" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -134,7 +138,6 @@
     <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-8v0.1.jpg" />
     <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-9v0.1.jpg" />
     <Content Include="Advertisement\Images\ads_xml.xml" />
-    <Content Include="CalculateDistance\1jaq.pdb" />
     <Content Include="Credits.aspx" />
     <Content Include="CSS\3_column.css" />
     <Content Include="CSS\base_style.css" />
@@ -160,7 +163,6 @@
       <LastGenOutput>EF_DB_Model.cs</LastGenOutput>
     </Content>
     <Content Include="favicon.ico" />
-    <Content Include="HtmlPage1.html" />
     <Content Include="Images\AminoAcidImages\Alanine-Ala-A.jpg" />
     <Content Include="Images\AminoAcidImages\Arginine-Arg-R.jpg" />
     <Content Include="Images\AminoAcidImages\Asparagine-Asn-N.jpg" />
@@ -1086,6 +1088,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EF_DB_Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="ExcelWriter\ExcelWriter.cs" />
     <Compile Include="QueryResult.aspx.cs">
       <DependentUpon>QueryResult.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1165,6 +1168,7 @@
     <Content Include="Libraries\Bootstrap 3.3.7\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Libraries\Bootstrap 3.3.7\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Libraries\Bootstrap 3.3.7\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Temp\spreadsheet.xlsx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
