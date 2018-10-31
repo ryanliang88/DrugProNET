@@ -10,7 +10,7 @@
 namespace DrugProNET {
     
     
-    public partial class DrugQuery {
+    public partial class SNVDrugResult {
         
         /// <summary>
         /// ad_update_panel control.
@@ -49,48 +49,66 @@ namespace DrugProNET {
         protected global::System.Web.UI.WebControls.Image adBanner;
         
         /// <summary>
-        /// search_textBox control.
+        /// snv_id control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox search_textBox;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl snv_id;
         
         /// <summary>
-        /// search_pullDown control.
+        /// gene_name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList search_pullDown;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl gene_name;
         
         /// <summary>
-        /// amino_acid_pulldown control.
+        /// uniprot_id control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList amino_acid_pulldown;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl uniprot_id;
         
         /// <summary>
-        /// generate_table_button control.
+        /// ncbi_refseq_id control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button generate_table_button;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ncbi_refseq_id;
         
         /// <summary>
-        /// reset_button control.
+        /// chromosome_location control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button reset_button;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl chromosome_location;
+        
+        /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
+        
+        /// <summary>
+        /// interaction_list control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table interaction_list;
     }
 }

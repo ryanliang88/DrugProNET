@@ -10,7 +10,7 @@
 namespace DrugProNET {
     
     
-    public partial class DrugQuery {
+    public partial class SNVDrugQuery {
         
         /// <summary>
         /// ad_update_panel control.
@@ -49,48 +49,30 @@ namespace DrugProNET {
         protected global::System.Web.UI.WebControls.Image adBanner;
         
         /// <summary>
-        /// search_textBox control.
+        /// TextBox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox search_textBox;
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
         
         /// <summary>
-        /// search_pullDown control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList search_pullDown;
+        protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
-        /// amino_acid_pulldown control.
+        /// Button2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList amino_acid_pulldown;
-        
-        /// <summary>
-        /// generate_table_button control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button generate_table_button;
-        
-        /// <summary>
-        /// reset_button control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button reset_button;
+        protected global::System.Web.UI.WebControls.Button Button2;
     }
 }
