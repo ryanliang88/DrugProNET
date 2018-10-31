@@ -10,6 +10,27 @@ using System.Web;
 
 namespace DrugProNET
 {
+    /**
+     * 
+     * Usage
+     * 
+     * Downloading from MemoryStream
+     * ----------------------------------------------------------------------------------
+     * Response.ClearContent();
+     * Response.Clear();
+     * Response.ContentType = "application/x-unknown";
+     * Response.AddHeader("Content-Disposition", "attachment; filename=spreadsheet.xlsx");
+     * Response.BinaryWrite(ExcelWriter.CreateAsStream(header, data).ToArray());
+     * Response.Flush();
+     * Response.End();
+     * ----------------------------------------------------------------------------------
+     * 
+     * Writing into Temp folder
+     * ----------------------------------------------------------------------------------
+     * ExcelWriter.CreateInTemp(header, data);
+     * ----------------------------------------------------------------------------------
+     * 
+     **/
     public class ExcelWriter
     {
         private const string TEMP_PATH = "Temp";

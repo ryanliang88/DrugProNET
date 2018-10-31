@@ -162,7 +162,6 @@
       <DependentUpon>EF_DB_Model.edmx</DependentUpon>
       <LastGenOutput>EF_DB_Model.cs</LastGenOutput>
     </Content>
-    <Content Include="ExcelWriterTestPage.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Images\AminoAcidImages\Alanine-Ala-A.jpg" />
     <Content Include="Images\AminoAcidImages\Arginine-Arg-R.jpg" />
@@ -1088,13 +1087,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EF_DB_Model.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="ExcelWriterTestPage.aspx.cs">
-      <DependentUpon>ExcelWriterTestPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ExcelWriterTestPage.aspx.designer.cs">
-      <DependentUpon>ExcelWriterTestPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="ExcelWriter\ExcelWriter.cs" />
     <Compile Include="QueryResult.aspx.cs">
