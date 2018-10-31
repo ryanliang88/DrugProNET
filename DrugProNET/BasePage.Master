@@ -8,21 +8,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title></title>
-    <link rel="icon" href="./images/icon.png">
+    <link rel="icon" href="./Images/icon.png">
 
     <!-- Bootstrap CDNs -->
-    <link rel="stylesheet" href="./Libraries/Bootstrap 3.3.7/css/bootstrap.min.css">
-    <script src="./Libraries/Jquery 3.3.1/jquery-3.3.1.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="./Libraries/Bootstrap 3.3.7/css/bootstrap.min.css" runat="server" />
+    <script src="./Libraries/JQuery 3.3.1/jquery-3.3.1.min.js"></script>
     <script src="./Libraries/Bootstrap 3.3.7/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="./css/base_style.css">
+    <link type="text/css" rel="stylesheet" href="./CSS/base_style.css" runat="server" />
     <asp:ContentPlaceHolder ID="CSSContentPlaceHolder" runat="server">
     </asp:ContentPlaceHolder>
     <script src="./Scripts/OptionSelectRedirection.js"></script>
 </head>
 <body>
     <form runat="server">
-        <asp:ScriptManager ID="script_manager" runat="server" EnablePageMethods="true" />
+        <asp:ScriptManager ID="script_manager" runat="server" EnablePageMethods="true" EnableCdn="true" />
         <div class="main-container">
             <div id="website-banner" class="banner">
                 <img id="banner-image" src="./images/DrugProNETBannerN.png" alt="Unable to display image" usemap="#banner-map">
