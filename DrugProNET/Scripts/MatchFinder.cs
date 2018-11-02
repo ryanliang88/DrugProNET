@@ -6,43 +6,37 @@ using System.Web;
 
 namespace DrugProNET.Scripts
 {
-    public class MatchFinder<T>
+    public class MatchFinder
     {
-        public static List<string> FindMatches(string prefix, List<string> dataList, int start, int count, Comparison<string> compare)
+        public static List<string> FindTopNMatches(string prefix, List<string> dataList, int n)
+        {
+            return FindMatches(prefix, dataList, 0, n,
+                (a, b) => a.ToLower().StartsWith(b.ToLower()),
+                (a, b) => a.CompareTo(b));
+        }
+
+        private static List<string> FindMatches(string token, List<string> dataList, int start, int count, Compare compare, Comparison<string> sortCompare)
         {
             List<string> matches = new List<string>();
-            foreach (string data in dataList)
+
+            if (dataList != null)
             {
-                if (data.ToLower().StartsWith(prefix.ToLower())) matches.Add(data);
-            }
-
-            matches.Sort(Comparer<string>.Create(compare));
-
-            return (matches.Count < count) ? matches.GetRange(start, matches.Count) : matches.GetRange(start, count);
-        }
-
-        public static List<T> FindMatches
-            (T token,
-            List<T> dataList,
-            int start,
-            int count,
-            Compare compare,
-            Comparison<T> sortCompare)
-        {
-            List<T> matches = new List<T>();
-            foreach (T data in dataList)
-            {
-                if (compare(data, token))
+                foreach (string data in dataList)
                 {
-                    matches.Add(data);
+                    if (compare(data, token))
+                    {
+                        matches.Add(data);
+                    }
+
+                    matches.Sort(sortCompare);
                 }
 
-                matches.Sort(sortCompare);
+                matches = (matches.Count < count) ? matches.GetRange(start, matches.Count) : matches.GetRange(start, count);
             }
-
-            return (matches.Count < count) ? matches.GetRange(start, matches.Count) : matches.GetRange(start, count);
+           
+            return matches;
         }
 
-        public delegate bool Compare(T a, T b);
+        public delegate bool Compare(string a, string b);
     }
 }

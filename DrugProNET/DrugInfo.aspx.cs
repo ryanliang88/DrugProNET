@@ -52,24 +52,19 @@ namespace DrugProNET
                     {
                         DbSet<C18OC3_DrugProNET_B_Drug_Info> dbSet = context.C18OC3_DrugProNET_B_Drug_Info;
 
-                        foreach (C18OC3_DrugProNET_B_Drug_Info drug in dbSet.ToList())
+                        foreach (C18OC3_DrugProNET_B_Drug_Info d in dbSet.ToList())
                         {
-                            if (!string.IsNullOrEmpty(drug.Drug_Common_Name))
-                            {
-                                valuesList.Add(drug.Drug_Common_Name);
-                            }
-                            if (!string.IsNullOrEmpty(drug.Compound_CAS_ID))
-                            {
-                                valuesList.Add(drug.Compound_CAS_ID);
-                            }
-                            if (!string.IsNullOrEmpty(drug.PubChem_CID)) // CID or SID?
-                            {
-                                valuesList.Add(drug.PubChem_CID);
-                            }
-                            if (!string.IsNullOrEmpty(drug.ChEMBL_ID))
-                            {
-                                valuesList.Add(drug.ChEMBL_ID);
-                            }
+                            AddIfExists(valuesList,
+                                d.Compound_CAS_ID,
+                                d.ChEMBL_ID,
+                                d.PubChem_SID,
+                                d.Drug_PDB_ID,
+                                d.Drug_Common_Name,
+                                d.Drug_Chemical_Name,
+                                d.Other_Drug_Name_Alias,
+                                d.Drug_InChl,
+                                d.ChemSpider_ID,
+                                d.ChEBI_ID);
                         }
 
                         if (valuesList.Count != 0)
@@ -84,12 +79,19 @@ namespace DrugProNET
                 }
             }
 
-            // cached may be null if (valuesList == 0). 
-            // This section has not been fully tested.
+            int maxResultSize = 5;
+            return MatchFinder.FindTopNMatches(prefixText, cached, maxResultSize);
+        }
 
-            return MatchFinder<string>.FindMatches(prefixText, cached, 0, 5,
-                (a, b) => a.ToLower().StartsWith(b.ToLower()),
-                (a, b) => a.CompareTo(b));
+        private static void AddIfExists(List<string> list, params string[] values)
+        {
+            foreach (string value in values)
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    list.Add(value);
+                }
+            }
         }
     }
 }

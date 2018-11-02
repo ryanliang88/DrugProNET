@@ -21,14 +21,22 @@ namespace DrugProNET
 
                 foreach (C18OC3_DrugProNET_B_Drug_Info d in dbSet)
                 {
-                    if (IsQueryInValues(query, d.Compound_CAS_ID, d.ChEMBL_ID, d.PubChem_CID,
-                        d.PubChem_SID, d.Drug_PDB_ID))
+                    if (IsQueryInValues(query,
+                        d.Compound_CAS_ID,
+                        d.ChEMBL_ID,
+                        d.PubChem_SID,
+                        d.Drug_PDB_ID,
+                        d.Drug_Common_Name,
+                        d.Drug_Chemical_Name,
+                        d.Other_Drug_Name_Alias,
+                        d.Drug_InChl,
+                        d.ChemSpider_ID,
+                        d.ChEBI_ID))
                     {
                         drug = d;
                         break;
                     }
                 }
-
             }
 
             return drug;
@@ -42,8 +50,22 @@ namespace DrugProNET
             {
                 DbSet<C18OC3_DrugProNET_A_Protein_Info> dbSet = context.C18OC3_DrugProNET_A_Protein_Info;
 
-
-
+                foreach (C18OC3_DrugProNET_A_Protein_Info p in dbSet)
+                {
+                    if (IsQueryInValues(query,
+                        p.Protein_Short_Name,
+                        p.Protein_Full_Name,
+                        p.NCBI__Gene_ID,
+                        p.PDB_Protein_Name,
+                        p.Protein_Alias,
+                        p.Uniprot_ID,
+                        p.NCBI_RefSeq_NP_ID,
+                        p.NCBI_Gene_Name,
+                        p.PhosphoNET_Name))
+                    {
+                        protein = p;
+                    }
+                }
             }
 
             return protein;

@@ -19,8 +19,14 @@ namespace DrugProNET
 
         protected void RetrieveData(object sender, EventArgs e)
         {
-            Response.Redirect("ProteinInfoResult.aspx?query_string=" + search_textBox.Text, false);
-            Context.ApplicationInstance.CompleteRequest();
+            string query = search_textBox.Text;
+            C18OC3_DrugProNET_A_Protein_Info protein = EF_Data.GetProtein(query);
+
+            if (protein != null)
+            {
+                Response.Redirect("ProteinInfoResult.aspx?query_string=" + query, false);
+                Context.ApplicationInstance.CompleteRequest();
+            }
         }
 
         protected void ResetForm(object sender, EventArgs e)
@@ -32,39 +38,30 @@ namespace DrugProNET
         [ScriptMethod]
         public static List<string> GetAutoCompleteData(string prefixText, int count)
         {
-            if (cached == null)
+            int minPrefixLength = 3;
+            List<string> valuesList = new List<string>();
+
+            if (cached == null && prefixText.Length >= minPrefixLength)
             {
                 try
                 {
-                    List<string> valuesList = new List<string>();
-
                     using (SampleDatabaseEntities context = new SampleDatabaseEntities())
                     {
 
                         DbSet<C18OC3_DrugProNET_A_Protein_Info> dbSet = context.C18OC3_DrugProNET_A_Protein_Info;
 
-                        foreach (C18OC3_DrugProNET_A_Protein_Info protein in dbSet.ToList())
+                        foreach (C18OC3_DrugProNET_A_Protein_Info p in dbSet.ToList())
                         {
-                            if (!string.IsNullOrEmpty(protein.NCBI__Gene_ID))
-                            {
-                                valuesList.Add(protein.NCBI__Gene_ID);
-                            }
-                            if (!string.IsNullOrEmpty(protein.Protein_Short_Name))
-                            {
-                                valuesList.Add(protein.Protein_Short_Name);
-                            }
-                            if (!string.IsNullOrEmpty(protein.Protein_Full_Name))
-                            {
-                                valuesList.Add(protein.Protein_Full_Name);
-                            }
-                            if (!string.IsNullOrEmpty(protein.Uniprot_ID))
-                            {
-                                valuesList.Add(protein.Uniprot_ID);
-                            }
-                            if (!string.IsNullOrEmpty(protein.NCBI_RefSeq_NP_ID))
-                            {
-                                valuesList.Add(protein.NCBI_RefSeq_NP_ID);
-                            }
+                            AddIfExists(valuesList,
+                                p.Protein_Short_Name,
+                                p.Protein_Full_Name,
+                                p.NCBI__Gene_ID,
+                                p.PDB_Protein_Name,
+                                p.Protein_Alias,
+                                p.Uniprot_ID,
+                                p.NCBI_RefSeq_NP_ID,
+                                p.NCBI_Gene_Name,
+                                p.PhosphoNET_Name);
                         }
 
                         if (valuesList.Count != 0)
@@ -79,12 +76,21 @@ namespace DrugProNET
                 }
             }
 
-            // cached may be null if (valuesList == 0). 
-            // This section has not been fully tested.
+            int maxResultSize = 5;
+            return MatchFinder.FindTopNMatches(prefixText, cached, maxResultSize);
+        }
 
-            return MatchFinder<string>.FindMatches(prefixText, cached, 0, 5, 
-                (a, b) => a.ToLower().StartsWith(b.ToLower()), 
-                (a, b) => a.CompareTo(b));
+        
+
+        private static void AddIfExists(List<string> list, params string[] values)
+        {
+            foreach (string value in values)
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    list.Add(value);
+                }
+            }
         }
     }
 }

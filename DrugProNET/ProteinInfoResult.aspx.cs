@@ -15,6 +15,7 @@ namespace DrugProNET
         protected new void Page_Load(object sender, EventArgs e)
         {
             base.Page_Load(sender, e);
+
             string query = Request.QueryString["query_string"];
 
             C18OC3_DrugProNET_A_Protein_Info protein = EF_Data.GetProtein(query);
