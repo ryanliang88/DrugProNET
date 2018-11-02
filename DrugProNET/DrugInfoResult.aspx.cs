@@ -15,15 +15,14 @@ namespace DrugProNET
         protected new void Page_Load(object sender, EventArgs e)
         {
             base.Page_Load(sender, e);
-            string query = Request.QueryString["query_string"];
 
-            C18OC3_DrugProNET_B_Drug_Info drug = EF_Data.GetDrug(query);
-            LoadData(drug);
+            string query = Request.QueryString["query_string"];
+            LoadData(EF_Data.GetDrug(query));
         }
 
         private void ProcessRow(Control control, Control textControl, string text, string url = null)
         {
-            string[] arr = { "N/A" };
+            string[] arr = { "N/A", "NULL" };
             if (!string.IsNullOrEmpty(text) && !Array.Exists(arr, element => element == text))
             {
                 if (textControl.GetType() == typeof(HtmlGenericControl))

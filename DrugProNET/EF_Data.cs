@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 
@@ -15,11 +16,17 @@ namespace DrugProNET
             using (SampleDatabaseEntities context = new SampleDatabaseEntities())
             {
                 DbSet<C18OC3_DrugProNET_B_Drug_Info> dbSet = context.C18OC3_DrugProNET_B_Drug_Info;
-                // drug = dbSet.Where(d => d.ChEMBL_ID == query).ToList()[0];
 
-                if (drug == null)
+                query = query.ToLower();
+
+                foreach (C18OC3_DrugProNET_B_Drug_Info d in dbSet)
                 {
-                    drug = dbSet.Where(d => d.Drug_PDB_ID == query).ToList()[0];
+                    if (IsQueryInValues(query, d.Compound_CAS_ID, d.ChEMBL_ID, d.PubChem_CID,
+                        d.PubChem_SID, d.Drug_PDB_ID))
+                    {
+                        drug = d;
+                        break;
+                    }
                 }
 
             }
@@ -34,7 +41,9 @@ namespace DrugProNET
             using (SampleDatabaseEntities context = new SampleDatabaseEntities())
             {
                 DbSet<C18OC3_DrugProNET_A_Protein_Info> dbSet = context.C18OC3_DrugProNET_A_Protein_Info;
-                protein = dbSet.Where(p => p.Uniprot_ID == query).ToList()[0];
+
+
+
             }
 
             return protein;
@@ -57,5 +66,9 @@ namespace DrugProNET
 
         }
 
+        private static bool IsQueryInValues(string query, params string[] values)
+        {
+            return values.Select(value => value?.ToLower()).ToArray().Contains(query?.ToLower());
+        }
     }
 }

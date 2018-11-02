@@ -23,8 +23,14 @@ namespace DrugProNET
 
         protected void RetrieveData(object sender, EventArgs e)
         {
-            Response.Redirect("DrugInfoResult.aspx?query_string=" + search_textBox.Text, false);
-            Context.ApplicationInstance.CompleteRequest();
+            string query = search_textBox.Text;
+            C18OC3_DrugProNET_B_Drug_Info drug = EF_Data.GetDrug(query);
+
+            if (drug != null)
+            { 
+                Response.Redirect("DrugInfoResult.aspx?query_string=" + query, false);
+                Context.ApplicationInstance.CompleteRequest();
+            }
         }
 
         protected void ResetForm(object sender, EventArgs e)
