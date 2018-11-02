@@ -76,9 +76,9 @@
     }
 
 .h3-side-title {
-    color: #9999cc;
+    color: #FFC300;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 14px;    
 }
 
 .h3-side-title-gold {
@@ -96,7 +96,7 @@
 }
 
 p {
-    color: white;
+    color: #e2e2e2;
 }
 
 .image-content {

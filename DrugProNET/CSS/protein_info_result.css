@@ -5,7 +5,7 @@
 }
 
 .h3-side-title {
-    color: #9999cc;
+    color: #FFC300;
     font-weight: bold;
     font-size: 14px;
 }
@@ -41,7 +41,7 @@ table > tbody > tr > td {
 }
 
 p {
-    color: white;
+    color: #e2e2e2;
 }
 
 .white-link {
