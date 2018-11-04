@@ -1,17 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BasePage.Master" AutoEventWireup="true" CodeBehind="DrugQuery.aspx.cs" Inherits="DrugProNET.DrugQuery" %>
 
-<asp:Content runat="server" ContentPlaceHolderID="CSSContentPlaceHolder">
-    <%-- Place your CSS link tags here, do NOT add the base_style.css in this tag, it is already included in the master page --%>
+<asp:Content runat="server" ContentPlaceHolderID="HeadContentPlaceHolder">
 
-    <%-- This stylesheet should be included since this is a 3 column template --%>
     <link rel="stylesheet" href="./css/3_column.css" />
     <link rel="stylesheet" href="./css/drug_info.css" />
     <link rel="stylesheet" href="./css/query_page.css" />
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="BodyContentPlaceHolder">
-
-    <%-- First row --%>
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
@@ -40,9 +36,7 @@
             </asp:UpdatePanel>
         </div>
     </div>
-    <%-- First row end --%>
 
-    <%-- Second row --%>
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
@@ -106,17 +100,6 @@
             <asp:Button ID="generate_table_button" CssClass="button" Text="Generate Table" runat="server" />
             <span>&emsp;&emsp;</span>
             <asp:Button ID="reset_button" CssClass="button" Text="Reset" runat="server" />
-
-        </div>
-    </div>
-    <%-- Second row end --%>
-
-    <div class="c-row">
-        <div class="c-col side-spacing"></div>
-        <div class="c-col side-content">
-            <h3 class="h3-side-title">Filters</h3>
-        </div>
-        <div class="c-col body-content">
 
         </div>
     </div>

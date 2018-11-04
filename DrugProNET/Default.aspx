@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" Title="DrugProNET | Home" AutoEventWireup="true" MasterPageFile="~/BasePage.Master" CodeBehind="Default.aspx.cs" Inherits="DrugProNET.Default" %>
 
-<asp:Content runat="server" ContentPlaceHolderID="CSSContentPlaceHolder">
+<asp:Content runat="server" ContentPlaceHolderID="HeadContentPlaceHolder">
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="BodyContentPlaceHolder">

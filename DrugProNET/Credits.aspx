@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" Title="DrugProNET | Credits" AutoEventWireup="true" MasterPageFile="~/BasePage.Master" CodeBehind="Credits.aspx.cs" Inherits="DrugProNET.Credits" %>
 
-<asp:Content runat="server" ContentPlaceHolderID="CSSContentPlaceHolder">
+<asp:Content runat="server" ContentPlaceHolderID="HeadContentPlaceHolder">
     <link rel="stylesheet" href="./css/credits.css" />
 </asp:Content>
 

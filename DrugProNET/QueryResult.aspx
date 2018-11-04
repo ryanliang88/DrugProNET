@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" Title="DrugProNET | Query Result" AutoEventWireup="true" MasterPageFile="~/BasePage.Master" CodeBehind="QueryResult.aspx.cs" Inherits="DrugProNET.QueryResult" %>
 
-<asp:Content runat="server" ContentPlaceHolderID="CSSContentPlaceHolder">
+<asp:Content runat="server" ContentPlaceHolderID="HeadContentPlaceHolder">
     <link rel="stylesheet" href="./css/3_column.css" />
     <link rel="stylesheet" href="./css/drug_info.css" />
     <link rel="stylesheet" href="./css/query_result.css" />

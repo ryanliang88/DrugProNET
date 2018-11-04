@@ -2,7 +2,7 @@
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
-<asp:Content runat="server" ContentPlaceHolderID="CSSContentPlaceHolder">
+<asp:Content runat="server" ContentPlaceHolderID="HeadContentPlaceHolder">
     <link rel="stylesheet" href="./css/3_column.css">
     <link rel="stylesheet" href="./css/drug_info.css">
 </asp:Content>

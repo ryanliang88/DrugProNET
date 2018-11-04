@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="DrugProNET | Protein Information Result" Language="C#" MasterPageFile="~/BasePage.Master" AutoEventWireup="true" CodeBehind="ProteinInfoResult.aspx.cs" Inherits="DrugProNET.ProteinInfoResult" %>
 
 
-<asp:Content runat="server" ContentPlaceHolderID="CSSContentPlaceHolder">
+<asp:Content runat="server" ContentPlaceHolderID="HeadContentPlaceHolder">
     <link rel="stylesheet" href="./css/3_column.css">
     <link rel="stylesheet" href="./css/protein_info_result.css">
 </asp:Content>
