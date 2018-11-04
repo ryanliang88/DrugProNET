@@ -67,58 +67,58 @@ namespace DrugProNET {
         protected global::System.Web.UI.WebControls.DropDownList search_drop_down;
         
         /// <summary>
-        /// distance_drop_down control.
+        /// interaction_distance_drop_down control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList distance_drop_down;
+        protected global::System.Web.UI.WebControls.DropDownList interaction_distance_drop_down;
         
         /// <summary>
-        /// protein_chain control.
+        /// protein_chain_checkbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox protein_chain;
+        protected global::System.Web.UI.WebControls.CheckBox protein_chain_checkbox;
         
         /// <summary>
-        /// protein_atoms control.
+        /// protein_atoms_checkbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox protein_atoms;
+        protected global::System.Web.UI.WebControls.CheckBox protein_atoms_checkbox;
         
         /// <summary>
-        /// protein_residues control.
+        /// protein_residues_checkbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox protein_residues;
+        protected global::System.Web.UI.WebControls.CheckBox protein_residues_checkbox;
         
         /// <summary>
-        /// protein_residue_number control.
+        /// protein_residue_number_checkbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox protein_residue_number;
+        protected global::System.Web.UI.WebControls.CheckBox protein_residue_number_checkbox;
         
         /// <summary>
-        /// drug_atoms control.
+        /// drug_atoms_checkbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox drug_atoms;
+        protected global::System.Web.UI.WebControls.CheckBox drug_atoms_checkbox;
         
         /// <summary>
         /// generate_table_button control.

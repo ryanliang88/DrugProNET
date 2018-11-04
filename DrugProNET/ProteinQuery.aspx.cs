@@ -14,22 +14,22 @@ namespace DrugProNET
             base.Page_Load(sender, e);
         }
 
-        protected void Reset_Click(object sender, EventArgs e)
+        protected void Reset_Button_Click(object sender, EventArgs e)
         {
+            search_textBox.Text = string.Empty;
+
             search_drop_down.SelectedIndex = 0;
 
-            search_textBox.Text = string.Empty;
+            interaction_distance_drop_down.SelectedIndex = 0;
 
             protein_chain_checkbox.Checked = false;
             protein_atoms_checkbox.Checked = false;
             protein_residues_checkbox.Checked = false;
             protein_residue_number_checkbox.Checked = false;
             drug_atoms_checkbox.Checked = false;
-
-            interaction_distance_drop_down.SelectedIndex = 0;
         }
 
-        protected void Generate_Table_Click(object sender, EventArgs e)
+        protected void Generate_Table_Button_Click(object sender, EventArgs e)
         {
             Response.Redirect("QueryResult.aspx?query_string=" + search_textBox.Text
                 + "&drug_specification=" + search_drop_down.SelectedValue

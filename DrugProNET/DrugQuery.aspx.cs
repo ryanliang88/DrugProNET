@@ -14,5 +14,33 @@ namespace DrugProNET
         {
             base.Page_Load(sender, e);
         }
+
+        protected void Reset_Button_Click(object sender, EventArgs e)
+        {
+            search_textBox.Text = string.Empty;
+
+            search_drop_down.SelectedIndex = 0;
+
+            interaction_distance_drop_down.SelectedIndex = 0;
+
+            protein_chain_checkbox.Checked = false;
+            protein_atoms_checkbox.Checked = false;
+            protein_residues_checkbox.Checked = false;
+            protein_residue_number_checkbox.Checked = false;
+            drug_atoms_checkbox.Checked = false;
+        }
+
+        protected void Generate_Table_Button_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("QueryResult.aspx?query_string=" + search_textBox.Text
+                + "&drug_specification=" + search_drop_down.SelectedValue
+                + "&interaction_distance=" + interaction_distance_drop_down.SelectedValue
+                + "&show_protein_chain=" + protein_chain_checkbox.Checked
+                + "&show_protein_atoms=" + protein_atoms_checkbox.Checked
+                + "&show_protein_residues=" + protein_residues_checkbox.Checked
+                + "&show_protein_residue_numbers=" + protein_residue_number_checkbox.Checked
+                + "&show_drug_atoms=" + drug_atoms_checkbox.Checked, false);
+            Context.ApplicationInstance.CompleteRequest();
+        }
     }
 }

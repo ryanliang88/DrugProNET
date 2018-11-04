@@ -73,7 +73,7 @@
             <h3 class="h3-body-title">Step 3 - Interaction Distance Specification</h3>
             <p>Use the pull-down menu below to select the maximum value for interaction distance (in Angstroms) between atoms.</p>
 
-            <asp:DropDownList CssClass="drop-down" ID="distance_drop_down" runat="server" value="">
+            <asp:DropDownList CssClass="drop-down" ID="interaction_distance_drop_down" runat="server" value="">
                 <asp:ListItem Text="5" Value="5"></asp:ListItem>
                 <asp:ListItem Text="0.5" Value="0.5"></asp:ListItem>
                 <asp:ListItem Text="1" Value="1"></asp:ListItem>
@@ -100,11 +100,11 @@
             <h3 class="h3-body-title">Step 4 - Display Parameter Specification</h3>
             <p>Boxes that are marked are activated to display. Click on boxes to change status.</p>
 
-            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_chain" runat="server" Text="Show protein chain" />
-            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_atoms" runat="server" Text="Show protein atoms" />
-            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_residues" runat="server" Text="Show protein residues" />
-            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_residue_number" runat="server" Text="Show protein residue number" />
-            <asp:CheckBox CssClass="checkbox-toggle" ID="drug_atoms" runat="server" Text="Show drug atoms" />
+            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_chain_checkbox" runat="server" Text="Show protein chain" />
+            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_atoms_checkbox" runat="server" Text="Show protein atoms" />
+            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_residues_checkbox" runat="server" Text="Show protein residues" />
+            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_residue_number_checkbox" runat="server" Text="Show protein residue number" />
+            <asp:CheckBox CssClass="checkbox-toggle" ID="drug_atoms_checkbox" runat="server" Text="Show drug atoms" />
         </div>
     </div>
 
@@ -115,9 +115,9 @@
             <h3 class="h3-body-title">Step 5 - Report Generation</h3>
             <p>Click on the box below to produce custom tables with results or to reset the parameters.</p>
 
-            <asp:Button ID="generate_table_button" CssClass="button" Text="Generate Table" runat="server" />
+            <asp:Button ID="generate_table_button" CssClass="button" Text="Generate Table" runat="server" OnClick="Generate_Table_Button_Click"/>
             <span>&emsp;&emsp;</span>
-            <asp:Button ID="reset_button" CssClass="button" Text="Reset" runat="server" />
+            <asp:Button ID="reset_button" CssClass="button" Text="Reset" runat="server" OnClick="Reset_Button_Click"/>
 
         </div>
     </div>
