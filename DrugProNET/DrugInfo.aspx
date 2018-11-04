@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" Title="DrugProNET | Drug Information" AutoEventWireup="true" MasterPageFile="~/BasePage.Master" CodeBehind="DrugInfo.aspx.cs" Inherits="DrugProNET.DrugInfo" MaintainScrollPositionOnPostback="true"  %>
+﻿<%@ Page Language="C#" Title="DrugProNET | Drug Information" AutoEventWireup="true" MasterPageFile="~/BasePage.Master" CodeBehind="DrugInfo.aspx.cs" Inherits="DrugProNET.DrugInfo" MaintainScrollPositionOnPostback="true" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 

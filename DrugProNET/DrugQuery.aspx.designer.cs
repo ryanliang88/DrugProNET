@@ -58,22 +58,22 @@ namespace DrugProNET {
         protected global::System.Web.UI.WebControls.TextBox search_textBox;
         
         /// <summary>
-        /// search_pullDown control.
+        /// search_drop_down control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList search_pullDown;
+        protected global::System.Web.UI.WebControls.DropDownList search_drop_down;
         
         /// <summary>
-        /// angstrom_distance_pulldown control.
+        /// distance_drop_down control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList angstrom_distance_pulldown;
+        protected global::System.Web.UI.WebControls.DropDownList distance_drop_down;
         
         /// <summary>
         /// protein_chain control.

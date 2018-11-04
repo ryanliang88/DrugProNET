@@ -144,6 +144,7 @@
     <Content Include="CSS\credits.css" />
     <Content Include="CSS\drug_info.css" />
     <Content Include="CSS\drug_info_result.css" />
+    <Content Include="CSS\drug_query.css" />
     <Content Include="CSS\protein_info.css" />
     <Content Include="CSS\protein_info_result.css" />
     <Content Include="CSS\protein_query.css" />

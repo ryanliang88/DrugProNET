@@ -1,20 +1,27 @@
-﻿.side-content {
-    color: #708591;
+﻿.h3-body-title {
+    color: #FFC300;
+    font-weight: bold;
+    font-size: 14px;
 }
 
-    .side-content h3 {
-        font-size: 14px;
-        font-weight: bold;
-    }
-
-.h3-body-title {
-    color: #FFC300;
+.h3-side-title {
+    color: #708591;
     font-weight: bold;
     font-size: 14px;
 }
 
 p {
     color: #738569;
+}
+
+.body-content {
+    padding-bottom: 1.3em;
+}
+
+.drop-down {
+    color: black;
+    height: 25px;
+    border-radius: .3em;
 }
 
 .checkbox-toggle {
@@ -40,12 +47,3 @@ p {
         vertical-align: middle;
     }
 
-.body-content {
-    padding-bottom: 1.3em;
-}
-
-.drop-down {
-    color: black;
-    height: 25px;
-    border-radius: .3em;
-}

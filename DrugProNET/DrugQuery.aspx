@@ -1,10 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BasePage.Master" AutoEventWireup="true" CodeBehind="DrugQuery.aspx.cs" Inherits="DrugProNET.DrugQuery" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BasePage.Master" AutoEventWireup="true" CodeBehind="DrugQuery.aspx.cs" Inherits="DrugProNET.DrugQuery" MaintainScrollPositionOnPostback="true" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="HeadContentPlaceHolder">
 
     <link rel="stylesheet" href="./css/3_column.css" />
-    <link rel="stylesheet" href="./css/drug_info.css" />
-    <link rel="stylesheet" href="./css/query_page.css" />
+    <link rel="stylesheet" href="./css/drug_query.css">
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="BodyContentPlaceHolder">
@@ -50,22 +49,31 @@
             </p>
 
             <asp:TextBox CssClass="textBox" ID="search_textBox" runat="server" value="" placeholder="Type in at least 3 letters of the search term" />
+        </div>
+    </div>
 
-            <br />
-
+    <div class="c-row">
+        <div class="c-col side-spacing"></div>
+        <div class="c-col side-content"></div>
+        <div class="c-col body-content">
             <h3 class="h3-body-title">Step 2 - Protein Specification</h3>
             <p>Use the pull-down menu below to select for the protein of interest.</p>
 
-            <asp:DropDownList CssClass="pulldown" ID="search_pullDown" runat="server" value="">
+            <asp:DropDownList CssClass="drop-down" ID="search_drop_down" runat="server" value="">
                 <asp:ListItem Text="Select from list of output options" Value="-1"></asp:ListItem>
             </asp:DropDownList>
 
-            <br />
+        </div>
+    </div>
 
+    <div class="c-row">
+        <div class="c-col side-spacing"></div>
+        <div class="c-col side-content"></div>
+        <div class="c-col body-content">
             <h3 class="h3-body-title">Step 3 - Interaction Distance Specification</h3>
             <p>Use the pull-down menu below to select the maximum value for interaction distance (in Angstroms) between atoms.</p>
 
-            <asp:DropDownList CssClass="pulldown" ID="angstrom_distance_pulldown" runat="server" value="">
+            <asp:DropDownList CssClass="drop-down" ID="distance_drop_down" runat="server" value="">
                 <asp:ListItem Text="5" Value="5"></asp:ListItem>
                 <asp:ListItem Text="0.5" Value="0.5"></asp:ListItem>
                 <asp:ListItem Text="1" Value="1"></asp:ListItem>
@@ -82,18 +90,28 @@
                 <asp:ListItem Text="7" Value="7"></asp:ListItem>
                 <asp:ListItem Text="7.5" Value="7.5"></asp:ListItem>
             </asp:DropDownList>
+        </div>
+    </div>
 
-            <br />
-
+    <div class="c-row">
+        <div class="c-col side-spacing"></div>
+        <div class="c-col side-content"></div>
+        <div class="c-col body-content">
             <h3 class="h3-body-title">Step 4 - Display Parameter Specification</h3>
             <p>Boxes that are marked are activated to display. Click on boxes to change status.</p>
 
-            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_chain" runat="server" Text="Show protein chain" AutoPostBack="true" /><br />
-            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_atoms" runat="server" Text="Show protein atoms" AutoPostBack="true" /><br />
-            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_residues" runat="server" Text="Show protein residues" AutoPostBack="true" /><br />
-            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_residue_number" runat="server" Text="Show protein residue number" AutoPostBack="true" /><br />
-            <asp:CheckBox CssClass="checkbox-toggle" ID="drug_atoms" runat="server" Text="Show drug atoms" AutoPostBack="true" /><br />
+            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_chain" runat="server" Text="Show protein chain" />
+            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_atoms" runat="server" Text="Show protein atoms" />
+            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_residues" runat="server" Text="Show protein residues" />
+            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_residue_number" runat="server" Text="Show protein residue number" />
+            <asp:CheckBox CssClass="checkbox-toggle" ID="drug_atoms" runat="server" Text="Show drug atoms" />
+        </div>
+    </div>
 
+    <div class="c-row">
+        <div class="c-col side-spacing"></div>
+        <div class="c-col side-content"></div>
+        <div class="c-col body-content">
             <h3 class="h3-body-title">Step 5 - Report Generation</h3>
             <p>Click on the box below to produce custom tables with results or to reset the parameters.</p>
 

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="DrugProNET | Protein Query" Language="C#" MasterPageFile="~/BasePage.Master" AutoEventWireup="true" CodeBehind="ProteinQuery.aspx.cs" Inherits="DrugProNET.ProteinQuery" %>
+﻿<%@ Page Title="DrugProNET | Protein Query" Language="C#" MasterPageFile="~/BasePage.Master" AutoEventWireup="true" CodeBehind="ProteinQuery.aspx.cs" Inherits="DrugProNET.ProteinQuery" MaintainScrollPositionOnPostback="true" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
@@ -65,7 +65,7 @@
         <div class="c-col body-content">
             <h3 class="h3-body-title">Step 2 - Drug Specification</h3>
             <p>Use the pull-down menu below to select for the drug of interest.</p>
-            <asp:DropDownList CssClass="pulldown" ID="search_pullDown" runat="server" value="">
+            <asp:DropDownList CssClass="drop-down" ID="search_pullDown" runat="server" value="">
                 <asp:ListItem Text="Select from list of output options" Value="-1" />
             </asp:DropDownList>
         </div>
@@ -77,7 +77,7 @@
         <div class="c-col body-content">
             <h3 class="h3-body-title">Step 3 - Interaction Distance Specification</h3>
             <p>Use the pull-down menu below to select the maximum value for interaction distance (in Angstroms) between atoms.</p>
-            <asp:DropDownList CssClass="pulldown" ID="interaction_distance_dropdown" runat="server" value="">
+            <asp:DropDownList CssClass="drop-down" ID="interaction_distance_dropdown" runat="server" value="">
                 <asp:ListItem Text="5" Value="5" />
                 <asp:ListItem Text="0.5" Value="0.5" />
                 <asp:ListItem Text="1" Value="1" />
