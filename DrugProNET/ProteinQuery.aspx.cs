@@ -16,27 +16,29 @@ namespace DrugProNET
 
         protected void Reset_Click(object sender, EventArgs e)
         {
-            search_pullDown.SelectedIndex = 0;
+            search_drop_down.SelectedIndex = 0;
+
             search_textBox.Text = string.Empty;
-            CheckBox1.Checked = false;
-            CheckBox2.Checked = false;
-            CheckBox3.Checked = false;
-            CheckBox3.Checked = false;
-            CheckBox4.Checked = false;
-            CheckBox5.Checked = false;
-            interaction_distance_dropdown.SelectedIndex = 0;
+
+            protein_chain_checkbox.Checked = false;
+            protein_atoms_checkbox.Checked = false;
+            protein_residues_checkbox.Checked = false;
+            protein_residue_number_checkbox.Checked = false;
+            drug_atoms_checkbox.Checked = false;
+
+            interaction_distance_drop_down.SelectedIndex = 0;
         }
 
         protected void Generate_Table_Click(object sender, EventArgs e)
         {
             Response.Redirect("QueryResult.aspx?query_string=" + search_textBox.Text
-                + "&drug_spec=" + search_pullDown.SelectedValue
-                + "&min_distance=" + interaction_distance_dropdown.SelectedValue
-                + "&show_protein_chain=" + CheckBox1.Checked
-                + "&show_protein_atoms=" + CheckBox2.Checked
-                + "&show_protein_residues=" + CheckBox3.Checked
-                + "&show_protein_residue_numbers=" + CheckBox4.Checked
-                + "&show_drug_atoms=" + CheckBox5.Checked, false);
+                + "&drug_specification=" + search_drop_down.SelectedValue
+                + "&interaction_distance=" + interaction_distance_drop_down.SelectedValue
+                + "&show_protein_chain=" + protein_chain_checkbox.Checked
+                + "&show_protein_atoms=" + protein_atoms_checkbox.Checked
+                + "&show_protein_residues=" + protein_residues_checkbox.Checked
+                + "&show_protein_residue_numbers=" + protein_residue_number_checkbox.Checked
+                + "&show_drug_atoms=" + drug_atoms_checkbox.Checked, false);
             Context.ApplicationInstance.CompleteRequest();
         }
     }

@@ -65,7 +65,7 @@
         <div class="c-col body-content">
             <h3 class="h3-body-title">Step 2 - Drug Specification</h3>
             <p>Use the pull-down menu below to select for the drug of interest.</p>
-            <asp:DropDownList CssClass="drop-down" ID="search_pullDown" runat="server" value="">
+            <asp:DropDownList CssClass="drop-down" ID="search_drop_down" runat="server" value="">
                 <asp:ListItem Text="Select from list of output options" Value="-1" />
             </asp:DropDownList>
         </div>
@@ -77,7 +77,7 @@
         <div class="c-col body-content">
             <h3 class="h3-body-title">Step 3 - Interaction Distance Specification</h3>
             <p>Use the pull-down menu below to select the maximum value for interaction distance (in Angstroms) between atoms.</p>
-            <asp:DropDownList CssClass="drop-down" ID="interaction_distance_dropdown" runat="server" value="">
+            <asp:DropDownList CssClass="drop-down" ID="interaction_distance_drop_down" runat="server" value="">
                 <asp:ListItem Text="5" Value="5" />
                 <asp:ListItem Text="0.5" Value="0.5" />
                 <asp:ListItem Text="1" Value="1" />
@@ -103,11 +103,11 @@
         <div class="c-col body-content">
             <h3 class="h3-body-title">Step 4 - Display Parameter Specification</h3>
             <p>Boxes that are marked are activated to display. Click on boxes to change status.</p>
-            <asp:CheckBox CssClass="checkbox-toggle" ID="CheckBox1" runat="server" Text="Show protein chain" />
-            <asp:CheckBox CssClass="checkbox-toggle" ID="CheckBox2" runat="server" Text="Show protein atoms" />
-            <asp:CheckBox CssClass="checkbox-toggle" ID="CheckBox3" runat="server" Text="Show protein residues" />
-            <asp:CheckBox CssClass="checkbox-toggle" ID="CheckBox4" runat="server" Text="Show protein residue number" />
-            <asp:CheckBox CssClass="checkbox-toggle" ID="CheckBox5" runat="server" Text="Show drug atoms" />
+            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_chain_checkbox" runat="server" Text="Show protein chain" />
+            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_atoms_checkbox" runat="server" Text="Show protein atoms" />
+            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_residues_checkbox" runat="server" Text="Show protein residues" />
+            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_residue_number_checkbox" runat="server" Text="Show protein residue number" />
+            <asp:CheckBox CssClass="checkbox-toggle" ID="drug_atoms_checkbox" runat="server" Text="Show drug atoms" />
         </div>
     </div>
 
