@@ -32,7 +32,6 @@ namespace DrugProNET
                 // First string can be anything
                 ScriptManager.RegisterStartupScript(Page, GetType(), "D_3DViewer", "javascript:loadDrugLigand('" + drug.Drug_PDB_ID + "');", true);
                 ScriptManager.RegisterStartupScript(Page, GetType(), "PDB_3DViewer", "javascript:loadStage('" + "1JAQ" + "', '" + drug.Drug_PDB_ID + "');", true);
-
             }
 
         }

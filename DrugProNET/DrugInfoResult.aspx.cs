@@ -53,7 +53,6 @@ namespace DrugProNET
 
         private void LoadData(C18OC3_DrugProNET_B_Drug_Info drug)
         {
-            //ProcessImage(compound_structure, "./Images/Compound Structure Images/" + drug.Compound_Structure_png);
             ScriptManager.RegisterStartupScript(Page, GetType(), "D_3DViewer_Info", "javascript:loadDrugLigandInfo('" + drug.Drug_PDB_ID + "');", true);
             ProcessRow(compound_name_row, compound_name, drug.Drug_Common_Name);
             ProcessRow(chemical_name_row, chemical_name, drug.Drug_Chemical_Name);
