@@ -1,11 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BasePage.Master" AutoEventWireup="true" CodeBehind="SNVIDResult.aspx.cs" Inherits="DrugProNET.SNVIDResult" %>
 
-<asp:Content runat="server" ContentPlaceHolderID="CSSContentPlaceHolder">
+<asp:Content runat="server" ContentPlaceHolderID="HeadContentPlaceHolder">
     <link rel="stylesheet" href="./css/3_column.css" />
     <link rel="stylesheet" href="./css/drug_info.css" />
     <link rel="stylesheet" href="./css/query_result.css" />
-
-    <script src="Scripts/3DViewer/ngl.js"></script>
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="BodyContentPlaceHolder">

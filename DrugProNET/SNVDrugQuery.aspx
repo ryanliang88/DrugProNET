@@ -1,9 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BasePage.Master" AutoEventWireup="true" CodeBehind="SNVDrugQuery.aspx.cs" Inherits="DrugProNET.SNVDrugQuery" %>
 
-<asp:Content runat="server" ContentPlaceHolderID="CSSContentPlaceHolder">
-    <%-- Place your CSS link tags here, do NOT add the base_style.css in this tag, it is already included in the master page --%>
-
-    <%-- This stylesheet should be included since this is a 3 column template --%>
+<asp:Content runat="server" ContentPlaceHolderID="HeadContentPlaceHolder">
     <link rel="stylesheet" href="./css/3_column.css" />
     <link rel="stylesheet" href="./css/drug_info.css" />
     <link rel="stylesheet" href="./css/query_page.css" />
@@ -11,8 +8,6 @@
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="BodyContentPlaceHolder">
-
-    <%-- First row --%>
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
@@ -40,9 +35,7 @@
             </asp:UpdatePanel>
         </div>
     </div>
-    <%-- First row end --%>
 
-    <%-- Second row --%>
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
@@ -93,5 +86,5 @@
 
         </div>
     </div>
-    <%-- Second row end --%>
+
 </asp:Content>
