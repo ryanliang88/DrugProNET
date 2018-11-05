@@ -544,15 +544,6 @@ namespace DrugProNET {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl compound_structure_col;
         
         /// <summary>
-        /// compound_structure control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage compound_structure;
-        
-        /// <summary>
         /// commentary_row control.
         /// </summary>
         /// <remarks>

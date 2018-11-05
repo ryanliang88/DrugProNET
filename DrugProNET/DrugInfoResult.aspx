@@ -3,6 +3,9 @@
 <asp:Content runat="server" ContentPlaceHolderID="HeadContentPlaceHolder">
     <link href="./css/drug_info_result.css" rel="stylesheet" />
     <link rel="stylesheet" href="./css/3_column.css">
+    <link rel="stylesheet" href="./css/3_column.css">
+    
+    <script src="Scripts/3DViewer/ngl.js"></script>
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="BodyContentPlaceHolder">
@@ -299,7 +302,8 @@
                         <p class="p-side">Compound Structure</p>
                     </div>
                     <div class="image-content">
-                        <img id="compound_structure" runat="server" src="./Images/placeholder.jpg" alt="Alternate Text" />
+                        <div id="D_3DViewer_viewport" style="width: 23em; height: 23em;"></div>
+                        <script src="Scripts/3DViewer/D_3DViewer_Info.js"></script>
                     </div>
                 </div>
             </div>
