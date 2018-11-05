@@ -150,8 +150,13 @@
     <Content Include="CSS\protein_query.css" />
     <Content Include="CSS\query_page.css" />
     <Content Include="CSS\query_result.css" />
+    <Content Include="CSS\snv_format.css" />
     <Content Include="DrugInfo.aspx" />
     <Content Include="DrugInfoResult.aspx" />
+    <Content Include="SNVDrugQuery.aspx" />
+    <Content Include="SNVDrugResult.aspx" />
+    <Content Include="SNVIDRequest.aspx" />
+    <Content Include="SNVIDResult.aspx" />
     <Content Include="DrugQuery.aspx" />
     <Content Include="EF_DB_Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -1065,6 +1070,34 @@
     </Compile>
     <Compile Include="DrugInfoResult.aspx.designer.cs">
       <DependentUpon>DrugInfoResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SNVDrugQuery.aspx.cs">
+      <DependentUpon>SNVDrugQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SNVDrugQuery.aspx.designer.cs">
+      <DependentUpon>SNVDrugQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SNVDrugResult.aspx.cs">
+      <DependentUpon>SNVDrugResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SNVDrugResult.aspx.designer.cs">
+      <DependentUpon>SNVDrugResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SNVIDRequest.aspx.cs">
+      <DependentUpon>SNVIDRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SNVIDRequest.aspx.designer.cs">
+      <DependentUpon>SNVIDRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SNVIDResult.aspx.cs">
+      <DependentUpon>SNVIDResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SNVIDResult.aspx.designer.cs">
+      <DependentUpon>SNVIDResult.aspx</DependentUpon>
     </Compile>
     <Compile Include="DrugQuery.aspx.cs">
       <DependentUpon>DrugQuery.aspx</DependentUpon>
