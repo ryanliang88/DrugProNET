@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace DrugProNET
 {
-    public partial class SNVIDRequest : Advertisement.AdvertiseablePage
+    public partial class SNVIDQuery : Advertisement.AdvertiseablePage
     {
         protected new void Page_Load(object sender, EventArgs e)
         {
