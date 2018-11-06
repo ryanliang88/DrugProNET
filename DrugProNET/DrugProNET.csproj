@@ -150,6 +150,7 @@
     <Content Include="CSS\protein_query.css" />
     <Content Include="CSS\query_page.css" />
     <Content Include="CSS\query_result.css" />
+    <Content Include="CSS\snv_drug_query.css" />
     <Content Include="CSS\snv_format.css" />
     <Content Include="DrugInfo.aspx" />
     <Content Include="DrugInfoResult.aspx" />

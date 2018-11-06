@@ -1,0 +1,31 @@
+﻿.h3-body-title {
+    color: #FFC300;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.h3-side-title {
+    color: #708591;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.body-content {
+    padding-bottom: 1.3em;
+}
+
+p {
+    color: #738569;
+}
+
+.yellow {
+    color: #FFFF83;
+}
+
+.gray {
+    color: #B2B2B3;
+}
+
+.white {
+    color: #FFFFFF;
+}
