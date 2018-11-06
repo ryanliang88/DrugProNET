@@ -153,6 +153,7 @@
     <Content Include="CSS\snv_drug_query.css" />
     <Content Include="CSS\snv_drug_result.css" />
     <Content Include="CSS\snv_id_query.css" />
+    <Content Include="CSS\snv_id_result.css" />
     <Content Include="DrugInfo.aspx" />
     <Content Include="DrugInfoResult.aspx" />
     <Content Include="Scripts\3DViewer\D_3DViewer_Info.js" />

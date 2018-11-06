@@ -9,9 +9,14 @@ namespace DrugProNET
 {
     public partial class SNVIDResult : Advertisement.AdvertiseablePage
     {
-        protected void Page_Load(object sender, EventArgs e)
+        protected new void Page_Load(object sender, EventArgs e)
         {
             base.Page_Load(sender, e);
+        }
+
+        protected void Download_Button_Click(object sender, EventArgs e)
+        {
+            // Do download functions here!
         }
     }
 }

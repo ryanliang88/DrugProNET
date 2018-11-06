@@ -49,7 +49,7 @@
             <p class="p-side">SNV ID:</p>
         </div>
         <div class="c-col body-content">
-            <p class="p-white" id="snv_id" runat="server">TEST</p>
+            <p class="p-white" id="snv_id" runat="server"></p>
         </div>
     </div>
 
@@ -67,7 +67,7 @@
             <p class="p-side">Gene Name:</p>
         </div>
         <div class="c-col body-content">
-            <p class="p-white" id="gene_name" runat="server">te</p>
+            <p class="p-white" id="gene_name" runat="server"></p>
         </div>
     </div>
 
@@ -77,7 +77,7 @@
             <p class="p-side">UniProt ID:</p>
         </div>
         <div class="c-col body-content">
-            <p class="p-white" id="uniprot_id" runat="server">te</p>
+            <p class="p-white" id="uniprot_id" runat="server"></p>
         </div>
     </div>
 
@@ -87,7 +87,7 @@
             <p class="p-side">NCBI RefSeq ID:</p>
         </div>
         <div class="c-col body-content">
-            <p class="p-white" id="ncbi_refseq_id" runat="server">TES</p>
+            <p class="p-white" id="ncbi_refseq_id" runat="server"></p>
         </div>
     </div>
 
@@ -97,7 +97,7 @@
             <p class="p-side">Chromosome Location:</p>
         </div>
         <div class="c-col body-content">
-            <p class="p-white" id="chromosome_location" runat="server">TEST</p>
+            <p class="p-white" id="chromosome_location" runat="server"></p>
         </div>
     </div>
 
@@ -114,7 +114,7 @@
         <div class="c-col side-content"></div>
         <div class="c-col body-content-long">
             <div class="button-container">
-                <asp:Button CssClass="download-button" ID="download_button" runat="server" Text="Download Table" OnClick="Download_Button_Click"/>
+                <asp:Button CssClass="download-button" ID="download_button" runat="server" Text="Download Table" OnClick="Download_Button_Click" />
             </div>
             <div>
                 <p>Click to download MS-Excel file of predicted protein-drug interactions affected by mutation of this SNV</p>
@@ -135,14 +135,12 @@
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
         <div class="c-col body-content-long">
-            <div>
-                <p>
-                    "Importance for Drug" is based on the total number of atomic interactions of the amino acid residue 
+            <p>
+                "Importance for Drug" is based on the total number of atomic interactions of the amino acid residue 
                     specified by the nucleotide with the drug atoms divided by the average bond distance (in Angstroms) 
                     for all of the interactions. The higher the score, the more importance this amino acid residue may 
                     have for drug binding
-                </p>
-            </div>
+            </p>
         </div>
     </div>
 
