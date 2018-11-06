@@ -151,6 +151,7 @@
     <Content Include="CSS\query_page.css" />
     <Content Include="CSS\query_result.css" />
     <Content Include="CSS\snv_drug_query.css" />
+    <Content Include="CSS\snv_drug_result.css" />
     <Content Include="CSS\snv_id_query.css" />
     <Content Include="DrugInfo.aspx" />
     <Content Include="DrugInfoResult.aspx" />
