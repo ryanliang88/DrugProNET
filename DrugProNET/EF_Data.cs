@@ -73,15 +73,19 @@ namespace DrugProNET
 
         public static C18OC3_DrugProNET_C_PDB_Info GetPDBInfo(string uniprot_ID, string drug_PDB_ID)
         {
-            C18OC3_DrugProNET_C_PDB_Info PDBInfo;
+            C18OC3_DrugProNET_C_PDB_Info PDBInfo = null;
 
             using (SampleDatabaseEntities context = new SampleDatabaseEntities())
             {
                 DbSet<C18OC3_DrugProNET_C_PDB_Info> dbSet = context.C18OC3_DrugProNET_C_PDB_Info;
-                PDBInfo = dbSet.Where(pdb =>
-                pdb.Uniprot_ID == uniprot_ID &&
-                pdb.Drug_PDB_ID == drug_PDB_ID
-                ).ToList()[0];
+                foreach (C18OC3_DrugProNET_C_PDB_Info pdb in dbSet)
+                {
+                    if (pdb.Uniprot_ID.ToLower() == uniprot_ID.ToLower()
+                        && pdb.Drug_PDB_ID.ToLower() == drug_PDB_ID.ToLower())
+                    {
+                        PDBInfo = pdb;
+                    }
+                }
             }
 
             return PDBInfo;

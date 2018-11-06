@@ -16,12 +16,14 @@ namespace DrugProNET
 
             if (!IsPostBack)
             {
-                string PDB_File_ID = "1jaq"; //Request.QueryString["uniprot_ID"];
-                string drug_PDB_ID = "01S"; //Request.QueryString["drug_PDB_ID"];
+                string Uniprot_ID = "P12931"; //Request.QueryString["uniprot_ID"];
+                string drug_PDB_ID = "PTH"; //Request.QueryString["drug_PDB_ID"];
 
-                C18OC3_DrugProNET_A_Protein_Info protein = EF_Data.GetProtein(PDB_File_ID);
+                C18OC3_DrugProNET_A_Protein_Info protein = EF_Data.GetProtein(Uniprot_ID);
                 C18OC3_DrugProNET_B_Drug_Info drug = EF_Data.GetDrug(drug_PDB_ID);
-                //C18OC3_DrugProNET_C_PDB_Info PDB_Info = EF_Data.GetPDBInfo(PDB_File_ID, drug_PDB_ID);
+
+                // Residue Count property is an issue
+                //C18OC3_DrugProNET_C_PDB_Info PDB_Info = EF_Data.GetPDBInfo(protein.Uniprot_ID, drug.Drug_PDB_ID);
 
                 //LoadProtein(protein);
                 //LoadDrug(drug, PDB_Info);
@@ -31,7 +33,7 @@ namespace DrugProNET
 
                 // First string can be anything
                 ScriptManager.RegisterStartupScript(Page, GetType(), "D_3DViewer", "javascript:loadDrugLigand('" + drug.Drug_PDB_ID + "');", true);
-                ScriptManager.RegisterStartupScript(Page, GetType(), "PDB_3DViewer", "javascript:loadStage('" + "1JAQ" + "', '" + drug.Drug_PDB_ID + "');", true);
+                ScriptManager.RegisterStartupScript(Page, GetType(), "PDB_3DViewer", "javascript:loadStage('" + drug.PDB_File_ID + "', '" + drug.Drug_PDB_ID + "');", true);
             }
 
         }
