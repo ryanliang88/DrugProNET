@@ -54,6 +54,8 @@
                             <option value="ProteinQuery">Protein-focused Drug Interaction</option>
                             <option value="DrugQuery">Drug-focused Protein Interaction</option>
                             <option value="ProteinInfo">Protein Information</option>
+                            <option value="SNVIDQuery">SNV Identification</option>
+                            <option value="SNVDrugQuery">SNV-focused Drug Interaction</option>
                             <option value="DrugInfo">Drug Information</option>
                         </select>
                     </li>

@@ -66,9 +66,9 @@
             <h3 class="h3-body-title">Step 2 - Report Generation</h3>
             <p>Click on the box below to produce custom tables with results or to reset the parameters.</p>
 
-            <asp:Button ID="generate_table_button" CssClass="button" Text="Generate Table" OnClick="Generate_Table_Button_Click"runat="server" />
+            <asp:Button ID="generate_table_button" CssClass="button" Text="Generate Table" OnClick="Generate_Table_Button_Click" runat="server" />
             <span>&emsp;&emsp;</span>
-            <asp:Button ID="reset_button" CssClass="button" Text="Reset" runat="server" OnClick="Reset_Button_Click"/>
+            <asp:Button ID="reset_button" CssClass="button" Text="Reset" runat="server" OnClick="Reset_Button_Click" />
 
         </div>
     </div>
