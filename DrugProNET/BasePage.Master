@@ -24,7 +24,7 @@
         <asp:ScriptManager ID="script_manager" runat="server" EnablePageMethods="true" EnableCdn="true" />
         <div class="main-container">
             <div id="website-banner" class="banner">
-                <img id="banner-image" src="./images/DrugProNETBannerN.png" alt="Unable to display image" usemap="#banner-map">
+                <img id="banner-image" src="./images/DrugProNETBanner.png" alt="Unable to display image" usemap="#banner-map">
                 <map name="banner-map">
                     <area shape="rect" coords="0, 0, 1024, 90" href="index.html" alt="Error">
                     <area shape="rect" coords="0,57.2, 655, 147.2 " href="index.html" alt="Error">

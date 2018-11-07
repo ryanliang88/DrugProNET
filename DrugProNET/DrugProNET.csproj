@@ -150,13 +150,16 @@
     <Content Include="CSS\protein_query.css" />
     <Content Include="CSS\query_page.css" />
     <Content Include="CSS\query_result.css" />
-    <Content Include="CSS\snv_format.css" />
+    <Content Include="CSS\snv_drug_query.css" />
+    <Content Include="CSS\snv_drug_result.css" />
+    <Content Include="CSS\snv_id_query.css" />
+    <Content Include="CSS\snv_id_result.css" />
     <Content Include="DrugInfo.aspx" />
     <Content Include="DrugInfoResult.aspx" />
     <Content Include="Scripts\3DViewer\D_3DViewer_Info.js" />
     <Content Include="SNVDrugQuery.aspx" />
     <Content Include="SNVDrugResult.aspx" />
-    <Content Include="SNVIDRequest.aspx" />
+    <Content Include="SNVIDQuery.aspx" />
     <Content Include="SNVIDResult.aspx" />
     <Content Include="DrugQuery.aspx" />
     <Content Include="EF_DB_Model.Context.tt">
@@ -192,7 +195,7 @@
     <Content Include="Images\AminoAcidImages\Tyrosine-Tyr-Y.jpg" />
     <Content Include="Images\AminoAcidImages\Valine-Val-V.jpg" />
     <Content Include="QueryResult.aspx" />
-    <Content Include="Images\DrugProNETBannerN.png" />
+    <Content Include="Images\DrugProNETBanner.png" />
     <Content Include="Other\Templates\Form 2 Column Template.aspx" />
     <Content Include="Other\Templates\Form 3 Column Template.aspx" />
     <Content Include="Global.asax" />
@@ -304,12 +307,12 @@
     <Compile Include="SNVDrugResult.aspx.designer.cs">
       <DependentUpon>SNVDrugResult.aspx</DependentUpon>
     </Compile>
-    <Compile Include="SNVIDRequest.aspx.cs">
-      <DependentUpon>SNVIDRequest.aspx</DependentUpon>
+    <Compile Include="SNVIDQuery.aspx.cs">
+      <DependentUpon>SNVIDQuery.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SNVIDRequest.aspx.designer.cs">
-      <DependentUpon>SNVIDRequest.aspx</DependentUpon>
+    <Compile Include="SNVIDQuery.aspx.designer.cs">
+      <DependentUpon>SNVIDQuery.aspx</DependentUpon>
     </Compile>
     <Compile Include="SNVIDResult.aspx.cs">
       <DependentUpon>SNVIDResult.aspx</DependentUpon>

@@ -1,10 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BasePage.Master" AutoEventWireup="true" CodeBehind="SNVDrugQuery.aspx.cs" Inherits="DrugProNET.SNVDrugQuery" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BasePage.Master" AutoEventWireup="true" CodeBehind="SNVDrugQuery.aspx.cs" Inherits="DrugProNET.SNVDrugQuery" MaintainScrollPositionOnPostback="true" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="HeadContentPlaceHolder">
     <link rel="stylesheet" href="./css/3_column.css" />
-    <link rel="stylesheet" href="./css/drug_info.css" />
-    <link rel="stylesheet" href="./css/query_page.css" />
-    <link rel="stylesheet" href="./css/snv_format.css" />
+    <link rel="stylesheet" href="./css/snv_drug_query.css">
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="BodyContentPlaceHolder">
@@ -45,38 +43,17 @@
         <div class="c-col body-content">
             <h3 class="h3-body-title">Step 1 - SNV Specification</h3>
             <p>Provide the SNV exactly with the format shown here. After a few letters are entered, select from one of the options presented in the pull down menu. Required format:</p>
-            <p class="format-yellow">NCBI Gene Location ID</p>
-            <p class="format-white">(HGNC Gene Name):c</p>
-            <p class="format-yellow">Nucletide Number</p>
-            <br />
-            <p class="format-white">Common Nucleotide Base Type></p>
-            <p class="format-yellow">Variant Nucleotide Base</p>
-            <br />
-            <p class="format-white">(pOriginal Amino Acid Residue Type </p>
-            <p class="format-yellow">Amino Acid Residue Number</p>
-            <br />
-            <p class="format-white">Variant Amino Acid Residue Type)</p>
-
+            <p><span class="yellow">NCBI Gene Location ID</span><span class="gray">(<span class="white">HGNC Gene Name</span>):c</span><span class="yellow">Nucleotide Number</span><span class="white">Common Nucleotide Base Type</span><span class="gray">></span><span class="yellow">Variant Nucleotide Base</span><span class="gray">(p<span class="white">Original Amino Acid Residue Type</span><span class="yellow">Amino Acid Residue Number</span><span class="white">Variant Amino Acid Residue Type</span>)</span></p>
+            <p>e.g.&nbsp;<span class="white">NC_000007.14(EGFR):c55181386A>G(pMet793Val)</span></p>
         </div>
     </div>
+
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
         </div>
         <div class="c-col body-content">
-            <p style="display: inline">e.g.</p>
-            <p class="format-white">NC_000007.14(EGFR):c55181386A>G(pMet793Val)</p>
-
-        </div>
-    </div>
-    <div class="c-row">
-        <div class="c-col side-spacing"></div>
-        <div class="c-col side-content">
-        </div>
-        <div class="c-col body-content">
-
-            <asp:TextBox CssClass="textBox" ID="TextBox1" runat="server" value="" placeholder="Type in the SNV according to format above" />
-
+            <asp:TextBox CssClass="textBox" ID="snv_specification_textbox" runat="server" value="" placeholder="Type in the SNV according to format above" />
         </div>
     </div>
 
@@ -89,9 +66,9 @@
             <h3 class="h3-body-title">Step 2 - Report Generation</h3>
             <p>Click on the box below to produce custom tables with results or to reset the parameters.</p>
 
-            <asp:Button ID="Button1" CssClass="button" Text="Generate Table" runat="server" />
+            <asp:Button ID="generate_table_button" CssClass="button" Text="Generate Table" OnClick="Generate_Table_Button_Click"runat="server" />
             <span>&emsp;&emsp;</span>
-            <asp:Button ID="Button2" CssClass="button" Text="Reset" runat="server" />
+            <asp:Button ID="reset_button" CssClass="button" Text="Reset" runat="server" OnClick="Reset_Button_Click"/>
 
         </div>
     </div>

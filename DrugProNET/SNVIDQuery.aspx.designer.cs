@@ -10,7 +10,7 @@
 namespace DrugProNET {
     
     
-    public partial class SNVIDRequest {
+    public partial class SNVIDQuery {
         
         /// <summary>
         /// ad_update_panel control.
@@ -58,22 +58,22 @@ namespace DrugProNET {
         protected global::System.Web.UI.WebControls.TextBox search_textBox;
         
         /// <summary>
-        /// DropDownList1 control.
+        /// protein_specification_drop_down control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList protein_specification_drop_down;
         
         /// <summary>
-        /// DropDownList2 control.
+        /// drug_specification_drop_down control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
+        protected global::System.Web.UI.WebControls.DropDownList drug_specification_drop_down;
         
         /// <summary>
         /// generate_table_button control.

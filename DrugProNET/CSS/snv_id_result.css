@@ -1,0 +1,50 @@
+﻿.h3-body-title {
+    color: #FFC300;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.h3-side-title {
+    color: #708591;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+p:not(.p-white):not(.p-side) {
+    color: #738569;
+}
+
+p-white {
+    color: #C6C8CA !important;
+}
+
+.p-side {
+    color: #708591;
+}
+
+.download-button {
+    border-radius: 1em;
+    color: black;
+    height: 32px;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.button-container {
+    display: inline-block;
+    float: left;
+    padding-right: 2em;
+}
+
+.body-content-long {
+    width: 83.5%;
+    flex: 0 0 83.5%;
+    flex-direction: column;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: .5em;
+    border-style: solid;
+    border-width: 0 0 0 1px;
+    border-color: #7DAED4;
+    text-align: left;
+}

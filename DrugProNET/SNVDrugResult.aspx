@@ -1,8 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BasePage.Master" AutoEventWireup="true" CodeBehind="SNVDrugResult.aspx.cs" Inherits="DrugProNET.SNVDrugResult" %>
+
 <asp:Content runat="server" ContentPlaceHolderID="HeadContentPlaceHolder">
     <link rel="stylesheet" href="./css/3_column.css" />
-    <link rel="stylesheet" href="./css/drug_info.css" />
-    <link rel="stylesheet" href="./css/query_result.css" />
+    <link rel="stylesheet" href="./css/snv_drug_result.css" />
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="BodyContentPlaceHolder">
@@ -14,7 +14,8 @@
         </div>
         <div class="c-col body-content">
             <h3 class="h3-body-title">SNV-based Identification of Protein-Drug Interactions</h3>
-            <p>This query provides prediction of the effects of mutation of critical amino acids in proteins involved in drug
+            <p>
+                This query provides prediction of the effects of mutation of critical amino acids in proteins involved in drug
                 interactions starting with a defined single nucleotide variant (SNV) in the human genome. The interaction of 
                 multiple drugs with a particular amino acid residue in a target protein of interest may be identified.
             </p>
@@ -33,6 +34,7 @@
             </asp:UpdatePanel>
         </div>
     </div>
+
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
@@ -40,15 +42,17 @@
             <h3 class="h3-body-title">Single Nucleotide Variant Identification</h3>
         </div>
     </div>
+
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">SNV ID:</p>
         </div>
         <div class="c-col body-content">
-            <p id="snv_id" runat="server"></p>
+            <p class="p-white" id="snv_id" runat="server"></p>
         </div>
     </div>
+
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
@@ -56,42 +60,47 @@
             <h3 class="h3-body-title">Target Gene Identification</h3>
         </div>
     </div>
+
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Gene Name:</p>
         </div>
         <div class="c-col body-content">
-            <p id="gene_name" runat="server"></p>
+            <p class="p-white" id="gene_name" runat="server"></p>
         </div>
     </div>
+
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">UniProt ID:</p>
         </div>
         <div class="c-col body-content">
-            <p id="uniprot_id" runat="server"></p>
+            <p class="p-white" id="uniprot_id" runat="server"></p>
         </div>
     </div>
+
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">NCBI RefSeq ID:</p>
         </div>
         <div class="c-col body-content">
-            <p id="ncbi_refseq_id" runat="server"></p>
+            <p class="p-white" id="ncbi_refseq_id" runat="server"></p>
         </div>
     </div>
+
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Chromosome Location:</p>
         </div>
         <div class="c-col body-content">
-            <p id="chromosome_location" runat="server"></p>
+            <p class="p-white" id="chromosome_location" runat="server"></p>
         </div>
     </div>
+
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
@@ -103,9 +112,9 @@
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
-        <div class="c-col body-content longDiv" style="padding-top: 2em">
-            <div style="display: inline-block; float: left; padding-right: 2em">
-                <asp:Button ID="Button1" runat="server" Text="Download Table" />
+        <div class="c-col body-content-long">
+            <div class="button-container">
+                <asp:Button CssClass="download-button" ID="download_button" runat="server" Text="Download Table" OnClick="Download_Button_Click" />
             </div>
             <div>
                 <p>Click to download MS-Excel file of predicted protein-drug interactions affected by mutation of this SNV</p>
@@ -116,21 +125,22 @@
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
-        <div class="c-col body-content longDiv" style="padding-top: 2em">
+        <div class="c-col body-content-long">
             <asp:Table runat="server" ID="interaction_list">
             </asp:Table>
         </div>
     </div>
+
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
-        <div class="c-col body-content longDiv" style="padding-top: 2em">
-            <div>
-                <p>"Importance for Drug" is based on the total number of atomic interactions of the amino acid residue 
+        <div class="c-col body-content-long">
+            <p>
+                "Importance for Drug" is based on the total number of atomic interactions of the amino acid residue 
                     specified by the nucleotide with the drug atoms divided by the average bond distance (in Angstroms) 
                     for all of the interactions. The higher the score, the more importance this amino acid residue may 
-                    have for drug binding</p>
-            </div>
+                    have for drug binding
+            </p>
         </div>
     </div>
 
