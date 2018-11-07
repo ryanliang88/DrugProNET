@@ -24,7 +24,7 @@ namespace DrugProNET
         protected void RetrieveData(object sender, EventArgs e)
         {
             string query = search_textBox.Text;
-            C18OC3_DrugProNET_B_Drug_Info drug = EF_Data.GetDrug(query);
+            Drug_Information drug = EF_Data.GetDrug(query);
 
             if (drug != null)
             { 
@@ -48,11 +48,11 @@ namespace DrugProNET
                 {
                     List<string> valuesList = new List<string>();
 
-                    using (SampleDatabaseEntities context = new SampleDatabaseEntities())
+                    using (DrugProNETEntities context = new DrugProNETEntities())
                     {
-                        DbSet<C18OC3_DrugProNET_B_Drug_Info> dbSet = context.C18OC3_DrugProNET_B_Drug_Info;
+                        DbSet<Drug_Information> dbSet = context.Drug_Information;
 
-                        foreach (C18OC3_DrugProNET_B_Drug_Info d in dbSet.ToList())
+                        foreach (Drug_Information d in dbSet.ToList())
                         {
                             AddIfExists(valuesList,
                                 d.Compound_CAS_ID,

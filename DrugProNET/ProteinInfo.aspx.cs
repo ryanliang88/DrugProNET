@@ -20,7 +20,7 @@ namespace DrugProNET
         protected void RetrieveData(object sender, EventArgs e)
         {
             string query = search_textBox.Text;
-            C18OC3_DrugProNET_A_Protein_Info protein = EF_Data.GetProtein(query);
+            Protein_Information protein = EF_Data.GetProtein(query);
 
             if (protein != null)
             {
@@ -45,17 +45,17 @@ namespace DrugProNET
             {
                 try
                 {
-                    using (SampleDatabaseEntities context = new SampleDatabaseEntities())
+                    using (DrugProNETEntities context = new DrugProNETEntities())
                     {
 
-                        DbSet<C18OC3_DrugProNET_A_Protein_Info> dbSet = context.C18OC3_DrugProNET_A_Protein_Info;
+                        DbSet<Protein_Information> dbSet = context.Protein_Information;
 
-                        foreach (C18OC3_DrugProNET_A_Protein_Info p in dbSet.ToList())
+                        foreach (Protein_Information p in dbSet.ToList())
                         {
                             AddIfExists(valuesList,
                                 p.Protein_Short_Name,
                                 p.Protein_Full_Name,
-                                p.NCBI__Gene_ID,
+                                p.NCBI_Gene_ID,
                                 p.PDB_Protein_Name,
                                 p.Protein_Alias,
                                 p.Uniprot_ID,

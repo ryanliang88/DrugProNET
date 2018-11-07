@@ -51,7 +51,7 @@ namespace DrugProNET
             }
         }
 
-        private void LoadData(C18OC3_DrugProNET_B_Drug_Info drug)
+        private void LoadData(Drug_Information drug)
         {
             ScriptManager.RegisterStartupScript(Page, GetType(), "D_3DViewer_Info", "javascript:loadDrugLigandInfo('" + drug.Drug_PDB_ID + "');", true);
             ProcessRow(compound_name_row, compound_name, drug.Drug_Common_Name);

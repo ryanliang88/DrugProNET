@@ -19,11 +19,11 @@ namespace DrugProNET
                 string Uniprot_ID = "P12931"; //Request.QueryString["uniprot_ID"];
                 string drug_PDB_ID = "PTH"; //Request.QueryString["drug_PDB_ID"];
 
-                C18OC3_DrugProNET_A_Protein_Info protein = EF_Data.GetProtein(Uniprot_ID);
-                C18OC3_DrugProNET_B_Drug_Info drug = EF_Data.GetDrug(drug_PDB_ID);
+                Protein_Information protein = EF_Data.GetProtein(Uniprot_ID);
+                Drug_Information drug = EF_Data.GetDrug(drug_PDB_ID);
 
                 // Residue Count property is an issue
-                //C18OC3_DrugProNET_C_PDB_Info PDB_Info = EF_Data.GetPDBInfo(protein.Uniprot_ID, drug.Drug_PDB_ID);
+                //PDB_Information PDB_Info = EF_Data.GetPDBInfo(protein.Uniprot_ID, drug.Drug_PDB_ID);
 
                 //LoadProtein(protein);
                 //LoadDrug(drug, PDB_Info);
@@ -53,14 +53,14 @@ namespace DrugProNET
         }
 
 
-        private void GetDrugAtomNumberingImage(C18OC3_DrugProNET_B_Drug_Info drug)
+        private void GetDrugAtomNumberingImage(Drug_Information drug)
         {
             selected_amino_acid_residue_atom_numbering.ImageUrl =
                 "https://cdn.rcsb.org/images/ligands/" +
                 drug.Drug_PDB_ID.Substring(0, 1) + "/" + drug.Drug_PDB_ID + "/" + drug.Drug_PDB_ID + "-large.png";
         }
 
-        public void LoadPDB_Info(C18OC3_DrugProNET_C_PDB_Info PDB_Info)
+        public void LoadPDB_Info(PDB_Information PDB_Info)
         {
             PDB_entry.InnerText = PDB_Info.PDB_File_ID;
             release_date.InnerText = PDB_Info.PDB_Released;
@@ -71,7 +71,7 @@ namespace DrugProNET
 
         }
 
-        public void LoadDrug(C18OC3_DrugProNET_B_Drug_Info drug, C18OC3_DrugProNET_C_PDB_Info PDB_Info)
+        public void LoadDrug(Drug_Information drug, PDB_Information PDB_Info)
         {
             PDB_drug_ID.InnerText = drug.Drug_PDB_ID;
             drug_name.InnerText = drug.Drug_Common_Name;
@@ -89,7 +89,7 @@ namespace DrugProNET
             drug_information_result_url.NavigateUrl = "http://localhost:50542/DrugInfoResult.aspx?query_string=" + drug.Drug_PDB_ID;
         }
 
-        public void LoadProtein(C18OC3_DrugProNET_A_Protein_Info protein)
+        public void LoadProtein(Protein_Information protein)
         {
             protein_name.InnerText = protein.Protein_Short_Name;
             protein_full_name.InnerText = protein.Protein_Full_Name;

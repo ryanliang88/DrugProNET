@@ -9,17 +9,17 @@ namespace DrugProNET
 {
     public static class EF_Data
     {
-        public static C18OC3_DrugProNET_B_Drug_Info GetDrug(string query)
+        public static Drug_Information GetDrug(string query)
         {
-            C18OC3_DrugProNET_B_Drug_Info drug = null;
+            Drug_Information drug = null;
 
-            using (SampleDatabaseEntities context = new SampleDatabaseEntities())
+            using (DrugProNETEntities context = new DrugProNETEntities())
             {
-                DbSet<C18OC3_DrugProNET_B_Drug_Info> dbSet = context.C18OC3_DrugProNET_B_Drug_Info;
+                DbSet<Drug_Information> dbSet = context.Drug_Information;
 
                 query = query.ToLower();
 
-                foreach (C18OC3_DrugProNET_B_Drug_Info d in dbSet)
+                foreach (Drug_Information d in dbSet)
                 {
                     if (IsQueryInValues(query,
                         d.Compound_CAS_ID,
@@ -42,20 +42,20 @@ namespace DrugProNET
             return drug;
         }
 
-        public static C18OC3_DrugProNET_A_Protein_Info GetProtein(string query)
+        public static Protein_Information GetProtein(string query)
         {
-            C18OC3_DrugProNET_A_Protein_Info protein = null;
+            Protein_Information protein = null;
 
-            using (SampleDatabaseEntities context = new SampleDatabaseEntities())
+            using (DrugProNETEntities context = new DrugProNETEntities())
             {
-                DbSet<C18OC3_DrugProNET_A_Protein_Info> dbSet = context.C18OC3_DrugProNET_A_Protein_Info;
+                DbSet<Protein_Information> dbSet = context.Protein_Information;
 
-                foreach (C18OC3_DrugProNET_A_Protein_Info p in dbSet)
+                foreach (Protein_Information p in dbSet)
                 {
                     if (IsQueryInValues(query,
                         p.Protein_Short_Name,
                         p.Protein_Full_Name,
-                        p.NCBI__Gene_ID,
+                        p.NCBI_Gene_ID,
                         p.PDB_Protein_Name,
                         p.Protein_Alias,
                         p.Uniprot_ID,
@@ -71,14 +71,14 @@ namespace DrugProNET
             return protein;
         }
 
-        public static C18OC3_DrugProNET_C_PDB_Info GetPDBInfo(string uniprot_ID, string drug_PDB_ID)
+        public static PDB_Information GetPDBInfo(string uniprot_ID, string drug_PDB_ID)
         {
-            C18OC3_DrugProNET_C_PDB_Info PDBInfo = null;
+            PDB_Information PDBInfo = null;
 
-            using (SampleDatabaseEntities context = new SampleDatabaseEntities())
+            using (DrugProNETEntities context = new DrugProNETEntities())
             {
-                DbSet<C18OC3_DrugProNET_C_PDB_Info> dbSet = context.C18OC3_DrugProNET_C_PDB_Info;
-                foreach (C18OC3_DrugProNET_C_PDB_Info pdb in dbSet)
+                DbSet<PDB_Information> dbSet = context.PDB_Information;
+                foreach (PDB_Information pdb in dbSet)
                 {
                     if (pdb.Uniprot_ID.ToLower() == uniprot_ID.ToLower()
                         && pdb.Drug_PDB_ID.ToLower() == drug_PDB_ID.ToLower())
@@ -89,7 +89,6 @@ namespace DrugProNET
             }
 
             return PDBInfo;
-
         }
 
         private static bool IsQueryInValues(string query, params string[] values)

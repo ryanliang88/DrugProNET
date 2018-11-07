@@ -12,18 +12,17 @@ namespace DrugProNET
     using System;
     using System.Collections.Generic;
     
-    public partial class C18OC3_DrugProNET_D_Drug_Protein_AA_Interaction
+    public partial class PDB_Interactions
     {
-        public string SNV_Key { get; set; }
-        public string PDB_File_ID { get; set; }
+        public string PDB_Entry { get; set; }
         public string Drug_PDB_ID { get; set; }
-        public string Uniprot_ID { get; set; }
+        public string UniProt_ID { get; set; }
         public string AA_Residue_Type { get; set; }
-        public int Uniprot_Residue_Number { get; set; }
+        public string Uniprot_Residue_Number { get; set; }
         public string AA_Residue_Type_And_Number { get; set; }
-        public int Number_of_Atomic_Interactions { get; set; }
-        public double Average_Distance_Between_Atoms { get; set; }
-        public double Interaction_Distance_Ratio { get; set; }
-        public int Rank { get; set; }
+        public string Number_of_Atomic_Interactions { get; set; }
+        public string Average_Distance_Between_Atoms { get; set; }
+        public string Interaction_Distance_Ratio { get; set; }
+        public string Protein_Chain { get; set; }
     }
 }

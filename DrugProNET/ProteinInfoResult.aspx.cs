@@ -18,7 +18,7 @@ namespace DrugProNET
 
             string query = Request.QueryString["query_string"];
 
-            C18OC3_DrugProNET_A_Protein_Info protein = EF_Data.GetProtein(query);
+            Protein_Information protein = EF_Data.GetProtein(query);
             LoadData(protein);
         }
 
@@ -59,7 +59,7 @@ namespace DrugProNET
             }
         }
 
-        private void LoadData(C18OC3_DrugProNET_A_Protein_Info protein)
+        private void LoadData(Protein_Information protein)
         {
             ProcessRow(protein_short_name_row, protein_short_name, protein.Protein_Short_Name);
             ProcessRow(protein_full_name_row, protein_full_name, protein.Protein_Full_Name);
@@ -102,7 +102,7 @@ namespace DrugProNET
             ProcessRow(chromosome_location_row, chromosome_location, protein.Human_Chromosome_Location);
             ProcessRow(gene_location_row, gene_location, protein.Human_Gene_Location);
             ProcessRow(ncbi_nucleotide_id_row, ncbi_nucleotide_id, protein.NCBI_Nucleotide_ID, protein.NCBI_Nucleotide_ID_URL);
-            ProcessRow(ncbi_gene_id_row, ncbi_gene_id, protein.NCBI__Gene_ID, protein.NCBI_Gene_URL);
+            ProcessRow(ncbi_gene_id_row, ncbi_gene_id, protein.NCBI_Gene_ID, protein.NCBI_Gene_URL);
         }
     }
 }

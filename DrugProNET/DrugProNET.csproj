@@ -154,6 +154,16 @@
     <Content Include="CSS\snv_drug_result.css" />
     <Content Include="CSS\snv_id_query.css" />
     <Content Include="CSS\snv_id_result.css" />
+    <Content Include="DataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataModel.edmx</DependentUpon>
+      <LastGenOutput>DataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataModel.edmx</DependentUpon>
+      <LastGenOutput>DataModel.cs</LastGenOutput>
+    </Content>
     <Content Include="DrugInfo.aspx" />
     <Content Include="DrugInfoResult.aspx" />
     <Content Include="Scripts\3DViewer\D_3DViewer_Info.js" />
@@ -162,16 +172,6 @@
     <Content Include="SNVIDQuery.aspx" />
     <Content Include="SNVIDResult.aspx" />
     <Content Include="DrugQuery.aspx" />
-    <Content Include="EF_DB_Model.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EF_DB_Model.edmx</DependentUpon>
-      <LastGenOutput>EF_DB_Model.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="EF_DB_Model.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EF_DB_Model.edmx</DependentUpon>
-      <LastGenOutput>EF_DB_Model.cs</LastGenOutput>
-    </Content>
     <Content Include="favicon.ico" />
     <Content Include="Images\AminoAcidImages\Alanine-Ala-A.jpg" />
     <Content Include="Images\AminoAcidImages\Arginine-Arg-R.jpg" />
@@ -255,21 +255,6 @@
     <Compile Include="BasePage.Master.designer.cs">
       <DependentUpon>BasePage.Master</DependentUpon>
     </Compile>
-    <Compile Include="C18OC3_DrugProNET_A_Protein_Info.cs">
-      <DependentUpon>EF_DB_Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="C18OC3_DrugProNET_B_Drug_Info.cs">
-      <DependentUpon>EF_DB_Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="C18OC3_DrugProNET_C_PDB_Info.cs">
-      <DependentUpon>EF_DB_Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="C18OC3_DrugProNET_D_Drug_Protein_AA_Interaction.cs">
-      <DependentUpon>EF_DB_Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="C18OC3_DrugProNET_E_Mutation_SNV.cs">
-      <DependentUpon>EF_DB_Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="CalculateDistance\Atom.cs" />
     <Compile Include="CalculateDistance\PDBFileParser.cs" />
     <Compile Include="Credits.aspx.cs">
@@ -278,6 +263,21 @@
     </Compile>
     <Compile Include="Credits.aspx.designer.cs">
       <DependentUpon>Credits.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="DrugInfo.aspx.cs">
       <DependentUpon>DrugInfo.aspx</DependentUpon>
@@ -292,6 +292,21 @@
     </Compile>
     <Compile Include="DrugInfoResult.aspx.designer.cs">
       <DependentUpon>DrugInfoResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Drug_Information.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PDB_Distances.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PDB_Information.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PDB_Interactions.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Protein_Information.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="SNVDrugQuery.aspx.cs">
       <DependentUpon>SNVDrugQuery.aspx</DependentUpon>
@@ -329,21 +344,6 @@
       <DependentUpon>DrugQuery.aspx</DependentUpon>
     </Compile>
     <Compile Include="EF_Data.cs" />
-    <Compile Include="EF_DB_Model.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EF_DB_Model.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF_DB_Model.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EF_DB_Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF_DB_Model.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EF_DB_Model.edmx</DependentUpon>
-    </Compile>
     <Compile Include="ExcelWriter\ExcelWriter.cs" />
     <Compile Include="QueryResult.aspx.cs">
       <DependentUpon>QueryResult.aspx</DependentUpon>
@@ -399,21 +399,18 @@
       <DependentUpon>ProteinQuery.aspx</DependentUpon>
     </Compile>
     <Compile Include="Scripts\MatchFinder.cs" />
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>EF_DB_Model.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="BasePage.Master" />
-    <EntityDeploy Include="EF_DB_Model.edmx">
+    <EntityDeploy Include="DataModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EF_DB_Model.Designer.cs</LastGenOutput>
+      <LastGenOutput>DataModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="EF_DB_Model.edmx.diagram">
-      <DependentUpon>EF_DB_Model.edmx</DependentUpon>
+    <Content Include="DataModel.edmx.diagram">
+      <DependentUpon>DataModel.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
     <Content Include="Libraries\Bootstrap 3.3.7\css\bootstrap-theme.css.map" />

@@ -12,7 +12,7 @@ namespace DrugProNET
     using System;
     using System.Collections.Generic;
     
-    public partial class C18OC3_DrugProNET_B_Drug_Info
+    public partial class Drug_Information
     {
         public string Drug_PDB_ID { get; set; }
         public string PDB_File_ID { get; set; }
@@ -72,6 +72,6 @@ namespace DrugProNET
         public string Reference_2 { get; set; }
         public string Commercial_Vendor { get; set; }
         public string Drug_PDB_ID_URL { get; set; }
-        public string Unknown_Int { get; set; }
+        public string Column_58 { get; set; }
     }
 }

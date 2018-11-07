@@ -12,12 +12,15 @@ namespace DrugProNET
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagram
+    public partial class PDB_Distances
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public string PDB_Entry { get; set; }
+        public double Distance { get; set; }
+        public string Protein_Chain { get; set; }
+        public string Protein_Atom { get; set; }
+        public string Protein_Residue { get; set; }
+        public int Protein_Residue_ { get; set; }
+        public string Compound_Name { get; set; }
+        public string Compound_Atom { get; set; }
     }
 }

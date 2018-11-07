@@ -12,7 +12,7 @@ namespace DrugProNET
     using System;
     using System.Collections.Generic;
     
-    public partial class C18OC3_DrugProNET_A_Protein_Info
+    public partial class Protein_Information
     {
         public string Uniprot_ID { get; set; }
         public string Protein_Short_Name { get; set; }
@@ -60,8 +60,9 @@ namespace DrugProNET
         public string Human_Gene_Location { get; set; }
         public string NCBI_Nucleotide_ID { get; set; }
         public string NCBI_Nucleotide_ID_URL { get; set; }
-        public string NCBI__Gene_ID { get; set; }
+        public string NCBI_Gene_ID { get; set; }
         public string NCBI_Gene_URL { get; set; }
         public string NCBI_Gene_Name { get; set; }
+        public Nullable<int> NCBI_geneID { get; set; }
     }
 }
