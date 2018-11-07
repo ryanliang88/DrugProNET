@@ -80,8 +80,6 @@ namespace DrugProNET
             return MatchFinder.FindTopNMatches(prefixText, cached, maxResultSize);
         }
 
-        
-
         private static void AddIfExists(List<string> list, params string[] values)
         {
             foreach (string value in values)

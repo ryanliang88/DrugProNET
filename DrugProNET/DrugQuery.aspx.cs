@@ -33,7 +33,7 @@ namespace DrugProNET
         protected void Generate_Table_Button_Click(object sender, EventArgs e)
         {
             Response.Redirect("QueryResult.aspx?query_string=" + search_textBox.Text
-                + "&drug_specification=" + search_drop_down.SelectedValue
+                + "&protein_specification=" + search_drop_down.SelectedValue
                 + "&interaction_distance=" + interaction_distance_drop_down.SelectedValue
                 + "&protein_chain=" + protein_chain_checkbox.Checked
                 + "&protein_atoms=" + protein_atoms_checkbox.Checked

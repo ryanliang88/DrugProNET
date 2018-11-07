@@ -52,7 +52,7 @@
 
             <asp:UpdatePanel ID="search_textBox_UpdatePanel" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
-                    <asp:TextBox CssClass="textBox" ID="search_textBox" runat="server" value="" placeholder="Type in at least 3 letters of the search term" />
+                    <asp:TextBox CssClass="textBox" ID="search_textBox" runat="server" value="" placeholder="Type in at least 3 letters of the search term" OnTextChanged="Search_Textbox_Changed" />
                     <asp:AutoCompleteExtender ID="AutoCompleteExtender" runat="server" ServiceMethod="GetAutoCompleteData" TargetControlID="search_textBox" CompletionInterval="100" CompletionSetCount="5" MinimumPrefixLength="1"></asp:AutoCompleteExtender>
                 </ContentTemplate>
             </asp:UpdatePanel>
@@ -65,9 +65,18 @@
         <div class="c-col body-content">
             <h3 class="h3-body-title">Step 2 - Drug Specification</h3>
             <p>Use the pull-down menu below to select for the drug of interest.</p>
-            <asp:DropDownList CssClass="drop-down" ID="search_drop_down" runat="server" value="">
-                <asp:ListItem Text="Select from list of output options" Value="-1" />
-            </asp:DropDownList>
+
+            <asp:UpdatePanel ID="drop_down_update_panel" runat="server" UpdateMode="Conditional">
+                <ContentTemplate>
+                    <asp:DropDownList CssClass="drop-down" ID="search_drop_down" runat="server" AutoPostBack="true">
+                        <asp:ListItem Text="Select from list of output options" Value="0" />
+                    </asp:DropDownList>
+                </ContentTemplate>
+                <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="search_textBox" EventName="TextChanged" />
+                </Triggers>
+            </asp:UpdatePanel>
+
         </div>
     </div>
 
@@ -117,9 +126,9 @@
         <div class="c-col body-content">
             <h3 class="h3-body-title">Step 5 - Report Generation</h3>
             <p>Click on the box below to produce custom tables with results or to reset the parameters.</p>
-            <asp:Button ID="generate_table" CssClass="button" Text="Generate Table" runat="server" OnClick="Generate_Table_Button_Click"/>
+            <asp:Button ID="generate_table" CssClass="button" Text="Generate Table" runat="server" OnClick="Generate_Table_Button_Click" />
             <span>&emsp;&emsp;</span>
-            <asp:Button ID="reset" CssClass="button" Text="Reset" runat="server" OnClick="Reset_Button_Click"/>
+            <asp:Button ID="reset" CssClass="button" Text="Reset" runat="server" OnClick="Reset_Button_Click" />
         </div>
     </div>
 </asp:Content>

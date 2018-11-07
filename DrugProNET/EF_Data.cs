@@ -91,6 +91,25 @@ namespace DrugProNET
             return PDBInfo;
         }
 
+        public static List<PDB_Information> GetPDBInfo(string uniprot_ID)
+        {
+            List<PDB_Information> list = new List<PDB_Information>();
+
+            using (DrugProNETEntities context = new DrugProNETEntities())
+            {
+                DbSet<PDB_Information> dbSet = context.PDB_Information;
+                foreach (PDB_Information pdb in dbSet)
+                {
+                    if (pdb.Uniprot_ID == uniprot_ID)
+                    {
+                        list.Add(pdb);
+                    }
+                }
+            }
+
+            return list;
+        }
+
         private static bool IsQueryInValues(string query, params string[] values)
         {
             return values.Select(value => value?.ToLower()).ToArray().Contains(query?.ToLower());

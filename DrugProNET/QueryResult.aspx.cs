@@ -16,22 +16,43 @@ namespace DrugProNET
 
             if (!IsPostBack)
             {
-                string Uniprot_ID = "P12931"; //Request.QueryString["uniprot_ID"];
-                string drug_PDB_ID = "PTH"; //Request.QueryString["drug_PDB_ID"];
+                Protein_Information protein = null;
+                Drug_Information drug = null;
+                PDB_Information PDB_Info = null;
 
-                Protein_Information protein = EF_Data.GetProtein(Uniprot_ID);
-                Drug_Information drug = EF_Data.GetDrug(drug_PDB_ID);
+                int interaction_distance = int.Parse(Request.QueryString["interaction_distance"]);
+                bool protein_chain = bool.Parse(Request.QueryString["protein_chain"]);
+                bool protein_atoms = bool.Parse(Request.QueryString["protein_atoms"]);
+                bool protein_residues = bool.Parse(Request.QueryString["protein_residues"]);
+                bool protein_residue_numbers = bool.Parse(Request.QueryString["protein_residue_numbers"]);
+                bool drug_atoms = bool.Parse(Request.QueryString["drug_atoms"]);
 
-                // Residue Count property is an issue
-                //PDB_Information PDB_Info = EF_Data.GetPDBInfo(protein.Uniprot_ID, drug.Drug_PDB_ID);
+                string drug_specification = Request.QueryString["drug_specification"];
+                string protein_specification = Request.QueryString["protein_specification"];
 
-                //LoadProtein(protein);
-                //LoadDrug(drug, PDB_Info);
-                //LoadPDB_Info(PDB_Info);
+                string query_string = Request.QueryString["query_string"];
+
+                if (drug_specification == null)
+                {
+                    drug_specification = query_string;
+                }
+                else if (protein_specification == null)
+                {
+                    protein_specification = query_string;
+                }
+
+
+                drug = EF_Data.GetDrug(drug_specification);
+                protein = EF_Data.GetProtein(protein_specification);
+
+                PDB_Info = EF_Data.GetPDBInfo(protein.Uniprot_ID, drug.Drug_PDB_ID);
+
+                LoadProtein(protein);
+                LoadDrug(drug, PDB_Info);
+                LoadPDB_Info(PDB_Info);
 
                 GetDrugAtomNumberingImage(drug);
 
-                // First string can be anything
                 ScriptManager.RegisterStartupScript(Page, GetType(), "D_3DViewer", "javascript:loadDrugLigand('" + drug.Drug_PDB_ID + "');", true);
                 ScriptManager.RegisterStartupScript(Page, GetType(), "PDB_3DViewer", "javascript:loadStage('" + drug.PDB_File_ID + "', '" + drug.Drug_PDB_ID + "');", true);
             }

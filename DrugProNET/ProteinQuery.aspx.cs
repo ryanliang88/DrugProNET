@@ -1,7 +1,12 @@
-﻿using System;
+﻿using DrugProNET.Scripts;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Services;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -12,6 +17,84 @@ namespace DrugProNET
         protected new void Page_Load(object sender, EventArgs e)
         {
             base.Page_Load(sender, e);
+        }
+
+        protected void Search_Textbox_Changed(object sender, EventArgs e)
+        {
+            search_drop_down.Items.Clear();
+
+            List<Drug_Information> drugList = new List<Drug_Information>();
+
+            Protein_Information protein = EF_Data.GetProtein(search_textBox.Text);
+
+            if (protein != null)
+            {
+                List<PDB_Information> pdbInfoList = EF_Data.GetPDBInfo(protein.Uniprot_ID);
+
+                foreach (PDB_Information pdb in pdbInfoList)
+                {
+                    Drug_Information drug = EF_Data.GetDrug(pdb.Drug_PDB_ID);
+                    if (drug != null)
+                    {
+                        drugList.Add(drug);
+                    }
+                }
+            }
+
+            foreach (Drug_Information drug in drugList)
+            {
+                search_drop_down.Items.AddRange(
+                    GenerateListItemsFromDrug(
+                        drug.Other_Drug_Name_Alias,
+                        drug.Compound_CAS_ID,
+                        drug.PubChem_CID,
+                        drug.ChEMBL_ID).ToArray());
+            }
+        }
+
+        protected void Test(object sender, EventArgs e)
+        {
+            //search_drop_down.Items.Clear();
+            search_drop_down.Items.Add(button.Text);
+        }
+
+        [WebMethod]
+        [ScriptMethod]
+        public static List<string> GetAutoCompleteData(string prefixText, int count)
+        {
+            int minPrefixLength = 3;
+            List<string> valuesList = new List<string>();
+
+            if (prefixText.Length >= minPrefixLength)
+            {
+                try
+                {
+                    using (DrugProNETEntities context = new DrugProNETEntities())
+                    {
+
+                        DbSet<Protein_Information> dbSet = context.Protein_Information;
+
+                        foreach (Protein_Information p in dbSet.ToList())
+                        {
+                            AddIfExists(valuesList,
+                                p.Protein_Short_Name,
+                                p.Protein_Full_Name,
+                                p.PDB_Protein_Name,
+                                p.Protein_Alias,
+                                p.Uniprot_ID,
+                                p.NCBI_RefSeq_NP_ID,
+                                p.PhosphoNET_Name);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+
+            int maxResultSize = 5;
+            return MatchFinder.FindTopNMatches(prefixText, valuesList, maxResultSize);
         }
 
         protected void Reset_Button_Click(object sender, EventArgs e)
@@ -40,6 +123,32 @@ namespace DrugProNET
                 + "&protein_residue_numbers=" + protein_residue_number_checkbox.Checked
                 + "&drug_atoms=" + drug_atoms_checkbox.Checked, false);
             Context.ApplicationInstance.CompleteRequest();
+        }
+
+        private static void AddIfExists(List<string> list, params string[] values)
+        {
+            foreach (string value in values)
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    list.Add(value);
+                }
+            }
+        }
+
+        private List<ListItem> GenerateListItemsFromDrug(params string[] values)
+        {
+            List<ListItem> listItemList = new List<ListItem>();
+
+            foreach (string value in values)
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    listItemList.Add(new ListItem(value, value, true));
+                }
+            }
+
+            return listItemList;
         }
     }
 }
