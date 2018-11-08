@@ -52,12 +52,6 @@ namespace DrugProNET
             }
         }
 
-        protected void Test(object sender, EventArgs e)
-        {
-            //search_drop_down.Items.Clear();
-            search_drop_down.Items.Add(button.Text);
-        }
-
         [WebMethod]
         [ScriptMethod]
         public static List<string> GetAutoCompleteData(string prefixText, int count)
