@@ -18,10 +18,16 @@ namespace DrugProNET
         protected new void Page_Load(object sender, EventArgs e)
         {
             base.Page_Load(sender, e);
+            loading_label.Visible = false;
         }
 
         protected void Search_Textbox_Changed(object sender, EventArgs e)
         {
+            if (search_textBox.Text != string.Empty)
+            {
+                loading_label.Visible = true;
+            }
+         
             Debug.WriteLine(search_textBox.Text);
 
             List<Protein_Information> proteinList = new List<Protein_Information>();
@@ -57,6 +63,8 @@ namespace DrugProNET
                             protein.PhosphoNET_Name,
                             protein.PDB_Protein_Name).ToArray());
                 }
+
+                loading_label.Visible = false;
             }
         }
 
