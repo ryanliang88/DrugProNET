@@ -6,7 +6,7 @@
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="BodyContentPlaceHolder">
-        
+
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
@@ -238,7 +238,7 @@
         <div class="c-col side-content"></div>
         <div class="c-col body-content-long longDiv" style="padding-top: 2em">
             <div class="button-container">
-                <asp:Button CssClass="download-button" ID="download_button" runat="server" Text="Download Table" OnClick="Download_Button_Click"/>
+                <asp:Button CssClass="download-button" ID="download_button" runat="server" Text="Download Table" OnClick="Download_Button_Click" />
             </div>
             <div>
                 <p>Click to download MS-Excel file of predicted SNVs</p>

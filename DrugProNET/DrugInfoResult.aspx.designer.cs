@@ -13,15 +13,6 @@ namespace DrugProNET {
     public partial class DrugInfoResult {
         
         /// <summary>
-        /// ad_refresh_timer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.Timer ad_refresh_timer;
-        
-        /// <summary>
         /// ad_update_panel control.
         /// </summary>
         /// <remarks>
@@ -29,6 +20,15 @@ namespace DrugProNET {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel ad_update_panel;
+        
+        /// <summary>
+        /// ad_refresh_timer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.Timer ad_refresh_timer;
         
         /// <summary>
         /// adLink control.

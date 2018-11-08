@@ -23,13 +23,13 @@
         <div class="c-col advertisment-content">
             <asp:UpdatePanel ID="ad_update_panel" runat="server">
                 <ContentTemplate>
-                    <asp:Timer ID="ad_refresh_timer" runat="server" Interval="3000" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
+                    <asp:Timer ID="ad_refresh_timer" runat="server" Interval="10000" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
                     <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server">
                         <asp:Image ImageUrl="imageUrl" runat="server" ID="adBanner" AlternateText="" />
                     </asp:HyperLink>
                 </ContentTemplate>
                 <Triggers>
-                    <asp:AsyncPostBackTrigger ControlID="ad_refresh_timer" EventName="Tick"></asp:AsyncPostBackTrigger>
+                    <asp:AsyncPostBackTrigger ControlID="ad_refresh_timer" EventName="Tick" />
                 </Triggers>
             </asp:UpdatePanel>
         </div>

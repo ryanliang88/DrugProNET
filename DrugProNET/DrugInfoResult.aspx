@@ -4,7 +4,7 @@
     <link href="./css/drug_info_result.css" rel="stylesheet" />
     <link rel="stylesheet" href="./css/3_column.css">
     <link rel="stylesheet" href="./css/3_column.css">
-    
+
     <script src="Scripts/3DViewer/ngl.js"></script>
 </asp:Content>
 
@@ -21,15 +21,15 @@
             <p class="p-general-info">This report provides detailed information on one of over 2000 drugs that have been experimentally identified as inhibitors for proteins and co-crystallized with these proteins. The data has been annotated from multiple sources, including the US National Center for Biotechnology Information,  EMBL and other reputable databases and direct url links are provided to their websites.</p>
         </div>
         <div class="c-col advertisment-content">
-            <asp:Timer ID="ad_refresh_timer" runat="server" Interval="1" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
             <asp:UpdatePanel ID="ad_update_panel" runat="server">
                 <ContentTemplate>
+                    <asp:Timer ID="ad_refresh_timer" runat="server" Interval="10000" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
                     <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server">
                         <asp:Image ImageUrl="imageUrl" runat="server" ID="adBanner" AlternateText="" />
                     </asp:HyperLink>
                 </ContentTemplate>
                 <Triggers>
-                    <asp:AsyncPostBackTrigger ControlID="ad_refresh_timer" EventName="Tick"></asp:AsyncPostBackTrigger>
+                    <asp:AsyncPostBackTrigger ControlID="ad_refresh_timer" EventName="Tick" />
                 </Triggers>
             </asp:UpdatePanel>
         </div>
