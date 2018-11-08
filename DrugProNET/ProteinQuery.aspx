@@ -5,6 +5,14 @@
 <asp:Content runat="server" ContentPlaceHolderID="HeadContentPlaceHolder">
     <link rel="stylesheet" href="./css/3_column.css" />
     <link rel="stylesheet" href="./css/protein_query.css">
+
+    <%-- Needs to be inline for some reason --%>
+    <script type="text/javascript">
+        function RefreshUpdatePanel() {
+            __doPostBack('<%= search_drop_down_UpdatePanel.ClientID %>', '');
+        };
+    </script>
+
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="BodyContentPlaceHolder">
@@ -24,7 +32,7 @@
             </p>
         </div>
         <div class="c-col advertisment-content">
-            <asp:UpdatePanel ID="ad_update_panel" runat="server">
+            <asp:UpdatePanel ID="ad_update_panel" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
                     <asp:Timer ID="ad_refresh_timer" runat="server" Interval="10000" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
                     <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server">
@@ -50,12 +58,8 @@
                 ID of the target human protein as a search term.
             </p>
 
-            <asp:UpdatePanel ID="search_textBox_UpdatePanel" runat="server" UpdateMode="Conditional">
-                <ContentTemplate>
-                    <asp:TextBox CssClass="textBox" ID="search_textBox" runat="server" value="" placeholder="Type in at least 3 letters of the search term" OnTextChanged="Search_Textbox_Changed" />
-                    <asp:AutoCompleteExtender ID="AutoCompleteExtender" runat="server" ServiceMethod="GetAutoCompleteData" TargetControlID="search_textBox" CompletionInterval="100" CompletionSetCount="5" MinimumPrefixLength="1"></asp:AutoCompleteExtender>
-                </ContentTemplate>
-            </asp:UpdatePanel>
+            <asp:TextBox CssClass="textBox" ID="search_textBox" runat="server" value="" placeholder="Type in at least 3 letters of the search term" OnTextChanged="Search_Textbox_Changed" onkeyup="RefreshUpdatePanel();" />
+            <asp:AutoCompleteExtender ID="AutoCompleteExtender" runat="server" ServiceMethod="GetAutoCompleteData" TargetControlID="search_textBox" CompletionInterval="100" CompletionSetCount="5" MinimumPrefixLength="1" />
         </div>
     </div>
 
@@ -66,14 +70,15 @@
             <h3 class="h3-body-title">Step 2 - Drug Specification</h3>
             <p>Use the pull-down menu below to select for the drug of interest.</p>
 
-            <asp:UpdatePanel ID="drop_down_update_panel" runat="server" UpdateMode="Conditional">
+            <asp:UpdatePanel ID="search_drop_down_UpdatePanel" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
-                    <asp:DropDownList CssClass="drop-down" ID="search_drop_down" runat="server" AutoPostBack="true">
+                    <asp:DropDownList CssClass="drop-down" ID="search_drop_down" runat="server">
                         <asp:ListItem Text="Select from list of output options" Value="0" />
                     </asp:DropDownList>
                 </ContentTemplate>
                 <Triggers>
                     <asp:AsyncPostBackTrigger ControlID="search_textBox" EventName="TextChanged" />
+                    <%-- <asp:AsyncPostBackTrigger ControlID="search_textBox" /> --%>
                 </Triggers>
             </asp:UpdatePanel>
 

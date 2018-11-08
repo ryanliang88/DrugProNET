@@ -21,8 +21,6 @@ namespace DrugProNET
 
         protected void Search_Textbox_Changed(object sender, EventArgs e)
         {
-            search_drop_down.Items.Clear();
-
             List<Drug_Information> drugList = new List<Drug_Information>();
 
             Protein_Information protein = EF_Data.GetProtein(search_textBox.Text);
@@ -41,21 +39,30 @@ namespace DrugProNET
                 }
             }
 
-            foreach (Drug_Information drug in drugList)
+            if (drugList.Count > 0)
             {
-                search_drop_down.Items.AddRange(
-                    GenerateListItemsFromDrug(
-                        drug.Other_Drug_Name_Alias,
-                        drug.Compound_CAS_ID,
-                        drug.PubChem_CID,
-                        drug.ChEMBL_ID).ToArray());
+                search_drop_down.Items.Clear();
+
+                foreach (Drug_Information drug in drugList)
+                {
+                    search_drop_down.Items.AddRange(
+                        GenerateListItemsFromDrug(
+                            drug.Other_Drug_Name_Alias,
+                            drug.Compound_CAS_ID,
+                            drug.PubChem_CID,
+                            drug.ChEMBL_ID).ToArray());
+                }
             }
+
+            Debug.WriteLine(search_textBox.Text);
         }
 
         [WebMethod]
         [ScriptMethod]
         public static List<string> GetAutoCompleteData(string prefixText, int count)
         {
+
+
             int minPrefixLength = 3;
             List<string> valuesList = new List<string>();
 
