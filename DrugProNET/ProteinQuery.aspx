@@ -78,7 +78,6 @@
                 </ContentTemplate>
                 <Triggers>
                     <asp:AsyncPostBackTrigger ControlID="search_textBox" EventName="TextChanged" />
-                    <%-- <asp:AsyncPostBackTrigger ControlID="search_textBox" /> --%>
                 </Triggers>
             </asp:UpdatePanel>
 

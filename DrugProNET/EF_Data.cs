@@ -91,7 +91,7 @@ namespace DrugProNET
             return PDBInfo;
         }
 
-        public static List<PDB_Information> GetPDBInfo(string uniprot_ID)
+        public static List<PDB_Information> GetPDBInfoUsingProtein(string uniprot_ID)
         {
             List<PDB_Information> list = new List<PDB_Information>();
 
@@ -101,6 +101,25 @@ namespace DrugProNET
                 foreach (PDB_Information pdb in dbSet)
                 {
                     if (pdb.Uniprot_ID == uniprot_ID)
+                    {
+                        list.Add(pdb);
+                    }
+                }
+            }
+
+            return list;
+        }
+
+        public static List<PDB_Information> GetPDBInfoUsingDrug(string drug_pdb_id)
+        {
+            List<PDB_Information> list = new List<PDB_Information>();
+
+            using (DrugProNETEntities context = new DrugProNETEntities())
+            {
+                DbSet<PDB_Information> dbSet = context.PDB_Information;
+                foreach (PDB_Information pdb in dbSet)
+                {
+                    if (pdb.Drug_PDB_ID == drug_pdb_id)
                     {
                         list.Add(pdb);
                     }

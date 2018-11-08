@@ -27,7 +27,7 @@ namespace DrugProNET
 
             if (protein != null)
             {
-                List<PDB_Information> pdbInfoList = EF_Data.GetPDBInfo(protein.Uniprot_ID);
+                List<PDB_Information> pdbInfoList = EF_Data.GetPDBInfoUsingProtein(protein.Uniprot_ID);
 
                 foreach (PDB_Information pdb in pdbInfoList)
                 {
@@ -46,15 +46,13 @@ namespace DrugProNET
                 foreach (Drug_Information drug in drugList)
                 {
                     search_drop_down.Items.AddRange(
-                        GenerateListItemsFromDrug(
+                        GenerateListItemsFromValues(
                             drug.Other_Drug_Name_Alias,
                             drug.Compound_CAS_ID,
                             drug.PubChem_CID,
                             drug.ChEMBL_ID).ToArray());
                 }
             }
-
-            Debug.WriteLine(search_textBox.Text);
         }
 
         [WebMethod]
@@ -135,7 +133,7 @@ namespace DrugProNET
             }
         }
 
-        private List<ListItem> GenerateListItemsFromDrug(params string[] values)
+        private List<ListItem> GenerateListItemsFromValues(params string[] values)
         {
             List<ListItem> listItemList = new List<ListItem>();
 
