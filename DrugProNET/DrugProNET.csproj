@@ -148,7 +148,6 @@
     <Content Include="CSS\protein_info.css" />
     <Content Include="CSS\protein_info_result.css" />
     <Content Include="CSS\protein_query.css" />
-    <Content Include="CSS\query_page.css" />
     <Content Include="CSS\query_result.css" />
     <Content Include="CSS\snv_drug_query.css" />
     <Content Include="CSS\snv_drug_result.css" />
