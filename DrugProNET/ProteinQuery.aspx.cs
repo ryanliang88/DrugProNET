@@ -61,8 +61,6 @@ namespace DrugProNET
         [ScriptMethod]
         public static List<string> GetAutoCompleteData(string prefixText, int count)
         {
-
-
             int minPrefixLength = 3;
             List<string> valuesList = new List<string>();
 
