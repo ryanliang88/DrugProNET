@@ -1,10 +1,7 @@
 ﻿using DrugProNET.Advertisement;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using DrugProNET.CalculateDistance;
 
 namespace DrugProNET
 {
@@ -18,7 +15,7 @@ namespace DrugProNET
             {
                 Protein_Information protein = null;
                 Drug_Information drug = null;
-                PDB_Information PDB_Info = null;
+                PDB_Information pdbInfo = null;
 
                 int interaction_distance = int.Parse(Request.QueryString["interaction_distance"]);
                 bool protein_chain = bool.Parse(Request.QueryString["protein_chain"]);
@@ -45,11 +42,12 @@ namespace DrugProNET
                 drug = EF_Data.GetDrug(drug_specification);
                 protein = EF_Data.GetProtein(protein_specification);
 
-                PDB_Info = EF_Data.GetPDBInfo(protein.Uniprot_ID, drug.Drug_PDB_ID);
+                // Can be null
+                pdbInfo = EF_Data.GetPDBInfo(protein.Uniprot_ID, drug.Drug_PDB_ID);
 
                 LoadProtein(protein);
-                LoadDrug(drug, PDB_Info);
-                LoadPDB_Info(PDB_Info);
+                LoadDrug(drug, pdbInfo);
+                LoadPDB_Info(pdbInfo);
 
                 GetDrugAtomNumberingImage(drug);
 

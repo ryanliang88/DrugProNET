@@ -287,7 +287,7 @@
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
-        <div class="c-col body-content longDiv">
+        <div class="c-col body-content-long"">
             <div style="display: inline-block; float: left; padding-right: 2em">
                 <h3 class="h3-body-title">Drug Atom Numbering</h3>
                 <asp:Image ID="selected_amino_acid_residue_atom_numbering" runat="server"
@@ -306,7 +306,7 @@
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
-        <div class="c-col body-content longDiv">
+        <div class="c-col body-content-long"">
             <div style="display: inline-block; float: left; padding-right: 2em">
                 <h3 class="h3-body-title">Selected Amino Acid Residue Atom Numbering</h3>
                 <asp:UpdatePanel runat="server" UpdateMode="Conditional">
@@ -333,7 +333,7 @@
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
-        <div class="c-col body-content longDiv" style="padding-top: 2em">
+        <div class="c-col body-content-long">
             <div style="display: inline-block; float: left; padding-right: 2em;">
                 <asp:DropDownList runat="server" ID="amino_acid_dropdown" Style="color: black;"
                     AutoPostBack="true" OnSelectedIndexChanged="AminoAcidImage_Change">
@@ -372,7 +372,7 @@
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
-        <div class="c-col body-content longDiv" style="padding-top: 2em">
+        <div class="c-col body-content-long">
             <h3 class="h3-body-title">Interaction Summary of Critical Amino Acid Residues Implicated in Drug Binding</h3>
         </div>
     </div>
@@ -381,9 +381,9 @@
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
-        <div class="c-col body-content longDiv" style="padding-top: 2em">
-            <div style="display: inline-block; float: left; padding-right: 2em">
-                <asp:Button ID="download_interaction_summary" runat="server" Text="Download Table" />
+        <div class="c-col body-content-long">
+            <div class="button-container">
+                <asp:Button CssClass="download-button" ID="download_interaction_summary" runat="server" Text="Download Table" />
             </div>
             <div>
                 <p>Click to download MS-Excel file of interaction summary table below</p>
@@ -405,7 +405,7 @@
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
-        <div class="c-col body-content longDiv" style="padding-top: 2em">
+        <div class="c-col body-content-long">
             <h3 class="h3-body-title">Interaction List of Critical Amino Acid Residues Atoms Implicated in Drug Atom Binding</h3>
         </div>
     </div>
@@ -414,9 +414,9 @@
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
-        <div class="c-col body-content longDiv" style="padding-top: 2em">
-            <div style="display: inline-block; float: left; padding-right: 2em">
-                <asp:Button ID="Button1" runat="server" Text="Download Table" />
+        <div class="c-col body-content-long" style="padding-top: 2em">
+            <div class="button-container">
+                <asp:Button CssClass="download-button" ID="Button1" runat="server" Text="Download Table" />
             </div>
             <div>
                 <p>Click to download MS-Excel file of interaction summary table below</p>

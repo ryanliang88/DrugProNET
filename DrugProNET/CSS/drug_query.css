@@ -22,6 +22,7 @@ p {
     color: black;
     height: 25px;
     border-radius: .3em;
+    width: 300px;
 }
 
 .checkbox-toggle {

@@ -1,9 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BasePage.Master" AutoEventWireup="true" CodeBehind="DrugQuery.aspx.cs" Inherits="DrugProNET.DrugQuery" MaintainScrollPositionOnPostback="true" %>
 
-<asp:Content runat="server" ContentPlaceHolderID="HeadContentPlaceHolder">
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
+<asp:Content runat="server" ContentPlaceHolderID="HeadContentPlaceHolder">
     <link rel="stylesheet" href="./css/3_column.css" />
     <link rel="stylesheet" href="./css/drug_query.css">
+
+    <%-- Needs to be inline for some reason --%>
+    <script type="text/javascript">
+        function RefreshUpdatePanel() {
+            __doPostBack('<%= search_drop_down_UpdatePanel.ClientID %>', '');
+        };
+    </script>
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="BodyContentPlaceHolder">
@@ -22,7 +30,7 @@
             </p>
         </div>
         <div class="c-col advertisment-content">
-            <asp:UpdatePanel ID="ad_update_panel" runat="server">
+            <asp:UpdatePanel ID="ad_update_panel" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
                     <asp:Timer ID="ad_refresh_timer" runat="server" Interval="10000" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
                     <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server">
@@ -48,7 +56,8 @@
                 ID of the compound of interest as a search term.
             </p>
 
-            <asp:TextBox CssClass="textBox" ID="search_textBox" runat="server" value="" placeholder="Type in at least 3 letters of the search term" />
+            <asp:TextBox CssClass="textBox" ID="search_textBox" runat="server" value="" placeholder="Type in at least 3 letters of the search term" OnTextChanged="Search_Textbox_Changed" onkeyup="RefreshUpdatePanel();" />
+            <asp:AutoCompleteExtender ID="AutoCompleteExtender" runat="server" ServiceMethod="GetAutoCompleteData" TargetControlID="search_textBox" CompletionInterval="100" CompletionSetCount="5" MinimumPrefixLength="1" />
         </div>
     </div>
 
@@ -59,9 +68,17 @@
             <h3 class="h3-body-title">Step 2 - Protein Specification</h3>
             <p>Use the pull-down menu below to select for the protein of interest.</p>
 
-            <asp:DropDownList CssClass="drop-down" ID="search_drop_down" runat="server" value="">
-                <asp:ListItem Text="Select from list of output options" Value="-1"></asp:ListItem>
-            </asp:DropDownList>
+            <asp:UpdatePanel ID="search_drop_down_UpdatePanel" runat="server" UpdateMode="Conditional">
+                <ContentTemplate>
+                    <asp:DropDownList CssClass="drop-down" ID="search_drop_down" runat="server">
+                        <asp:ListItem Text="Select from list of output options" Value="0" />
+                    </asp:DropDownList>
+                    <p style="color: white; padding: 0" ID="loading_label" runat="server">Loading...</p>
+                </ContentTemplate>
+                <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="search_textBox" EventName="TextChanged" />
+                </Triggers>
+            </asp:UpdatePanel>
 
         </div>
     </div>

@@ -17,11 +17,17 @@ namespace DrugProNET
         protected new void Page_Load(object sender, EventArgs e)
         {
             base.Page_Load(sender, e);
+            loading_label.Visible = false;
         }
 
         protected void Search_Textbox_Changed(object sender, EventArgs e)
         {
-            search_drop_down.Items.Clear();
+            Debug.WriteLine(search_textBox.Text);
+
+            if (search_textBox.Text != string.Empty)
+            {
+                loading_label.Visible = true;
+            }
 
             List<Drug_Information> drugList = new List<Drug_Information>();
 
@@ -29,7 +35,7 @@ namespace DrugProNET
 
             if (protein != null)
             {
-                List<PDB_Information> pdbInfoList = EF_Data.GetPDBInfo(protein.Uniprot_ID);
+                List<PDB_Information> pdbInfoList = EF_Data.GetPDBInfoUsingProtein(protein.Uniprot_ID);
 
                 foreach (PDB_Information pdb in pdbInfoList)
                 {
@@ -41,14 +47,21 @@ namespace DrugProNET
                 }
             }
 
-            foreach (Drug_Information drug in drugList)
+            if (drugList.Count > 0)
             {
-                search_drop_down.Items.AddRange(
-                    GenerateListItemsFromDrug(
-                        drug.Other_Drug_Name_Alias,
-                        drug.Compound_CAS_ID,
-                        drug.PubChem_CID,
-                        drug.ChEMBL_ID).ToArray());
+                search_drop_down.Items.Clear();
+
+                foreach (Drug_Information drug in drugList)
+                {
+                    search_drop_down.Items.AddRange(
+                        GenerateListItemsFromValues(
+                            drug.Other_Drug_Name_Alias,
+                            drug.Compound_CAS_ID,
+                            drug.PubChem_CID,
+                            drug.ChEMBL_ID).ToArray());
+                }
+
+                loading_label.Visible = false;
             }
         }
 
@@ -130,7 +143,7 @@ namespace DrugProNET
             }
         }
 
-        private List<ListItem> GenerateListItemsFromDrug(params string[] values)
+        private List<ListItem> GenerateListItemsFromValues(params string[] values)
         {
             List<ListItem> listItemList = new List<ListItem>();
 
