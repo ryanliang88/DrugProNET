@@ -29,6 +29,7 @@ namespace DrugProNET
         public virtual DbSet<PDB_Distances> PDB_Distances { get; set; }
         public virtual DbSet<PDB_Information> PDB_Information { get; set; }
         public virtual DbSet<Protein_Information> Protein_Information { get; set; }
+        public virtual DbSet<C18NO7_ExcelE_subset> C18NO7_ExcelE_subset { get; set; }
         public virtual DbSet<PDB_Interactions> PDB_Interactions { get; set; }
     }
 }

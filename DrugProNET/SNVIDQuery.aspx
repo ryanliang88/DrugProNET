@@ -74,7 +74,6 @@
             <asp:UpdatePanel ID="search_drop_down_UpdatePanel" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
                     <asp:DropDownList CssClass="drop-down" ID="drug_specification_drop_down" runat="server" OnSelectedIndexChanged="LoadAminoAcidDropDown">
-                        <asp:ListItem Text="Select from list of output options" Value="0" />
                     </asp:DropDownList>
                 </ContentTemplate>
                 <Triggers>
@@ -96,10 +95,10 @@
                 Use the pull-down menu below to select the amino acid in the proteins for which you wish to 
                 identify SNPs that affect the specified drug binding.
             </p>
-            <asp:UpdatePanel ID="amin_acid_specification_updatePanel" runat="server" UpdateMode="Conditional">
+
+            <asp:UpdatePanel ID="amino_acid_specification_updatePanel" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
                     <asp:DropDownList CssClass="drop-down" ID="amino_acid_specification_drop_down" runat="server">
-                        <asp:ListItem Text="Select from list of output options" Value="-1"></asp:ListItem>
                     </asp:DropDownList>
                 </ContentTemplate>
                 <Triggers>
@@ -118,7 +117,7 @@
             <h3 class="h3-body-title">Step 4 - Report Generation</h3>
             <p>Click on the box below to produce custom tables with results or to reset the parameters.</p>
 
-            <asp:Button ID="generate_table_button" CssClass="button" Text="Generate Table" runat="server" />
+            <asp:Button ID="generate_table_button" CssClass="button" Text="Generate Table" runat="server" OnClick="Generate"/>
             <span>&emsp;&emsp;</span>
             <asp:Button ID="reset_button" CssClass="button" Text="Reset" runat="server" />
         </div>

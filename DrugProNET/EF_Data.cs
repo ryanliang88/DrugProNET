@@ -149,6 +149,27 @@ namespace DrugProNET
             return list;
         }
 
+        public static List<C18NO7_ExcelE_subset> GetMutations(string uniprot, string drugPDBID)
+        {
+            List<C18NO7_ExcelE_subset> mutations = new List<C18NO7_ExcelE_subset>();
+
+            using (DrugProNETEntities context = new DrugProNETEntities())
+            {
+                DbSet<C18NO7_ExcelE_subset> mutationSet = context.C18NO7_ExcelE_subset;
+
+                foreach (C18NO7_ExcelE_subset mutation in mutationSet)
+                {
+                    if ((mutation.UniProt_ID?.ToLower()).Equals(uniprot.ToLower()) &&
+                        (mutation.Drug_PDB_ID?.ToLower()).Equals(drugPDBID.ToLower()))
+                    {
+                        mutations.Add(mutation);
+                    }
+                }
+            }
+
+            return mutations;
+        }
+
         private static bool IsQueryInValues(string query, params string[] values)
         {
             return values.Select(value => value?.ToLower()).ToArray().Contains(query?.ToLower());

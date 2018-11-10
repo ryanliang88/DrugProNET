@@ -14,11 +14,18 @@ namespace DrugProNET
 {
     public partial class SNVIDQuery : Advertisement.AdvertiseablePage
     {
+        private const string DROP_DOWN_PROMPT_MESSAGE = "Select from list of output options";
         private const string NO_MATCHES_MESSAGE = "No matching items found";
 
         protected new void Page_Load(object sender, EventArgs e)
         {
             base.Page_Load(sender, e);
+
+            if (!IsPostBack)
+            {
+                drug_specification_drop_down.Items.Add(DROP_DOWN_PROMPT_MESSAGE);
+                amino_acid_specification_drop_down.Items.Add(DROP_DOWN_PROMPT_MESSAGE);
+            }
         }
 
         protected void Search_Textbox_Changed(object sender, EventArgs e)
@@ -41,7 +48,8 @@ namespace DrugProNET
 
                 if (drugList.Count > 0)
                 {
-                    drug_specification_drop_down.Items.Clear();
+                    amino_acid_specification_drop_down.Items.Clear();
+
                     foreach (Drug_Information drug in drugList)
                     {
                         drug_specification_drop_down.Items.Add(drug.Drug_Name_for_Pull_Down_Menu);
@@ -57,13 +65,30 @@ namespace DrugProNET
 
         protected void LoadAminoAcidDropDown(object sender, EventArgs e)
         {
-            using (DrugProNETEntities context = new DrugProNETEntities())
-            {
-                Protein_Information protein = EF_Data.GetProtein(search_textBox.Text);
-                Drug_Information drug = EF_Data.GetDrugsUsingDropDownName(drug_specification_drop_down.SelectedItem.Value);
+            Debug.WriteLine("Triggered");
+            amino_acid_specification_drop_down.Items.Clear();
+            amino_acid_specification_drop_down.Items.Add(DROP_DOWN_PROMPT_MESSAGE);
 
+            //Protein_Information protein = EF_Data.GetProtein(search_textBox.Text);
+            //Drug_Information drug = EF_Data.GetDrugsUsingDropDownName(drug_specification_drop_down.SelectedItem.Value);
 
-            }
+            //List<C18NO7_ExcelE_subset> mutations = EF_Data.GetMutations(protein.Uniprot_ID, drug.Drug_PDB_ID);
+
+            //amino_acid_specification_drop_down.Items.Clear();
+            //amino_acid_specification_drop_down.Items.Add(DROP_DOWN_PROMPT_MESSAGE);
+
+            //if (mutations.Count > 0)
+            //{
+            //    foreach (C18NO7_ExcelE_subset mutation in mutations)
+            //    {
+            //        amino_acid_specification_drop_down.Items.Add(mutation.SNV_Key);
+            //    }
+            //}
+            //else
+            //{
+            //    amino_acid_specification_drop_down.Items.Clear();
+            //    amino_acid_specification_drop_down.Items.Add(NO_MATCHES_MESSAGE);
+            //}
         }
 
         private List<ListItem> GenerateListItemsFromValues(params string[] values)
@@ -122,8 +147,12 @@ namespace DrugProNET
 
             int maxAutocompleteLength = 5;
 
-            // Get first 5 elements of the list
             return valuesList.Count >= maxAutocompleteLength ? valuesList.GetRange(0, 5) : valuesList;
+        }
+
+        protected void Generate(object sender, EventArgs e)
+        {
+
         }
 
         private static bool HasMatch(string searchTerm, params string[] values)

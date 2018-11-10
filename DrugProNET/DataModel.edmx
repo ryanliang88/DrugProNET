@@ -5,6 +5,97 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="DrugProNETModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DrugProNET.dbo.18NO7_ExcelE_subset' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="18NO7_ExcelE_subset">
+          <Key>
+            <PropertyRef Name="SNV_Key" />
+          </Key>
+          <Property Name="UniProt_ID" Type="varchar" MaxLength="4000" />
+          <Property Name="SNV_Key" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PDB_File_No" Type="varchar" MaxLength="4000" />
+          <Property Name="Drug_PDB_ID" Type="varchar" MaxLength="4000" />
+          <Property Name="Human_Gene_Location" Type="varchar" MaxLength="4000" />
+          <Property Name="Nucleotide_1_Position" Type="varchar" MaxLength="4000" />
+          <Property Name="Nucleotide_2_Position" Type="varchar" MaxLength="4000" />
+          <Property Name="Nucleotide_3_Position" Type="varchar" MaxLength="4000" />
+          <Property Name="P1W" Type="varchar" MaxLength="4000" />
+          <Property Name="P2W" Type="varchar" MaxLength="4000" />
+          <Property Name="P3W" Type="varchar" MaxLength="4000" />
+          <Property Name="P1M1" Type="varchar" MaxLength="4000" />
+          <Property Name="P1M2" Type="varchar" MaxLength="4000" />
+          <Property Name="P1M3" Type="varchar" MaxLength="4000" />
+          <Property Name="P2M1" Type="varchar" MaxLength="4000" />
+          <Property Name="P2M2" Type="varchar" MaxLength="4000" />
+          <Property Name="P2M3" Type="varchar" MaxLength="4000" />
+          <Property Name="P3M1" Type="varchar" MaxLength="4000" />
+          <Property Name="P3M2" Type="varchar" MaxLength="4000" />
+          <Property Name="P3M3" Type="varchar" MaxLength="4000" />
+          <Property Name="P1W_Nucleotide" Type="varchar" MaxLength="4000" />
+          <Property Name="P2W_Nucleotide" Type="varchar" MaxLength="4000" />
+          <Property Name="P3W_Nucleotide" Type="varchar" MaxLength="4000" />
+          <Property Name="P1M1_Nucleotide" Type="varchar" MaxLength="4000" />
+          <Property Name="P1M2_Nucleotide" Type="varchar" MaxLength="4000" />
+          <Property Name="P1M3_Nucleotide" Type="varchar" MaxLength="4000" />
+          <Property Name="P2M1_Nucleotide" Type="varchar" MaxLength="4000" />
+          <Property Name="P2M2_Nucleotide" Type="varchar" MaxLength="4000" />
+          <Property Name="P2M3_Nucleotide" Type="varchar" MaxLength="4000" />
+          <Property Name="P3M1_Nucleotide" Type="varchar" MaxLength="4000" />
+          <Property Name="P3M2_Nucleotide" Type="varchar" MaxLength="4000" />
+          <Property Name="P3M3_Nucleotide" Type="varchar" MaxLength="4000" />
+          <Property Name="P1W_Nucleotide_Triplet" Type="varchar" MaxLength="4000" />
+          <Property Name="P2W_Nucleotide_Triplet" Type="varchar" MaxLength="4000" />
+          <Property Name="P3W_Nucleotide_Triplet" Type="varchar" MaxLength="4000" />
+          <Property Name="P1M1_Nucleotide_Triplet" Type="varchar" MaxLength="4000" />
+          <Property Name="P1M2_Nucleotide_Triplet" Type="varchar" MaxLength="4000" />
+          <Property Name="P1M3_Nucleotide_Triplet" Type="varchar" MaxLength="4000" />
+          <Property Name="P2M1_Nucleotide_Triplet" Type="varchar" MaxLength="4000" />
+          <Property Name="P2M2_Nucleotide_Triplet" Type="varchar" MaxLength="4000" />
+          <Property Name="P2M3_Nucleotide_Triplet" Type="varchar" MaxLength="4000" />
+          <Property Name="P3M1_Nucleotide_Triplet" Type="varchar" MaxLength="4000" />
+          <Property Name="P3M2_Nucleotide_Triplet" Type="varchar" MaxLength="4000" />
+          <Property Name="P3M3_Nucleotide_Triplet" Type="varchar" MaxLength="4000" />
+          <Property Name="P1W_Amino_Acid_" Type="varchar" MaxLength="4000" />
+          <Property Name="P2W_Amino_Acid_" Type="varchar" MaxLength="4000" />
+          <Property Name="P3W_Amino_Acid_" Type="varchar" MaxLength="4000" />
+          <Property Name="P1M1_Amino_Acid_" Type="varchar" MaxLength="4000" />
+          <Property Name="P1M2_Amino_Acid_" Type="varchar" MaxLength="4000" />
+          <Property Name="P1M3_Amino_Acid_" Type="varchar" MaxLength="4000" />
+          <Property Name="P2M1_Amino_Acid_" Type="varchar" MaxLength="4000" />
+          <Property Name="P2M2_Amino_Acid_" Type="varchar" MaxLength="4000" />
+          <Property Name="P2M3_Amino_Acid_" Type="varchar" MaxLength="4000" />
+          <Property Name="P3M1_Amino_Acid_" Type="varchar" MaxLength="4000" />
+          <Property Name="P3M2_Amino_Acid_" Type="varchar" MaxLength="4000" />
+          <Property Name="P3M3_Amino_Acid_" Type="varchar" MaxLength="4000" />
+          <Property Name="SNV-P1W_ID" Type="varchar" MaxLength="4000" />
+          <Property Name="SNV-P2W_ID" Type="varchar" MaxLength="4000" />
+          <Property Name="SNV-P3W_ID" Type="varchar" MaxLength="4000" />
+          <Property Name="SNV-P1M1_ID" Type="varchar" MaxLength="4000" />
+          <Property Name="SNV-P1M2_ID" Type="varchar" MaxLength="4000" />
+          <Property Name="SNV-P1M3_ID" Type="varchar" MaxLength="4000" />
+          <Property Name="SNV-P2M1_ID" Type="varchar" MaxLength="4000" />
+          <Property Name="SNV-P2M2_ID" Type="varchar" MaxLength="4000" />
+          <Property Name="SNV-P2M3_ID" Type="varchar" MaxLength="4000" />
+          <Property Name="SNV-P3M1_ID" Type="varchar" MaxLength="4000" />
+          <Property Name="SNV-P3M2_ID" Type="varchar" MaxLength="4000" />
+          <Property Name="SNV-P3M3_ID" Type="varchar" MaxLength="4000" />
+          <Property Name="Drug_Inter _Pred -P1W" Type="varchar" MaxLength="4000" />
+          <Property Name="Drug_Inter _Pred -P2W" Type="varchar" MaxLength="4000" />
+          <Property Name="Drug_Inter _Pred -P3W" Type="varchar" MaxLength="4000" />
+          <Property Name="Drug_Inter _Pred -P1M1" Type="varchar" MaxLength="4000" />
+          <Property Name="Drug_Inter _Pred -P1M2" Type="varchar" MaxLength="4000" />
+          <Property Name="Drug_Inter _Pred -P1M3" Type="varchar" MaxLength="4000" />
+          <Property Name="Drug_Inter _Pred -P2M1" Type="varchar" MaxLength="4000" />
+          <Property Name="Drug_Inter _Pred -P2M2" Type="varchar" MaxLength="4000" />
+          <Property Name="Drug_Inter _Pred -P2M3" Type="varchar" MaxLength="4000" />
+          <Property Name="Drug_Inter _Pred -P3M1" Type="varchar" MaxLength="4000" />
+          <Property Name="Drug_Inter _Pred -P3M2" Type="varchar" MaxLength="4000" />
+          <Property Name="Drug_Inter _Pred -P3M3" Type="varchar" MaxLength="4000" />
+          <Property Name="NCBI_Gene_Name" Type="varchar" MaxLength="4000" />
+          <Property Name="NCBI_geneID" Type="varchar" MaxLength="4000" />
+          <Property Name="chain" Type="varchar" MaxLength="4000" />
+          <Property Name="SNV_Key_orig" Type="varchar" MaxLength="4000" />
+        </EntityType>
         <EntityType Name="Drug_Information">
           <Key>
             <PropertyRef Name="Drug_PDB_ID" />
@@ -194,6 +285,94 @@ warning 6002: The table/view 'DrugProNET.dbo.PDB_Interactions' does not have a p
           <EntitySet Name="PDB_Distances" EntityType="Self.PDB_Distances" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PDB_Information" EntityType="Self.PDB_Information" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Protein_Information" EntityType="Self.Protein_Information" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="18NO7_ExcelE_subset" EntityType="Self.18NO7_ExcelE_subset" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [18NO7_ExcelE_subset].[UniProt_ID] AS [UniProt_ID], 
+    [18NO7_ExcelE_subset].[SNV_Key] AS [SNV_Key], 
+    [18NO7_ExcelE_subset].[PDB_File_No] AS [PDB_File_No], 
+    [18NO7_ExcelE_subset].[Drug_PDB_ID] AS [Drug_PDB_ID], 
+    [18NO7_ExcelE_subset].[Human_Gene_Location] AS [Human_Gene_Location], 
+    [18NO7_ExcelE_subset].[Nucleotide_1_Position] AS [Nucleotide_1_Position], 
+    [18NO7_ExcelE_subset].[Nucleotide_2_Position] AS [Nucleotide_2_Position], 
+    [18NO7_ExcelE_subset].[Nucleotide_3_Position] AS [Nucleotide_3_Position], 
+    [18NO7_ExcelE_subset].[P1W] AS [P1W], 
+    [18NO7_ExcelE_subset].[P2W] AS [P2W], 
+    [18NO7_ExcelE_subset].[P3W] AS [P3W], 
+    [18NO7_ExcelE_subset].[P1M1] AS [P1M1], 
+    [18NO7_ExcelE_subset].[P1M2] AS [P1M2], 
+    [18NO7_ExcelE_subset].[P1M3] AS [P1M3], 
+    [18NO7_ExcelE_subset].[P2M1] AS [P2M1], 
+    [18NO7_ExcelE_subset].[P2M2] AS [P2M2], 
+    [18NO7_ExcelE_subset].[P2M3] AS [P2M3], 
+    [18NO7_ExcelE_subset].[P3M1] AS [P3M1], 
+    [18NO7_ExcelE_subset].[P3M2] AS [P3M2], 
+    [18NO7_ExcelE_subset].[P3M3] AS [P3M3], 
+    [18NO7_ExcelE_subset].[P1W_Nucleotide] AS [P1W_Nucleotide], 
+    [18NO7_ExcelE_subset].[P2W_Nucleotide] AS [P2W_Nucleotide], 
+    [18NO7_ExcelE_subset].[P3W_Nucleotide] AS [P3W_Nucleotide], 
+    [18NO7_ExcelE_subset].[P1M1_Nucleotide] AS [P1M1_Nucleotide], 
+    [18NO7_ExcelE_subset].[P1M2_Nucleotide] AS [P1M2_Nucleotide], 
+    [18NO7_ExcelE_subset].[P1M3_Nucleotide] AS [P1M3_Nucleotide], 
+    [18NO7_ExcelE_subset].[P2M1_Nucleotide] AS [P2M1_Nucleotide], 
+    [18NO7_ExcelE_subset].[P2M2_Nucleotide] AS [P2M2_Nucleotide], 
+    [18NO7_ExcelE_subset].[P2M3_Nucleotide] AS [P2M3_Nucleotide], 
+    [18NO7_ExcelE_subset].[P3M1_Nucleotide] AS [P3M1_Nucleotide], 
+    [18NO7_ExcelE_subset].[P3M2_Nucleotide] AS [P3M2_Nucleotide], 
+    [18NO7_ExcelE_subset].[P3M3_Nucleotide] AS [P3M3_Nucleotide], 
+    [18NO7_ExcelE_subset].[P1W_Nucleotide_Triplet] AS [P1W_Nucleotide_Triplet], 
+    [18NO7_ExcelE_subset].[P2W_Nucleotide_Triplet] AS [P2W_Nucleotide_Triplet], 
+    [18NO7_ExcelE_subset].[P3W_Nucleotide_Triplet] AS [P3W_Nucleotide_Triplet], 
+    [18NO7_ExcelE_subset].[P1M1_Nucleotide_Triplet] AS [P1M1_Nucleotide_Triplet], 
+    [18NO7_ExcelE_subset].[P1M2_Nucleotide_Triplet] AS [P1M2_Nucleotide_Triplet], 
+    [18NO7_ExcelE_subset].[P1M3_Nucleotide_Triplet] AS [P1M3_Nucleotide_Triplet], 
+    [18NO7_ExcelE_subset].[P2M1_Nucleotide_Triplet] AS [P2M1_Nucleotide_Triplet], 
+    [18NO7_ExcelE_subset].[P2M2_Nucleotide_Triplet] AS [P2M2_Nucleotide_Triplet], 
+    [18NO7_ExcelE_subset].[P2M3_Nucleotide_Triplet] AS [P2M3_Nucleotide_Triplet], 
+    [18NO7_ExcelE_subset].[P3M1_Nucleotide_Triplet] AS [P3M1_Nucleotide_Triplet], 
+    [18NO7_ExcelE_subset].[P3M2_Nucleotide_Triplet] AS [P3M2_Nucleotide_Triplet], 
+    [18NO7_ExcelE_subset].[P3M3_Nucleotide_Triplet] AS [P3M3_Nucleotide_Triplet], 
+    [18NO7_ExcelE_subset].[P1W_Amino_Acid_] AS [P1W_Amino_Acid_], 
+    [18NO7_ExcelE_subset].[P2W_Amino_Acid_] AS [P2W_Amino_Acid_], 
+    [18NO7_ExcelE_subset].[P3W_Amino_Acid_] AS [P3W_Amino_Acid_], 
+    [18NO7_ExcelE_subset].[P1M1_Amino_Acid_] AS [P1M1_Amino_Acid_], 
+    [18NO7_ExcelE_subset].[P1M2_Amino_Acid_] AS [P1M2_Amino_Acid_], 
+    [18NO7_ExcelE_subset].[P1M3_Amino_Acid_] AS [P1M3_Amino_Acid_], 
+    [18NO7_ExcelE_subset].[P2M1_Amino_Acid_] AS [P2M1_Amino_Acid_], 
+    [18NO7_ExcelE_subset].[P2M2_Amino_Acid_] AS [P2M2_Amino_Acid_], 
+    [18NO7_ExcelE_subset].[P2M3_Amino_Acid_] AS [P2M3_Amino_Acid_], 
+    [18NO7_ExcelE_subset].[P3M1_Amino_Acid_] AS [P3M1_Amino_Acid_], 
+    [18NO7_ExcelE_subset].[P3M2_Amino_Acid_] AS [P3M2_Amino_Acid_], 
+    [18NO7_ExcelE_subset].[P3M3_Amino_Acid_] AS [P3M3_Amino_Acid_], 
+    [18NO7_ExcelE_subset].[SNV-P1W_ID] AS [SNV-P1W_ID], 
+    [18NO7_ExcelE_subset].[SNV-P2W_ID] AS [SNV-P2W_ID], 
+    [18NO7_ExcelE_subset].[SNV-P3W_ID] AS [SNV-P3W_ID], 
+    [18NO7_ExcelE_subset].[SNV-P1M1_ID] AS [SNV-P1M1_ID], 
+    [18NO7_ExcelE_subset].[SNV-P1M2_ID] AS [SNV-P1M2_ID], 
+    [18NO7_ExcelE_subset].[SNV-P1M3_ID] AS [SNV-P1M3_ID], 
+    [18NO7_ExcelE_subset].[SNV-P2M1_ID] AS [SNV-P2M1_ID], 
+    [18NO7_ExcelE_subset].[SNV-P2M2_ID] AS [SNV-P2M2_ID], 
+    [18NO7_ExcelE_subset].[SNV-P2M3_ID] AS [SNV-P2M3_ID], 
+    [18NO7_ExcelE_subset].[SNV-P3M1_ID] AS [SNV-P3M1_ID], 
+    [18NO7_ExcelE_subset].[SNV-P3M2_ID] AS [SNV-P3M2_ID], 
+    [18NO7_ExcelE_subset].[SNV-P3M3_ID] AS [SNV-P3M3_ID], 
+    [18NO7_ExcelE_subset].[Drug_Inter _Pred -P1W] AS [Drug_Inter _Pred -P1W], 
+    [18NO7_ExcelE_subset].[Drug_Inter _Pred -P2W] AS [Drug_Inter _Pred -P2W], 
+    [18NO7_ExcelE_subset].[Drug_Inter _Pred -P3W] AS [Drug_Inter _Pred -P3W], 
+    [18NO7_ExcelE_subset].[Drug_Inter _Pred -P1M1] AS [Drug_Inter _Pred -P1M1], 
+    [18NO7_ExcelE_subset].[Drug_Inter _Pred -P1M2] AS [Drug_Inter _Pred -P1M2], 
+    [18NO7_ExcelE_subset].[Drug_Inter _Pred -P1M3] AS [Drug_Inter _Pred -P1M3], 
+    [18NO7_ExcelE_subset].[Drug_Inter _Pred -P2M1] AS [Drug_Inter _Pred -P2M1], 
+    [18NO7_ExcelE_subset].[Drug_Inter _Pred -P2M2] AS [Drug_Inter _Pred -P2M2], 
+    [18NO7_ExcelE_subset].[Drug_Inter _Pred -P2M3] AS [Drug_Inter _Pred -P2M3], 
+    [18NO7_ExcelE_subset].[Drug_Inter _Pred -P3M1] AS [Drug_Inter _Pred -P3M1], 
+    [18NO7_ExcelE_subset].[Drug_Inter _Pred -P3M2] AS [Drug_Inter _Pred -P3M2], 
+    [18NO7_ExcelE_subset].[Drug_Inter _Pred -P3M3] AS [Drug_Inter _Pred -P3M3], 
+    [18NO7_ExcelE_subset].[NCBI_Gene_Name] AS [NCBI_Gene_Name], 
+    [18NO7_ExcelE_subset].[NCBI_geneID] AS [NCBI_geneID], 
+    [18NO7_ExcelE_subset].[chain] AS [chain], 
+    [18NO7_ExcelE_subset].[SNV_Key_orig] AS [SNV_Key_orig]
+    FROM [dbo].[18NO7_ExcelE_subset] AS [18NO7_ExcelE_subset]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="PDB_Interactions" EntityType="Self.PDB_Interactions" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [PDB_Interactions].[PDB_Entry] AS [PDB_Entry], 
@@ -376,6 +555,95 @@ warning 6002: The table/view 'DrugProNET.dbo.PDB_Interactions' does not have a p
           <Property Name="NCBI_Gene_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NCBI_geneID" Type="Int32" />
         </EntityType>
+        <EntityType Name="C18NO7_ExcelE_subset">
+          <Key>
+            <PropertyRef Name="SNV_Key" />
+          </Key>
+          <Property Name="UniProt_ID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="SNV_Key" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PDB_File_No" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Drug_PDB_ID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Human_Gene_Location" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Nucleotide_1_Position" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Nucleotide_2_Position" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Nucleotide_3_Position" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P1W" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P2W" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P3W" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P1M1" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P1M2" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P1M3" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P2M1" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P2M2" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P2M3" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P3M1" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P3M2" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P3M3" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P1W_Nucleotide" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P2W_Nucleotide" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P3W_Nucleotide" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P1M1_Nucleotide" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P1M2_Nucleotide" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P1M3_Nucleotide" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P2M1_Nucleotide" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P2M2_Nucleotide" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P2M3_Nucleotide" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P3M1_Nucleotide" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P3M2_Nucleotide" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P3M3_Nucleotide" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P1W_Nucleotide_Triplet" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P2W_Nucleotide_Triplet" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P3W_Nucleotide_Triplet" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P1M1_Nucleotide_Triplet" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P1M2_Nucleotide_Triplet" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P1M3_Nucleotide_Triplet" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P2M1_Nucleotide_Triplet" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P2M2_Nucleotide_Triplet" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P2M3_Nucleotide_Triplet" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P3M1_Nucleotide_Triplet" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P3M2_Nucleotide_Triplet" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P3M3_Nucleotide_Triplet" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P1W_Amino_Acid_" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P2W_Amino_Acid_" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P3W_Amino_Acid_" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P1M1_Amino_Acid_" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P1M2_Amino_Acid_" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P1M3_Amino_Acid_" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P2M1_Amino_Acid_" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P2M2_Amino_Acid_" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P2M3_Amino_Acid_" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P3M1_Amino_Acid_" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P3M2_Amino_Acid_" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="P3M3_Amino_Acid_" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="SNV_P1W_ID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="SNV_P2W_ID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="SNV_P3W_ID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="SNV_P1M1_ID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="SNV_P1M2_ID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="SNV_P1M3_ID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="SNV_P2M1_ID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="SNV_P2M2_ID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="SNV_P2M3_ID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="SNV_P3M1_ID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="SNV_P3M2_ID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="SNV_P3M3_ID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Drug_Inter__Pred__P1W" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Drug_Inter__Pred__P2W" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Drug_Inter__Pred__P3W" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Drug_Inter__Pred__P1M1" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Drug_Inter__Pred__P1M2" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Drug_Inter__Pred__P1M3" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Drug_Inter__Pred__P2M1" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Drug_Inter__Pred__P2M2" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Drug_Inter__Pred__P2M3" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Drug_Inter__Pred__P3M1" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Drug_Inter__Pred__P3M2" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Drug_Inter__Pred__P3M3" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="NCBI_Gene_Name" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="NCBI_geneID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="chain" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="SNV_Key_orig" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="PDB_Interactions">
           <Key>
             <PropertyRef Name="PDB_Entry" />
@@ -401,6 +669,7 @@ warning 6002: The table/view 'DrugProNET.dbo.PDB_Interactions' does not have a p
           <EntitySet Name="PDB_Distances" EntityType="Self.PDB_Distances" />
           <EntitySet Name="PDB_Information" EntityType="Self.PDB_Information" />
           <EntitySet Name="Protein_Information" EntityType="Self.Protein_Information" />
+          <EntitySet Name="C18NO7_ExcelE_subset" EntityType="Self.C18NO7_ExcelE_subset" />
           <EntitySet Name="PDB_Interactions" EntityType="Self.PDB_Interactions" />
         </EntityContainer>
       </Schema>
@@ -564,6 +833,96 @@ warning 6002: The table/view 'DrugProNET.dbo.PDB_Interactions' does not have a p
                 <ScalarProperty Name="NCBI_Gene_URL" ColumnName="NCBI_Gene_URL" />
                 <ScalarProperty Name="NCBI_Gene_Name" ColumnName="NCBI_Gene_Name" />
                 <ScalarProperty Name="NCBI_geneID" ColumnName="NCBI_geneID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C18NO7_ExcelE_subset">
+            <EntityTypeMapping TypeName="DrugProNETModel.C18NO7_ExcelE_subset">
+              <MappingFragment StoreEntitySet="18NO7_ExcelE_subset">
+                <ScalarProperty Name="UniProt_ID" ColumnName="UniProt_ID" />
+                <ScalarProperty Name="SNV_Key" ColumnName="SNV_Key" />
+                <ScalarProperty Name="PDB_File_No" ColumnName="PDB_File_No" />
+                <ScalarProperty Name="Drug_PDB_ID" ColumnName="Drug_PDB_ID" />
+                <ScalarProperty Name="Human_Gene_Location" ColumnName="Human_Gene_Location" />
+                <ScalarProperty Name="Nucleotide_1_Position" ColumnName="Nucleotide_1_Position" />
+                <ScalarProperty Name="Nucleotide_2_Position" ColumnName="Nucleotide_2_Position" />
+                <ScalarProperty Name="Nucleotide_3_Position" ColumnName="Nucleotide_3_Position" />
+                <ScalarProperty Name="P1W" ColumnName="P1W" />
+                <ScalarProperty Name="P2W" ColumnName="P2W" />
+                <ScalarProperty Name="P3W" ColumnName="P3W" />
+                <ScalarProperty Name="P1M1" ColumnName="P1M1" />
+                <ScalarProperty Name="P1M2" ColumnName="P1M2" />
+                <ScalarProperty Name="P1M3" ColumnName="P1M3" />
+                <ScalarProperty Name="P2M1" ColumnName="P2M1" />
+                <ScalarProperty Name="P2M2" ColumnName="P2M2" />
+                <ScalarProperty Name="P2M3" ColumnName="P2M3" />
+                <ScalarProperty Name="P3M1" ColumnName="P3M1" />
+                <ScalarProperty Name="P3M2" ColumnName="P3M2" />
+                <ScalarProperty Name="P3M3" ColumnName="P3M3" />
+                <ScalarProperty Name="P1W_Nucleotide" ColumnName="P1W_Nucleotide" />
+                <ScalarProperty Name="P2W_Nucleotide" ColumnName="P2W_Nucleotide" />
+                <ScalarProperty Name="P3W_Nucleotide" ColumnName="P3W_Nucleotide" />
+                <ScalarProperty Name="P1M1_Nucleotide" ColumnName="P1M1_Nucleotide" />
+                <ScalarProperty Name="P1M2_Nucleotide" ColumnName="P1M2_Nucleotide" />
+                <ScalarProperty Name="P1M3_Nucleotide" ColumnName="P1M3_Nucleotide" />
+                <ScalarProperty Name="P2M1_Nucleotide" ColumnName="P2M1_Nucleotide" />
+                <ScalarProperty Name="P2M2_Nucleotide" ColumnName="P2M2_Nucleotide" />
+                <ScalarProperty Name="P2M3_Nucleotide" ColumnName="P2M3_Nucleotide" />
+                <ScalarProperty Name="P3M1_Nucleotide" ColumnName="P3M1_Nucleotide" />
+                <ScalarProperty Name="P3M2_Nucleotide" ColumnName="P3M2_Nucleotide" />
+                <ScalarProperty Name="P3M3_Nucleotide" ColumnName="P3M3_Nucleotide" />
+                <ScalarProperty Name="P1W_Nucleotide_Triplet" ColumnName="P1W_Nucleotide_Triplet" />
+                <ScalarProperty Name="P2W_Nucleotide_Triplet" ColumnName="P2W_Nucleotide_Triplet" />
+                <ScalarProperty Name="P3W_Nucleotide_Triplet" ColumnName="P3W_Nucleotide_Triplet" />
+                <ScalarProperty Name="P1M1_Nucleotide_Triplet" ColumnName="P1M1_Nucleotide_Triplet" />
+                <ScalarProperty Name="P1M2_Nucleotide_Triplet" ColumnName="P1M2_Nucleotide_Triplet" />
+                <ScalarProperty Name="P1M3_Nucleotide_Triplet" ColumnName="P1M3_Nucleotide_Triplet" />
+                <ScalarProperty Name="P2M1_Nucleotide_Triplet" ColumnName="P2M1_Nucleotide_Triplet" />
+                <ScalarProperty Name="P2M2_Nucleotide_Triplet" ColumnName="P2M2_Nucleotide_Triplet" />
+                <ScalarProperty Name="P2M3_Nucleotide_Triplet" ColumnName="P2M3_Nucleotide_Triplet" />
+                <ScalarProperty Name="P3M1_Nucleotide_Triplet" ColumnName="P3M1_Nucleotide_Triplet" />
+                <ScalarProperty Name="P3M2_Nucleotide_Triplet" ColumnName="P3M2_Nucleotide_Triplet" />
+                <ScalarProperty Name="P3M3_Nucleotide_Triplet" ColumnName="P3M3_Nucleotide_Triplet" />
+                <ScalarProperty Name="P1W_Amino_Acid_" ColumnName="P1W_Amino_Acid_" />
+                <ScalarProperty Name="P2W_Amino_Acid_" ColumnName="P2W_Amino_Acid_" />
+                <ScalarProperty Name="P3W_Amino_Acid_" ColumnName="P3W_Amino_Acid_" />
+                <ScalarProperty Name="P1M1_Amino_Acid_" ColumnName="P1M1_Amino_Acid_" />
+                <ScalarProperty Name="P1M2_Amino_Acid_" ColumnName="P1M2_Amino_Acid_" />
+                <ScalarProperty Name="P1M3_Amino_Acid_" ColumnName="P1M3_Amino_Acid_" />
+                <ScalarProperty Name="P2M1_Amino_Acid_" ColumnName="P2M1_Amino_Acid_" />
+                <ScalarProperty Name="P2M2_Amino_Acid_" ColumnName="P2M2_Amino_Acid_" />
+                <ScalarProperty Name="P2M3_Amino_Acid_" ColumnName="P2M3_Amino_Acid_" />
+                <ScalarProperty Name="P3M1_Amino_Acid_" ColumnName="P3M1_Amino_Acid_" />
+                <ScalarProperty Name="P3M2_Amino_Acid_" ColumnName="P3M2_Amino_Acid_" />
+                <ScalarProperty Name="P3M3_Amino_Acid_" ColumnName="P3M3_Amino_Acid_" />
+                <ScalarProperty Name="SNV_P1W_ID" ColumnName="SNV-P1W_ID" />
+                <ScalarProperty Name="SNV_P2W_ID" ColumnName="SNV-P2W_ID" />
+                <ScalarProperty Name="SNV_P3W_ID" ColumnName="SNV-P3W_ID" />
+                <ScalarProperty Name="SNV_P1M1_ID" ColumnName="SNV-P1M1_ID" />
+                <ScalarProperty Name="SNV_P1M2_ID" ColumnName="SNV-P1M2_ID" />
+                <ScalarProperty Name="SNV_P1M3_ID" ColumnName="SNV-P1M3_ID" />
+                <ScalarProperty Name="SNV_P2M1_ID" ColumnName="SNV-P2M1_ID" />
+                <ScalarProperty Name="SNV_P2M2_ID" ColumnName="SNV-P2M2_ID" />
+                <ScalarProperty Name="SNV_P2M3_ID" ColumnName="SNV-P2M3_ID" />
+                <ScalarProperty Name="SNV_P3M1_ID" ColumnName="SNV-P3M1_ID" />
+                <ScalarProperty Name="SNV_P3M2_ID" ColumnName="SNV-P3M2_ID" />
+                <ScalarProperty Name="SNV_P3M3_ID" ColumnName="SNV-P3M3_ID" />
+                <ScalarProperty Name="Drug_Inter__Pred__P1W" ColumnName="Drug_Inter _Pred -P1W" />
+                <ScalarProperty Name="Drug_Inter__Pred__P2W" ColumnName="Drug_Inter _Pred -P2W" />
+                <ScalarProperty Name="Drug_Inter__Pred__P3W" ColumnName="Drug_Inter _Pred -P3W" />
+                <ScalarProperty Name="Drug_Inter__Pred__P1M1" ColumnName="Drug_Inter _Pred -P1M1" />
+                <ScalarProperty Name="Drug_Inter__Pred__P1M2" ColumnName="Drug_Inter _Pred -P1M2" />
+                <ScalarProperty Name="Drug_Inter__Pred__P1M3" ColumnName="Drug_Inter _Pred -P1M3" />
+                <ScalarProperty Name="Drug_Inter__Pred__P2M1" ColumnName="Drug_Inter _Pred -P2M1" />
+                <ScalarProperty Name="Drug_Inter__Pred__P2M2" ColumnName="Drug_Inter _Pred -P2M2" />
+                <ScalarProperty Name="Drug_Inter__Pred__P2M3" ColumnName="Drug_Inter _Pred -P2M3" />
+                <ScalarProperty Name="Drug_Inter__Pred__P3M1" ColumnName="Drug_Inter _Pred -P3M1" />
+                <ScalarProperty Name="Drug_Inter__Pred__P3M2" ColumnName="Drug_Inter _Pred -P3M2" />
+                <ScalarProperty Name="Drug_Inter__Pred__P3M3" ColumnName="Drug_Inter _Pred -P3M3" />
+                <ScalarProperty Name="NCBI_Gene_Name" ColumnName="NCBI_Gene_Name" />
+                <ScalarProperty Name="NCBI_geneID" ColumnName="NCBI_geneID" />
+                <ScalarProperty Name="chain" ColumnName="chain" />
+                <ScalarProperty Name="SNV_Key_orig" ColumnName="SNV_Key_orig" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
