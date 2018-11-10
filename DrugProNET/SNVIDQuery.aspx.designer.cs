@@ -67,13 +67,13 @@ namespace DrugProNET {
         protected global::AjaxControlToolkit.AutoCompleteExtender AutoCompleteExtender;
         
         /// <summary>
-        /// protein_specification_drop_down control.
+        /// search_drop_down_UpdatePanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList protein_specification_drop_down;
+        protected global::System.Web.UI.UpdatePanel search_drop_down_UpdatePanel;
         
         /// <summary>
         /// drug_specification_drop_down control.
@@ -83,6 +83,24 @@ namespace DrugProNET {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList drug_specification_drop_down;
+        
+        /// <summary>
+        /// amin_acid_specification_updatePanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel amin_acid_specification_updatePanel;
+        
+        /// <summary>
+        /// amino_acid_specification_drop_down control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList amino_acid_specification_drop_down;
         
         /// <summary>
         /// generate_table_button control.

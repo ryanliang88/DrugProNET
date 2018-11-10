@@ -5,6 +5,13 @@
 <asp:Content runat="server" ContentPlaceHolderID="HeadContentPlaceHolder">
     <link rel="stylesheet" href="./css/3_column.css" />
     <link rel="stylesheet" href="./css/snv_id_query.css" />
+
+    <%-- Needs to be inline for some reason --%>
+    <script type="text/javascript">
+        function RefreshUpdatePanel() {
+            __doPostBack('<%= search_drop_down_UpdatePanel.ClientID %>', '');
+        };
+    </script>
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="BodyContentPlaceHolder">
@@ -25,7 +32,7 @@
             </p>
         </div>
         <div class="c-col advertisment-content">
-            <asp:UpdatePanel ID="ad_update_panel" runat="server">
+            <asp:UpdatePanel ID="ad_update_panel" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
                     <asp:Timer ID="ad_refresh_timer" runat="server" Interval="10000" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
                     <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server">
@@ -51,8 +58,8 @@
                 protein as a search term.
             </p>
 
-            <asp:TextBox CssClass="textBox" ID="search_textBox" runat="server" placeholder="Type in at least 3 letters of the search term" />
-            <asp:AutoCompleteExtender ID="AutoCompleteExtender" runat="server" ServiceMethod="GetAutoCompleteData" TargetControlID="search_textBox" CompletionInterval="100" CompletionSetCount="5" MinimumPrefixLength="1"></asp:AutoCompleteExtender>
+            <asp:TextBox CssClass="textBox" ID="search_textBox" runat="server" value="" placeholder="Type in at least 3 letters of the search term" OnTextChanged="Search_Textbox_Changed" onkeyup="RefreshUpdatePanel();" />
+            <asp:AutoCompleteExtender ID="AutoCompleteExtender" runat="server" ServiceMethod="GetAutoCompleteData" TargetControlID="search_textBox" CompletionInterval="100" CompletionSetCount="5" MinimumPrefixLength="1" />
         </div>
     </div>
 
@@ -64,9 +71,17 @@
             <h3 class="h3-body-title">Step 2 - Drug Specification</h3>
             <p>Use the pull-down menu below to select for the drug of interest.</p>
 
-            <asp:DropDownList CssClass="drop-down" ID="protein_specification_drop_down" runat="server">
-                <asp:ListItem Text="Select from list of output options" Value="-1"></asp:ListItem>
-            </asp:DropDownList>
+            <asp:UpdatePanel ID="search_drop_down_UpdatePanel" runat="server" UpdateMode="Conditional">
+                <ContentTemplate>
+                    <asp:DropDownList CssClass="drop-down" ID="drug_specification_drop_down" runat="server" OnSelectedIndexChanged="LoadAminoAcideDropDown">
+                        <asp:ListItem Text="Select from list of output options" Value="0" />
+                    </asp:DropDownList>
+                </ContentTemplate>
+                <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="search_textBox" EventName="TextChanged" />
+                </Triggers>
+            </asp:UpdatePanel>
+
         </div>
     </div>
 
@@ -81,10 +96,16 @@
                 Use the pull-down menu below to select the amino acid in the proteins for which you wish to 
                 identify SNPs that affect the specified drug binding.
             </p>
-
-            <asp:DropDownList CssClass="drop-down" ID="drug_specification_drop_down" runat="server">
-                <asp:ListItem Text="Select from list of output options" Value="-1"></asp:ListItem>
-            </asp:DropDownList>
+            <asp:UpdatePanel ID="amin_acid_specification_updatePanel" runat="server" UpdateMode="Conditional">
+                <ContentTemplate>
+                    <asp:DropDownList CssClass="drop-down" ID="amino_acid_specification_drop_down" runat="server">
+                        <asp:ListItem Text="Select from list of output options" Value="-1"></asp:ListItem>
+                    </asp:DropDownList>
+                </ContentTemplate>
+                <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="drug_specification_drop_down" EventName="SelectedIndexChanged" />
+                </Triggers>
+            </asp:UpdatePanel>
 
         </div>
     </div>
