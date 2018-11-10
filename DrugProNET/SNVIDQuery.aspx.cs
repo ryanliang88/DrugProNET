@@ -55,10 +55,13 @@ namespace DrugProNET
             }
         }
 
-        protected void LoadAminoAcideDropDown(object sender, EventArgs e)
+        protected void LoadAminoAcidDropDown(object sender, EventArgs e)
         {
             using (DrugProNETEntities context = new DrugProNETEntities())
             {
+                Protein_Information protein = EF_Data.GetProtein(search_textBox.Text);
+                Drug_Information drug = EF_Data.GetDrugsUsingDropDownName(drug_specification_drop_down.SelectedItem.Value);
+
 
             }
         }

@@ -42,6 +42,26 @@ namespace DrugProNET
             return drug;
         }
 
+        public static Drug_Information GetDrugsUsingDropDownName(string dropDownName)
+        {
+            Drug_Information drug = null;
+
+            using (DrugProNETEntities context = new DrugProNETEntities())
+            {
+                DbSet<Drug_Information> drugSet = context.Drug_Information;
+
+                foreach (Drug_Information d in drugSet)
+                {
+                    if (d.Drug_Name_for_Pull_Down_Menu.Equals(dropDownName))
+                    {
+                        drug = d;
+                    }
+                }
+            }
+
+            return drug;
+        }
+
         public static Protein_Information GetProtein(string query)
         {
             Protein_Information protein = null;

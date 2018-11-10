@@ -73,7 +73,7 @@
 
             <asp:UpdatePanel ID="search_drop_down_UpdatePanel" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
-                    <asp:DropDownList CssClass="drop-down" ID="drug_specification_drop_down" runat="server" OnSelectedIndexChanged="LoadAminoAcideDropDown">
+                    <asp:DropDownList CssClass="drop-down" ID="drug_specification_drop_down" runat="server" OnSelectedIndexChanged="LoadAminoAcidDropDown">
                         <asp:ListItem Text="Select from list of output options" Value="0" />
                     </asp:DropDownList>
                 </ContentTemplate>
