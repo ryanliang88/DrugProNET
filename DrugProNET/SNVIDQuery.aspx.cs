@@ -13,5 +13,18 @@ namespace DrugProNET
         {
             base.Page_Load(sender, e);
         }
+
+
+
+        private static void AddIfExists(List<string> list, params string[] values)
+        {
+            foreach (string value in values)
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    list.Add(value);
+                }
+            }
+        }
     }
 }
