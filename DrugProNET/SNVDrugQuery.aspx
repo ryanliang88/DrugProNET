@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BasePage.Master" AutoEventWireup="true" CodeBehind="SNVDrugQuery.aspx.cs" Inherits="DrugProNET.SNVDrugQuery" MaintainScrollPositionOnPostback="true" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
 <asp:Content runat="server" ContentPlaceHolderID="HeadContentPlaceHolder">
     <link rel="stylesheet" href="./css/3_column.css" />
     <link rel="stylesheet" href="./css/snv_drug_query.css">
@@ -50,25 +52,24 @@
 
     <div class="c-row">
         <div class="c-col side-spacing"></div>
-        <div class="c-col side-content">
-        </div>
+        <div class="c-col side-content"></div>
         <div class="c-col body-content">
             <asp:TextBox CssClass="textBox" ID="snv_specification_textbox" runat="server" value="" placeholder="Type in the SNV according to format above" />
+            <asp:AutoCompleteExtender ID="AutoCompleteExtender" runat="server" ServiceMethod="GetAutoCompleteData" TargetControlID="snv_specification_textbox" CompletionInterval="100" CompletionSetCount="5" MinimumPrefixLength="1" />
         </div>
     </div>
 
     <div class="c-row">
         <div class="c-col side-spacing"></div>
-        <div class="c-col side-content">
-        </div>
+        <div class="c-col side-content"></div>
         <div class="c-col body-content">
 
             <h3 class="h3-body-title">Step 2 - Report Generation</h3>
             <p>Click on the box below to produce custom tables with results or to reset the parameters.</p>
 
-            <asp:Button ID="generate_table_button" CssClass="button" Text="Generate Table" OnClick="Generate_Table_Button_Click" runat="server" />
+            <asp:Button ID="generate_table_button" CssClass="button" Text="Generate Table" OnClick="Generate" runat="server" />
             <span>&emsp;&emsp;</span>
-            <asp:Button ID="reset_button" CssClass="button" Text="Reset" runat="server" OnClick="Reset_Button_Click" />
+            <asp:Button ID="reset_button" CssClass="button" Text="Reset" runat="server" OnClick="Reset" />
 
         </div>
     </div>
