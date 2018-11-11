@@ -254,9 +254,6 @@
     <Compile Include="BasePage.Master.designer.cs">
       <DependentUpon>BasePage.Master</DependentUpon>
     </Compile>
-    <Compile Include="C18NO7_ExcelE_subset.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="CalculateDistance\Atom.cs" />
     <Compile Include="CalculateDistance\PDBFileParser.cs" />
     <Compile Include="Credits.aspx.cs">
