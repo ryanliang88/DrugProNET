@@ -58,6 +58,15 @@ namespace DrugProNET {
         protected global::System.Web.UI.WebControls.TextBox snv_specification_textbox;
         
         /// <summary>
+        /// AutoCompleteExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.AutoCompleteExtender AutoCompleteExtender;
+        
+        /// <summary>
         /// generate_table_button control.
         /// </summary>
         /// <remarks>
