@@ -1,4 +1,29 @@
-﻿p {
+﻿div {
+    text-align: left; /* Removes .main_container with text-align: center*/
+}
+
+.ad_banner {
+    text-align: center;
+}
+
+.h3-body-title {
+    color: #FFC300;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: left;
+}
+
+.h3-side-title {
+    color: #708591;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.descriptive {
+    color: #738569;
+}
+
+p {
     color: #C6C8CA;
 }
 
@@ -10,10 +35,45 @@ input {
     color: #738569;
 }
 
-select {
+.body-content-long {
+    padding-left: 1em;
+}
+
+.body-content-long {
+    border-style: solid;
+    border-width: 0 0 0 1px;
+    border-color: #7DAED4;
+}
+
+.display-square {
+    width: 23em;
+    height: 23em;
+}
+
+.display-margin-right {
+    margin-right: 2em;
+}
+
+.amino-acid-container {
+    padding-top: 1em;
+}
+
+.amino-acid-dropdown {
     color: black;
-    height: 25px;
-    border-radius: .3em;
+    float: left;
+    margin-right: 2em;
+    margin-top: 0.75em;
+}
+
+.amino-acid-instructions {
+    text-align: left;
+    float: left;
+    max-width: 37em;
+    word-wrap: break-word;
+}
+
+select {
+    align-items: initial;
 }
 
 .download-button {
@@ -22,23 +82,58 @@ select {
     height: 32px;
     padding-left: 1em;
     padding-right: 1em;
-}
-
-.button-container {
-    display: inline-block;
     float: left;
-    padding-right: 2em;
+    margin-right: 2em;
 }
 
-.body-content-long {
-    width: 83.5%;
-    flex: 0 0 83.5%;
-    flex-direction: column;
-    padding-left: 1em;
-    padding-right: 1em;
-    padding-bottom: .5em;
-    border-style: solid;
-    border-width: 0 0 0 1px;
-    border-color: #7DAED4;
-    text-align: left;
+.download-description {
+    float: left;
+    margin-top: 0.5em;
+}
+
+th {
+    text-align: center; /* Removes previous th*/
+}
+
+table {
+    border-collapse: collapse;
+    text-align: center;
+    color: black;
+}
+
+.interaction-summary tr:nth-of-type(2n+1) {
+    background-color: #F3F3FD;
+}
+
+.interaction-summary tr:nth-of-type(2n) {
+    background-color: white;
+}
+
+.interaction-summary th {
+    background-color: #F3F3FD;
+    border: 1px solid black;
+    width: 160px;
+}
+
+.interaction-summary td {
+    width: 160px;
+}
+
+
+.interaction-list tr:nth-of-type(2n+1) {
+    background-color: #F3F3FD;
+}
+
+.interaction-list tr:nth-of-type(2n) {
+    background-color: white;
+}
+
+.interaction-list th {
+    background-color: #F3F3FD;
+    border: 1px solid black;
+    width: 100px;
+}
+
+.interaction_list_container {
+    padding-top: 2em;
 }

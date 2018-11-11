@@ -41,7 +41,7 @@ namespace DrugProNET
                     protein_specification = query_string;
                 }
 
-                drug = EF_Data.GetDrug(drug_specification);
+                drug = EF_Data.GetDrugUsingDropDownName(drug_specification);
                 protein = EF_Data.GetProtein(protein_specification);
 
                 PDB = EF_Data.GetPDBInfo(protein.Uniprot_ID, drug.Drug_PDB_ID);
@@ -54,28 +54,101 @@ namespace DrugProNET
 
                 CreateInteractionList(interaction_list, PDB, interaction_distance, protein_chain, protein_atoms, protein_residues, protein_residue_numbers, drug_atoms);
 
+                CreateInteractionSummary(interaction_summary, PDB);
+
                 ScriptManager.RegisterStartupScript(Page, GetType(), "D_3DViewer", "javascript:loadDrugLigand('" + drug.Drug_PDB_ID + "');", true);
                 ScriptManager.RegisterStartupScript(Page, GetType(), "PDB_3DViewer", "javascript:loadStage('" + drug.PDB_File_ID + "', '" + drug.Drug_PDB_ID + "');", true);
             }
+        }
+
+        private void CreateInteractionSummary(Table interaction_summary, PDB_Information pDB)
+        {
+            TableHeaderRow tableHeaderRow = new TableHeaderRow();
+
+            tableHeaderRow.Cells.Add(new TableHeaderCell
+            {
+                Text = "Protein Amino Acid Residue"
+            });
+
+            tableHeaderRow.Cells.Add(new TableHeaderCell
+            {
+                Text = "Number of Interactions with Drug Atoms"
+            });
+
+            tableHeaderRow.Cells.Add(new TableHeaderCell
+            {
+                Text = "Average Distance of All Interactions(Å)"
+            });
+
+            tableHeaderRow.Cells.Add(new TableHeaderCell
+            {
+                Text = "# Interactions : Distance Ratio"
+            });
+
+            interaction_summary.Rows.Add(tableHeaderRow);
         }
 
         private void CreateInteractionList(Table interaction_list, PDB_Information PDB, int interaction_distance, bool protein_chain, bool protein_atoms, bool protein_residues, bool protein_residue_numbers, bool drug_atoms)
         {
             TableHeaderRow tableHeaderRow = new TableHeaderRow();
 
+            tableHeaderRow.Cells.Add(new TableHeaderCell
+            {
+                Text = "Distance (Å)"
+            });
+
+            if (protein_chain)
+            {
+                tableHeaderRow.Cells.Add(new TableHeaderCell
+                {
+                    Text = "Protein Chain"
+                });
+            }
+            if (protein_residue_numbers)
+            {
+                tableHeaderRow.Cells.Add(new TableHeaderCell
+                {
+                    Text = "Protein Residue #"
+                });
+            }
+
+            if (protein_residues)
+            {
+                tableHeaderRow.Cells.Add(new TableHeaderCell
+                {
+                    Text = "Amino Acid Residue Type"
+                });
+            }
+
+            if (protein_atoms)
+            {
+                tableHeaderRow.Cells.Add(new TableHeaderCell
+                {
+                    Text = "Amino Acid Residue Atom"
+                });
+            }
+
+            if (drug_atoms)
+            {
+                tableHeaderRow.Cells.Add(new TableHeaderCell
+                {
+                    Text = "Drug Atom"
+                });
+            }
+
             interaction_list.Rows.Add(tableHeaderRow);
 
-            List<PDB_Distances> distances = EF_Data.GetPDB_Distances(PDB.PDB_File_ID);
+            List<PDB_Distances> distances = EF_Data.GetPDB_DistancesByPDB_Entry(PDB.PDB_File_ID);
 
-            foreach (PDB_Distances distance in distances)
+            for (int i = 0; i < distances.Count; i++)
             {
                 TableRow tableRow = new TableRow();
 
-                if (int.Parse(distance.Distance) < interaction_distance)
+                if (double.Parse(distances[i].Distance) < interaction_distance)
                 {
                     TableCell distanceCell = new TableCell
                     {
-                        Text = (double.Parse(distance.Distance)).ToString("0.##")
+                        Text = (double.Parse(distances[i].Distance)).ToString("0.00")
                     };
 
                     tableRow.Cells.Add(distanceCell);
@@ -84,7 +157,7 @@ namespace DrugProNET
                     {
                         TableCell protein_chainCell = new TableCell
                         {
-                            Text = distance.Protein_Chain
+                            Text = distances[i].Protein_Chain
                         };
                         tableRow.Cells.Add(protein_chainCell);
                     }
@@ -93,7 +166,7 @@ namespace DrugProNET
                     {
                         TableCell protein_residue_numberCell = new TableCell
                         {
-                            Text = distance.Protein_Residue_
+                            Text = distances[i].Protein_Residue_
                         };
                         tableRow.Cells.Add(protein_residue_numberCell);
                     }
@@ -102,7 +175,7 @@ namespace DrugProNET
                     {
                         TableCell protein_residue_numberCell = new TableCell
                         {
-                            Text = distance.Protein_Residue
+                            Text = distances[i].Protein_Residue
                         };
                         tableRow.Cells.Add(protein_residue_numberCell);
                     }
@@ -111,7 +184,7 @@ namespace DrugProNET
                     {
                         TableCell protein_atomCell = new TableCell
                         {
-                            Text = distance.Protein_Atom
+                            Text = distances[i].Protein_Atom
                         };
                         tableRow.Cells.Add(protein_atomCell);
                     }
@@ -120,11 +193,13 @@ namespace DrugProNET
                     {
                         TableCell drug_atomCell = new TableCell
                         {
-                            Text = distance.Compound_Atom
+                            Text = distances[i].Compound_Atom
                         };
                         tableRow.Cells.Add(drug_atomCell);
                     }
                 }
+
+                interaction_list.Rows.Add(tableRow);
             }
         }
 

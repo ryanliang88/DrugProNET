@@ -2,7 +2,6 @@
 
 <asp:Content runat="server" ContentPlaceHolderID="HeadContentPlaceHolder">
     <link rel="stylesheet" href="./css/3_column.css" />
-    <link rel="stylesheet" href="./css/drug_info.css" />
     <link rel="stylesheet" href="./css/query_result.css" />
 
     <script src="Scripts/3DViewer/ngl.js"></script>
@@ -17,12 +16,12 @@
         </div>
         <div class="c-col body-content">
             <h3 class="h3-body-title">Protein-Drug Interaction Report</h3>
-            <p>
+            <p class="descriptive">
                 This report provides a listing of atom-to-atom interactions between a protein of interest and a small drug molecule that have been documented in co-crystallization files retrieved from the RCSB PDB Protein Data Bank. In the second table, each row represents a unique interaction between an atom on the protein and an atom on the drug molecule. The distances between the atom pairs are measured in Angstroms, and the shorter the distance, the more important the atom pairs are likely to be for drug binding. Based on this data, the most important amino acid residues involved in drug binding are identified in the first table. 
             </p>
         </div>
         <div class="c-col advertisment-content">
-            <asp:UpdatePanel ID="ad_update_panel" runat="server">
+            <asp:UpdatePanel ID="ad_update_panel" runat="server" class="ad_banner">
                 <ContentTemplate>
                     <asp:Timer ID="ad_refresh_timer" runat="server" Interval="10000" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
                     <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server">
@@ -287,15 +286,15 @@
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
-        <div class="c-col body-content-long"">
-            <div style="display: inline-block; float: left; padding-right: 2em">
+        <div class="c-col body-content-long">
+            <div style="display: inline-block; float: left;">
                 <h3 class="h3-body-title">Drug Atom Numbering</h3>
                 <asp:Image ID="selected_amino_acid_residue_atom_numbering" runat="server"
-                    Width="23em" Height="23em" ImageUrl="~/Images/placeholder.jpg" />
+                    class="display-square display-margin-right" ImageUrl="~/Images/placeholder.jpg" />
             </div>
             <div style="display: inline-block;">
                 <h3 class="h3-body-title">Drug 3D Structure</h3>
-                <div id="D_3DViewer_viewport" style="width: 23em; height: 23em;"></div>
+                <div id="D_3DViewer_viewport" class="display-square"></div>
                 <script src="Scripts/3DViewer/D_3DViewer.js"></script>
                 <!-- Uses ngl.js -->
             </div>
@@ -306,13 +305,13 @@
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
-        <div class="c-col body-content-long"">
-            <div style="display: inline-block; float: left; padding-right: 2em">
+        <div class="c-col body-content-long">
+            <div style="display: inline-block; float: left;">
                 <h3 class="h3-body-title">Selected Amino Acid Residue Atom Numbering</h3>
                 <asp:UpdatePanel runat="server" UpdateMode="Conditional">
                     <ContentTemplate>
                         <asp:Image ID="drug_atom_numbering" runat="server"
-                            Width="23em" Height="23em" ImageUrl="~/Images/AminoAcidImages/Default Starting.jpg" />
+                            ImageUrl="~/Images/AminoAcidImages/Default Starting.jpg" class="display-square display-margin-right" />
                     </ContentTemplate>
                     <Triggers>
                         <asp:AsyncPostBackTrigger ControlID="amino_acid_dropdown" EventName="SelectedIndexChanged" />
@@ -321,7 +320,7 @@
             </div>
             <div style="display: inline-block;">
                 <h3 class="h3-body-title">Protein-Drug 3D Stucture</h3>
-                <div id="viewport" style="width: 23em; height: 23em;"></div>
+                <div id="viewport" class="display-square"></div>
                 <!-- // MUST BE NAMED "viewport" for unknown reasons in ngl, see PDB_3DViewer.js -->
                 <script src="Scripts/3DViewer/PDB_3DViewer.js"></script>
                 <!-- Uses ngl.js -->
@@ -333,38 +332,34 @@
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
-        <div class="c-col body-content-long">
-            <div style="display: inline-block; float: left; padding-right: 2em;">
-                <asp:DropDownList runat="server" ID="amino_acid_dropdown" Style="color: black;"
-                    AutoPostBack="true" OnSelectedIndexChanged="AminoAcidImage_Change">
-                    <asp:ListItem Text="Select an amino acid" Value="Default Starting" />
-                    <asp:ListItem Text="Alanine-Ala-A" Value="Alanine-Ala-A" />
-                    <asp:ListItem Text="Arginine-Arg-R" Value="Arginine-Arg-R" />
-                    <asp:ListItem Text="Asparagine-Asn-N" Value="Asparagine-Asn-N" />
-                    <asp:ListItem Text="AsparticAcid-Asp-D" Value="AsparticAcid-Asp-D" />
-                    <asp:ListItem Text="Cysteine-Cys-C" Value="Cysteine-Cys-C" />
-                    <asp:ListItem Text="GlutamicAcid-Glu-E" Value="GlutamicAcid-Glu-E" />
-                    <asp:ListItem Text="Glutamine-Gln-Q" Value="Glutamine-Gln-Q" />
-                    <asp:ListItem Text="Glycine-Gly-G" Value="Glycine-Gly-G" />
-                    <asp:ListItem Text="Histidine-His-H" Value="Histidine-His-H" />
-                    <asp:ListItem Text="Isoleucine-Ile-I" Value="Isoleucine-Ile-I" />
-                    <asp:ListItem Text="Leucine-Leu-L" Value="Leucine-Leu-L" />
-                    <asp:ListItem Text="Lysine-Lys-K" Value="Lysine-Lys-K" />
-                    <asp:ListItem Text="Methionine-Met-M" Value="Methionine-Met-M" />
-                    <asp:ListItem Text="Phenylalanine-Phe-F" Value="Phenylalanine-Phe-F" />
-                    <asp:ListItem Text="Proline-Pro-P" Value="Proline-Pro-P" />
-                    <asp:ListItem Text="Serine-Ser-S" Value="Serine-Ser-S" />
-                    <asp:ListItem Text="Threonine-Thr-T" Value="Threonine-Thr-T" />
-                    <asp:ListItem Text="Tryptophan-Trp-W" Value="Tryptophan-Trp-W" />
-                    <asp:ListItem Text="Tyrosine-Tyr-Y" Value="Tyrosine-Tyr-Y" />
-                    <asp:ListItem Text="Valine-Val-V" Value="Valine-Val-V" />
-                </asp:DropDownList>
-            </div>
-            <div style="display: inline-block;">
-                <p style="width: 33em">
-                    Click to show above one of 20 selected amino acid residues with the standard numbering of all of the atoms in the amino acid residue
-                </p>
-            </div>
+        <div class="body-content-long amino-acid-container">
+            <asp:DropDownList runat="server" CssClass="amino-acid-dropdown" ID="amino_acid_dropdown"
+                AutoPostBack="true" OnSelectedIndexChanged="AminoAcidImage_Change">
+                <asp:ListItem Text="Select an amino acid" Value="Default Starting" />
+                <asp:ListItem Text="Alanine-Ala-A" Value="Alanine-Ala-A" />
+                <asp:ListItem Text="Arginine-Arg-R" Value="Arginine-Arg-R" />
+                <asp:ListItem Text="Asparagine-Asn-N" Value="Asparagine-Asn-N" />
+                <asp:ListItem Text="AsparticAcid-Asp-D" Value="AsparticAcid-Asp-D" />
+                <asp:ListItem Text="Cysteine-Cys-C" Value="Cysteine-Cys-C" />
+                <asp:ListItem Text="GlutamicAcid-Glu-E" Value="GlutamicAcid-Glu-E" />
+                <asp:ListItem Text="Glutamine-Gln-Q" Value="Glutamine-Gln-Q" />
+                <asp:ListItem Text="Glycine-Gly-G" Value="Glycine-Gly-G" />
+                <asp:ListItem Text="Histidine-His-H" Value="Histidine-His-H" />
+                <asp:ListItem Text="Isoleucine-Ile-I" Value="Isoleucine-Ile-I" />
+                <asp:ListItem Text="Leucine-Leu-L" Value="Leucine-Leu-L" />
+                <asp:ListItem Text="Lysine-Lys-K" Value="Lysine-Lys-K" />
+                <asp:ListItem Text="Methionine-Met-M" Value="Methionine-Met-M" />
+                <asp:ListItem Text="Phenylalanine-Phe-F" Value="Phenylalanine-Phe-F" />
+                <asp:ListItem Text="Proline-Pro-P" Value="Proline-Pro-P" />
+                <asp:ListItem Text="Serine-Ser-S" Value="Serine-Ser-S" />
+                <asp:ListItem Text="Threonine-Thr-T" Value="Threonine-Thr-T" />
+                <asp:ListItem Text="Tryptophan-Trp-W" Value="Tryptophan-Trp-W" />
+                <asp:ListItem Text="Tyrosine-Tyr-Y" Value="Tyrosine-Tyr-Y" />
+                <asp:ListItem Text="Valine-Val-V" Value="Valine-Val-V" />
+            </asp:DropDownList>
+            <p class="amino-acid-instructions descriptive">
+                Click to show above one of 20 selected amino acid residues with the standard numbering of all of the atoms in the amino acid residue
+            </p>
         </div>
     </div>
 
@@ -381,12 +376,10 @@
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
-        <div class="c-col body-content-long">
-            <div class="button-container">
+        <div class="body-content-long">
+            <div class="interaction_summary_container">
                 <asp:Button CssClass="download-button" ID="download_interaction_summary" runat="server" Text="Download Table" />
-            </div>
-            <div>
-                <p>Click to download MS-Excel file of interaction summary table below</p>
+                <p class="descriptive download-description">Click to download MS-Excel file of interaction summary table below</p>
             </div>
         </div>
     </div>
@@ -395,8 +388,8 @@
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
-        <div class="c-col body-content longDiv" style="padding-top: 2em">
-            <asp:Table runat="server" ID="interaction_summary">
+        <div class="c-col body-content-long interaction-summary-container">
+            <asp:Table runat="server" ID="interaction_summary" CssClass="interaction-summary">
             </asp:Table>
         </div>
     </div>
@@ -414,12 +407,12 @@
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
-        <div class="c-col body-content-long" style="padding-top: 2em">
+        <div class="c-col body-content-long">
             <div class="button-container">
                 <asp:Button CssClass="download-button" ID="Button1" runat="server" Text="Download Table" />
             </div>
             <div>
-                <p>Click to download MS-Excel file of interaction summary table below</p>
+                <p class="descriptive download-description">Click to download MS-Excel file of the atom-to-atom interaction table below</p>
             </div>
         </div>
     </div>
@@ -427,8 +420,8 @@
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
-        <div class="c-col body-content longDiv" style="padding-top: 2em">
-            <asp:Table runat="server" ID="interaction_list">
+        <div class="c-col body-content-long interaction_list_container">
+            <asp:Table runat="server" ID="interaction_list" CssClass="interaction-list">
             </asp:Table>
         </div>
     </div>

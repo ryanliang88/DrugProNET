@@ -22,8 +22,6 @@ namespace DrugProNET
 
         protected void Search_Textbox_Changed(object sender, EventArgs e)
         {
-            Debug.WriteLine(search_textBox.Text);
-
             if (search_textBox.Text != string.Empty)
             {
                 loading_label.Visible = true;
@@ -53,12 +51,7 @@ namespace DrugProNET
 
                 foreach (Drug_Information drug in drugList)
                 {
-                    search_drop_down.Items.AddRange(
-                        GenerateListItemsFromValues(
-                            drug.Other_Drug_Name_Alias,
-                            drug.Compound_CAS_ID,
-                            drug.PubChem_CID,
-                            drug.ChEMBL_ID).ToArray());
+                    search_drop_down.Items.Add(drug.Drug_Name_for_Pull_Down_Menu);
                 }
 
                 loading_label.Visible = false;

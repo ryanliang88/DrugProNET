@@ -42,7 +42,7 @@ namespace DrugProNET
             return drug;
         }
 
-        public static Drug_Information GetDrugsUsingDropDownName(string dropDownName)
+        public static Drug_Information GetDrugUsingDropDownName(string dropDownName)
         {
             Drug_Information drug = null;
 
@@ -91,14 +91,13 @@ namespace DrugProNET
             return protein;
         }
 
-        public static List<PDB_Distances> GetPDB_Distances(string pdb_entry)
+        public static List<PDB_Distances> GetPDB_DistancesByPDB_Entry(string pdb_entry)
         {
             List<PDB_Distances> distances = new List<PDB_Distances>();
 
             using (DrugProNETEntities context = new DrugProNETEntities())
             {
-                DbSet<PDB_Distances> dbSet = context.PDB_Distances;
-                foreach (PDB_Distances distance in dbSet)
+                foreach (PDB_Distances distance in context.PDB_Distances.Where(d => d.PDB_Entry == pdb_entry).OrderBy(d => d.Distance))
                 {
                     if (distance.PDB_Entry == pdb_entry)
                     {
@@ -168,15 +167,15 @@ namespace DrugProNET
             return list;
         }
 
-        public static List<C18NO7_ExcelE_subset> GetMutations(string uniprot, string drugPDBID)
+        public static List<SNV_Mutations> GetMutations(string uniprot, string drugPDBID)
         {
-            List<C18NO7_ExcelE_subset> mutations = new List<C18NO7_ExcelE_subset>();
+            List<SNV_Mutations> mutations = new List<SNV_Mutations>();
 
             using (DrugProNETEntities context = new DrugProNETEntities())
             {
-                DbSet<C18NO7_ExcelE_subset> mutationSet = context.C18NO7_ExcelE_subset;
+                DbSet<SNV_Mutations> mutationSet = context.SNV_Mutations;
 
-                foreach (C18NO7_ExcelE_subset mutation in mutationSet)
+                foreach (SNV_Mutations mutation in mutationSet)
                 {
                     if ((mutation.UniProt_ID?.ToLower()).Equals(uniprot.ToLower()) &&
                         (mutation.Drug_PDB_ID?.ToLower()).Equals(drugPDBID.ToLower()))

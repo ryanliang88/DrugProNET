@@ -33,15 +33,15 @@
         </div>
         <div class="c-col advertisment-content">
             <asp:UpdatePanel ID="ad_update_panel" runat="server" UpdateMode="Conditional">
-                <ContentTemplate>
+                <contenttemplate>
                     <asp:Timer ID="ad_refresh_timer" runat="server" Interval="10000" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
                     <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server">
                         <asp:Image ImageUrl="imageUrl" runat="server" ID="adBanner" AlternateText="" />
                     </asp:HyperLink>
-                </ContentTemplate>
-                <Triggers>
+                </contenttemplate>
+                <triggers>
                     <asp:AsyncPostBackTrigger ControlID="ad_refresh_timer" EventName="Tick" />
-                </Triggers>
+                </triggers>
             </asp:UpdatePanel>
         </div>
     </div>
@@ -71,15 +71,15 @@
             <p>Use the pull-down menu below to select for the drug of interest.</p>
 
             <asp:UpdatePanel ID="search_drop_down_UpdatePanel" runat="server" UpdateMode="Conditional">
-                <ContentTemplate>
+                <contenttemplate>
                     <asp:DropDownList CssClass="drop-down" ID="search_drop_down" runat="server">
                         <asp:ListItem Text="Select from list of output options" Value="0" />
                     </asp:DropDownList>
                     <p style="color: white; padding: 0" ID="loading_label" runat="server">Loading...</p>
-                </ContentTemplate>
-                <Triggers>
+                </contenttemplate>
+                <triggers>
                     <asp:AsyncPostBackTrigger ControlID="search_textBox" EventName="TextChanged" />
-                </Triggers>
+                </triggers>
             </asp:UpdatePanel>
 
         </div>
@@ -117,11 +117,11 @@
         <div class="c-col body-content">
             <h3 class="h3-body-title">Step 4 - Display Parameter Specification</h3>
             <p>Boxes that are marked are activated to display. Click on boxes to change status.</p>
-            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_chain_checkbox" runat="server" Text="Show protein chain" />
-            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_atoms_checkbox" runat="server" Text="Show protein atoms" />
-            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_residues_checkbox" runat="server" Text="Show protein residues" />
-            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_residue_number_checkbox" runat="server" Text="Show protein residue number" />
-            <asp:CheckBox CssClass="checkbox-toggle" ID="drug_atoms_checkbox" runat="server" Text="Show drug atoms" />
+            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_chain_checkbox" runat="server" Text="Show protein chain" Checked="true" />
+            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_atoms_checkbox" runat="server" Text="Show protein atoms" Checked="true" />
+            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_residues_checkbox" runat="server" Text="Show protein residues" Checked="true" />
+            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_residue_number_checkbox" runat="server" Text="Show protein residue number" Checked="true" />
+            <asp:CheckBox CssClass="checkbox-toggle" ID="drug_atoms_checkbox" runat="server" Text="Show drug atoms" Checked="true" />
         </div>
     </div>
 
