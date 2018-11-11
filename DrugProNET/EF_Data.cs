@@ -91,6 +91,25 @@ namespace DrugProNET
             return protein;
         }
 
+        public static List<PDB_Distances> GetPDB_Distances(string pdb_entry)
+        {
+            List<PDB_Distances> distances = new List<PDB_Distances>();
+
+            using (DrugProNETEntities context = new DrugProNETEntities())
+            {
+                DbSet<PDB_Distances> dbSet = context.PDB_Distances;
+                foreach (PDB_Distances distance in dbSet)
+                {
+                    if (distance.PDB_Entry == pdb_entry)
+                    {
+                        distances.Add(distance);
+                    }
+                }
+            }
+
+            return distances;
+        }
+
         public static PDB_Information GetPDBInfo(string uniprot_ID, string drug_PDB_ID)
         {
             PDB_Information PDBInfo = null;
@@ -100,8 +119,8 @@ namespace DrugProNET
                 DbSet<PDB_Information> dbSet = context.PDB_Information;
                 foreach (PDB_Information pdb in dbSet)
                 {
-                    if (pdb.Uniprot_ID.ToLower() == uniprot_ID.ToLower()
-                        && pdb.Drug_PDB_ID.ToLower() == drug_PDB_ID.ToLower())
+                    if (string.Equals(pdb.Uniprot_ID, uniprot_ID, StringComparison.OrdinalIgnoreCase)
+                        && string.Equals(pdb.Drug_PDB_ID, drug_PDB_ID, StringComparison.OrdinalIgnoreCase))
                     {
                         PDBInfo = pdb;
                     }

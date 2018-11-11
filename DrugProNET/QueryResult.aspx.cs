@@ -1,7 +1,10 @@
 ﻿using DrugProNET.Advertisement;
 using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using DrugProNET.CalculateDistance;
 
 namespace DrugProNET
 {
@@ -15,7 +18,7 @@ namespace DrugProNET
             {
                 Protein_Information protein = null;
                 Drug_Information drug = null;
-                PDB_Information pdbInfo = null;
+                PDB_Information PDB = null;
 
                 int interaction_distance = int.Parse(Request.QueryString["interaction_distance"]);
                 bool protein_chain = bool.Parse(Request.QueryString["protein_chain"]);
@@ -38,23 +41,91 @@ namespace DrugProNET
                     protein_specification = query_string;
                 }
 
-
                 drug = EF_Data.GetDrug(drug_specification);
                 protein = EF_Data.GetProtein(protein_specification);
 
-                // Can be null
-                pdbInfo = EF_Data.GetPDBInfo(protein.Uniprot_ID, drug.Drug_PDB_ID);
+                PDB = EF_Data.GetPDBInfo(protein.Uniprot_ID, drug.Drug_PDB_ID);
 
                 LoadProtein(protein);
-                LoadDrug(drug, pdbInfo);
-                LoadPDB_Info(pdbInfo);
+                LoadDrug(drug, PDB);
+                LoadPDB_Info(PDB);
 
                 GetDrugAtomNumberingImage(drug);
+
+                CreateInteractionList(interaction_list, PDB, interaction_distance, protein_chain, protein_atoms, protein_residues, protein_residue_numbers, drug_atoms);
 
                 ScriptManager.RegisterStartupScript(Page, GetType(), "D_3DViewer", "javascript:loadDrugLigand('" + drug.Drug_PDB_ID + "');", true);
                 ScriptManager.RegisterStartupScript(Page, GetType(), "PDB_3DViewer", "javascript:loadStage('" + drug.PDB_File_ID + "', '" + drug.Drug_PDB_ID + "');", true);
             }
+        }
 
+        private void CreateInteractionList(Table interaction_list, PDB_Information PDB, int interaction_distance, bool protein_chain, bool protein_atoms, bool protein_residues, bool protein_residue_numbers, bool drug_atoms)
+        {
+            TableHeaderRow tableHeaderRow = new TableHeaderRow();
+
+            interaction_list.Rows.Add(tableHeaderRow);
+
+            List<PDB_Distances> distances = EF_Data.GetPDB_Distances(PDB.PDB_File_ID);
+
+            foreach (PDB_Distances distance in distances)
+            {
+                TableRow tableRow = new TableRow();
+
+                if (int.Parse(distance.Distance) < interaction_distance)
+                {
+                    TableCell distanceCell = new TableCell
+                    {
+                        Text = (double.Parse(distance.Distance)).ToString("0.##")
+                    };
+
+                    tableRow.Cells.Add(distanceCell);
+
+                    if (protein_chain)
+                    {
+                        TableCell protein_chainCell = new TableCell
+                        {
+                            Text = distance.Protein_Chain
+                        };
+                        tableRow.Cells.Add(protein_chainCell);
+                    }
+
+                    if (protein_residue_numbers)
+                    {
+                        TableCell protein_residue_numberCell = new TableCell
+                        {
+                            Text = distance.Protein_Residue_
+                        };
+                        tableRow.Cells.Add(protein_residue_numberCell);
+                    }
+
+                    if (protein_residues)
+                    {
+                        TableCell protein_residue_numberCell = new TableCell
+                        {
+                            Text = distance.Protein_Residue
+                        };
+                        tableRow.Cells.Add(protein_residue_numberCell);
+                    }
+
+                    if (protein_atoms)
+                    {
+                        TableCell protein_atomCell = new TableCell
+                        {
+                            Text = distance.Protein_Atom
+                        };
+                        tableRow.Cells.Add(protein_atomCell);
+                    }
+
+                    if (drug_atoms)
+                    {
+                        TableCell drug_atomCell = new TableCell
+                        {
+                            Text = distance.Compound_Atom
+                        };
+                        tableRow.Cells.Add(drug_atomCell);
+                    }
+                }
+            }
         }
 
         private Control GetControlThatCausedPostBack(Page page)
@@ -71,7 +142,6 @@ namespace DrugProNET
             return ctrl;
         }
 
-
         private void GetDrugAtomNumberingImage(Drug_Information drug)
         {
             selected_amino_acid_residue_atom_numbering.ImageUrl =
@@ -87,7 +157,6 @@ namespace DrugProNET
             title.InnerText = PDB_Info.PDB_Entry_Title;
             authors.InnerText = PDB_Info.Authors;
             reference.InnerText = PDB_Info.Journal_Reference;
-
         }
 
         public void LoadDrug(Drug_Information drug, PDB_Information PDB_Info)
@@ -98,7 +167,6 @@ namespace DrugProNET
             drug_alias.InnerText = drug.Other_Drug_Name_Alias;
             drug_formula.InnerText = drug.Drug_Formula;
             drug_mass_da.InnerText = drug.Molecular_Mass;
-
 
             potency.InnerText = "IC50 (nM):" + PDB_Info.IC50_nM_
                 + " (BINDINGDB); Ki (nM): " + PDB_Info.Ki_nM_
@@ -118,7 +186,7 @@ namespace DrugProNET
             protein_type.InnerText = protein.Protein_Type_Specific_;
             kinase_group.InnerText = protein.Kinase_Group;
             kinase_family.InnerText = protein.Kinase_Family;
-            number_aa.InnerText = protein.Protein_AA_Number.ToString();
+            number_aa.InnerText = protein.Protein_AA_Number;
             drug_mass_da.InnerText = protein.Protein_Mass;
 
             protein_information_result_url.NavigateUrl = "http://localhost:50542/ProteinInfoResult.aspx?query_string=" + protein.Uniprot_ID;

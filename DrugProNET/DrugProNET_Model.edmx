@@ -1,0 +1,859 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DrugProNETModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Drug_Information">
+          <Key>
+            <PropertyRef Name="Drug_PDB_ID" />
+          </Key>
+          <Property Name="Drug_PDB_ID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PDB_File_ID" Type="varchar" MaxLength="4000" />
+          <Property Name="Drug_Name_for_Pull_Down_Menu" Type="varchar" MaxLength="4000" />
+          <Property Name="Drug_Common_Name" Type="varchar" MaxLength="4000" />
+          <Property Name="Drug_Chemical_Name" Type="varchar" MaxLength="4000" />
+          <Property Name="Other_Drug_Name_Alias" Type="varchar" MaxLength="4000" />
+          <Property Name="Drug_InChl" Type="varchar" MaxLength="4000" />
+          <Property Name="Drug_Formula" Type="varchar" MaxLength="4000" />
+          <Property Name="Molecular_Mass" Type="varchar" MaxLength="4000" />
+          <Property Name="Compound_Structure_png" Type="varchar" MaxLength="4000" />
+          <Property Name="Compound_CAS_ID" Type="varchar" MaxLength="4000" />
+          <Property Name="PubChem_CID" Type="varchar" MaxLength="4000" />
+          <Property Name="PubChem_Compound_Link" Type="varchar" MaxLength="4000" />
+          <Property Name="ChEMBL_ID" Type="varchar" MaxLength="4000" />
+          <Property Name="ChEMBL_Link" Type="varchar" MaxLength="4000" />
+          <Property Name="CHEMBL_Kinase_SARFari_Link" Type="varchar" MaxLength="4000" />
+          <Property Name="PubChem_SID" Type="varchar" MaxLength="4000" />
+          <Property Name="PubChem_Substance_Link" Type="varchar" MaxLength="4000" />
+          <Property Name="ChemSpider_ID" Type="varchar" MaxLength="4000" />
+          <Property Name="ChemSpider_Link" Type="varchar" MaxLength="4000" />
+          <Property Name="ChEBI_ID" Type="varchar" MaxLength="4000" />
+          <Property Name="ChEBI_Link" Type="varchar" MaxLength="4000" />
+          <Property Name="BindingDB_ID" Type="varchar" MaxLength="4000" />
+          <Property Name="BindingDB_Link" Type="varchar" MaxLength="4000" />
+          <Property Name="DrugBank_ID" Type="varchar" MaxLength="4000" />
+          <Property Name="DrugBank_Link" Type="varchar" MaxLength="4000" />
+          <Property Name="Drug_Registration_Number" Type="varchar" MaxLength="4000" />
+          <Property Name="KEGG_Drug_ID" Type="varchar" MaxLength="4000" />
+          <Property Name="KEGG_Drug_Link" Type="varchar" MaxLength="4000" />
+          <Property Name="Therapeutic_Targets_ID" Type="varchar" MaxLength="4000" />
+          <Property Name="Therapeutic_Targets_Link" Type="varchar" MaxLength="4000" />
+          <Property Name="PharmGKB_ID" Type="varchar" MaxLength="4000" />
+          <Property Name="PharmGKB_Link" Type="varchar" MaxLength="4000" />
+          <Property Name="HET_ID" Type="varchar" MaxLength="4000" />
+          <Property Name="HET_Link" Type="varchar" MaxLength="4000" />
+          <Property Name="Drug_Product_ID" Type="varchar" MaxLength="4000" />
+          <Property Name="Drug_Product_ID_Link" Type="varchar" MaxLength="4000" />
+          <Property Name="RxList_ID" Type="varchar" MaxLength="4000" />
+          <Property Name="RxList_Link" Type="varchar" MaxLength="4000" />
+          <Property Name="Drugs com_ID" Type="varchar" MaxLength="4000" />
+          <Property Name="Drugs com_Link" Type="varchar" MaxLength="4000" />
+          <Property Name="Wikipedia" Type="varchar" MaxLength="4000" />
+          <Property Name="Wikipedia_Link" Type="varchar" MaxLength="4000" />
+          <Property Name="General_Targets" Type="varchar" MaxLength="4000" />
+          <Property Name="General_Activity" Type="varchar" MaxLength="4000" />
+          <Property Name="Commentary" Type="varchar" MaxLength="4000" />
+          <Property Name="Source_Type" Type="varchar" MaxLength="4000" />
+          <Property Name="Living_Source1" Type="varchar" MaxLength="4000" />
+          <Property Name="Living_Source2" Type="varchar" MaxLength="4000" />
+          <Property Name="Clinically_Approved" Type="varchar" MaxLength="4000" />
+          <Property Name="Latest_Stage_Trials" Type="varchar" MaxLength="4000" />
+          <Property Name="Producer" Type="varchar" MaxLength="4000" />
+          <Property Name="Disease_Applications" Type="varchar" MaxLength="4000" />
+          <Property Name="Toxic_Effects" Type="varchar" MaxLength="4000" />
+          <Property Name="Reference_1" Type="varchar" MaxLength="4000" />
+          <Property Name="Reference_2" Type="varchar" MaxLength="4000" />
+          <Property Name="Commercial_Vendor" Type="varchar" MaxLength="4000" />
+          <Property Name="Drug_PDB_ID_URL" Type="varchar" MaxLength="4000" />
+          <Property Name="Column 58" Type="varchar" MaxLength="4000" />
+        </EntityType>
+        <EntityType Name="PDB_Distances">
+          <Key>
+            <PropertyRef Name="PDB_Entry" />
+            <PropertyRef Name="Protein_Chain" />
+            <PropertyRef Name="Protein_Atom" />
+            <PropertyRef Name="Protein_Residue" />
+            <PropertyRef Name="Protein_Residue_" />
+            <PropertyRef Name="Compound_Name" />
+            <PropertyRef Name="Compound_Atom" />
+          </Key>
+          <Property Name="PDB_Entry" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Distance" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Protein_Chain" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Protein_Atom" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Protein_Residue" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Protein_Residue_" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Compound_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Compound_Atom" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PDB_Information">
+          <Key>
+            <PropertyRef Name="PDB_File_ID" />
+            <PropertyRef Name="Drug_PDB_ID" />
+            <PropertyRef Name="Uniprot_ID" />
+          </Key>
+          <Property Name="PDB_File_ID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Drug_PDB_ID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Uniprot_ID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Drugs_and_Other_Ligands" Type="varchar" MaxLength="5000" />
+          <Property Name="Method" Type="varchar" MaxLength="5000" />
+          <Property Name="Resolution" Type="varchar" MaxLength="5000" />
+          <Property Name="Residue_Count" Type="varchar" MaxLength="5000" />
+          <Property Name="PDB_Released" Type="varchar" MaxLength="5000" />
+          <Property Name="PDB_Entry_Title" Type="varchar" MaxLength="5000" />
+          <Property Name="Authors" Type="varchar" MaxLength="5000" />
+          <Property Name="Journal_Reference" Type="varchar" MaxLength="5000" />
+          <Property Name="Ki(nM)" Type="varchar" MaxLength="5000" />
+          <Property Name="Kd(nM)" Type="varchar" MaxLength="5000" />
+          <Property Name="IC50(nM)" Type="varchar" MaxLength="5000" />
+          <Property Name="PDB_Protein_Name" Type="varchar" MaxLength="5000" />
+          <Property Name="Protein_Short_Name" Type="varchar" MaxLength="5000" />
+          <Property Name="DrugKiNET_Entered" Type="varchar" MaxLength="5000" />
+        </EntityType>
+        <EntityType Name="PDB_Interactions">
+          <Key>
+            <PropertyRef Name="PDB_Entry" />
+            <PropertyRef Name="Drug_PDB_ID" />
+            <PropertyRef Name="UniProt_ID" />
+            <PropertyRef Name="AA_Residue_Type" />
+            <PropertyRef Name="Uniprot_Residue_Number" />
+          </Key>
+          <Property Name="PDB_Entry" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Drug_PDB_ID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UniProt_ID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AA_Residue_Type" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Uniprot_Residue_Number" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AA_Residue_Type_And_Number" Type="varchar" MaxLength="5000" />
+          <Property Name="Number_of_Atomic_Interactions" Type="varchar" MaxLength="5000" />
+          <Property Name="Average_Distance_Between_Atoms" Type="varchar" MaxLength="5000" />
+          <Property Name="Interaction_Distance_Ratio" Type="varchar" MaxLength="5000" />
+        </EntityType>
+        <EntityType Name="Protein_Information">
+          <Key>
+            <PropertyRef Name="Uniprot_ID" />
+          </Key>
+          <Property Name="Uniprot_ID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Protein_Short_Name" Type="varchar" MaxLength="4000" />
+          <Property Name="Protein_Full_Name" Type="varchar" MaxLength="4000" />
+          <Property Name="Protein_Alias" Type="varchar" MaxLength="4000" />
+          <Property Name="Protein_Type_Specific_" Type="varchar" MaxLength="4000" />
+          <Property Name="Kinase_Group" Type="varchar" MaxLength="4000" />
+          <Property Name="Kinase_Family" Type="varchar" MaxLength="4000" />
+          <Property Name="Kinase_Subfamily" Type="varchar" MaxLength="4000" />
+          <Property Name="GOCellComponent1" Type="varchar" MaxLength="4000" />
+          <Property Name="GOCellComponent1URL" Type="varchar" MaxLength="4000" />
+          <Property Name="GOCellComponent2" Type="varchar" MaxLength="4000" />
+          <Property Name="GOCellComponent2URL" Type="varchar" MaxLength="4000" />
+          <Property Name="GOCellComponent3" Type="varchar" MaxLength="4000" />
+          <Property Name="GOCellComponent3URL" Type="varchar" MaxLength="4000" />
+          <Property Name="GOMolFunction1" Type="varchar" MaxLength="4000" />
+          <Property Name="GOMolFunction1URL" Type="varchar" MaxLength="4000" />
+          <Property Name="GOMolFunction2" Type="varchar" MaxLength="4000" />
+          <Property Name="GOMolFunction2URL" Type="varchar" MaxLength="4000" />
+          <Property Name="GOMolFunction3" Type="varchar" MaxLength="4000" />
+          <Property Name="GOMolFunction3URL" Type="varchar" MaxLength="4000" />
+          <Property Name="GOBioProcess1" Type="varchar" MaxLength="4000" />
+          <Property Name="GOBioProcess1URL" Type="varchar" MaxLength="4000" />
+          <Property Name="GOBioProcess2" Type="varchar" MaxLength="4000" />
+          <Property Name="GOBioProcess2URL" Type="varchar" MaxLength="4000" />
+          <Property Name="GOBioProcess3" Type="varchar" MaxLength="4000" />
+          <Property Name="GOBioProcess3URL" Type="varchar" MaxLength="4000" />
+          <Property Name="Protein_Mass" Type="varchar" MaxLength="4000" />
+          <Property Name="Protein_AA_Number" Type="varchar" MaxLength="4000" />
+          <Property Name="UniProt_Entry_URL" Type="varchar" MaxLength="4000" />
+          <Property Name="Entry_ID" Type="varchar" MaxLength="4000" />
+          <Property Name="NCBI_RefSeq_NP_ID" Type="varchar" MaxLength="4000" />
+          <Property Name="NCBI_RefSeq_NP_ID_URL" Type="varchar" MaxLength="4000" />
+          <Property Name="International_Prot_ID" Type="varchar" MaxLength="4000" />
+          <Property Name="PhosphoNET_Name" Type="varchar" MaxLength="4000" />
+          <Property Name="PhosphoNET_URL" Type="varchar" MaxLength="4000" />
+          <Property Name="PhosphoSIte_Plus_Entry" Type="varchar" MaxLength="4000" />
+          <Property Name="PhosphoSIte_Plus_Entry_URL" Type="varchar" MaxLength="4000" />
+          <Property Name="KinaseNET_URL" Type="varchar" MaxLength="4000" />
+          <Property Name="OncoNET_URL" Type="varchar" MaxLength="4000" />
+          <Property Name="Kinex_Product_Links" Type="varchar" MaxLength="8000" />
+          <Property Name="PDB_Protein_Name" Type="varchar" MaxLength="4000" />
+          <Property Name="Human_Chromosome_Number" Type="varchar" MaxLength="4000" />
+          <Property Name="Human_Chromosome_Location" Type="varchar" MaxLength="4000" />
+          <Property Name="Human_Gene_Location" Type="varchar" MaxLength="4000" />
+          <Property Name="NCBI_Nucleotide_ID" Type="varchar" MaxLength="4000" />
+          <Property Name="NCBI_Nucleotide_ID_URL" Type="varchar" MaxLength="4000" />
+          <Property Name="NCBI_Gene_ID" Type="varchar" MaxLength="4000" />
+          <Property Name="NCBI_Gene_URL" Type="varchar" MaxLength="4000" />
+          <Property Name="NCBI_Gene_Name" Type="varchar" MaxLength="4000" />
+          <Property Name="NCBI_geneID" Type="varchar" MaxLength="4000" />
+        </EntityType>
+        <EntityType Name="SNV_Mutations">
+          <Key>
+            <PropertyRef Name="SNV_Key" />
+          </Key>
+          <Property Name="UniProt_ID" Type="varchar" MaxLength="5000" />
+          <Property Name="SNV_Key" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PDB_File_No" Type="varchar" MaxLength="5000" />
+          <Property Name="Drug_PDB_ID" Type="varchar" MaxLength="5000" />
+          <Property Name="Human_Gene_Location" Type="varchar" MaxLength="5000" />
+          <Property Name="Nucleotide_1_Position" Type="varchar" MaxLength="5000" />
+          <Property Name="Nucleotide_2_Position" Type="varchar" MaxLength="5000" />
+          <Property Name="Nucleotide_3_Position" Type="varchar" MaxLength="5000" />
+          <Property Name="P1W" Type="varchar" MaxLength="5000" />
+          <Property Name="P2W" Type="varchar" MaxLength="5000" />
+          <Property Name="P3W" Type="varchar" MaxLength="5000" />
+          <Property Name="P1M1" Type="varchar" MaxLength="5000" />
+          <Property Name="P1M2" Type="varchar" MaxLength="5000" />
+          <Property Name="P1M3" Type="varchar" MaxLength="5000" />
+          <Property Name="P2M1" Type="varchar" MaxLength="5000" />
+          <Property Name="P2M2" Type="varchar" MaxLength="5000" />
+          <Property Name="P2M3" Type="varchar" MaxLength="5000" />
+          <Property Name="P3M1" Type="varchar" MaxLength="5000" />
+          <Property Name="P3M2" Type="varchar" MaxLength="5000" />
+          <Property Name="P3M3" Type="varchar" MaxLength="5000" />
+          <Property Name="P1W_Nucleotide" Type="varchar" MaxLength="5000" />
+          <Property Name="P2W_Nucleotide" Type="varchar" MaxLength="5000" />
+          <Property Name="P3W_Nucleotide" Type="varchar" MaxLength="5000" />
+          <Property Name="P1M1_Nucleotide" Type="varchar" MaxLength="5000" />
+          <Property Name="P1M2_Nucleotide" Type="varchar" MaxLength="5000" />
+          <Property Name="P1M3_Nucleotide" Type="varchar" MaxLength="5000" />
+          <Property Name="P2M1_Nucleotide" Type="varchar" MaxLength="5000" />
+          <Property Name="P2M2_Nucleotide" Type="varchar" MaxLength="5000" />
+          <Property Name="P2M3_Nucleotide" Type="varchar" MaxLength="5000" />
+          <Property Name="P3M1_Nucleotide" Type="varchar" MaxLength="5000" />
+          <Property Name="P3M2_Nucleotide" Type="varchar" MaxLength="5000" />
+          <Property Name="P3M3_Nucleotide" Type="varchar" MaxLength="5000" />
+          <Property Name="P1W_Nucleotide_Triplet" Type="varchar" MaxLength="5000" />
+          <Property Name="P2W_Nucleotide_Triplet" Type="varchar" MaxLength="5000" />
+          <Property Name="P3W_Nucleotide_Triplet" Type="varchar" MaxLength="5000" />
+          <Property Name="P1M1_Nucleotide_Triplet" Type="varchar" MaxLength="5000" />
+          <Property Name="P1M2_Nucleotide_Triplet" Type="varchar" MaxLength="5000" />
+          <Property Name="P1M3_Nucleotide_Triplet" Type="varchar" MaxLength="5000" />
+          <Property Name="P2M1_Nucleotide_Triplet" Type="varchar" MaxLength="5000" />
+          <Property Name="P2M2_Nucleotide_Triplet" Type="varchar" MaxLength="5000" />
+          <Property Name="P2M3_Nucleotide_Triplet" Type="varchar" MaxLength="5000" />
+          <Property Name="P3M1_Nucleotide_Triplet" Type="varchar" MaxLength="5000" />
+          <Property Name="P3M2_Nucleotide_Triplet" Type="varchar" MaxLength="5000" />
+          <Property Name="P3M3_Nucleotide_Triplet" Type="varchar" MaxLength="5000" />
+          <Property Name="P1W_Amino_Acid_" Type="varchar" MaxLength="5000" />
+          <Property Name="P2W_Amino_Acid_" Type="varchar" MaxLength="5000" />
+          <Property Name="P3W_Amino_Acid_" Type="varchar" MaxLength="5000" />
+          <Property Name="P1M1_Amino_Acid_" Type="varchar" MaxLength="5000" />
+          <Property Name="P1M2_Amino_Acid_" Type="varchar" MaxLength="5000" />
+          <Property Name="P1M3_Amino_Acid_" Type="varchar" MaxLength="5000" />
+          <Property Name="P2M1_Amino_Acid_" Type="varchar" MaxLength="5000" />
+          <Property Name="P2M2_Amino_Acid_" Type="varchar" MaxLength="5000" />
+          <Property Name="P2M3_Amino_Acid_" Type="varchar" MaxLength="5000" />
+          <Property Name="P3M1_Amino_Acid_" Type="varchar" MaxLength="5000" />
+          <Property Name="P3M2_Amino_Acid_" Type="varchar" MaxLength="5000" />
+          <Property Name="P3M3_Amino_Acid_" Type="varchar" MaxLength="5000" />
+          <Property Name="SNV-P1W_ID" Type="varchar" MaxLength="5000" />
+          <Property Name="SNV-P2W_ID" Type="varchar" MaxLength="5000" />
+          <Property Name="SNV-P3W_ID" Type="varchar" MaxLength="5000" />
+          <Property Name="SNV-P1M1_ID" Type="varchar" MaxLength="5000" />
+          <Property Name="SNV-P1M2_ID" Type="varchar" MaxLength="5000" />
+          <Property Name="SNV-P1M3_ID" Type="varchar" MaxLength="5000" />
+          <Property Name="SNV-P2M1_ID" Type="varchar" MaxLength="5000" />
+          <Property Name="SNV-P2M2_ID" Type="varchar" MaxLength="5000" />
+          <Property Name="SNV-P2M3_ID" Type="varchar" MaxLength="5000" />
+          <Property Name="SNV-P3M1_ID" Type="varchar" MaxLength="5000" />
+          <Property Name="SNV-P3M2_ID" Type="varchar" MaxLength="5000" />
+          <Property Name="SNV-P3M3_ID" Type="varchar" MaxLength="5000" />
+          <Property Name="Drug_Inter _Pred -P1W" Type="varchar" MaxLength="5000" />
+          <Property Name="Drug_Inter _Pred -P2W" Type="varchar" MaxLength="5000" />
+          <Property Name="Drug_Inter _Pred -P3W" Type="varchar" MaxLength="5000" />
+          <Property Name="Drug_Inter _Pred -P1M1" Type="varchar" MaxLength="5000" />
+          <Property Name="Drug_Inter _Pred -P1M2" Type="varchar" MaxLength="5000" />
+          <Property Name="Drug_Inter _Pred -P1M3" Type="varchar" MaxLength="5000" />
+          <Property Name="Drug_Inter _Pred -P2M1" Type="varchar" MaxLength="5000" />
+          <Property Name="Drug_Inter _Pred -P2M2" Type="varchar" MaxLength="5000" />
+          <Property Name="Drug_Inter _Pred -P2M3" Type="varchar" MaxLength="5000" />
+          <Property Name="Drug_Inter _Pred -P3M1" Type="varchar" MaxLength="5000" />
+          <Property Name="Drug_Inter _Pred -P3M2" Type="varchar" MaxLength="5000" />
+          <Property Name="Drug_Inter _Pred -P3M3" Type="varchar" MaxLength="5000" />
+          <Property Name="NCBI_Gene_Name" Type="varchar" MaxLength="5000" />
+          <Property Name="NCBI_geneID" Type="varchar" MaxLength="5000" />
+          <Property Name="chain" Type="varchar" MaxLength="5000" />
+          <Property Name="SNV_Key_orig" Type="varchar" MaxLength="5000" />
+        </EntityType>
+        <EntityContainer Name="DrugProNETModelStoreContainer">
+          <EntitySet Name="Drug_Information" EntityType="Self.Drug_Information" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PDB_Distances" EntityType="Self.PDB_Distances" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PDB_Information" EntityType="Self.PDB_Information" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PDB_Interactions" EntityType="Self.PDB_Interactions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Protein_Information" EntityType="Self.Protein_Information" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SNV_Mutations" EntityType="Self.SNV_Mutations" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DrugProNETModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Drug_Information">
+          <Key>
+            <PropertyRef Name="Drug_PDB_ID" />
+          </Key>
+          <Property Name="Drug_PDB_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PDB_File_ID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Drug_Name_for_Pull_Down_Menu" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Drug_Common_Name" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Drug_Chemical_Name" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Other_Drug_Name_Alias" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Drug_InChl" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Drug_Formula" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Molecular_Mass" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Compound_Structure_png" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Compound_CAS_ID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="PubChem_CID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="PubChem_Compound_Link" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="ChEMBL_ID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="ChEMBL_Link" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="CHEMBL_Kinase_SARFari_Link" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="PubChem_SID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="PubChem_Substance_Link" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="ChemSpider_ID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="ChemSpider_Link" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="ChEBI_ID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="ChEBI_Link" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="BindingDB_ID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="BindingDB_Link" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="DrugBank_ID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="DrugBank_Link" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Drug_Registration_Number" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="KEGG_Drug_ID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="KEGG_Drug_Link" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Therapeutic_Targets_ID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Therapeutic_Targets_Link" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="PharmGKB_ID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="PharmGKB_Link" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="HET_ID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="HET_Link" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Drug_Product_ID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Drug_Product_ID_Link" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="RxList_ID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="RxList_Link" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Drugs_com_ID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Drugs_com_Link" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Wikipedia" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Wikipedia_Link" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="General_Targets" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="General_Activity" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Commentary" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Source_Type" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Living_Source1" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Living_Source2" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Clinically_Approved" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Latest_Stage_Trials" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Producer" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Disease_Applications" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Toxic_Effects" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Reference_1" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Reference_2" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Commercial_Vendor" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Drug_PDB_ID_URL" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Column_58" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PDB_Distances">
+          <Key>
+            <PropertyRef Name="PDB_Entry" />
+            <PropertyRef Name="Protein_Chain" />
+            <PropertyRef Name="Protein_Atom" />
+            <PropertyRef Name="Protein_Residue" />
+            <PropertyRef Name="Protein_Residue_" />
+            <PropertyRef Name="Compound_Name" />
+            <PropertyRef Name="Compound_Atom" />
+          </Key>
+          <Property Name="PDB_Entry" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Distance" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Protein_Chain" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Protein_Atom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Protein_Residue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Protein_Residue_" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Compound_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Compound_Atom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PDB_Information">
+          <Key>
+            <PropertyRef Name="PDB_File_ID" />
+            <PropertyRef Name="Drug_PDB_ID" />
+            <PropertyRef Name="Uniprot_ID" />
+          </Key>
+          <Property Name="PDB_File_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Drug_PDB_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Uniprot_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Drugs_and_Other_Ligands" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Method" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Resolution" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Residue_Count" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="PDB_Released" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="PDB_Entry_Title" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Authors" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Journal_Reference" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Ki_nM_" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Kd_nM_" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="IC50_nM_" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="PDB_Protein_Name" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Protein_Short_Name" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="DrugKiNET_Entered" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PDB_Interactions">
+          <Key>
+            <PropertyRef Name="PDB_Entry" />
+            <PropertyRef Name="Drug_PDB_ID" />
+            <PropertyRef Name="UniProt_ID" />
+            <PropertyRef Name="AA_Residue_Type" />
+            <PropertyRef Name="Uniprot_Residue_Number" />
+          </Key>
+          <Property Name="PDB_Entry" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Drug_PDB_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UniProt_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AA_Residue_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Uniprot_Residue_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AA_Residue_Type_And_Number" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Number_of_Atomic_Interactions" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Average_Distance_Between_Atoms" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Interaction_Distance_Ratio" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Protein_Information">
+          <Key>
+            <PropertyRef Name="Uniprot_ID" />
+          </Key>
+          <Property Name="Uniprot_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Protein_Short_Name" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Protein_Full_Name" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Protein_Alias" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Protein_Type_Specific_" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Kinase_Group" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Kinase_Family" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Kinase_Subfamily" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="GOCellComponent1" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="GOCellComponent1URL" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="GOCellComponent2" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="GOCellComponent2URL" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="GOCellComponent3" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="GOCellComponent3URL" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="GOMolFunction1" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="GOMolFunction1URL" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="GOMolFunction2" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="GOMolFunction2URL" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="GOMolFunction3" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="GOMolFunction3URL" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="GOBioProcess1" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="GOBioProcess1URL" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="GOBioProcess2" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="GOBioProcess2URL" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="GOBioProcess3" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="GOBioProcess3URL" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Protein_Mass" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Protein_AA_Number" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="UniProt_Entry_URL" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Entry_ID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="NCBI_RefSeq_NP_ID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="NCBI_RefSeq_NP_ID_URL" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="International_Prot_ID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="PhosphoNET_Name" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="PhosphoNET_URL" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="PhosphoSIte_Plus_Entry" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="PhosphoSIte_Plus_Entry_URL" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="KinaseNET_URL" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="OncoNET_URL" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Kinex_Product_Links" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="PDB_Protein_Name" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Human_Chromosome_Number" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Human_Chromosome_Location" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Human_Gene_Location" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="NCBI_Nucleotide_ID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="NCBI_Nucleotide_ID_URL" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="NCBI_Gene_ID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="NCBI_Gene_URL" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="NCBI_Gene_Name" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="NCBI_geneID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SNV_Mutations">
+          <Key>
+            <PropertyRef Name="SNV_Key" />
+          </Key>
+          <Property Name="UniProt_ID" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="SNV_Key" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PDB_File_No" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Drug_PDB_ID" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Human_Gene_Location" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Nucleotide_1_Position" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Nucleotide_2_Position" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Nucleotide_3_Position" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P1W" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P2W" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P3W" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P1M1" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P1M2" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P1M3" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P2M1" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P2M2" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P2M3" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P3M1" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P3M2" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P3M3" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P1W_Nucleotide" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P2W_Nucleotide" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P3W_Nucleotide" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P1M1_Nucleotide" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P1M2_Nucleotide" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P1M3_Nucleotide" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P2M1_Nucleotide" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P2M2_Nucleotide" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P2M3_Nucleotide" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P3M1_Nucleotide" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P3M2_Nucleotide" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P3M3_Nucleotide" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P1W_Nucleotide_Triplet" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P2W_Nucleotide_Triplet" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P3W_Nucleotide_Triplet" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P1M1_Nucleotide_Triplet" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P1M2_Nucleotide_Triplet" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P1M3_Nucleotide_Triplet" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P2M1_Nucleotide_Triplet" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P2M2_Nucleotide_Triplet" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P2M3_Nucleotide_Triplet" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P3M1_Nucleotide_Triplet" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P3M2_Nucleotide_Triplet" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P3M3_Nucleotide_Triplet" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P1W_Amino_Acid_" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P2W_Amino_Acid_" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P3W_Amino_Acid_" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P1M1_Amino_Acid_" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P1M2_Amino_Acid_" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P1M3_Amino_Acid_" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P2M1_Amino_Acid_" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P2M2_Amino_Acid_" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P2M3_Amino_Acid_" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P3M1_Amino_Acid_" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P3M2_Amino_Acid_" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="P3M3_Amino_Acid_" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="SNV_P1W_ID" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="SNV_P2W_ID" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="SNV_P3W_ID" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="SNV_P1M1_ID" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="SNV_P1M2_ID" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="SNV_P1M3_ID" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="SNV_P2M1_ID" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="SNV_P2M2_ID" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="SNV_P2M3_ID" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="SNV_P3M1_ID" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="SNV_P3M2_ID" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="SNV_P3M3_ID" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Drug_Inter__Pred__P1W" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Drug_Inter__Pred__P2W" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Drug_Inter__Pred__P3W" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Drug_Inter__Pred__P1M1" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Drug_Inter__Pred__P1M2" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Drug_Inter__Pred__P1M3" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Drug_Inter__Pred__P2M1" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Drug_Inter__Pred__P2M2" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Drug_Inter__Pred__P2M3" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Drug_Inter__Pred__P3M1" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Drug_Inter__Pred__P3M2" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="Drug_Inter__Pred__P3M3" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="NCBI_Gene_Name" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="NCBI_geneID" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="chain" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="SNV_Key_orig" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="DrugProNETEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Drug_Information" EntityType="Self.Drug_Information" />
+          <EntitySet Name="PDB_Distances" EntityType="Self.PDB_Distances" />
+          <EntitySet Name="PDB_Information" EntityType="Self.PDB_Information" />
+          <EntitySet Name="PDB_Interactions" EntityType="Self.PDB_Interactions" />
+          <EntitySet Name="Protein_Information" EntityType="Self.Protein_Information" />
+          <EntitySet Name="SNV_Mutations" EntityType="Self.SNV_Mutations" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DrugProNETModelStoreContainer" CdmEntityContainer="DrugProNETEntities">
+          <EntitySetMapping Name="Drug_Information">
+            <EntityTypeMapping TypeName="DrugProNETModel.Drug_Information">
+              <MappingFragment StoreEntitySet="Drug_Information">
+                <ScalarProperty Name="Drug_PDB_ID" ColumnName="Drug_PDB_ID" />
+                <ScalarProperty Name="PDB_File_ID" ColumnName="PDB_File_ID" />
+                <ScalarProperty Name="Drug_Name_for_Pull_Down_Menu" ColumnName="Drug_Name_for_Pull_Down_Menu" />
+                <ScalarProperty Name="Drug_Common_Name" ColumnName="Drug_Common_Name" />
+                <ScalarProperty Name="Drug_Chemical_Name" ColumnName="Drug_Chemical_Name" />
+                <ScalarProperty Name="Other_Drug_Name_Alias" ColumnName="Other_Drug_Name_Alias" />
+                <ScalarProperty Name="Drug_InChl" ColumnName="Drug_InChl" />
+                <ScalarProperty Name="Drug_Formula" ColumnName="Drug_Formula" />
+                <ScalarProperty Name="Molecular_Mass" ColumnName="Molecular_Mass" />
+                <ScalarProperty Name="Compound_Structure_png" ColumnName="Compound_Structure_png" />
+                <ScalarProperty Name="Compound_CAS_ID" ColumnName="Compound_CAS_ID" />
+                <ScalarProperty Name="PubChem_CID" ColumnName="PubChem_CID" />
+                <ScalarProperty Name="PubChem_Compound_Link" ColumnName="PubChem_Compound_Link" />
+                <ScalarProperty Name="ChEMBL_ID" ColumnName="ChEMBL_ID" />
+                <ScalarProperty Name="ChEMBL_Link" ColumnName="ChEMBL_Link" />
+                <ScalarProperty Name="CHEMBL_Kinase_SARFari_Link" ColumnName="CHEMBL_Kinase_SARFari_Link" />
+                <ScalarProperty Name="PubChem_SID" ColumnName="PubChem_SID" />
+                <ScalarProperty Name="PubChem_Substance_Link" ColumnName="PubChem_Substance_Link" />
+                <ScalarProperty Name="ChemSpider_ID" ColumnName="ChemSpider_ID" />
+                <ScalarProperty Name="ChemSpider_Link" ColumnName="ChemSpider_Link" />
+                <ScalarProperty Name="ChEBI_ID" ColumnName="ChEBI_ID" />
+                <ScalarProperty Name="ChEBI_Link" ColumnName="ChEBI_Link" />
+                <ScalarProperty Name="BindingDB_ID" ColumnName="BindingDB_ID" />
+                <ScalarProperty Name="BindingDB_Link" ColumnName="BindingDB_Link" />
+                <ScalarProperty Name="DrugBank_ID" ColumnName="DrugBank_ID" />
+                <ScalarProperty Name="DrugBank_Link" ColumnName="DrugBank_Link" />
+                <ScalarProperty Name="Drug_Registration_Number" ColumnName="Drug_Registration_Number" />
+                <ScalarProperty Name="KEGG_Drug_ID" ColumnName="KEGG_Drug_ID" />
+                <ScalarProperty Name="KEGG_Drug_Link" ColumnName="KEGG_Drug_Link" />
+                <ScalarProperty Name="Therapeutic_Targets_ID" ColumnName="Therapeutic_Targets_ID" />
+                <ScalarProperty Name="Therapeutic_Targets_Link" ColumnName="Therapeutic_Targets_Link" />
+                <ScalarProperty Name="PharmGKB_ID" ColumnName="PharmGKB_ID" />
+                <ScalarProperty Name="PharmGKB_Link" ColumnName="PharmGKB_Link" />
+                <ScalarProperty Name="HET_ID" ColumnName="HET_ID" />
+                <ScalarProperty Name="HET_Link" ColumnName="HET_Link" />
+                <ScalarProperty Name="Drug_Product_ID" ColumnName="Drug_Product_ID" />
+                <ScalarProperty Name="Drug_Product_ID_Link" ColumnName="Drug_Product_ID_Link" />
+                <ScalarProperty Name="RxList_ID" ColumnName="RxList_ID" />
+                <ScalarProperty Name="RxList_Link" ColumnName="RxList_Link" />
+                <ScalarProperty Name="Drugs_com_ID" ColumnName="Drugs com_ID" />
+                <ScalarProperty Name="Drugs_com_Link" ColumnName="Drugs com_Link" />
+                <ScalarProperty Name="Wikipedia" ColumnName="Wikipedia" />
+                <ScalarProperty Name="Wikipedia_Link" ColumnName="Wikipedia_Link" />
+                <ScalarProperty Name="General_Targets" ColumnName="General_Targets" />
+                <ScalarProperty Name="General_Activity" ColumnName="General_Activity" />
+                <ScalarProperty Name="Commentary" ColumnName="Commentary" />
+                <ScalarProperty Name="Source_Type" ColumnName="Source_Type" />
+                <ScalarProperty Name="Living_Source1" ColumnName="Living_Source1" />
+                <ScalarProperty Name="Living_Source2" ColumnName="Living_Source2" />
+                <ScalarProperty Name="Clinically_Approved" ColumnName="Clinically_Approved" />
+                <ScalarProperty Name="Latest_Stage_Trials" ColumnName="Latest_Stage_Trials" />
+                <ScalarProperty Name="Producer" ColumnName="Producer" />
+                <ScalarProperty Name="Disease_Applications" ColumnName="Disease_Applications" />
+                <ScalarProperty Name="Toxic_Effects" ColumnName="Toxic_Effects" />
+                <ScalarProperty Name="Reference_1" ColumnName="Reference_1" />
+                <ScalarProperty Name="Reference_2" ColumnName="Reference_2" />
+                <ScalarProperty Name="Commercial_Vendor" ColumnName="Commercial_Vendor" />
+                <ScalarProperty Name="Drug_PDB_ID_URL" ColumnName="Drug_PDB_ID_URL" />
+                <ScalarProperty Name="Column_58" ColumnName="Column 58" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PDB_Distances">
+            <EntityTypeMapping TypeName="DrugProNETModel.PDB_Distances">
+              <MappingFragment StoreEntitySet="PDB_Distances">
+                <ScalarProperty Name="PDB_Entry" ColumnName="PDB_Entry" />
+                <ScalarProperty Name="Distance" ColumnName="Distance" />
+                <ScalarProperty Name="Protein_Chain" ColumnName="Protein_Chain" />
+                <ScalarProperty Name="Protein_Atom" ColumnName="Protein_Atom" />
+                <ScalarProperty Name="Protein_Residue" ColumnName="Protein_Residue" />
+                <ScalarProperty Name="Protein_Residue_" ColumnName="Protein_Residue_" />
+                <ScalarProperty Name="Compound_Name" ColumnName="Compound_Name" />
+                <ScalarProperty Name="Compound_Atom" ColumnName="Compound_Atom" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PDB_Information">
+            <EntityTypeMapping TypeName="DrugProNETModel.PDB_Information">
+              <MappingFragment StoreEntitySet="PDB_Information">
+                <ScalarProperty Name="PDB_File_ID" ColumnName="PDB_File_ID" />
+                <ScalarProperty Name="Drug_PDB_ID" ColumnName="Drug_PDB_ID" />
+                <ScalarProperty Name="Uniprot_ID" ColumnName="Uniprot_ID" />
+                <ScalarProperty Name="Drugs_and_Other_Ligands" ColumnName="Drugs_and_Other_Ligands" />
+                <ScalarProperty Name="Method" ColumnName="Method" />
+                <ScalarProperty Name="Resolution" ColumnName="Resolution" />
+                <ScalarProperty Name="Residue_Count" ColumnName="Residue_Count" />
+                <ScalarProperty Name="PDB_Released" ColumnName="PDB_Released" />
+                <ScalarProperty Name="PDB_Entry_Title" ColumnName="PDB_Entry_Title" />
+                <ScalarProperty Name="Authors" ColumnName="Authors" />
+                <ScalarProperty Name="Journal_Reference" ColumnName="Journal_Reference" />
+                <ScalarProperty Name="Ki_nM_" ColumnName="Ki(nM)" />
+                <ScalarProperty Name="Kd_nM_" ColumnName="Kd(nM)" />
+                <ScalarProperty Name="IC50_nM_" ColumnName="IC50(nM)" />
+                <ScalarProperty Name="PDB_Protein_Name" ColumnName="PDB_Protein_Name" />
+                <ScalarProperty Name="Protein_Short_Name" ColumnName="Protein_Short_Name" />
+                <ScalarProperty Name="DrugKiNET_Entered" ColumnName="DrugKiNET_Entered" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PDB_Interactions">
+            <EntityTypeMapping TypeName="DrugProNETModel.PDB_Interactions">
+              <MappingFragment StoreEntitySet="PDB_Interactions">
+                <ScalarProperty Name="PDB_Entry" ColumnName="PDB_Entry" />
+                <ScalarProperty Name="Drug_PDB_ID" ColumnName="Drug_PDB_ID" />
+                <ScalarProperty Name="UniProt_ID" ColumnName="UniProt_ID" />
+                <ScalarProperty Name="AA_Residue_Type" ColumnName="AA_Residue_Type" />
+                <ScalarProperty Name="Uniprot_Residue_Number" ColumnName="Uniprot_Residue_Number" />
+                <ScalarProperty Name="AA_Residue_Type_And_Number" ColumnName="AA_Residue_Type_And_Number" />
+                <ScalarProperty Name="Number_of_Atomic_Interactions" ColumnName="Number_of_Atomic_Interactions" />
+                <ScalarProperty Name="Average_Distance_Between_Atoms" ColumnName="Average_Distance_Between_Atoms" />
+                <ScalarProperty Name="Interaction_Distance_Ratio" ColumnName="Interaction_Distance_Ratio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Protein_Information">
+            <EntityTypeMapping TypeName="DrugProNETModel.Protein_Information">
+              <MappingFragment StoreEntitySet="Protein_Information">
+                <ScalarProperty Name="Uniprot_ID" ColumnName="Uniprot_ID" />
+                <ScalarProperty Name="Protein_Short_Name" ColumnName="Protein_Short_Name" />
+                <ScalarProperty Name="Protein_Full_Name" ColumnName="Protein_Full_Name" />
+                <ScalarProperty Name="Protein_Alias" ColumnName="Protein_Alias" />
+                <ScalarProperty Name="Protein_Type_Specific_" ColumnName="Protein_Type_Specific_" />
+                <ScalarProperty Name="Kinase_Group" ColumnName="Kinase_Group" />
+                <ScalarProperty Name="Kinase_Family" ColumnName="Kinase_Family" />
+                <ScalarProperty Name="Kinase_Subfamily" ColumnName="Kinase_Subfamily" />
+                <ScalarProperty Name="GOCellComponent1" ColumnName="GOCellComponent1" />
+                <ScalarProperty Name="GOCellComponent1URL" ColumnName="GOCellComponent1URL" />
+                <ScalarProperty Name="GOCellComponent2" ColumnName="GOCellComponent2" />
+                <ScalarProperty Name="GOCellComponent2URL" ColumnName="GOCellComponent2URL" />
+                <ScalarProperty Name="GOCellComponent3" ColumnName="GOCellComponent3" />
+                <ScalarProperty Name="GOCellComponent3URL" ColumnName="GOCellComponent3URL" />
+                <ScalarProperty Name="GOMolFunction1" ColumnName="GOMolFunction1" />
+                <ScalarProperty Name="GOMolFunction1URL" ColumnName="GOMolFunction1URL" />
+                <ScalarProperty Name="GOMolFunction2" ColumnName="GOMolFunction2" />
+                <ScalarProperty Name="GOMolFunction2URL" ColumnName="GOMolFunction2URL" />
+                <ScalarProperty Name="GOMolFunction3" ColumnName="GOMolFunction3" />
+                <ScalarProperty Name="GOMolFunction3URL" ColumnName="GOMolFunction3URL" />
+                <ScalarProperty Name="GOBioProcess1" ColumnName="GOBioProcess1" />
+                <ScalarProperty Name="GOBioProcess1URL" ColumnName="GOBioProcess1URL" />
+                <ScalarProperty Name="GOBioProcess2" ColumnName="GOBioProcess2" />
+                <ScalarProperty Name="GOBioProcess2URL" ColumnName="GOBioProcess2URL" />
+                <ScalarProperty Name="GOBioProcess3" ColumnName="GOBioProcess3" />
+                <ScalarProperty Name="GOBioProcess3URL" ColumnName="GOBioProcess3URL" />
+                <ScalarProperty Name="Protein_Mass" ColumnName="Protein_Mass" />
+                <ScalarProperty Name="Protein_AA_Number" ColumnName="Protein_AA_Number" />
+                <ScalarProperty Name="UniProt_Entry_URL" ColumnName="UniProt_Entry_URL" />
+                <ScalarProperty Name="Entry_ID" ColumnName="Entry_ID" />
+                <ScalarProperty Name="NCBI_RefSeq_NP_ID" ColumnName="NCBI_RefSeq_NP_ID" />
+                <ScalarProperty Name="NCBI_RefSeq_NP_ID_URL" ColumnName="NCBI_RefSeq_NP_ID_URL" />
+                <ScalarProperty Name="International_Prot_ID" ColumnName="International_Prot_ID" />
+                <ScalarProperty Name="PhosphoNET_Name" ColumnName="PhosphoNET_Name" />
+                <ScalarProperty Name="PhosphoNET_URL" ColumnName="PhosphoNET_URL" />
+                <ScalarProperty Name="PhosphoSIte_Plus_Entry" ColumnName="PhosphoSIte_Plus_Entry" />
+                <ScalarProperty Name="PhosphoSIte_Plus_Entry_URL" ColumnName="PhosphoSIte_Plus_Entry_URL" />
+                <ScalarProperty Name="KinaseNET_URL" ColumnName="KinaseNET_URL" />
+                <ScalarProperty Name="OncoNET_URL" ColumnName="OncoNET_URL" />
+                <ScalarProperty Name="Kinex_Product_Links" ColumnName="Kinex_Product_Links" />
+                <ScalarProperty Name="PDB_Protein_Name" ColumnName="PDB_Protein_Name" />
+                <ScalarProperty Name="Human_Chromosome_Number" ColumnName="Human_Chromosome_Number" />
+                <ScalarProperty Name="Human_Chromosome_Location" ColumnName="Human_Chromosome_Location" />
+                <ScalarProperty Name="Human_Gene_Location" ColumnName="Human_Gene_Location" />
+                <ScalarProperty Name="NCBI_Nucleotide_ID" ColumnName="NCBI_Nucleotide_ID" />
+                <ScalarProperty Name="NCBI_Nucleotide_ID_URL" ColumnName="NCBI_Nucleotide_ID_URL" />
+                <ScalarProperty Name="NCBI_Gene_ID" ColumnName="NCBI_Gene_ID" />
+                <ScalarProperty Name="NCBI_Gene_URL" ColumnName="NCBI_Gene_URL" />
+                <ScalarProperty Name="NCBI_Gene_Name" ColumnName="NCBI_Gene_Name" />
+                <ScalarProperty Name="NCBI_geneID" ColumnName="NCBI_geneID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SNV_Mutations">
+            <EntityTypeMapping TypeName="DrugProNETModel.SNV_Mutations">
+              <MappingFragment StoreEntitySet="SNV_Mutations">
+                <ScalarProperty Name="UniProt_ID" ColumnName="UniProt_ID" />
+                <ScalarProperty Name="SNV_Key" ColumnName="SNV_Key" />
+                <ScalarProperty Name="PDB_File_No" ColumnName="PDB_File_No" />
+                <ScalarProperty Name="Drug_PDB_ID" ColumnName="Drug_PDB_ID" />
+                <ScalarProperty Name="Human_Gene_Location" ColumnName="Human_Gene_Location" />
+                <ScalarProperty Name="Nucleotide_1_Position" ColumnName="Nucleotide_1_Position" />
+                <ScalarProperty Name="Nucleotide_2_Position" ColumnName="Nucleotide_2_Position" />
+                <ScalarProperty Name="Nucleotide_3_Position" ColumnName="Nucleotide_3_Position" />
+                <ScalarProperty Name="P1W" ColumnName="P1W" />
+                <ScalarProperty Name="P2W" ColumnName="P2W" />
+                <ScalarProperty Name="P3W" ColumnName="P3W" />
+                <ScalarProperty Name="P1M1" ColumnName="P1M1" />
+                <ScalarProperty Name="P1M2" ColumnName="P1M2" />
+                <ScalarProperty Name="P1M3" ColumnName="P1M3" />
+                <ScalarProperty Name="P2M1" ColumnName="P2M1" />
+                <ScalarProperty Name="P2M2" ColumnName="P2M2" />
+                <ScalarProperty Name="P2M3" ColumnName="P2M3" />
+                <ScalarProperty Name="P3M1" ColumnName="P3M1" />
+                <ScalarProperty Name="P3M2" ColumnName="P3M2" />
+                <ScalarProperty Name="P3M3" ColumnName="P3M3" />
+                <ScalarProperty Name="P1W_Nucleotide" ColumnName="P1W_Nucleotide" />
+                <ScalarProperty Name="P2W_Nucleotide" ColumnName="P2W_Nucleotide" />
+                <ScalarProperty Name="P3W_Nucleotide" ColumnName="P3W_Nucleotide" />
+                <ScalarProperty Name="P1M1_Nucleotide" ColumnName="P1M1_Nucleotide" />
+                <ScalarProperty Name="P1M2_Nucleotide" ColumnName="P1M2_Nucleotide" />
+                <ScalarProperty Name="P1M3_Nucleotide" ColumnName="P1M3_Nucleotide" />
+                <ScalarProperty Name="P2M1_Nucleotide" ColumnName="P2M1_Nucleotide" />
+                <ScalarProperty Name="P2M2_Nucleotide" ColumnName="P2M2_Nucleotide" />
+                <ScalarProperty Name="P2M3_Nucleotide" ColumnName="P2M3_Nucleotide" />
+                <ScalarProperty Name="P3M1_Nucleotide" ColumnName="P3M1_Nucleotide" />
+                <ScalarProperty Name="P3M2_Nucleotide" ColumnName="P3M2_Nucleotide" />
+                <ScalarProperty Name="P3M3_Nucleotide" ColumnName="P3M3_Nucleotide" />
+                <ScalarProperty Name="P1W_Nucleotide_Triplet" ColumnName="P1W_Nucleotide_Triplet" />
+                <ScalarProperty Name="P2W_Nucleotide_Triplet" ColumnName="P2W_Nucleotide_Triplet" />
+                <ScalarProperty Name="P3W_Nucleotide_Triplet" ColumnName="P3W_Nucleotide_Triplet" />
+                <ScalarProperty Name="P1M1_Nucleotide_Triplet" ColumnName="P1M1_Nucleotide_Triplet" />
+                <ScalarProperty Name="P1M2_Nucleotide_Triplet" ColumnName="P1M2_Nucleotide_Triplet" />
+                <ScalarProperty Name="P1M3_Nucleotide_Triplet" ColumnName="P1M3_Nucleotide_Triplet" />
+                <ScalarProperty Name="P2M1_Nucleotide_Triplet" ColumnName="P2M1_Nucleotide_Triplet" />
+                <ScalarProperty Name="P2M2_Nucleotide_Triplet" ColumnName="P2M2_Nucleotide_Triplet" />
+                <ScalarProperty Name="P2M3_Nucleotide_Triplet" ColumnName="P2M3_Nucleotide_Triplet" />
+                <ScalarProperty Name="P3M1_Nucleotide_Triplet" ColumnName="P3M1_Nucleotide_Triplet" />
+                <ScalarProperty Name="P3M2_Nucleotide_Triplet" ColumnName="P3M2_Nucleotide_Triplet" />
+                <ScalarProperty Name="P3M3_Nucleotide_Triplet" ColumnName="P3M3_Nucleotide_Triplet" />
+                <ScalarProperty Name="P1W_Amino_Acid_" ColumnName="P1W_Amino_Acid_" />
+                <ScalarProperty Name="P2W_Amino_Acid_" ColumnName="P2W_Amino_Acid_" />
+                <ScalarProperty Name="P3W_Amino_Acid_" ColumnName="P3W_Amino_Acid_" />
+                <ScalarProperty Name="P1M1_Amino_Acid_" ColumnName="P1M1_Amino_Acid_" />
+                <ScalarProperty Name="P1M2_Amino_Acid_" ColumnName="P1M2_Amino_Acid_" />
+                <ScalarProperty Name="P1M3_Amino_Acid_" ColumnName="P1M3_Amino_Acid_" />
+                <ScalarProperty Name="P2M1_Amino_Acid_" ColumnName="P2M1_Amino_Acid_" />
+                <ScalarProperty Name="P2M2_Amino_Acid_" ColumnName="P2M2_Amino_Acid_" />
+                <ScalarProperty Name="P2M3_Amino_Acid_" ColumnName="P2M3_Amino_Acid_" />
+                <ScalarProperty Name="P3M1_Amino_Acid_" ColumnName="P3M1_Amino_Acid_" />
+                <ScalarProperty Name="P3M2_Amino_Acid_" ColumnName="P3M2_Amino_Acid_" />
+                <ScalarProperty Name="P3M3_Amino_Acid_" ColumnName="P3M3_Amino_Acid_" />
+                <ScalarProperty Name="SNV_P1W_ID" ColumnName="SNV-P1W_ID" />
+                <ScalarProperty Name="SNV_P2W_ID" ColumnName="SNV-P2W_ID" />
+                <ScalarProperty Name="SNV_P3W_ID" ColumnName="SNV-P3W_ID" />
+                <ScalarProperty Name="SNV_P1M1_ID" ColumnName="SNV-P1M1_ID" />
+                <ScalarProperty Name="SNV_P1M2_ID" ColumnName="SNV-P1M2_ID" />
+                <ScalarProperty Name="SNV_P1M3_ID" ColumnName="SNV-P1M3_ID" />
+                <ScalarProperty Name="SNV_P2M1_ID" ColumnName="SNV-P2M1_ID" />
+                <ScalarProperty Name="SNV_P2M2_ID" ColumnName="SNV-P2M2_ID" />
+                <ScalarProperty Name="SNV_P2M3_ID" ColumnName="SNV-P2M3_ID" />
+                <ScalarProperty Name="SNV_P3M1_ID" ColumnName="SNV-P3M1_ID" />
+                <ScalarProperty Name="SNV_P3M2_ID" ColumnName="SNV-P3M2_ID" />
+                <ScalarProperty Name="SNV_P3M3_ID" ColumnName="SNV-P3M3_ID" />
+                <ScalarProperty Name="Drug_Inter__Pred__P1W" ColumnName="Drug_Inter _Pred -P1W" />
+                <ScalarProperty Name="Drug_Inter__Pred__P2W" ColumnName="Drug_Inter _Pred -P2W" />
+                <ScalarProperty Name="Drug_Inter__Pred__P3W" ColumnName="Drug_Inter _Pred -P3W" />
+                <ScalarProperty Name="Drug_Inter__Pred__P1M1" ColumnName="Drug_Inter _Pred -P1M1" />
+                <ScalarProperty Name="Drug_Inter__Pred__P1M2" ColumnName="Drug_Inter _Pred -P1M2" />
+                <ScalarProperty Name="Drug_Inter__Pred__P1M3" ColumnName="Drug_Inter _Pred -P1M3" />
+                <ScalarProperty Name="Drug_Inter__Pred__P2M1" ColumnName="Drug_Inter _Pred -P2M1" />
+                <ScalarProperty Name="Drug_Inter__Pred__P2M2" ColumnName="Drug_Inter _Pred -P2M2" />
+                <ScalarProperty Name="Drug_Inter__Pred__P2M3" ColumnName="Drug_Inter _Pred -P2M3" />
+                <ScalarProperty Name="Drug_Inter__Pred__P3M1" ColumnName="Drug_Inter _Pred -P3M1" />
+                <ScalarProperty Name="Drug_Inter__Pred__P3M2" ColumnName="Drug_Inter _Pred -P3M2" />
+                <ScalarProperty Name="Drug_Inter__Pred__P3M3" ColumnName="Drug_Inter _Pred -P3M3" />
+                <ScalarProperty Name="NCBI_Gene_Name" ColumnName="NCBI_Gene_Name" />
+                <ScalarProperty Name="NCBI_geneID" ColumnName="NCBI_geneID" />
+                <ScalarProperty Name="chain" ColumnName="chain" />
+                <ScalarProperty Name="SNV_Key_orig" ColumnName="SNV_Key_orig" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

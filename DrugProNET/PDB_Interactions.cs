@@ -23,6 +23,5 @@ namespace DrugProNET
         public string Number_of_Atomic_Interactions { get; set; }
         public string Average_Distance_Between_Atoms { get; set; }
         public string Interaction_Distance_Ratio { get; set; }
-        public string Protein_Chain { get; set; }
     }
 }
