@@ -15,11 +15,11 @@ namespace DrugProNET
     public partial class PDB_Distances
     {
         public string PDB_Entry { get; set; }
-        public double Distance { get; set; }
+        public string Distance { get; set; }
         public string Protein_Chain { get; set; }
         public string Protein_Atom { get; set; }
         public string Protein_Residue { get; set; }
-        public int Protein_Residue_ { get; set; }
+        public string Protein_Residue_ { get; set; }
         public string Compound_Name { get; set; }
         public string Compound_Atom { get; set; }
     }

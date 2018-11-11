@@ -154,18 +154,18 @@
     <Content Include="CSS\snv_drug_result.css" />
     <Content Include="CSS\snv_id_query.css" />
     <Content Include="CSS\snv_id_result.css" />
-    <Content Include="DataModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DataModel.edmx</DependentUpon>
-      <LastGenOutput>DataModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="DataModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DataModel.edmx</DependentUpon>
-      <LastGenOutput>DataModel.cs</LastGenOutput>
-    </Content>
     <Content Include="DrugInfo.aspx" />
     <Content Include="DrugInfoResult.aspx" />
+    <Content Include="DrugProNET_Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DrugProNET_Model.edmx</DependentUpon>
+      <LastGenOutput>DrugProNET_Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DrugProNET_Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DrugProNET_Model.edmx</DependentUpon>
+      <LastGenOutput>DrugProNET_Model1.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\3DViewer\D_3DViewer_Info.js" />
     <Content Include="SNVDrugQuery.aspx" />
     <Content Include="SNVDrugResult.aspx" />
@@ -264,21 +264,6 @@
     <Compile Include="Credits.aspx.designer.cs">
       <DependentUpon>Credits.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DataModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="DrugInfo.aspx.cs">
       <DependentUpon>DrugInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -293,20 +278,35 @@
     <Compile Include="DrugInfoResult.aspx.designer.cs">
       <DependentUpon>DrugInfoResult.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DrugProNET_Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DrugProNET_Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DrugProNET_Model.Designer.cs">
+      <DependentUpon>DrugProNET_Model.edmx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DrugProNET_Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DrugProNET_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Drug_Information.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
+      <DependentUpon>DrugProNET_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="PDB_Distances.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
+      <DependentUpon>DrugProNET_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="PDB_Information.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
+      <DependentUpon>DrugProNET_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="PDB_Interactions.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
+      <DependentUpon>DrugProNET_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Protein_Information.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
+      <DependentUpon>DrugProNET_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="SNVDrugQuery.aspx.cs">
       <DependentUpon>SNVDrugQuery.aspx</DependentUpon>
@@ -399,18 +399,21 @@
       <DependentUpon>ProteinQuery.aspx</DependentUpon>
     </Compile>
     <Compile Include="Scripts\MatchFinder.cs" />
+    <Compile Include="SNV_Mutations.cs">
+      <DependentUpon>DrugProNET_Model.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="BasePage.Master" />
-    <EntityDeploy Include="DataModel.edmx">
+    <EntityDeploy Include="DrugProNET_Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DataModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>DrugProNET_Model.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="DataModel.edmx.diagram">
-      <DependentUpon>DataModel.edmx</DependentUpon>
+    <Content Include="DrugProNET_Model.edmx.diagram">
+      <DependentUpon>DrugProNET_Model.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
     <Content Include="Libraries\Bootstrap 3.3.7\css\bootstrap-theme.css.map" />

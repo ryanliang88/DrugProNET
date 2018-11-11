@@ -41,7 +41,7 @@ namespace DrugProNET
         public string GOBioProcess3 { get; set; }
         public string GOBioProcess3URL { get; set; }
         public string Protein_Mass { get; set; }
-        public Nullable<int> Protein_AA_Number { get; set; }
+        public string Protein_AA_Number { get; set; }
         public string UniProt_Entry_URL { get; set; }
         public string Entry_ID { get; set; }
         public string NCBI_RefSeq_NP_ID { get; set; }
@@ -49,7 +49,7 @@ namespace DrugProNET
         public string International_Prot_ID { get; set; }
         public string PhosphoNET_Name { get; set; }
         public string PhosphoNET_URL { get; set; }
-        public Nullable<int> PhosphoSIte_Plus_Entry { get; set; }
+        public string PhosphoSIte_Plus_Entry { get; set; }
         public string PhosphoSIte_Plus_Entry_URL { get; set; }
         public string KinaseNET_URL { get; set; }
         public string OncoNET_URL { get; set; }
@@ -63,6 +63,6 @@ namespace DrugProNET
         public string NCBI_Gene_ID { get; set; }
         public string NCBI_Gene_URL { get; set; }
         public string NCBI_Gene_Name { get; set; }
-        public Nullable<int> NCBI_geneID { get; set; }
+        public string NCBI_geneID { get; set; }
     }
 }
