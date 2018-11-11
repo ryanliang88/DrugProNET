@@ -70,13 +70,13 @@ namespace DrugProNET
             amino_acid_specification_drop_down.Items.Add(DROP_DOWN_PROMPT_MESSAGE);
 
             Protein_Information protein = EF_Data.GetProtein(search_textBox.Text);
-            Drug_Information drug = EF_Data.GetDrugsUsingDropDownName(drug_specification_drop_down.SelectedItem.Value);
+            Drug_Information drug = EF_Data.GetDrugUsingDropDownName(drug_specification_drop_down.SelectedItem.Value);
 
-            List<C18NO7_ExcelE_subset> mutations = EF_Data.GetMutations(protein.Uniprot_ID, drug.Drug_PDB_ID);
+            List<SNV_Mutations> mutations = EF_Data.GetMutations(protein.Uniprot_ID, drug.Drug_PDB_ID);
 
             if (mutations.Count > 0)
             {
-                foreach (C18NO7_ExcelE_subset mutation in mutations)
+                foreach (SNV_Mutations mutation in mutations)
                 {
                     amino_acid_specification_drop_down.Items.Add(mutation.SNV_Key);
                 }

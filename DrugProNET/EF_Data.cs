@@ -42,7 +42,7 @@ namespace DrugProNET
             return drug;
         }
 
-        public static Drug_Information GetDrugsUsingDropDownName(string dropDownName)
+        public static Drug_Information GetDrugUsingDropDownName(string dropDownName)
         {
             Drug_Information drug = null;
 
@@ -168,15 +168,15 @@ namespace DrugProNET
             return list;
         }
 
-        public static List<C18NO7_ExcelE_subset> GetMutations(string uniprot, string drugPDBID)
+        public static List<SNV_Mutations> GetMutations(string uniprot, string drugPDBID)
         {
-            List<C18NO7_ExcelE_subset> mutations = new List<C18NO7_ExcelE_subset>();
+            List<SNV_Mutations> mutations = new List<SNV_Mutations>();
 
             using (DrugProNETEntities context = new DrugProNETEntities())
             {
-                DbSet<C18NO7_ExcelE_subset> mutationSet = context.C18NO7_ExcelE_subset;
+                DbSet<SNV_Mutations> mutationSet = context.SNV_Mutations;
 
-                foreach (C18NO7_ExcelE_subset mutation in mutationSet)
+                foreach (SNV_Mutations mutation in mutationSet)
                 {
                     if ((mutation.UniProt_ID?.ToLower()).Equals(uniprot.ToLower()) &&
                         (mutation.Drug_PDB_ID?.ToLower()).Equals(drugPDBID.ToLower()))
