@@ -49,6 +49,15 @@ namespace DrugProNET {
         protected global::System.Web.UI.WebControls.Image adBanner;
         
         /// <summary>
+        /// protein_name_row control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl protein_name_row;
+        
+        /// <summary>
         /// protein_name control.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,15 @@ namespace DrugProNET {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl protein_name;
+        
+        /// <summary>
+        /// protein_full_name_row control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl protein_full_name_row;
         
         /// <summary>
         /// protein_full_name control.
@@ -67,6 +85,15 @@ namespace DrugProNET {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl protein_full_name;
         
         /// <summary>
+        /// p_alias_row control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl p_alias_row;
+        
+        /// <summary>
         /// p_alias control.
         /// </summary>
         /// <remarks>
@@ -74,6 +101,15 @@ namespace DrugProNET {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl p_alias;
+        
+        /// <summary>
+        /// uniprot_ID_row control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl uniprot_ID_row;
         
         /// <summary>
         /// uniprot_ID control.
@@ -85,6 +121,15 @@ namespace DrugProNET {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl uniprot_ID;
         
         /// <summary>
+        /// NCBI_ID_row control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl NCBI_ID_row;
+        
+        /// <summary>
         /// NCBI_ID control.
         /// </summary>
         /// <remarks>
@@ -92,6 +137,15 @@ namespace DrugProNET {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl NCBI_ID;
+        
+        /// <summary>
+        /// protein_type_row control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl protein_type_row;
         
         /// <summary>
         /// protein_type control.
@@ -103,6 +157,15 @@ namespace DrugProNET {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl protein_type;
         
         /// <summary>
+        /// kinase_group_row control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl kinase_group_row;
+        
+        /// <summary>
         /// kinase_group control.
         /// </summary>
         /// <remarks>
@@ -110,6 +173,15 @@ namespace DrugProNET {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl kinase_group;
+        
+        /// <summary>
+        /// kinase_family_row control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl kinase_family_row;
         
         /// <summary>
         /// kinase_family control.
@@ -121,6 +193,15 @@ namespace DrugProNET {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl kinase_family;
         
         /// <summary>
+        /// number_aa_row control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl number_aa_row;
+        
+        /// <summary>
         /// number_aa control.
         /// </summary>
         /// <remarks>
@@ -128,6 +209,15 @@ namespace DrugProNET {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl number_aa;
+        
+        /// <summary>
+        /// protein_mass_da_row control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl protein_mass_da_row;
         
         /// <summary>
         /// protein_mass_da control.
@@ -139,6 +229,15 @@ namespace DrugProNET {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl protein_mass_da;
         
         /// <summary>
+        /// protein_information_result_url_row control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl protein_information_result_url_row;
+        
+        /// <summary>
         /// protein_information_result_url control.
         /// </summary>
         /// <remarks>
@@ -146,6 +245,15 @@ namespace DrugProNET {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink protein_information_result_url;
+        
+        /// <summary>
+        /// PDB_drug_ID_row control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl PDB_drug_ID_row;
         
         /// <summary>
         /// PDB_drug_ID control.
@@ -157,6 +265,15 @@ namespace DrugProNET {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl PDB_drug_ID;
         
         /// <summary>
+        /// drug_name_row control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl drug_name_row;
+        
+        /// <summary>
         /// drug_name control.
         /// </summary>
         /// <remarks>
@@ -164,6 +281,15 @@ namespace DrugProNET {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl drug_name;
+        
+        /// <summary>
+        /// drug_chemical_name_row control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl drug_chemical_name_row;
         
         /// <summary>
         /// drug_chemical_name control.
@@ -175,6 +301,15 @@ namespace DrugProNET {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl drug_chemical_name;
         
         /// <summary>
+        /// drug_alias_row control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl drug_alias_row;
+        
+        /// <summary>
         /// drug_alias control.
         /// </summary>
         /// <remarks>
@@ -182,6 +317,15 @@ namespace DrugProNET {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl drug_alias;
+        
+        /// <summary>
+        /// drug_formula_row control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl drug_formula_row;
         
         /// <summary>
         /// drug_formula control.
@@ -193,6 +337,15 @@ namespace DrugProNET {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl drug_formula;
         
         /// <summary>
+        /// drug_mass_da_row control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl drug_mass_da_row;
+        
+        /// <summary>
         /// drug_mass_da control.
         /// </summary>
         /// <remarks>
@@ -200,6 +353,15 @@ namespace DrugProNET {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl drug_mass_da;
+        
+        /// <summary>
+        /// potency_row control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl potency_row;
         
         /// <summary>
         /// potency control.
@@ -211,6 +373,15 @@ namespace DrugProNET {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl potency;
         
         /// <summary>
+        /// drug_information_result_url_row control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl drug_information_result_url_row;
+        
+        /// <summary>
         /// drug_information_result_url control.
         /// </summary>
         /// <remarks>
@@ -218,6 +389,15 @@ namespace DrugProNET {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink drug_information_result_url;
+        
+        /// <summary>
+        /// PDB_entry_row control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl PDB_entry_row;
         
         /// <summary>
         /// PDB_entry control.
@@ -229,6 +409,15 @@ namespace DrugProNET {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl PDB_entry;
         
         /// <summary>
+        /// release_date_row control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl release_date_row;
+        
+        /// <summary>
         /// release_date control.
         /// </summary>
         /// <remarks>
@@ -236,6 +425,15 @@ namespace DrugProNET {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl release_date;
+        
+        /// <summary>
+        /// resolution_row control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl resolution_row;
         
         /// <summary>
         /// resolution control.
@@ -247,6 +445,15 @@ namespace DrugProNET {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl resolution;
         
         /// <summary>
+        /// title_row control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl title_row;
+        
+        /// <summary>
         /// title control.
         /// </summary>
         /// <remarks>
@@ -256,6 +463,15 @@ namespace DrugProNET {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl title;
         
         /// <summary>
+        /// authors_row control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl authors_row;
+        
+        /// <summary>
         /// authors control.
         /// </summary>
         /// <remarks>
@@ -263,6 +479,15 @@ namespace DrugProNET {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl authors;
+        
+        /// <summary>
+        /// reference_row control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl reference_row;
         
         /// <summary>
         /// reference control.

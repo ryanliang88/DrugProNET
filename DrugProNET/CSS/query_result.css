@@ -1,8 +1,4 @@
-﻿div {
-    text-align: left; /* Removes .main_container with text-align: center*/
-}
-
-.ad_banner {
+﻿.ad_banner {
     text-align: center;
 }
 
@@ -50,10 +46,6 @@ input {
     height: 23em;
 }
 
-.display-margin-right {
-    margin-right: 2em;
-}
-
 .amino-acid-container {
     padding-top: 1em;
 }
@@ -61,8 +53,11 @@ input {
 .amino-acid-dropdown {
     color: black;
     float: left;
-    margin-right: 2em;
+    margin-right: 1em;
     margin-top: 0.75em;
+    border-radius: .3em;
+    font-weight: normal;
+    color: black;
 }
 
 .amino-acid-instructions {
@@ -99,41 +94,68 @@ table {
     border-collapse: collapse;
     text-align: center;
     color: black;
+    overflow-y: auto;
+    max-height: 500px;
+    width: 700px;
+    display: block;
+    table-layout: fixed;
 }
 
-.interaction-summary tr:nth-of-type(2n+1) {
-    background-color: #F3F3FD;
+tbody {
+    border: none;
 }
 
-.interaction-summary tr:nth-of-type(2n) {
-    background-color: white;
+thead tr th {
+    width: 2%;
+    position: sticky;
+    top: 0;
 }
 
-.interaction-summary th {
-    background-color: #F3F3FD;
-    border: 1px solid black;
-    width: 160px;
+td {
+    width: 2%;
 }
 
-.interaction-summary td {
-    width: 160px;
+.interaction-summary {
 }
 
+    .interaction-summary tr:nth-of-type(2n+1) {
+        background-color: white;
+    }
 
-.interaction-list tr:nth-of-type(2n+1) {
-    background-color: #F3F3FD;
+    .interaction-summary tr:nth-of-type(2n) {
+        background-color: #F3F3FD;
+    }
+
+    .interaction-summary th {
+        background-color: #F3F3FD;
+    }
+
+    .interaction-summary td {
+    }
+
+.interaction-summary-container {
+    padding-top: 1em;
 }
 
-.interaction-list tr:nth-of-type(2n) {
-    background-color: white;
+.interaction-list {
 }
 
-.interaction-list th {
-    background-color: #F3F3FD;
-    border: 1px solid black;
-    width: 100px;
-}
+    .interaction-list tr:nth-of-type(2n+1) {
+        background-color: white;
+    }
+
+    .interaction-list tr:nth-of-type(2n) {
+        background-color: #F3F3FD;
+    }
+
+    .interaction-list th {
+        background-color: #F3F3FD;
+    }
 
 .interaction_list_container {
+    padding-top: 1em;
+}
+
+.top-spacing {
     padding-top: 2em;
 }

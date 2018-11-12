@@ -62,7 +62,7 @@ namespace DrugProNET
         [ScriptMethod]
         public static List<string> GetAutoCompleteData(string prefixText, int count)
         {
-            int minPrefixLength = 3;
+            const int minPrefixLength = 3;
             List<string> valuesList = new List<string>();
 
             if (prefixText.Length >= minPrefixLength)
@@ -71,7 +71,6 @@ namespace DrugProNET
                 {
                     using (DrugProNETEntities context = new DrugProNETEntities())
                     {
-
                         DbSet<Protein_Information> dbSet = context.Protein_Information;
 
                         foreach (Protein_Information p in dbSet.ToList())
@@ -93,7 +92,7 @@ namespace DrugProNET
                 }
             }
 
-            int maxResultSize = 5;
+            const int maxResultSize = 5;
             return MatchFinder.FindTopNMatches(prefixText, valuesList, maxResultSize);
         }
 

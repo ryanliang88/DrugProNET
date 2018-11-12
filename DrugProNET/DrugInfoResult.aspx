@@ -142,7 +142,6 @@
                                 <asp:HyperLink class="white-link" ID="chembl_id" NavigateUrl="navigateurl" runat="server" />
                             </div>
                         </div>
-
                         <div class="flex-row" id="kinase_sarfair_row" runat="server">
                             <div class="side">
                                 <p class="p-side">Kinase SARfair:</p>
@@ -151,7 +150,6 @@
                                 <asp:HyperLink class="white-link" ID="kinase_sarfair" NavigateUrl="navigateurl" runat="server" />
                             </div>
                         </div>
-
                         <div class="flex-row" id="pubchem_sid_row" runat="server">
                             <div class="side">
                                 <p class="p-side">PubChem SID:</p>
@@ -160,7 +158,6 @@
                                 <asp:HyperLink class="white-link" ID="pubchem_sid" NavigateUrl="navigateurl" runat="server" />
                             </div>
                         </div>
-
                         <div class="flex-row" id="chemspider_sid_row" runat="server">
                             <div class="side">
                                 <p class="p-side">ChemSpider SID:</p>
@@ -169,7 +166,6 @@
                                 <asp:HyperLink class="white-link" ID="chemspider_sid" NavigateUrl="navigateurl" runat="server" />
                             </div>
                         </div>
-
                         <div class="flex-row" id="chebi_id_row" runat="server">
                             <div class="side">
                                 <p class="p-side">ChEBI ID:</p>
@@ -178,7 +174,6 @@
                                 <asp:HyperLink class="white-link" ID="chebi_id" NavigateUrl="navigateurl" runat="server" />
                             </div>
                         </div>
-
                         <div class="flex-row" id="bindingdb_id_row" runat="server">
                             <div class="side">
                                 <p class="p-side">BindingDB ID:</p>
@@ -187,7 +182,6 @@
                                 <asp:HyperLink class="white-link" ID="bindingdb_id" NavigateUrl="navigateurl" runat="server" />
                             </div>
                         </div>
-
                         <div class="flex-row" id="drugbank_id_row" runat="server">
                             <div class="side">
                                 <p class="p-side">DrugBank ID:</p>
@@ -196,7 +190,6 @@
                                 <asp:HyperLink class="white-link" ID="drugbank_id" NavigateUrl="navigateurl" runat="server" />
                             </div>
                         </div>
-
                         <div class="flex-row" id="drug_reg_row" runat="server">
                             <div class="side">
                                 <p class="p-side">Drug Registration:</p>
@@ -205,7 +198,6 @@
                                 <p id="drug_registration" runat="server"></p>
                             </div>
                         </div>
-
                         <div class="flex-row" id="kegg_drug_id_row" runat="server">
                             <div class="side">
                                 <p class="p-side">KEGG Drug ID:</p>
@@ -214,7 +206,6 @@
                                 <asp:HyperLink class="white-link" ID="kegg_drug_id" NavigateUrl="navigateurl" runat="server" />
                             </div>
                         </div>
-
                         <div class="flex-row" id="therapeautic_target_row" runat="server">
                             <div class="side">
                                 <p class="p-side">Therapeutic Targets ID:</p>
@@ -223,7 +214,6 @@
                                 <asp:HyperLink class="white-link" ID="therapeutic_target_id" NavigateUrl="navigateurl" runat="server"></asp:HyperLink>
                             </div>
                         </div>
-
                         <div class="flex-row" id="pharmgkb_id_row" runat="server">
                             <div class="side">
                                 <p class="p-side">PharmGKB ID:</p>
@@ -232,7 +222,6 @@
                                 <asp:HyperLink class="white-link" ID="pharmgkb_id" NavigateUrl="navigateurl" runat="server" />
                             </div>
                         </div>
-
                         <div class="flex-row" id="het_id_row" runat="server">
                             <div class="side">
                                 <p class="p-side">HET ID:</p>
@@ -241,7 +230,6 @@
                                 <asp:HyperLink class="white-link" ID="het_id" NavigateUrl="navigateurl" runat="server" />
                             </div>
                         </div>
-
                         <div class="flex-row" id="drug_product_row" runat="server">
                             <div class="side">
                                 <p class="p-side">Drug Product ID:</p>
@@ -250,7 +238,6 @@
                                 <asp:HyperLink class="white-link" ID="drug_product_id" NavigateUrl="navigateurl" runat="server" />
                             </div>
                         </div>
-
                         <div class="flex-row" id="rxlist_id_row" runat="server">
                             <div class="side">
                                 <p class="p-side">RxList ID:</p>
@@ -259,7 +246,6 @@
                                 <asp:HyperLink class="white-link" ID="rxlist_id" NavigateUrl="navigateurl" runat="server" />
                             </div>
                         </div>
-
                         <div class="flex-row" id="drugs_com_id_row" runat="server">
                             <div class="side">
                                 <p class="p-side">Drugs.com ID:</p>
@@ -268,7 +254,6 @@
                                 <asp:HyperLink class="white-link" ID="drugs_com_id" NavigateUrl="navigateurl" runat="server" />
                             </div>
                         </div>
-
                         <div class="flex-row" id="wikipedia_row" runat="server">
                             <div class="side">
                                 <p class="p-side">Wikipedia:</p>
@@ -277,7 +262,6 @@
                                 <asp:HyperLink class="white-link" ID="wikipedia" NavigateUrl="navigateurl" runat="server" />
                             </div>
                         </div>
-
                         <div class="flex-row" id="general_targets_row" runat="server">
                             <div class="side">
                                 <p class="p-side">General Targets:</p>
@@ -286,7 +270,6 @@
                                 <p id="general_targets" runat="server"></p>
                             </div>
                         </div>
-
                         <div class="flex-row" id="general_activity_row" runat="server">
                             <div class="side">
                                 <p class="p-side">General Activity:</p>
@@ -295,15 +278,19 @@
                                 <p id="general_activity" runat="server"></p>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="flex-col" id="compound_structure_col" runat="server">
-                    <div class="image-label">
-                        <p class="p-side">Compound Structure</p>
-                    </div>
-                    <div class="image-content">
-                        <div id="D_3DViewer_viewport" style="width: 23em; height: 23em;"></div>
-                        <script src="Scripts/3DViewer/D_3DViewer_Info.js"></script>
+                        <div class="flex-row" id="compound_structure_col" runat="server">
+                            <div class="side">
+                            </div>
+                            <div class="body">
+                                <div class="image-label">
+                                    <h3 class="h3-body-title">Drug 3D Structure</h3>
+                                </div>
+                                <div class="image-content">
+                                    <div id="D_3DViewer_viewport" style="width: 23em; height: 23em;"></div>
+                                    <script src="Scripts/3DViewer/D_3DViewer_Info.js"></script>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

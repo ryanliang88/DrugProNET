@@ -5,27 +5,44 @@ using System.Diagnostics;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DrugProNET.CalculateDistance;
+using System.Web.UI.HtmlControls;
 
 namespace DrugProNET
 {
     public partial class QueryResult : AdvertiseablePage
     {
+        private int interaction_distance;
+        private bool protein_chain;
+        private bool protein_atoms;
+        private bool protein_residues;
+        private bool protein_residue_numbers;
+        private bool drug_atoms;
+        private Drug_Information drug;
+        private Protein_Information protein;
+        private PDB_Information PDB;
+
+        private List<PDB_Distances> distances = new List<PDB_Distances>();
+        private List<PDB_Interactions> interactions = new List<PDB_Interactions>();
+
         protected new void Page_Load(object sender, EventArgs e)
         {
             base.Page_Load(sender, e);
 
             if (!IsPostBack)
             {
-                Protein_Information protein = null;
-                Drug_Information drug = null;
-                PDB_Information PDB = null;
+                interaction_distance = int.Parse(Request.QueryString["interaction_distance"]);
+                protein_chain = bool.Parse(Request.QueryString["protein_chain"]);
+                protein_atoms = bool.Parse(Request.QueryString["protein_atoms"]);
+                protein_residues = bool.Parse(Request.QueryString["protein_residues"]);
+                protein_residue_numbers = bool.Parse(Request.QueryString["protein_residue_numbers"]);
+                drug_atoms = bool.Parse(Request.QueryString["drug_atoms"]);
 
-                int interaction_distance = int.Parse(Request.QueryString["interaction_distance"]);
-                bool protein_chain = bool.Parse(Request.QueryString["protein_chain"]);
-                bool protein_atoms = bool.Parse(Request.QueryString["protein_atoms"]);
-                bool protein_residues = bool.Parse(Request.QueryString["protein_residues"]);
-                bool protein_residue_numbers = bool.Parse(Request.QueryString["protein_residue_numbers"]);
-                bool drug_atoms = bool.Parse(Request.QueryString["drug_atoms"]);
+                Session["interaction_distance"] = interaction_distance;
+                Session["protein_chain"] = protein_chain;
+                Session["protein_atoms"] = protein_atoms;
+                Session["protein_residues"] = protein_residues;
+                Session["protein_residue_numbers"] = protein_residue_numbers;
+                Session["drug_atoms"] = drug_atoms;
 
                 string drug_specification = Request.QueryString["drug_specification"];
                 string protein_specification = Request.QueryString["protein_specification"];
@@ -43,7 +60,6 @@ namespace DrugProNET
 
                 drug = EF_Data.GetDrugUsingDropDownName(drug_specification);
                 protein = EF_Data.GetProtein(protein_specification);
-
                 PDB = EF_Data.GetPDBInfo(protein.Uniprot_ID, drug.Drug_PDB_ID);
 
                 LoadProtein(protein);
@@ -54,16 +70,19 @@ namespace DrugProNET
 
                 CreateInteractionList(interaction_list, PDB, interaction_distance, protein_chain, protein_atoms, protein_residues, protein_residue_numbers, drug_atoms);
 
-                CreateInteractionSummary(interaction_summary, PDB);
+                CreateInteractionSummary(interaction_summary);
 
                 ScriptManager.RegisterStartupScript(Page, GetType(), "D_3DViewer", "javascript:loadDrugLigand('" + drug.Drug_PDB_ID + "');", true);
                 ScriptManager.RegisterStartupScript(Page, GetType(), "PDB_3DViewer", "javascript:loadStage('" + drug.PDB_File_ID + "', '" + drug.Drug_PDB_ID + "');", true);
             }
         }
 
-        private void CreateInteractionSummary(Table interaction_summary, PDB_Information pDB)
+        private void CreateInteractionSummary(Table interaction_summary)
         {
-            TableHeaderRow tableHeaderRow = new TableHeaderRow();
+            TableHeaderRow tableHeaderRow = new TableHeaderRow
+            {
+                TableSection = TableRowSection.TableHeader
+            };
 
             tableHeaderRow.Cells.Add(new TableHeaderCell
             {
@@ -77,20 +96,57 @@ namespace DrugProNET
 
             tableHeaderRow.Cells.Add(new TableHeaderCell
             {
-                Text = "Average Distance of All Interactions(Å)"
+                Text = "Average Distance of All Interactions (Å)"
             });
 
             tableHeaderRow.Cells.Add(new TableHeaderCell
             {
-                Text = "# Interactions : Distance Ratio"
+                Text = "Number of Interactions : Distance Ratio"
             });
 
             interaction_summary.Rows.Add(tableHeaderRow);
+
+            List<PDB_Interactions> interactions = EF_Data.GetPDB_Interactions(protein.Uniprot_ID, drug.Drug_PDB_ID);
+            Session["interactions"] = interactions;
+
+            for (int i = 0; i < interactions.Count; i++)
+            {
+                TableRow tableRow = new TableRow();
+
+                TableCell interactionCell = new TableCell
+                {
+                    Text = interactions[i].AA_Residue_Type_And_Number
+                };
+                tableRow.Cells.Add(interactionCell);
+
+                TableCell number_interactionsCell = new TableCell
+                {
+                    Text = interactions[i].Number_of_Atomic_Interactions
+                };
+                tableRow.Cells.Add(number_interactionsCell);
+
+                TableCell average_distanceCell = new TableCell
+                {
+                    Text = double.Parse(interactions[i].Average_Distance_Between_Atoms).ToString("0.00")
+                };
+                tableRow.Cells.Add(average_distanceCell);
+
+                TableCell ratioCell = new TableCell
+                {
+                    Text = double.Parse(interactions[i].Interaction_Distance_Ratio).ToString("0.00")
+                };
+                tableRow.Cells.Add(ratioCell);
+
+                interaction_summary.Rows.Add(tableRow);
+            }
         }
 
         private void CreateInteractionList(Table interaction_list, PDB_Information PDB, int interaction_distance, bool protein_chain, bool protein_atoms, bool protein_residues, bool protein_residue_numbers, bool drug_atoms)
         {
-            TableHeaderRow tableHeaderRow = new TableHeaderRow();
+            TableHeaderRow tableHeaderRow = new TableHeaderRow
+            {
+                TableSection = TableRowSection.TableHeader
+            };
 
             tableHeaderRow.Cells.Add(new TableHeaderCell
             {
@@ -108,7 +164,7 @@ namespace DrugProNET
             {
                 tableHeaderRow.Cells.Add(new TableHeaderCell
                 {
-                    Text = "Protein Residue #"
+                    Text = "Protein Residue Number"
                 });
             }
 
@@ -138,65 +194,63 @@ namespace DrugProNET
 
             interaction_list.Rows.Add(tableHeaderRow);
 
-            List<PDB_Distances> distances = EF_Data.GetPDB_DistancesByPDB_Entry(PDB.PDB_File_ID);
+            distances = EF_Data.GetPDB_Distances(PDB.PDB_File_ID, interaction_distance);
+            Session["distances"] = distances;
 
             for (int i = 0; i < distances.Count; i++)
             {
                 TableRow tableRow = new TableRow();
 
-                if (double.Parse(distances[i].Distance) < interaction_distance)
+                TableCell distanceCell = new TableCell
                 {
-                    TableCell distanceCell = new TableCell
+                    Text = (double.Parse(distances[i].Distance)).ToString("0.00")
+                };
+
+                tableRow.Cells.Add(distanceCell);
+
+                if (protein_chain)
+                {
+                    TableCell protein_chainCell = new TableCell
                     {
-                        Text = (double.Parse(distances[i].Distance)).ToString("0.00")
+                        Text = distances[i].Protein_Chain
                     };
+                    tableRow.Cells.Add(protein_chainCell);
+                }
 
-                    tableRow.Cells.Add(distanceCell);
-
-                    if (protein_chain)
+                if (protein_residue_numbers)
+                {
+                    TableCell protein_residue_numberCell = new TableCell
                     {
-                        TableCell protein_chainCell = new TableCell
-                        {
-                            Text = distances[i].Protein_Chain
-                        };
-                        tableRow.Cells.Add(protein_chainCell);
-                    }
+                        Text = distances[i].Protein_Residue_
+                    };
+                    tableRow.Cells.Add(protein_residue_numberCell);
+                }
 
-                    if (protein_residue_numbers)
+                if (protein_residues)
+                {
+                    TableCell protein_residuesCell = new TableCell
                     {
-                        TableCell protein_residue_numberCell = new TableCell
-                        {
-                            Text = distances[i].Protein_Residue_
-                        };
-                        tableRow.Cells.Add(protein_residue_numberCell);
-                    }
+                        Text = distances[i].Protein_Residue
+                    };
+                    tableRow.Cells.Add(protein_residuesCell);
+                }
 
-                    if (protein_residues)
+                if (protein_atoms)
+                {
+                    TableCell protein_atomCell = new TableCell
                     {
-                        TableCell protein_residue_numberCell = new TableCell
-                        {
-                            Text = distances[i].Protein_Residue
-                        };
-                        tableRow.Cells.Add(protein_residue_numberCell);
-                    }
+                        Text = distances[i].Protein_Atom
+                    };
+                    tableRow.Cells.Add(protein_atomCell);
+                }
 
-                    if (protein_atoms)
+                if (drug_atoms)
+                {
+                    TableCell drug_atomCell = new TableCell
                     {
-                        TableCell protein_atomCell = new TableCell
-                        {
-                            Text = distances[i].Protein_Atom
-                        };
-                        tableRow.Cells.Add(protein_atomCell);
-                    }
-
-                    if (drug_atoms)
-                    {
-                        TableCell drug_atomCell = new TableCell
-                        {
-                            Text = distances[i].Compound_Atom
-                        };
-                        tableRow.Cells.Add(drug_atomCell);
-                    }
+                        Text = distances[i].Compound_Atom
+                    };
+                    tableRow.Cells.Add(drug_atomCell);
                 }
 
                 interaction_list.Rows.Add(tableRow);
@@ -226,45 +280,45 @@ namespace DrugProNET
 
         public void LoadPDB_Info(PDB_Information PDB_Info)
         {
-            PDB_entry.InnerText = PDB_Info.PDB_File_ID;
-            release_date.InnerText = PDB_Info.PDB_Released;
-            resolution.InnerText = PDB_Info.Resolution;
-            title.InnerText = PDB_Info.PDB_Entry_Title;
-            authors.InnerText = PDB_Info.Authors;
-            reference.InnerText = PDB_Info.Journal_Reference;
+            ProcessRow(PDB_entry_row, PDB_entry, PDB_Info.PDB_File_ID);
+            ProcessRow(release_date_row, release_date, PDB_Info.PDB_Released);
+            ProcessRow(resolution_row, resolution, PDB_Info.Resolution);
+            ProcessRow(title_row, title, PDB_Info.PDB_Entry_Title);
+            ProcessRow(authors_row, authors, PDB_Info.Authors);
+            ProcessRow(reference_row, reference, PDB_Info.Journal_Reference);
         }
 
         public void LoadDrug(Drug_Information drug, PDB_Information PDB_Info)
         {
-            PDB_drug_ID.InnerText = drug.Drug_PDB_ID;
-            drug_name.InnerText = drug.Drug_Common_Name;
-            drug_chemical_name.InnerText = drug.Drug_Chemical_Name;
-            drug_alias.InnerText = drug.Other_Drug_Name_Alias;
-            drug_formula.InnerText = drug.Drug_Formula;
-            drug_mass_da.InnerText = drug.Molecular_Mass;
+            ProcessRow(PDB_drug_ID_row, PDB_drug_ID, drug.Drug_PDB_ID);
+            ProcessRow(drug_name_row, drug_name, drug.Drug_Common_Name);
+            ProcessRow(drug_chemical_name, drug_chemical_name, drug.Drug_Chemical_Name);
+            ProcessRow(drug_alias_row, drug_alias, drug.Other_Drug_Name_Alias);
+            ProcessRow(drug_formula_row, drug_formula, drug.Drug_Formula);
+            ProcessRow(drug_mass_da_row, drug_mass_da, drug.Molecular_Mass);
 
-            potency.InnerText = "IC50 (nM):" + PDB_Info.IC50_nM_
+            ProcessRow(potency_row, potency, "IC50 (nM):" + PDB_Info.IC50_nM_
                 + " (BINDINGDB); Ki (nM): " + PDB_Info.Ki_nM_
                 + " (BINDINGDB); Kd(nM): " + PDB_Info.Kd_nM_
-                + " (BINDINGDB)";
+                + " (BINDINGDB)");
 
-            drug_information_result_url.NavigateUrl = "http://localhost:50542/DrugInfoResult.aspx?query_string=" + drug.Drug_PDB_ID;
+            ProcessRow(drug_information_result_url_row, drug_information_result_url, "Link to further drug information", "http://localhost:50542/DrugInfoResult.aspx?query_string=" + drug.Drug_PDB_ID);
         }
 
         public void LoadProtein(Protein_Information protein)
         {
-            protein_name.InnerText = protein.Protein_Short_Name;
-            protein_full_name.InnerText = protein.Protein_Full_Name;
-            p_alias.InnerText = protein.Protein_Alias;
-            uniprot_ID.InnerText = protein.Uniprot_ID;
-            NCBI_ID.InnerText = protein.NCBI_RefSeq_NP_ID;
-            protein_type.InnerText = protein.Protein_Type_Specific_;
-            kinase_group.InnerText = protein.Kinase_Group;
-            kinase_family.InnerText = protein.Kinase_Family;
-            number_aa.InnerText = protein.Protein_AA_Number;
-            drug_mass_da.InnerText = protein.Protein_Mass;
+            ProcessRow(protein_name_row, protein_name, protein.Protein_Short_Name);
+            ProcessRow(protein_full_name_row, protein_full_name, protein.Protein_Full_Name);
+            ProcessRow(p_alias_row, p_alias, protein.Protein_Alias);
+            ProcessRow(uniprot_ID_row, uniprot_ID, protein.Uniprot_ID);
+            ProcessRow(NCBI_ID_row, NCBI_ID, protein.NCBI_RefSeq_NP_ID);
+            ProcessRow(protein_type_row, protein_type, protein.Protein_Type_Specific_);
+            ProcessRow(kinase_group_row, kinase_group, protein.Kinase_Group);
+            ProcessRow(kinase_family_row, kinase_family, protein.Kinase_Family);
+            ProcessRow(number_aa_row, number_aa, protein.Protein_AA_Number);
+            ProcessRow(protein_mass_da_row, protein_mass_da, protein.Protein_Mass);
 
-            protein_information_result_url.NavigateUrl = "http://localhost:50542/ProteinInfoResult.aspx?query_string=" + protein.Uniprot_ID;
+            ProcessRow(protein_information_result_url_row, protein_information_result_url, "Link to further protein information", "http://localhost:50542/ProteinInfoResult.aspx?query_string=" + protein.Uniprot_ID);
         }
 
         // Called via ASP control
@@ -272,6 +326,156 @@ namespace DrugProNET
         {
             string amino_acid_name = ((ListControl)sender).SelectedValue;
             drug_atom_numbering.ImageUrl = "~/Images/AminoAcidImages/" + amino_acid_name + ".jpg";
+        }
+
+        protected void Download_Summary_Click(object sender, EventArgs e)
+        {
+            Response.ClearContent();
+            Response.Clear();
+            Response.ContentType = "application/x-unknown";
+            Response.AddHeader("Content-Disposition", "attachment; filename=spreadsheet.xlsx");
+
+            List<string> header = new List<string>()
+            {
+                "Protein Amino Acid Residue",
+                "Number of Interactions with Drug Atoms",
+                "Average Distance of All Interactions(Å)",
+                "# Interactions : Distance Ratio",
+            };
+            interactions = (List<PDB_Interactions>)Session["interactions"];
+
+            List<List<string>> data = new List<List<string>>();
+
+            for (int i = 0; i < interactions.Count; i++)
+            {
+                List<string> dataRow = new List<string>
+                {
+                    interactions[i].AA_Residue_Type_And_Number,
+                    interactions[i].Number_of_Atomic_Interactions,
+                    interactions[i].Average_Distance_Between_Atoms,
+                    interactions[i].Interaction_Distance_Ratio
+                };
+
+                data.Add(dataRow);
+            }
+
+            Response.BinaryWrite(ExcelWriter.CreateAsStream(header, data).ToArray());
+
+            Response.Flush();
+            Response.SuppressContent = true;
+            System.Web.HttpContext.Current.ApplicationInstance.CompleteRequest();
+        }
+
+        protected void Download_List_Click(object sender, EventArgs e)
+        {
+            distances = (List<PDB_Distances>)Session["distances"];
+            interaction_distance = (int)Session["interaction_distance"];
+            protein_chain = (bool)Session["protein_chain"];
+            protein_atoms = (bool)Session["protein_atoms"];
+            protein_residues = (bool)Session["protein_residues"];
+            protein_residue_numbers = (bool)Session["protein_residue_numbers"];
+            drug_atoms = (bool)Session["drug_atoms"];
+
+            Response.ClearContent();
+            Response.Clear();
+            Response.ContentType = "application/x-unknown";
+            Response.AddHeader("Content-Disposition", "attachment; filename=spreadsheet.xlsx");
+
+            List<string> header = new List<string>()
+            {
+                "Distance (Å)",
+            };
+
+            if (protein_chain)
+            {
+                header.Add("Protein Chain");
+            }
+            if (protein_residue_numbers)
+            {
+                header.Add("Protein Residue #");
+            }
+
+            if (protein_residues)
+            {
+                header.Add("Amino Acid Residue Type");
+            }
+
+            if (protein_atoms)
+            {
+                header.Add("Amino Acid Residue Atom");
+            }
+
+            if (drug_atoms)
+            {
+                header.Add("Drug Atom");
+            }
+
+            List<List<string>> data = new List<List<string>>();
+
+            for (int i = 0; i < distances.Count; i++)
+            {
+                List<string> dataRow = new List<string>
+                {
+                    distances[i].Distance
+                };
+
+                if (protein_chain)
+                {
+                    dataRow.Add(distances[i].Protein_Chain);
+                }
+
+                if (protein_residue_numbers)
+                {
+                    dataRow.Add(distances[i].Protein_Residue_);
+                }
+
+                if (protein_residues)
+                {
+                    dataRow.Add(distances[i].Protein_Residue);
+                }
+
+                if (protein_atoms)
+                {
+                    dataRow.Add(distances[i].Protein_Atom);
+                }
+
+                if (drug_atoms)
+                {
+                    dataRow.Add(distances[i].Compound_Atom);
+                }
+
+                data.Add(dataRow);
+            }
+
+            Response.BinaryWrite(ExcelWriter.CreateAsStream(header, data).ToArray());
+
+            Response.Flush();
+            Response.SuppressContent = true;
+            System.Web.HttpContext.Current.ApplicationInstance.CompleteRequest();
+        }
+
+        private static void ProcessRow(Control rowControl, Control textControl, string text, string url = null)
+        {
+            string[] arr = { "N/A" };
+            if (!string.IsNullOrEmpty(text) && !Array.Exists(arr, element => element == text))
+            {
+                if (textControl.GetType() == typeof(HtmlGenericControl))
+                {
+                    ((HtmlGenericControl)textControl).InnerText = text;
+                }
+                if (textControl.GetType() == typeof(HyperLink))
+                {
+                    ((HyperLink)textControl).Text = text;
+                    ((HyperLink)textControl).NavigateUrl = url;
+                }
+            }
+            else
+            {
+                if (rowControl != null)
+                {
+                    ((HtmlGenericControl)rowControl).Visible = false;
+                }
+            }
         }
     }
 }

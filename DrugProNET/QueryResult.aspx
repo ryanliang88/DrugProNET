@@ -41,7 +41,7 @@
             <h3 class="h3-body-title">Specified Protein Information</h3>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="protein_name_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Protein Name:</p>
@@ -50,7 +50,7 @@
             <p id="protein_name" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="protein_full_name_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Protein Full Name:</p>
@@ -59,7 +59,7 @@
             <p id="protein_full_name" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="p_alias_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Alias:</p>
@@ -68,7 +68,7 @@
             <p id="p_alias" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="uniprot_ID_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">UniProt ID:</p>
@@ -77,7 +77,7 @@
             <p id="uniprot_ID" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="NCBI_ID_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">NCBI ID:</p>
@@ -86,7 +86,7 @@
             <p id="NCBI_ID" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="protein_type_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Protein Type:</p>
@@ -95,7 +95,7 @@
             <p id="protein_type" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="kinase_group_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Kinase Group:</p>
@@ -104,7 +104,7 @@
             <p id="kinase_group" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="kinase_family_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Kinase Family:</p>
@@ -113,7 +113,7 @@
             <p id="kinase_family" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="number_aa_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Number AA:</p>
@@ -122,7 +122,7 @@
             <p id="number_aa" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="protein_mass_da_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Mass (Da):</p>
@@ -131,11 +131,11 @@
             <p id="protein_mass_da" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="protein_information_result_url_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
         <div class="c-col body-content">
-            <asp:HyperLink ID="protein_information_result_url" runat="server" NavigateUrl="navigateurl" Text="Link to further protein information" />
+            <asp:HyperLink ID="protein_information_result_url" runat="server" NavigateUrl="navigateurl" />
         </div>
     </div>
 
@@ -147,7 +147,7 @@
             <h3 class="h3-body-title">Specified Drug Information</h3>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="PDB_drug_ID_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">PDB Drug ID:</p>
@@ -156,7 +156,7 @@
             <p id="PDB_drug_ID" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="drug_name_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Drug Name:</p>
@@ -165,7 +165,7 @@
             <p id="drug_name" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="drug_chemical_name_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Drug Chemical Name:</p>
@@ -174,7 +174,7 @@
             <p id="drug_chemical_name" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="drug_alias_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Drug Alias:</p>
@@ -183,7 +183,7 @@
             <p id="drug_alias" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="drug_formula_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Drug Formula:</p>
@@ -192,7 +192,7 @@
             <p id="drug_formula" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="drug_mass_da_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Mass (Da):</p>
@@ -201,7 +201,7 @@
             <p id="drug_mass_da" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="potency_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Potency:</p>
@@ -210,11 +210,11 @@
             <p id="potency" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="drug_information_result_url_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
         <div class="c-col body-content">
-            <asp:HyperLink ID="drug_information_result_url" runat="server" NavigateUrl="navigateurl" Text="Link to further drug information" />
+            <asp:HyperLink ID="drug_information_result_url" runat="server" NavigateUrl="navigateurl" />
         </div>
     </div>
 
@@ -226,7 +226,7 @@
             <h3 class="h3-body-title">Specified PDB Information</h3>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="PDB_entry_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">PDB Entry:</p>
@@ -235,7 +235,7 @@
             <p id="PDB_entry" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="release_date_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Release Date:</p>
@@ -244,7 +244,7 @@
             <p id="release_date" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="resolution_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Resolution:</p>
@@ -253,7 +253,7 @@
             <p id="resolution" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="title_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Title:</p>
@@ -262,7 +262,7 @@
             <p id="title" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="authors_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Authors:</p>
@@ -271,7 +271,7 @@
             <p id="authors" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="reference_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Reference:</p>
@@ -290,7 +290,7 @@
             <div style="display: inline-block; float: left;">
                 <h3 class="h3-body-title">Drug Atom Numbering</h3>
                 <asp:Image ID="selected_amino_acid_residue_atom_numbering" runat="server"
-                    class="display-square display-margin-right" ImageUrl="~/Images/placeholder.jpg" />
+                    class="display-square" ImageUrl="~/Images/placeholder.jpg" />
             </div>
             <div style="display: inline-block;">
                 <h3 class="h3-body-title">Drug 3D Structure</h3>
@@ -311,7 +311,7 @@
                 <asp:UpdatePanel runat="server" UpdateMode="Conditional">
                     <ContentTemplate>
                         <asp:Image ID="drug_atom_numbering" runat="server"
-                            ImageUrl="~/Images/AminoAcidImages/Default Starting.jpg" class="display-square display-margin-right" />
+                            ImageUrl="~/Images/AminoAcidImages/Default Starting.jpg" class="display-square" />
                     </ContentTemplate>
                     <Triggers>
                         <asp:AsyncPostBackTrigger ControlID="amino_acid_dropdown" EventName="SelectedIndexChanged" />
@@ -367,7 +367,7 @@
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
-        <div class="c-col body-content-long">
+        <div class="c-col body-content-long top-spacing">
             <h3 class="h3-body-title">Interaction Summary of Critical Amino Acid Residues Implicated in Drug Binding</h3>
         </div>
     </div>
@@ -377,10 +377,8 @@
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
         <div class="body-content-long">
-            <div class="interaction_summary_container">
-                <asp:Button CssClass="download-button" ID="download_interaction_summary" runat="server" Text="Download Table" />
-                <p class="descriptive download-description">Click to download MS-Excel file of interaction summary table below</p>
-            </div>
+            <asp:Button CssClass="download-button" ID="download_interaction_summary" runat="server" Text="Download Table" OnClick="Download_Summary_Click" />
+            <p class="descriptive download-description">Click to download MS-Excel file of interaction summary table below</p>
         </div>
     </div>
 
@@ -398,7 +396,7 @@
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
-        <div class="c-col body-content-long">
+        <div class="c-col body-content-long top-spacing">
             <h3 class="h3-body-title">Interaction List of Critical Amino Acid Residues Atoms Implicated in Drug Atom Binding</h3>
         </div>
     </div>
@@ -409,7 +407,7 @@
         <div class="c-col side-content"></div>
         <div class="c-col body-content-long">
             <div class="button-container">
-                <asp:Button CssClass="download-button" ID="Button1" runat="server" Text="Download Table" />
+                <asp:Button CssClass="download-button" ID="Button1" runat="server" Text="Download Table" OnClick="Download_List_Click" />
             </div>
             <div>
                 <p class="descriptive download-description">Click to download MS-Excel file of the atom-to-atom interaction table below</p>

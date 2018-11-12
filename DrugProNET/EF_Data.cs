@@ -91,22 +91,37 @@ namespace DrugProNET
             return protein;
         }
 
-        public static List<PDB_Distances> GetPDB_DistancesByPDB_Entry(string pdb_entry)
+        public static List<PDB_Distances> GetPDB_Distances(string pdb_entry, double interaction_distance)
         {
             List<PDB_Distances> distances = new List<PDB_Distances>();
 
             using (DrugProNETEntities context = new DrugProNETEntities())
             {
-                foreach (PDB_Distances distance in context.PDB_Distances.Where(d => d.PDB_Entry == pdb_entry).OrderBy(d => d.Distance))
+                foreach (PDB_Distances distance in context.PDB_Distances.Where(d => d.PDB_Entry == pdb_entry))
                 {
-                    if (distance.PDB_Entry == pdb_entry)
+                    if (double.Parse(distance.Distance) < interaction_distance)
                     {
                         distances.Add(distance);
                     }
                 }
             }
 
-            return distances;
+            return distances.OrderBy(d => double.Parse(d.Distance)).ToList();
+        }
+
+        public static List<PDB_Interactions> GetPDB_Interactions(string uniprot_ID, string drug_pdb_id)
+        {
+            List<PDB_Interactions> interactions = new List<PDB_Interactions>();
+
+            using (DrugProNETEntities context = new DrugProNETEntities())
+            {
+                foreach (PDB_Interactions interaction in context.PDB_Interactions.Where(i => i.UniProt_ID == uniprot_ID && i.Drug_PDB_ID == drug_pdb_id))
+                {
+                    interactions.Add(interaction);
+                }
+            }
+
+            return interactions.OrderByDescending(i => double.Parse(i.Interaction_Distance_Ratio)).ToList();
         }
 
         public static PDB_Information GetPDBInfo(string uniprot_ID, string drug_PDB_ID)
@@ -177,8 +192,8 @@ namespace DrugProNET
 
                 foreach (SNV_Mutations mutation in mutationSet)
                 {
-                    if ((mutation.UniProt_ID?.ToLower()).Equals(uniprot.ToLower()) &&
-                        (mutation.Drug_PDB_ID?.ToLower()).Equals(drugPDBID.ToLower()))
+                    if ((mutation.UniProt_ID?.ToLower()).Equals(uniprot.ToLower())
+                        && (mutation.Drug_PDB_ID?.ToLower()).Equals(drugPDBID.ToLower()))
                     {
                         mutations.Add(mutation);
                     }

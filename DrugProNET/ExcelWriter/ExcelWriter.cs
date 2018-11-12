@@ -31,7 +31,7 @@ namespace DrugProNET
      * ----------------------------------------------------------------------------------
      * 
      **/
-    public class ExcelWriter
+    public static class ExcelWriter
     {
         private const string TEMP_PATH = "Temp";
         private const string DEFAULT_FILE_NAME = "spreadsheet.xlsx";
@@ -68,8 +68,10 @@ namespace DrugProNET
 
         private static void AddHeader(ExcelWorksheet worksheet, List<string> header)
         {
-            List<string[]> row = new List<string[]>();
-            row.Add(header.ToArray());
+            List<string[]> row = new List<string[]>
+            {
+                header.ToArray()
+            };
 
             string range = "A1:" + Char.ConvertFromUtf32(row[0].Length + 64) + "1";
             worksheet.Cells[range].LoadFromArrays(row);

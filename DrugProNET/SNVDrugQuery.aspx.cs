@@ -21,8 +21,7 @@ namespace DrugProNET
         [ScriptMethod]
         public static List<string> GetAutoCompleteData(string prefixText, int count)
         {
-
-            int minPrefixLength = 3;
+            const int minPrefixLength = 3;
             List<string> valuesList = new List<string>();
 
             if (prefixText.Length >= minPrefixLength)
@@ -38,7 +37,7 @@ namespace DrugProNET
                 }
             }
 
-            int maxAutocompleteLength = 5;
+            const int maxAutocompleteLength = 5;
 
             return valuesList.Count >= maxAutocompleteLength ? valuesList.GetRange(0, 5) : valuesList;
         }
