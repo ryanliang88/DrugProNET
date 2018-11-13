@@ -12,6 +12,12 @@
             __doPostBack('<%= search_drop_down_UpdatePanel.ClientID %>', '');
         };
     </script>
+
+    <script type="text/javascript">
+        function RefreshUpdatePanel2() {
+            __doPostBack('<%= amino_acid_specification_updatePanel.ClientID %>', '');
+        };
+    </script>
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="BodyContentPlaceHolder">
@@ -32,9 +38,10 @@
             </p>
         </div>
         <div class="c-col advertisment-content">
+
+            <asp:Timer ID="ad_refresh_timer" runat="server" Interval="10000" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
             <asp:UpdatePanel ID="ad_update_panel" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
-                    <asp:Timer ID="ad_refresh_timer" runat="server" Interval="10000" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
                     <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server">
                         <asp:Image ImageUrl="imageUrl" runat="server" ID="adBanner" AlternateText="" />
                     </asp:HyperLink>
@@ -73,7 +80,7 @@
 
             <asp:UpdatePanel ID="search_drop_down_UpdatePanel" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
-                    <asp:DropDownList CssClass="drop-down" ID="drug_specification_drop_down" runat="server" OnSelectedIndexChanged="LoadAminoAcidDropDown">
+                    <asp:DropDownList CssClass="drop-down" ID="drug_specification_drop_down" runat="server" onchange="RefreshUpdatePanel2();" OnSelectedIndexChanged="LoadAminoAcidDropDown">
                     </asp:DropDownList>
                 </ContentTemplate>
                 <Triggers>
