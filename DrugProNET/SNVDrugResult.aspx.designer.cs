@@ -49,6 +49,15 @@ namespace DrugProNET {
         protected global::System.Web.UI.WebControls.Image adBanner;
         
         /// <summary>
+        /// snv_id_row control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl snv_id_row;
+        
+        /// <summary>
         /// snv_id control.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,15 @@ namespace DrugProNET {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl snv_id;
+        
+        /// <summary>
+        /// gene_name_row control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl gene_name_row;
         
         /// <summary>
         /// gene_name control.
@@ -67,6 +85,15 @@ namespace DrugProNET {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl gene_name;
         
         /// <summary>
+        /// uniprot_id_row control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl uniprot_id_row;
+        
+        /// <summary>
         /// uniprot_id control.
         /// </summary>
         /// <remarks>
@@ -74,6 +101,15 @@ namespace DrugProNET {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl uniprot_id;
+        
+        /// <summary>
+        /// ncbi_refseq_id_row control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ncbi_refseq_id_row;
         
         /// <summary>
         /// ncbi_refseq_id control.
@@ -85,6 +121,15 @@ namespace DrugProNET {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ncbi_refseq_id;
         
         /// <summary>
+        /// chromosome_location_row control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl chromosome_location_row;
+        
+        /// <summary>
         /// chromosome_location control.
         /// </summary>
         /// <remarks>
@@ -92,6 +137,15 @@ namespace DrugProNET {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl chromosome_location;
+        
+        /// <summary>
+        /// gene_and_protein_info_url control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink gene_and_protein_info_url;
         
         /// <summary>
         /// download_button control.
@@ -103,12 +157,12 @@ namespace DrugProNET {
         protected global::System.Web.UI.WebControls.Button download_button;
         
         /// <summary>
-        /// interaction_list control.
+        /// IDofPDILinkedSNVTable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table interaction_list;
+        protected global::System.Web.UI.WebControls.Table IDofPDILinkedSNVTable;
     }
 }

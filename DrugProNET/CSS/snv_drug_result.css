@@ -14,13 +14,18 @@ p:not(.p-white):not(.p-side) {
     color: #738569;
 }
 
-p-white {
-    color: #C6C8CA !important;
+.p-white {
+    color: #C6C8CA;
 }
 
 .p-side {
     color: #708591;
 }
+
+.descriptive {
+    color: #738569;
+}
+
 
 .download-button {
     border-radius: 1em;
@@ -31,7 +36,6 @@ p-white {
 }
 
 .button-container {
-    display: inline-block;
     float: left;
     padding-right: 2em;
 }
@@ -52,3 +56,61 @@ p-white {
 .body-content {
     padding-bottom: .5em;
 }
+
+
+
+th {
+    text-align: center; /* Removes previous th*/
+}
+
+table {
+    border-collapse: collapse;
+    text-align: left;
+    color: black;
+    overflow-y: auto;
+    max-height: 500px;
+    width: 100%;
+    display: block;
+}
+
+tbody {
+    border: none;
+}
+
+thead tr th {
+    position: sticky;
+    text-align: center;
+    top: 0;
+}
+
+tr td:first-child {
+    text-align: left;
+    width: 25%;
+}
+
+tr td:not(:first-child):not(:last-child) {
+    text-align: center;
+}
+
+tr td:last-child {
+    text-align: left;
+    width: 25%;
+}
+
+.IDofPDILinkedSNVTable {
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+.IDofPDILinkedSNVTable tr:nth-of-type(2n) {
+    background-color: white;
+}
+
+.IDofPDILinkedSNVTable tr:nth-of-type(2n+1) {
+    background-color: #F3F3FD;
+}
+
+.IDofPDILinkedSNVTable th {
+    background-color: #F3F3FD;
+}
+

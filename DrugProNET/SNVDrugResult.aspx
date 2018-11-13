@@ -43,7 +43,7 @@
         </div>
     </div>
 
-    <div class="c-row">
+    <div class="c-row" id="snv_id_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">SNV ID:</p>
@@ -61,7 +61,7 @@
         </div>
     </div>
 
-    <div class="c-row">
+    <div class="c-row" id="gene_name_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Gene Name:</p>
@@ -71,7 +71,7 @@
         </div>
     </div>
 
-    <div class="c-row">
+    <div class="c-row" id="uniprot_id_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">UniProt ID:</p>
@@ -81,7 +81,7 @@
         </div>
     </div>
 
-    <div class="c-row">
+    <div class="c-row" id="ncbi_refseq_id_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">NCBI RefSeq ID:</p>
@@ -91,7 +91,7 @@
         </div>
     </div>
 
-    <div class="c-row">
+    <div class="c-row" id="chromosome_location_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Chromosome Location:</p>
@@ -100,6 +100,16 @@
             <p class="p-white" id="chromosome_location" runat="server"></p>
         </div>
     </div>
+
+    
+    <div class="c-row" >
+        <div class="c-col side-spacing"></div>
+        <div class="c-col side-content"></div>
+        <div class="c-col body-content">
+            <asp:HyperLink ID="gene_and_protein_info_url" runat="server" NavigateUrl="navigateurl" />
+        </div>
+    </div>
+
 
     <div class="c-row">
         <div class="c-col side-spacing"></div>
@@ -126,7 +136,7 @@
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
         <div class="c-col body-content-long">
-            <asp:Table runat="server" ID="interaction_list">
+            <asp:Table runat="server" ID="IDofPDILinkedSNVTable" CssClass="IDofPDILinkedSNVTable">
             </asp:Table>
         </div>
     </div>

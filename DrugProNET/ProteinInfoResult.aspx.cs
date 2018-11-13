@@ -49,7 +49,7 @@ namespace DrugProNET
         private static void ProcessControl(Control control, params string[] texts)
         {
             string[] arr = { "N/A" };
-            
+
             foreach (string text in texts)
             {
                 if (string.IsNullOrEmpty(text) || Array.Exists(arr, element => element == text))
@@ -86,16 +86,16 @@ namespace DrugProNET
             ProcessControl(biological_process_table, protein.GOBioProcess1, protein.GOBioProcess2, protein.GOBioProcess3);
 
             ProcessRow(mass_da_row, mass_da, protein.Protein_Mass);
-            ProcessRow(number_aa_row, number_aa, protein.Protein_AA_Number.ToString());
+            ProcessRow(number_aa_row, number_aa, protein.Protein_AA_Number);
 
             ProcessRow(null, uniprot_id, protein.Uniprot_ID, protein.UniProt_Entry_URL);
             ProcessRow(null, uniprot_entry, protein.Entry_ID, protein.UniProt_Entry_URL);
             ProcessControl(uniprot_row, protein.Uniprot_ID, protein.Entry_ID);
-            
+
             ProcessRow(ncbi_refseq_id_row, ncbi_refseq_id, protein.NCBI_RefSeq_NP_ID, protein.NCBI_RefSeq_NP_ID_URL);
             ProcessRow(int_protein_id_row, int_protein_id, protein.International_Prot_ID);
             ProcessRow(phosphonet_id_row, phosphonet_id, protein.PhosphoNET_Name, protein.PhosphoNET_URL);
-            ProcessRow(phosphositeplus_row, phosphositeplus, protein.PhosphoSIte_Plus_Entry.ToString(), protein.PhosphoSIte_Plus_Entry_URL);
+            ProcessRow(phosphositeplus_row, phosphositeplus, protein.PhosphoSIte_Plus_Entry, protein.PhosphoSIte_Plus_Entry_URL);
             ProcessRow(kinasenet_id_row, kinasenet_id, protein.Uniprot_ID, protein.KinaseNET_URL);
             ProcessRow(onconet_id_row, onconet_id, protein.Uniprot_ID, protein.OncoNET_URL);
             ProcessRow(chromosome_no_row, chromosome_no, protein.Human_Chromosome_Number);

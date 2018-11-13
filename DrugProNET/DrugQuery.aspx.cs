@@ -27,8 +27,6 @@ namespace DrugProNET
             {
                 loading_label.Visible = true;
             }
-         
-            Debug.WriteLine(search_textBox.Text);
 
             List<Protein_Information> proteinList = new List<Protein_Information>();
 
@@ -73,7 +71,7 @@ namespace DrugProNET
         public static List<string> GetAutoCompleteData(string prefixText, int count)
         {
             // Set to 0 for testing, should be 3
-            int minPrefixLength = 0;
+            const int minPrefixLength = 0;
             List<string> valuesList = new List<string>();
 
             if (prefixText.Length >= minPrefixLength)
@@ -82,12 +80,11 @@ namespace DrugProNET
                 {
                     using (DrugProNETEntities context = new DrugProNETEntities())
                     {
-
                         DbSet<Drug_Information> dbSet = context.Drug_Information;
 
                         foreach (Drug_Information d in dbSet.ToList())
                         {
-                            AddIfExists(valuesList, 
+                            AddIfExists(valuesList,
                                 d.Compound_CAS_ID,
                                 d.PubChem_SID, // CID or SID?
                                 d.ChEMBL_ID);
@@ -100,7 +97,7 @@ namespace DrugProNET
                 }
             }
 
-            int maxResultSize = 5;
+            const int maxResultSize = 5;
             return MatchFinder.FindTopNMatches(prefixText, valuesList, maxResultSize);
         }
 

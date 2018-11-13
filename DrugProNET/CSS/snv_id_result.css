@@ -14,12 +14,16 @@ p:not(.p-white):not(.p-side) {
     color: #738569;
 }
 
-p-white {
-    color: #C6C8CA !important;
+.p-white {
+    color: #C6C8CA;
 }
 
 .p-side {
     color: #708591;
+}
+
+.descriptive {
+    color: #738569;
 }
 
 .download-button {
@@ -28,11 +32,16 @@ p-white {
     height: 32px;
     padding-left: 1em;
     padding-right: 1em;
+    float: left;
+    margin-right: 2em;
+}
+
+.download-description {
+    float: left;
+    margin-top: 0.3em;
 }
 
 .button-container {
-    display: inline-block;
-    float: left;
     padding-right: 2em;
 }
 
@@ -47,4 +56,48 @@ p-white {
     border-width: 0 0 0 1px;
     border-color: #7DAED4;
     text-align: left;
+}
+
+
+th {
+    text-align: center; /* Removes previous th*/
+}
+
+table {
+    border-collapse: collapse;
+    text-align: left;
+    color: black;
+    overflow-y: auto;
+    max-height: 500px;
+    width: 100%;
+    display: block;
+}
+
+tbody {
+    border: none;
+}
+
+thead tr th {
+    position: sticky;
+    top: 0;
+}
+
+    thead tr th:first-child {
+        text-align: center;
+    }
+
+tr td:first-child {
+    text-align: center;
+}
+
+.SNV-Identification-Table tr:nth-of-type(2n+1) {
+    background-color: white;
+}
+
+.SNV-Identification-Table tr:nth-of-type(2n) {
+    background-color: #F3F3FD;
+}
+
+.SNV-Identification-Table th {
+    background-color: #F3F3FD;
 }

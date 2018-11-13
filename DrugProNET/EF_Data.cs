@@ -109,6 +109,21 @@ namespace DrugProNET
             return distances.OrderBy(d => double.Parse(d.Distance)).ToList();
         }
 
+        public static List<PDB_Interactions> GetPDB_Interactions(string uniprot_ID)
+        {
+            List<PDB_Interactions> interactions = new List<PDB_Interactions>();
+
+            using (DrugProNETEntities context = new DrugProNETEntities())
+            {
+                foreach (PDB_Interactions interaction in context.PDB_Interactions.Where(i => i.UniProt_ID == uniprot_ID))
+                {
+                    interactions.Add(interaction);
+                }
+            }
+
+            return interactions.OrderByDescending(i => double.Parse(i.Interaction_Distance_Ratio)).ToList();
+        }
+
         public static List<PDB_Interactions> GetPDB_Interactions(string uniprot_ID, string drug_pdb_id)
         {
             List<PDB_Interactions> interactions = new List<PDB_Interactions>();
@@ -122,6 +137,21 @@ namespace DrugProNET
             }
 
             return interactions.OrderByDescending(i => double.Parse(i.Interaction_Distance_Ratio)).ToList();
+        }
+
+        public static PDB_Interactions GetPDB_Interaction(string uniprot_ID, string drug_PDB_ID, string amino_acid_specification)
+        {
+            PDB_Interactions PDB_interaction = new PDB_Interactions();
+
+            using (DrugProNETEntities context = new DrugProNETEntities())
+            {
+                PDB_interaction = context.PDB_Interactions
+                    .Where(i => i.UniProt_ID.Equals(uniprot_ID, StringComparison.OrdinalIgnoreCase)
+                    && i.Drug_PDB_ID.Equals(drug_PDB_ID, StringComparison.OrdinalIgnoreCase)
+                    && i.AA_Residue_Type_And_Number.Equals(amino_acid_specification, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+            }
+
+            return PDB_interaction;
         }
 
         public static PDB_Information GetPDBInfo(string uniprot_ID, string drug_PDB_ID)
@@ -182,9 +212,9 @@ namespace DrugProNET
             return list;
         }
 
-        public static List<SNV_Mutations> GetMutations(string uniprot, string drugPDBID)
+        public static List<SNV_Mutations> GetMutations(string uniprot_ID, string drug_PDB_ID, string PDB_File_ID)
         {
-            List<SNV_Mutations> mutations = new List<SNV_Mutations>();
+            List<SNV_Mutations> SNV_mutations = new List<SNV_Mutations>();
 
             using (DrugProNETEntities context = new DrugProNETEntities())
             {
@@ -192,15 +222,62 @@ namespace DrugProNET
 
                 foreach (SNV_Mutations mutation in mutationSet)
                 {
-                    if ((mutation.UniProt_ID?.ToLower()).Equals(uniprot.ToLower())
-                        && (mutation.Drug_PDB_ID?.ToLower()).Equals(drugPDBID.ToLower()))
+                    if (mutation.UniProt_ID.Equals(uniprot_ID, StringComparison.OrdinalIgnoreCase)
+                        && mutation.Drug_PDB_ID.Equals(drug_PDB_ID, StringComparison.OrdinalIgnoreCase)
+                        && mutation.PDB_File_No.Equals(PDB_File_ID, StringComparison.OrdinalIgnoreCase))
                     {
-                        mutations.Add(mutation);
+                        SNV_mutations.Add(mutation);
                     }
                 }
             }
 
-            return mutations;
+            return SNV_mutations;
+        }
+
+        public static SNV_Mutations GetMutationBySNVKey(string SNV_Key)
+        {
+            SNV_Mutations SNV_mutation = new SNV_Mutations();
+
+            using (DrugProNETEntities context = new DrugProNETEntities())
+            {
+                SNV_mutation = context.SNV_Mutations.Where(m => m.SNV_Key.Equals(SNV_Key, StringComparison.OrdinalIgnoreCase)).SingleOrDefault();
+            }
+
+            return SNV_mutation;
+        }
+
+        public static SNV_Mutations GetMutationBySNVIDKey(string SNV_ID_Key)
+        {
+            SNV_Mutations SNV_mutation = GetMutationsBySNVIDKey(SNV_ID_Key).First();
+
+            return SNV_mutation;
+        }
+
+        public static List<SNV_Mutations> GetMutationsBySNVIDKey(string SNV_ID_Key)
+        {
+            List<SNV_Mutations> SNV_mutations = new List<SNV_Mutations>();
+
+            using (DrugProNETEntities context = new DrugProNETEntities())
+            {
+                IQueryable<SNV_Mutations> mutations = context.SNV_Mutations.Where(m =>
+                       m.SNV_P1W_ID.Equals(SNV_ID_Key, StringComparison.OrdinalIgnoreCase)
+                    || m.SNV_P2W_ID.Equals(SNV_ID_Key, StringComparison.OrdinalIgnoreCase)
+                    || m.SNV_P3W_ID.Equals(SNV_ID_Key, StringComparison.OrdinalIgnoreCase)
+                    || m.SNV_P1M1_ID.Equals(SNV_ID_Key, StringComparison.OrdinalIgnoreCase)
+                    || m.SNV_P1M2_ID.Equals(SNV_ID_Key, StringComparison.OrdinalIgnoreCase)
+                    || m.SNV_P1M3_ID.Equals(SNV_ID_Key, StringComparison.OrdinalIgnoreCase)
+                    || m.SNV_P2M1_ID.Equals(SNV_ID_Key, StringComparison.OrdinalIgnoreCase)
+                    || m.SNV_P2M2_ID.Equals(SNV_ID_Key, StringComparison.OrdinalIgnoreCase)
+                    || m.SNV_P2M3_ID.Equals(SNV_ID_Key, StringComparison.OrdinalIgnoreCase)
+                    || m.SNV_P3M1_ID.Equals(SNV_ID_Key, StringComparison.OrdinalIgnoreCase)
+                    || m.SNV_P3M2_ID.Equals(SNV_ID_Key, StringComparison.OrdinalIgnoreCase)
+                    || m.SNV_P3M3_ID.Equals(SNV_ID_Key, StringComparison.OrdinalIgnoreCase)
+                );
+
+                SNV_mutations = mutations.ToList();
+            }
+
+            return SNV_mutations;
         }
 
         private static bool IsQueryInValues(string query, params string[] values)

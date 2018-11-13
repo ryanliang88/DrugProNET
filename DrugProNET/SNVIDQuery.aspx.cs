@@ -71,8 +71,9 @@ namespace DrugProNET
 
             Protein_Information protein = EF_Data.GetProtein(search_textBox.Text);
             Drug_Information drug = EF_Data.GetDrugUsingDropDownName(drug_specification_drop_down.SelectedItem.Value);
+            PDB_Information PDB = EF_Data.GetPDBInfo(protein.Uniprot_ID, drug.Drug_PDB_ID);
 
-            List<SNV_Mutations> mutations = EF_Data.GetMutations(protein.Uniprot_ID, drug.Drug_PDB_ID);
+            List<SNV_Mutations> mutations = EF_Data.GetMutations(protein.Uniprot_ID, drug.Drug_PDB_ID, PDB.PDB_File_ID);
 
             if (mutations.Count > 0)
             {
@@ -107,8 +108,7 @@ namespace DrugProNET
         [ScriptMethod]
         public static List<string> GetAutoCompleteData(string prefixText, int count)
         {
-
-            int minPrefixLength = 3;
+            const int minPrefixLength = 3;
             List<string> valuesList = new List<string>();
 
             if (prefixText.Length >= minPrefixLength)
@@ -142,18 +142,18 @@ namespace DrugProNET
                 }
             }
 
-            int maxAutocompleteLength = 5;
+            const int maxAutocompleteLength = 5;
 
             return valuesList.Count >= maxAutocompleteLength ? valuesList.GetRange(0, 5) : valuesList;
         }
 
         protected void Generate(object sender, EventArgs e)
         {
-            if (!drug_specification_drop_down.SelectedItem.Value.Equals(DROP_DOWN_PROMPT_MESSAGE) &&
-                !drug_specification_drop_down.SelectedItem.Value.Equals(DROP_DOWN_NO_MATCHES_MESSAGE) &&
-                !amino_acid_specification_drop_down.SelectedItem.Value.Equals(DROP_DOWN_PROMPT_MESSAGE) &&
-                !amino_acid_specification_drop_down.SelectedItem.Value.Equals(DROP_DOWN_NO_MATCHES_MESSAGE) &&
-                !search_textBox.Text.Equals(string.Empty))
+            if (!drug_specification_drop_down.SelectedItem.Value.Equals(DROP_DOWN_PROMPT_MESSAGE)
+                && !drug_specification_drop_down.SelectedItem.Value.Equals(DROP_DOWN_NO_MATCHES_MESSAGE)
+                && !amino_acid_specification_drop_down.SelectedItem.Value.Equals(DROP_DOWN_PROMPT_MESSAGE)
+                && !amino_acid_specification_drop_down.SelectedItem.Value.Equals(DROP_DOWN_NO_MATCHES_MESSAGE)
+                && !search_textBox.Text.Equals(string.Empty))
             {
                 Response.Redirect("SNVIDResult.aspx?query_string=" + search_textBox.Text
                     + "&drug_specification=" + drug_specification_drop_down.SelectedItem.Value

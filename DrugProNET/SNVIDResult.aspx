@@ -44,7 +44,7 @@
             <h3 class="h3-body-title">Protein/Gene Specifications</h3>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="gene_name_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Gene Name:</p>
@@ -53,7 +53,7 @@
             <p class="p-white" id="gene_name" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="uniprot_id_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">UniProt ID:</p>
@@ -62,7 +62,7 @@
             <p class="p-white" id="uniprot_id" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="refseq_id_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">RefSeq ID:</p>
@@ -71,7 +71,7 @@
             <p class="p-white" id="refseq_id" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="nucleotide_id_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Nucleotide ID:</p>
@@ -80,7 +80,7 @@
             <p class="p-white" id="nucleotide_id" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="gene_id_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Gene ID:</p>
@@ -89,7 +89,7 @@
             <p class="p-white" id="gene_id" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="chromosome_location_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Chromosome Location:</p>
@@ -98,7 +98,7 @@
             <p class="p-white" id="chromosome_location" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="gene_location_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Gene Location:</p>
@@ -107,7 +107,7 @@
             <p class="p-white" id="gene_location" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="aa_residue_no_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">AA Residue No:</p>
@@ -116,7 +116,7 @@
             <p class="p-white" id="aa_residue_no" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="aa_residue_type_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">AA Residue Type:</p>
@@ -125,7 +125,7 @@
             <p class="p-white" id="aa_residue_type" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="atomic_interactions_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">No. Atomic Interactions:</p>
@@ -134,7 +134,7 @@
             <p class="p-white" id="atomic_interactions" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="avg_atom_distance_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Average Atom Distance (Angstroms):</p>
@@ -143,7 +143,7 @@
             <p class="p-white" id="avg_atom_distance" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="interaction_distance_ratio_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Interaction / Distance Ratio:</p>
@@ -161,7 +161,7 @@
             <h3 class="h3-body-title">Drug Specifications</h3>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="PDB_drug_ID_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">PDB Drug ID:</p>
@@ -170,7 +170,7 @@
             <p class="p-white" id="PDB_drug_ID" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="drug_name_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Drug Name:</p>
@@ -179,7 +179,7 @@
             <p class="p-white" id="drug_name" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="pubchem_cid_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">PubChem CID:</p>
@@ -188,7 +188,7 @@
             <p class="p-white" id="pubchem_cid" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="chembl_id_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">ChEMBL ID:</p>
@@ -197,7 +197,7 @@
             <p class="p-white" id="chembl_id" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="chemspider_id_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">ChemSpider ID:</p>
@@ -206,13 +206,20 @@
             <p class="p-white" id="chemspider_id" runat="server"></p>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="drugbank_id_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">DrugBank ID:</p>
         </div>
         <div class="c-col body-content-long">
             <p class="p-white" id="drugbank_id" runat="server"></p>
+        </div>
+    </div>
+    <div class="c-row" id="drug_information_result_url_row" runat="server">
+        <div class="c-col side-spacing"></div>
+        <div class="c-col side-content"></div>
+        <div class="c-col body-content">
+            <asp:HyperLink ID="drug_information_result_url" runat="server" NavigateUrl="navigateurl" />
         </div>
     </div>
 
@@ -223,7 +230,7 @@
             <h3 class="h3-body-title">PDB Information</h3>
         </div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="PDB_entry_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">PDB Entry:</p>
@@ -232,16 +239,22 @@
             <p class="p-white" id="PDB_entry" runat="server"></p>
         </div>
     </div>
-
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
-        <div class="c-col body-content-long longDiv" style="padding-top: 2em">
+        <div class="c-col body-content-long">
+            <h3 class="h3-body-title">Single Nucleotide Variant Identification</h3>
+        </div>
+    </div>
+    <div class="c-row">
+        <div class="c-col side-spacing"></div>
+        <div class="c-col side-content"></div>
+        <div class="c-col body-content-long longDiv">
             <div class="button-container">
-                <asp:Button CssClass="download-button" ID="download_button" runat="server" Text="Download Table" OnClick="Download_Button_Click" />
+                <asp:Button CssClass="download-button" ID="download_button" runat="server" Text="Download Table" OnClick="Download_SNV_Identification_Click" />
             </div>
             <div>
-                <p>Click to download MS-Excel file of predicted SNVs</p>
+                <p class="descriptive download-description">Click to download MS-Excel file of predicted SNVs</p>
             </div>
         </div>
     </div>
@@ -250,7 +263,7 @@
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
         <div class="c-col body-content-long longDiv" style="padding-top: 2em">
-            <asp:Table runat="server" ID="interaction_list">
+            <asp:Table runat="server" ID="SNV_Identification_Table" CssClass="SNV-Identification-Table">
             </asp:Table>
         </div>
     </div>

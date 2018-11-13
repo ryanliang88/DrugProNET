@@ -68,41 +68,26 @@ namespace DrugProNET
 
                 GetDrugAtomNumberingImage(drug);
 
-                CreateInteractionList(interaction_list, PDB, interaction_distance, protein_chain, protein_atoms, protein_residues, protein_residue_numbers, drug_atoms);
+                CreateInteractionList(PDB, interaction_distance, protein_chain, protein_atoms, protein_residues, protein_residue_numbers, drug_atoms);
 
-                CreateInteractionSummary(interaction_summary);
+                CreateInteractionSummary();
 
                 ScriptManager.RegisterStartupScript(Page, GetType(), "D_3DViewer", "javascript:loadDrugLigand('" + drug.Drug_PDB_ID + "');", true);
                 ScriptManager.RegisterStartupScript(Page, GetType(), "PDB_3DViewer", "javascript:loadStage('" + drug.PDB_File_ID + "', '" + drug.Drug_PDB_ID + "');", true);
             }
         }
 
-        private void CreateInteractionSummary(Table interaction_summary)
+        private void CreateInteractionSummary()
         {
             TableHeaderRow tableHeaderRow = new TableHeaderRow
             {
                 TableSection = TableRowSection.TableHeader
             };
 
-            tableHeaderRow.Cells.Add(new TableHeaderCell
-            {
-                Text = "Protein Amino Acid Residue"
-            });
-
-            tableHeaderRow.Cells.Add(new TableHeaderCell
-            {
-                Text = "Number of Interactions with Drug Atoms"
-            });
-
-            tableHeaderRow.Cells.Add(new TableHeaderCell
-            {
-                Text = "Average Distance of All Interactions (Å)"
-            });
-
-            tableHeaderRow.Cells.Add(new TableHeaderCell
-            {
-                Text = "Number of Interactions : Distance Ratio"
-            });
+            tableHeaderRow.Cells.Add(new TableHeaderCell { Text = "Protein Amino Acid Residue" });
+            tableHeaderRow.Cells.Add(new TableHeaderCell { Text = "Number of Interactions with Drug Atoms" });
+            tableHeaderRow.Cells.Add(new TableHeaderCell { Text = "Average Distance of All Interactions (Å)" });
+            tableHeaderRow.Cells.Add(new TableHeaderCell { Text = "Number of Interactions : Distance Ratio" });
 
             interaction_summary.Rows.Add(tableHeaderRow);
 
@@ -113,83 +98,44 @@ namespace DrugProNET
             {
                 TableRow tableRow = new TableRow();
 
-                TableCell interactionCell = new TableCell
-                {
-                    Text = interactions[i].AA_Residue_Type_And_Number
-                };
-                tableRow.Cells.Add(interactionCell);
-
-                TableCell number_interactionsCell = new TableCell
-                {
-                    Text = interactions[i].Number_of_Atomic_Interactions
-                };
-                tableRow.Cells.Add(number_interactionsCell);
-
-                TableCell average_distanceCell = new TableCell
-                {
-                    Text = double.Parse(interactions[i].Average_Distance_Between_Atoms).ToString("0.00")
-                };
-                tableRow.Cells.Add(average_distanceCell);
-
-                TableCell ratioCell = new TableCell
-                {
-                    Text = double.Parse(interactions[i].Interaction_Distance_Ratio).ToString("0.00")
-                };
-                tableRow.Cells.Add(ratioCell);
+                tableRow.Cells.Add(new TableCell { Text = interactions[i].AA_Residue_Type_And_Number });
+                tableRow.Cells.Add(new TableCell { Text = interactions[i].Number_of_Atomic_Interactions });
+                tableRow.Cells.Add(new TableCell { Text = double.Parse(interactions[i].Average_Distance_Between_Atoms).ToString("0.00") });
+                tableRow.Cells.Add(new TableCell { Text = double.Parse(interactions[i].Interaction_Distance_Ratio).ToString("0.00") });
 
                 interaction_summary.Rows.Add(tableRow);
             }
         }
 
-        private void CreateInteractionList(Table interaction_list, PDB_Information PDB, int interaction_distance, bool protein_chain, bool protein_atoms, bool protein_residues, bool protein_residue_numbers, bool drug_atoms)
+        private void CreateInteractionList(PDB_Information PDB, int interaction_distance, bool protein_chain, bool protein_atoms, bool protein_residues, bool protein_residue_numbers, bool drug_atoms)
         {
-            TableHeaderRow tableHeaderRow = new TableHeaderRow
-            {
-                TableSection = TableRowSection.TableHeader
-            };
+            TableHeaderRow tableHeaderRow = new TableHeaderRow { TableSection = TableRowSection.TableHeader };
 
-            tableHeaderRow.Cells.Add(new TableHeaderCell
-            {
-                Text = "Distance (Å)"
-            });
+            tableHeaderRow.Cells.Add(new TableHeaderCell { Text = "Distance (Å)" });
 
             if (protein_chain)
             {
-                tableHeaderRow.Cells.Add(new TableHeaderCell
-                {
-                    Text = "Protein Chain"
-                });
+                tableHeaderRow.Cells.Add(new TableHeaderCell { Text = "Protein Chain" });
             }
+
             if (protein_residue_numbers)
             {
-                tableHeaderRow.Cells.Add(new TableHeaderCell
-                {
-                    Text = "Protein Residue Number"
-                });
+                tableHeaderRow.Cells.Add(new TableHeaderCell { Text = "Protein Residue Number" });
             }
 
             if (protein_residues)
             {
-                tableHeaderRow.Cells.Add(new TableHeaderCell
-                {
-                    Text = "Amino Acid Residue Type"
-                });
+                tableHeaderRow.Cells.Add(new TableHeaderCell { Text = "Amino Acid Residue Type" });
             }
 
             if (protein_atoms)
             {
-                tableHeaderRow.Cells.Add(new TableHeaderCell
-                {
-                    Text = "Amino Acid Residue Atom"
-                });
+                tableHeaderRow.Cells.Add(new TableHeaderCell { Text = "Amino Acid Residue Atom" });
             }
 
             if (drug_atoms)
             {
-                tableHeaderRow.Cells.Add(new TableHeaderCell
-                {
-                    Text = "Drug Atom"
-                });
+                tableHeaderRow.Cells.Add(new TableHeaderCell { Text = "Drug Atom" });
             }
 
             interaction_list.Rows.Add(tableHeaderRow);
@@ -201,56 +147,31 @@ namespace DrugProNET
             {
                 TableRow tableRow = new TableRow();
 
-                TableCell distanceCell = new TableCell
-                {
-                    Text = (double.Parse(distances[i].Distance)).ToString("0.00")
-                };
-
-                tableRow.Cells.Add(distanceCell);
+                tableRow.Cells.Add(new TableCell { Text = (double.Parse(distances[i].Distance)).ToString("0.00") });
 
                 if (protein_chain)
                 {
-                    TableCell protein_chainCell = new TableCell
-                    {
-                        Text = distances[i].Protein_Chain
-                    };
-                    tableRow.Cells.Add(protein_chainCell);
+                    tableRow.Cells.Add(new TableCell { Text = distances[i].Protein_Chain });
                 }
 
                 if (protein_residue_numbers)
                 {
-                    TableCell protein_residue_numberCell = new TableCell
-                    {
-                        Text = distances[i].Protein_Residue_
-                    };
-                    tableRow.Cells.Add(protein_residue_numberCell);
+                    tableRow.Cells.Add(new TableCell { Text = distances[i].Protein_Residue_ });
                 }
 
                 if (protein_residues)
                 {
-                    TableCell protein_residuesCell = new TableCell
-                    {
-                        Text = distances[i].Protein_Residue
-                    };
-                    tableRow.Cells.Add(protein_residuesCell);
+                    tableRow.Cells.Add(new TableCell { Text = distances[i].Protein_Residue });
                 }
 
                 if (protein_atoms)
                 {
-                    TableCell protein_atomCell = new TableCell
-                    {
-                        Text = distances[i].Protein_Atom
-                    };
-                    tableRow.Cells.Add(protein_atomCell);
+                    tableRow.Cells.Add(new TableCell { Text = distances[i].Protein_Atom });
                 }
 
                 if (drug_atoms)
                 {
-                    TableCell drug_atomCell = new TableCell
-                    {
-                        Text = distances[i].Compound_Atom
-                    };
-                    tableRow.Cells.Add(drug_atomCell);
+                    tableRow.Cells.Add(new TableCell { Text = distances[i].Compound_Atom });
                 }
 
                 interaction_list.Rows.Add(tableRow);
@@ -302,7 +223,7 @@ namespace DrugProNET
                 + " (BINDINGDB); Kd(nM): " + PDB_Info.Kd_nM_
                 + " (BINDINGDB)");
 
-            ProcessRow(drug_information_result_url_row, drug_information_result_url, "Link to further drug information", "http://localhost:50542/DrugInfoResult.aspx?query_string=" + drug.Drug_PDB_ID);
+            ProcessRow(drug_information_result_url_row, drug_information_result_url, "Link to further drug information", "www.drugpronet.ca/DrugInfoResult.aspx?query_string=" + drug.Drug_PDB_ID);
         }
 
         public void LoadProtein(Protein_Information protein)
@@ -318,7 +239,7 @@ namespace DrugProNET
             ProcessRow(number_aa_row, number_aa, protein.Protein_AA_Number);
             ProcessRow(protein_mass_da_row, protein_mass_da, protein.Protein_Mass);
 
-            ProcessRow(protein_information_result_url_row, protein_information_result_url, "Link to further protein information", "http://localhost:50542/ProteinInfoResult.aspx?query_string=" + protein.Uniprot_ID);
+            ProcessRow(protein_information_result_url_row, protein_information_result_url, "Link to further protein information", "www.drugpronet.ca/ProteinInfoResult.aspx?query_string=" + protein.Uniprot_ID);
         }
 
         // Called via ASP control
