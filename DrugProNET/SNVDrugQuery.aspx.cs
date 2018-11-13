@@ -44,7 +44,7 @@ namespace DrugProNET
 
         protected void Generate(object sender, EventArgs e)
         {
-
+            Response.Redirect("SNVDrugResult.aspx?query_string=" + snv_specification_textbox.Text);
         }
 
         protected void Reset(object sender, EventArgs e)

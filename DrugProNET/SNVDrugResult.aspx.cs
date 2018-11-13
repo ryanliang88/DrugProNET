@@ -15,11 +15,14 @@ namespace DrugProNET
         private List<SNV_Mutations> mutations;
         private List<PDB_Interactions> interactions;
 
-        private string SNV_ID_Key = "NC_000004.12(BMPR1B):c.94759093T>G(p.Tyr281STOP)"; // Not the same as SNV_Key
+        // TEST - NC_000004.12(BMPR1B):c.94759093T>G(p.Tyr281STOP)
+        string SNV_ID_Key;
 
         protected new void Page_Load(object sender, EventArgs e)
         {
             base.Page_Load(sender, e);
+
+            SNV_ID_Key = Request.QueryString["query_string"];
 
             const string regexPattern = @"p\..{6}";
             System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex(regexPattern, System.Text.RegularExpressions.RegexOptions.IgnoreCase);
