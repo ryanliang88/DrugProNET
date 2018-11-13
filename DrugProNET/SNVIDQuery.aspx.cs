@@ -157,7 +157,7 @@ namespace DrugProNET
             {
                 Response.Redirect("SNVIDResult.aspx?query_string=" + search_textBox.Text
                     + "&drug_specification=" + drug_specification_drop_down.SelectedItem.Value
-                    + "&amino_acid_specification=" + amino_acid_specification_drop_down.SelectedItem.Value, true);
+                    + "&snv_id_key=" + amino_acid_specification_drop_down.SelectedItem.Value, true);
             }
         }
 

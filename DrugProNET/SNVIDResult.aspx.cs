@@ -17,13 +17,13 @@ namespace DrugProNET
         {
             base.Page_Load(sender, e);
 
-            string protein_specification = Request.QueryString["protein_specification"];
+            string protein_specification = Request.QueryString["query_string"];
             string drug_specification = Request.QueryString["drug_specification"];
             string amino_acid_specification = Request.QueryString["amino_acid_specification"];
 
-            protein_specification = "O00141";
-            drug_specification = "MMG";
-            amino_acid_specification = "ALA-125";
+            //protein_specification = "O00141";
+            //drug_specification = "MMG";
+            //amino_acid_specification = "ALA-125";
 
             Protein_Information protein = EF_Data.GetProtein(protein_specification);
             Drug_Information drug = EF_Data.GetDrug(drug_specification);
