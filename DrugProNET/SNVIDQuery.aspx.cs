@@ -33,6 +33,9 @@ namespace DrugProNET
             drug_specification_drop_down.Items.Clear();
             drug_specification_drop_down.Items.Add(DROP_DOWN_PROMPT_MESSAGE);
 
+            amino_acid_specification_drop_down.Items.Clear();
+            amino_acid_specification_drop_down.Items.Add(DROP_DOWN_PROMPT_MESSAGE);
+
             Protein_Information protein = EF_Data.GetProtein(search_textBox.Text);
 
             if (protein != null)
@@ -69,23 +72,31 @@ namespace DrugProNET
             amino_acid_specification_drop_down.Items.Clear();
             amino_acid_specification_drop_down.Items.Add(DROP_DOWN_PROMPT_MESSAGE);
 
-            Protein_Information protein = EF_Data.GetProtein(search_textBox.Text);
-            Drug_Information drug = EF_Data.GetDrugUsingDropDownName(drug_specification_drop_down.SelectedItem.Value);
-            PDB_Information PDB = EF_Data.GetPDBInfo(protein.Uniprot_ID, drug.Drug_PDB_ID);
-
-            List<SNV_Mutations> mutations = EF_Data.GetMutations(protein.Uniprot_ID, drug.Drug_PDB_ID, PDB.PDB_File_ID);
-
-            if (mutations.Count > 0)
+            try
             {
-                foreach (SNV_Mutations mutation in mutations)
+                Protein_Information protein = EF_Data.GetProtein(search_textBox.Text);
+                Drug_Information drug = EF_Data.GetDrugUsingDropDownName(drug_specification_drop_down.SelectedItem.Value);
+                PDB_Information PDB = EF_Data.GetPDBInfo(protein.Uniprot_ID, drug.Drug_PDB_ID);
+
+                List<SNV_Mutations> mutations = EF_Data.GetMutations(protein.Uniprot_ID, drug.Drug_PDB_ID, PDB.PDB_File_ID);
+
+                if (mutations.Count > 0)
                 {
-                    amino_acid_specification_drop_down.Items.Add(mutation.SNV_Key);
+                    foreach (SNV_Mutations mutation in mutations)
+                    {
+                        amino_acid_specification_drop_down.Items.Add(mutation.SNV_Key);
+                    }
+                }
+                else
+                {
+                    amino_acid_specification_drop_down.Items.Clear();
+                    amino_acid_specification_drop_down.Items.Add(DROP_DOWN_NO_MATCHES_MESSAGE);
                 }
             }
-            else
+            catch (Exception ex)
             {
                 amino_acid_specification_drop_down.Items.Clear();
-                amino_acid_specification_drop_down.Items.Add(DROP_DOWN_NO_MATCHES_MESSAGE);
+                amino_acid_specification_drop_down.Items.Add(DROP_DOWN_PROMPT_MESSAGE);
             }
         }
 

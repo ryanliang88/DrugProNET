@@ -1,4 +1,5 @@
 ﻿using DrugProNET.Advertisement;
+using DrugProNET.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,12 @@ namespace DrugProNET
 
             Protein_Information protein = EF_Data.GetProtein(protein_specification);
             Drug_Information drug = EF_Data.GetDrug(drug_specification);
+
+            if (protein == null || drug == null)
+            {
+                ExceptionHandler.DisplayAlert(this, "SNVIDQuery.aspx");
+            }
+
             PDB_Information PDB = EF_Data.GetPDBInfo(protein.Uniprot_ID, drug.Drug_PDB_ID);
 
             int firstHyphen = SNV_Key.IndexOf('-');
