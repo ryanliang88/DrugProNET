@@ -1,4 +1,5 @@
 ﻿using DrugProNET.Scripts;
+using DrugProNET.Utility;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -67,7 +68,7 @@ namespace DrugProNET
 
                         foreach (Protein_Information p in dbSet.ToList())
                         {
-                            AddIfExists(valuesList,
+                            DataUtility.AddIfExists(valuesList,
                                 p.Protein_Short_Name,
                                 p.Protein_Full_Name,
                                 p.PDB_Protein_Name,
@@ -114,32 +115,6 @@ namespace DrugProNET
                 + "&protein_residue_numbers=" + protein_residue_number_checkbox.Checked
                 + "&drug_atoms=" + drug_atoms_checkbox.Checked, false);
             Context.ApplicationInstance.CompleteRequest();
-        }
-
-        private static void AddIfExists(List<string> list, params string[] values)
-        {
-            foreach (string value in values)
-            {
-                if (!string.IsNullOrEmpty(value))
-                {
-                    list.Add(value);
-                }
-            }
-        }
-
-        private List<ListItem> GenerateListItemsFromValues(params string[] values)
-        {
-            List<ListItem> listItemList = new List<ListItem>();
-
-            foreach (string value in values)
-            {
-                if (!string.IsNullOrEmpty(value))
-                {
-                    listItemList.Add(new ListItem(value, value, true));
-                }
-            }
-
-            return listItemList;
         }
     }
 }

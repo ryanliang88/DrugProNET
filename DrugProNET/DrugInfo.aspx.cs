@@ -14,6 +14,7 @@ using System.Web.Services;
 using System.Web.Script.Services;
 using DrugProNET.Scripts;
 using System.Data.Entity;
+using DrugProNET.Utility;
 
 namespace DrugProNET
 {
@@ -54,7 +55,7 @@ namespace DrugProNET
 
                         foreach (Drug_Information d in dbSet.ToList())
                         {
-                            AddIfExists(valuesList,
+                            DataUtility.AddIfExists(valuesList,
                                 d.Compound_CAS_ID,
                                 d.ChEMBL_ID,
                                 d.PubChem_SID,
@@ -81,17 +82,6 @@ namespace DrugProNET
 
             int maxResultSize = 5;
             return MatchFinder.FindTopNMatches(prefixText, cached, maxResultSize);
-        }
-
-        private static void AddIfExists(List<string> list, params string[] values)
-        {
-            foreach (string value in values)
-            {
-                if (!string.IsNullOrEmpty(value))
-                {
-                    list.Add(value);
-                }
-            }
         }
     }
 }

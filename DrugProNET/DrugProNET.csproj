@@ -396,6 +396,7 @@
     <Compile Include="SNV_Mutations.cs">
       <DependentUpon>DrugProNET_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Utility\DataUtility.cs" />
     <Compile Include="Utility\ExceptionHandlerUtilies.cs" />
   </ItemGroup>
   <ItemGroup>
