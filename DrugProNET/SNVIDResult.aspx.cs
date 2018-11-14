@@ -80,7 +80,7 @@ namespace DrugProNET
             ProcessRow(drugbank_id_row, drugbank_id, drug.DrugBank_ID, drug.DrugBank_Link);
 
             ProcessRow(drug_information_result_url_row, drug_information_result_url, "Click here for more drug information from DrugProNET",
-                "www.drugpronet.ca/DrugInfoResult.aspx?query_string=" + drug.PDB_File_ID);
+                "DrugInfoResult.aspx?query_string=" + drug.PDB_File_ID);
         }
 
         public void LoadPDB_Info(PDB_Information PDB_Info)
