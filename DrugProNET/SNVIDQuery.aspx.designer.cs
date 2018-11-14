@@ -67,13 +67,13 @@ namespace DrugProNET {
         protected global::AjaxControlToolkit.AutoCompleteExtender AutoCompleteExtender;
         
         /// <summary>
-        /// search_drop_down_UpdatePanel control.
+        /// drug_drop_down_UpdatePanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel search_drop_down_UpdatePanel;
+        protected global::System.Web.UI.UpdatePanel drug_drop_down_UpdatePanel;
         
         /// <summary>
         /// drug_specification_drop_down control.
@@ -83,6 +83,15 @@ namespace DrugProNET {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList drug_specification_drop_down;
+        
+        /// <summary>
+        /// loading_drug_specification_drop_down control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl loading_drug_specification_drop_down;
         
         /// <summary>
         /// amino_acid_specification_updatePanel control.
@@ -101,6 +110,15 @@ namespace DrugProNET {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList amino_acid_specification_drop_down;
+        
+        /// <summary>
+        /// loading_amino_acid_specification_drop_down control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl loading_amino_acid_specification_drop_down;
         
         /// <summary>
         /// generate_table_button control.
