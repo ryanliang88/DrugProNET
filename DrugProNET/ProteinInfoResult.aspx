@@ -121,7 +121,7 @@
         </div>
         <div class="c-col advertisment-content"></div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="group_gene_ontology_terms" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <h3 class="h3-side-title-gold">Gene Ontology Terms</h3>
@@ -130,7 +130,7 @@
         </div>
         <div class="c-col advertisment-content"></div>
     </div>
-    <div class="c-row">
+    <div class="c-row" id="cell_component_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <p class="p-side">Cell Component:</p>

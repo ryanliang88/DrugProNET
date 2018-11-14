@@ -135,7 +135,7 @@
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
         <div class="c-col body-content">
-            <asp:HyperLink ID="protein_information_result_url" runat="server" NavigateUrl="navigateurl" />
+            <asp:HyperLink ID="protein_information_result_url" runat="server" NavigateUrl="navigateurl"/>
         </div>
     </div>
 

@@ -12,12 +12,21 @@ namespace DrugProNET
 {
     public partial class DrugInfoResult : Advertisement.AdvertiseablePage
     {
+        Drug_Information drug;
+
         protected new void Page_Load(object sender, EventArgs e)
         {
             base.Page_Load(sender, e);
 
             string query = Request.QueryString["query_string"];
-            LoadData(EF_Data.GetDrug(query));
+
+            drug = EF_Data.GetDrug(query);
+            LoadData(drug);
+        }
+
+        protected void Page_LoadComplete(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(Page, GetType(), "D_3DViewer_Info", "javascript:loadDrugLigandInfo('" + drug.Drug_PDB_ID + "');", true);
         }
 
         private void ProcessRow(Control control, Control textControl, string text, string url = null)
@@ -53,7 +62,6 @@ namespace DrugProNET
 
         private void LoadData(Drug_Information drug)
         {
-            ScriptManager.RegisterStartupScript(Page, GetType(), "D_3DViewer_Info", "javascript:loadDrugLigandInfo('" + drug.Drug_PDB_ID + "');", true);
             ProcessRow(compound_name_row, compound_name, drug.Drug_Common_Name);
             ProcessRow(chemical_name_row, chemical_name, drug.Drug_Chemical_Name);
             ProcessRow(compound_alias_row, compound_alias, drug.Other_Drug_Name_Alias);

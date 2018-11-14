@@ -73,7 +73,6 @@
                     <asp:DropDownList CssClass="drop-down" ID="search_drop_down" runat="server">
                         <asp:ListItem Text="Select from list of output options" Value="0" />
                     </asp:DropDownList>
-                    <p style="color: white; padding: 0" ID="loading_label" runat="server">Loading...</p>
                 </ContentTemplate>
                 <Triggers>
                     <asp:AsyncPostBackTrigger ControlID="search_textBox" EventName="TextChanged" />
@@ -117,11 +116,11 @@
             <h3 class="h3-body-title">Step 4 - Display Parameter Specification</h3>
             <p>Boxes that are marked are activated to display. Click on boxes to change status.</p>
 
-            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_chain_checkbox" runat="server" Text="Show protein chain" />
-            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_atoms_checkbox" runat="server" Text="Show protein atoms" />
-            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_residues_checkbox" runat="server" Text="Show protein residues" />
-            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_residue_number_checkbox" runat="server" Text="Show protein residue number" />
-            <asp:CheckBox CssClass="checkbox-toggle" ID="drug_atoms_checkbox" runat="server" Text="Show drug atoms" />
+            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_chain_checkbox" runat="server" Text="Show protein chain" Checked="true" />
+            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_atoms_checkbox" runat="server" Text="Show protein atoms" Checked="true" />
+            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_residues_checkbox" runat="server" Text="Show protein residues" Checked="true" />
+            <asp:CheckBox CssClass="checkbox-toggle" ID="protein_residue_number_checkbox" runat="server" Text="Show protein residue number" Checked="true" />
+            <asp:CheckBox CssClass="checkbox-toggle" ID="drug_atoms_checkbox" runat="server" Text="Show drug atoms" Checked="true" />
         </div>
     </div>
 

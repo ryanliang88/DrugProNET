@@ -17,16 +17,10 @@ namespace DrugProNET
         protected new void Page_Load(object sender, EventArgs e)
         {
             base.Page_Load(sender, e);
-            loading_label.Visible = false;
         }
 
         protected void Search_Textbox_Changed(object sender, EventArgs e)
         {
-            if (search_textBox.Text != string.Empty)
-            {
-                loading_label.Visible = true;
-            }
-
             List<Drug_Information> drugList = new List<Drug_Information>();
 
             Protein_Information protein = EF_Data.GetProtein(search_textBox.Text);
@@ -53,8 +47,6 @@ namespace DrugProNET
                 {
                     search_drop_down.Items.Add(drug.Drug_Name_for_Pull_Down_Menu);
                 }
-
-                loading_label.Visible = false;
             }
         }
 

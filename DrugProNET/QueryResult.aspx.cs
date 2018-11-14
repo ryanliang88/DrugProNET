@@ -11,7 +11,7 @@ namespace DrugProNET
 {
     public partial class QueryResult : AdvertiseablePage
     {
-        private int interaction_distance;
+        private double interaction_distance;
         private bool protein_chain;
         private bool protein_atoms;
         private bool protein_residues;
@@ -30,7 +30,7 @@ namespace DrugProNET
 
             if (!IsPostBack)
             {
-                interaction_distance = int.Parse(Request.QueryString["interaction_distance"]);
+                interaction_distance = double.Parse(Request.QueryString["interaction_distance"]);
                 protein_chain = bool.Parse(Request.QueryString["protein_chain"]);
                 protein_atoms = bool.Parse(Request.QueryString["protein_atoms"]);
                 protein_residues = bool.Parse(Request.QueryString["protein_residues"]);
@@ -107,7 +107,7 @@ namespace DrugProNET
             }
         }
 
-        private void CreateInteractionList(PDB_Information PDB, int interaction_distance, bool protein_chain, bool protein_atoms, bool protein_residues, bool protein_residue_numbers, bool drug_atoms)
+        private void CreateInteractionList(PDB_Information PDB, double interaction_distance, bool protein_chain, bool protein_atoms, bool protein_residues, bool protein_residue_numbers, bool drug_atoms)
         {
             TableHeaderRow tableHeaderRow = new TableHeaderRow { TableSection = TableRowSection.TableHeader };
 
@@ -223,7 +223,7 @@ namespace DrugProNET
                 + " (BINDINGDB); Kd(nM): " + PDB_Info.Kd_nM_
                 + " (BINDINGDB)");
 
-            ProcessRow(drug_information_result_url_row, drug_information_result_url, "Link to further drug information", "www.drugpronet.ca/DrugInfoResult.aspx?query_string=" + drug.Drug_PDB_ID);
+            ProcessRow(drug_information_result_url_row, drug_information_result_url, "Link to further drug information", "DrugInfoResult.aspx?query_string=" + drug.Drug_PDB_ID);
         }
 
         public void LoadProtein(Protein_Information protein)
@@ -239,7 +239,7 @@ namespace DrugProNET
             ProcessRow(number_aa_row, number_aa, protein.Protein_AA_Number);
             ProcessRow(protein_mass_da_row, protein_mass_da, protein.Protein_Mass);
 
-            ProcessRow(protein_information_result_url_row, protein_information_result_url, "Link to further protein information", "www.drugpronet.ca/ProteinInfoResult.aspx?query_string=" + protein.Uniprot_ID);
+            ProcessRow(protein_information_result_url_row, protein_information_result_url, "Link to further protein information", "ProteinInfoResult.aspx?query_string=" + protein.Uniprot_ID);
         }
 
         // Called via ASP control
@@ -290,7 +290,7 @@ namespace DrugProNET
         protected void Download_List_Click(object sender, EventArgs e)
         {
             distances = (List<PDB_Distances>)Session["distances"];
-            interaction_distance = (int)Session["interaction_distance"];
+            interaction_distance = (double)Session["interaction_distance"];
             protein_chain = (bool)Session["protein_chain"];
             protein_atoms = (bool)Session["protein_atoms"];
             protein_residues = (bool)Session["protein_residues"];

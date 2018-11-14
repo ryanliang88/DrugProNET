@@ -157,6 +157,15 @@ namespace DrugProNET {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl molecular_mass;
         
         /// <summary>
+        /// drug_structure control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl drug_structure;
+        
+        /// <summary>
         /// pdb_drug_id_row control.
         /// </summary>
         /// <remarks>
@@ -533,15 +542,6 @@ namespace DrugProNET {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl general_activity;
-        
-        /// <summary>
-        /// compound_structure_col control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl compound_structure_col;
         
         /// <summary>
         /// commentary_row control.

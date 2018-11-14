@@ -16,10 +16,7 @@
         <div class="c-col body-content">
             <h3 class="h3-body-title">Drug Information</h3>
             <p>
-                This query provides detailed information on over 2000 compounds
-                    that have been experimentally identified as inhibitors of one or
-                    more human proteins. Follow the instructions below to retrieve
-                    information on a specific drug of interest.
+                This query provides detailed information on over 2000 compounds that have been experimentally identified as inhibitors of one or more human proteins. Follow the instructions below to retrieve information on a specific drug of interest.
             </p>
         </div>
         <div class="c-col advertisment-content">
@@ -44,9 +41,7 @@
         <div class="c-col body-content">
             <h3 class="h3-body-title">Step 1 - Drug Specification</h3>
             <p>
-                Enter the first few characters for a compound name, CAS ID,
-                    PubChem ID or ChEMBL ID and then select the desired search
-                    term from the Drop Down List.
+                Enter the first few characters for a compound name, CAS ID, PubChem ID or ChEMBL ID and then select the desired search term from the Drop Down List.
             </p>
             <asp:UpdatePanel ID="search_textBox_UpdatePanel" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
@@ -56,8 +51,7 @@
             </asp:UpdatePanel>
             <h3 class="h3-body-title">Step 2 - Retrieve Compound Information</h3>
             <p>
-                Click on the buttons below to retrieve information on the
-                    compound of interest or to reset the parameters for a new query.
+                Click on the buttons below to retrieve information on the compound of interest or to reset the parameters for a new query.
             </p>
             <asp:Button ID="retrieve_button" CssClass="button" Text="Retrieve Information" runat="server" OnClick="RetrieveData" />
             <span>&emsp;&emsp;</span>

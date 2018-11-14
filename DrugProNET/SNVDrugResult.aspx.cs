@@ -67,7 +67,7 @@ namespace DrugProNET
             ProcessRow(chromosome_location_row, chromosome_location, protein.Human_Chromosome_Location);
 
             gene_and_protein_info_url.Text = "Link to further gene and protein information";
-            gene_and_protein_info_url.NavigateUrl = "www.drugpronet.ca/ProteinInfoResult.aspx?query_string=" + protein.Uniprot_ID;
+            gene_and_protein_info_url.NavigateUrl = "ProteinInfoResult.aspx?query_string=" + protein.Uniprot_ID;
             gene_and_protein_info_url.Target = "_blank";
         }
 

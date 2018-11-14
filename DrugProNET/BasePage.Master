@@ -26,8 +26,8 @@
             <div id="website-banner" class="banner">
                 <img id="banner-image" src="./images/DrugProNETBanner.png" alt="Unable to display image" usemap="#banner-map">
                 <map name="banner-map">
-                    <area shape="rect" coords="0, 0, 1024, 90" href="index.html" alt="Error">
-                    <area shape="rect" coords="0,57.2, 655, 147.2 " href="index.html" alt="Error">
+                    <area shape="rect" coords="0, 0, 1024, 90" href="Default.aspx" alt="Error">
+                    <area shape="rect" coords="0,57.2, 655, 147.2 " href="Default.aspx" alt="Error">
                     <area shape="rect" coords="655, 57.2, 1024, 147.2" href="http://www.kinexus.ca" target="_blank" alt="Error">
                 </map>
             </div>
@@ -39,8 +39,9 @@
                     <li><a id="4" href="http://www.onconet.ca" target="_blank">OncoNET</a></li>
                     <li><a id="5" href="http://www.kinasenet.ca" target="_blank">KinaseNET</a></li>
                     <li><a id="6" href="http://www.drugkinet.ca" target="_blank">DrugKiNET</a></li>
-                    <li><a id="7" href="http://www.kinet-am.ca" target="_blank">KiNET-AM</a></li>
-                    <li><a id="8" href="http://www.kinexus.ca/kinetica" target="_blank">Kinetica Online</a></li>
+                    <li><a id="7" href="http://www.drugpronet.ca" target="_blank">DrugProNET</a></li>
+                    <li><a id="8" href="http://www.kinet-am.ca" target="_blank">KiNET-AM</a></li>
+                    <li><a id="9" href="http://www.kinexus.ca/kinetica" target="_blank">Kinetica Online</a></li>
                 </ul>
             </nav>
             <div class="col-container">

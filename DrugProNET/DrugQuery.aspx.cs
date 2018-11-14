@@ -18,19 +18,13 @@ namespace DrugProNET
         protected new void Page_Load(object sender, EventArgs e)
         {
             base.Page_Load(sender, e);
-            loading_label.Visible = false;
         }
 
         protected void Search_Textbox_Changed(object sender, EventArgs e)
         {
-            if (search_textBox.Text != string.Empty)
-            {
-                loading_label.Visible = true;
-            }
-
             List<Protein_Information> proteinList = new List<Protein_Information>();
 
-            Drug_Information drug = EF_Data.GetDrug(search_textBox.Text);
+            Drug_Information drug = EF_Data.GetDrugUsingDropDownName(search_textBox.Text);
 
             if (drug != null)
             {
@@ -61,8 +55,6 @@ namespace DrugProNET
                             protein.PhosphoNET_Name,
                             protein.PDB_Protein_Name).ToArray());
                 }
-
-                loading_label.Visible = false;
             }
         }
 
@@ -70,24 +62,31 @@ namespace DrugProNET
         [ScriptMethod]
         public static List<string> GetAutoCompleteData(string prefixText, int count)
         {
-            // Set to 0 for testing, should be 3
-            const int minPrefixLength = 0;
+            const int minPrefixLength = 3;
             List<string> valuesList = new List<string>();
 
             if (prefixText.Length >= minPrefixLength)
             {
                 try
                 {
+                    Drug_Information drug = EF_Data.GetDrug(prefixText);
+
                     using (DrugProNETEntities context = new DrugProNETEntities())
                     {
                         DbSet<Drug_Information> dbSet = context.Drug_Information;
 
                         foreach (Drug_Information d in dbSet.ToList())
                         {
-                            AddIfExists(valuesList,
-                                d.Compound_CAS_ID,
-                                d.PubChem_SID, // CID or SID?
-                                d.ChEMBL_ID);
+                            if (d.Other_Drug_Name_Alias.StartsWith(prefixText, StringComparison.OrdinalIgnoreCase) 
+                                || d.Drug_Common_Name.StartsWith(prefixText, StringComparison.OrdinalIgnoreCase)
+                                || d.Drug_Chemical_Name.StartsWith(prefixText, StringComparison.OrdinalIgnoreCase)
+                                || d.Compound_CAS_ID.StartsWith(prefixText, StringComparison.OrdinalIgnoreCase)
+                                || d.PubChem_CID.StartsWith(prefixText, StringComparison.OrdinalIgnoreCase)
+                                || d.PubChem_SID.StartsWith(prefixText, StringComparison.OrdinalIgnoreCase)
+                                || d.ChEMBL_ID.StartsWith(prefixText, StringComparison.OrdinalIgnoreCase))
+                            {
+                                valuesList.Add(d.Drug_Name_for_Pull_Down_Menu);
+                            }
                         }
                     }
                 }
@@ -98,7 +97,7 @@ namespace DrugProNET
             }
 
             const int maxResultSize = 5;
-            return MatchFinder.FindTopNMatches(prefixText, valuesList, maxResultSize);
+            return valuesList.Count >= maxResultSize ? valuesList.GetRange(0, 5) : valuesList;
         }
 
         protected void Reset_Button_Click(object sender, EventArgs e)

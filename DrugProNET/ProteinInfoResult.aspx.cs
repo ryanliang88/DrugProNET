@@ -50,12 +50,37 @@ namespace DrugProNET
         {
             string[] arr = { "N/A" };
 
+            bool allEmpty = true;
+
             foreach (string text in texts)
             {
-                if (string.IsNullOrEmpty(text) || Array.Exists(arr, element => element == text))
+                if (!(string.IsNullOrEmpty(text.Trim()) || Array.Exists(arr, element => element == text.Trim())))
                 {
-                    control.Visible = false;
+                    allEmpty = false;
                 }
+            }
+
+            if (allEmpty)
+            {
+                control.Visible = false;
+            }   
+        }
+
+        private static void ProcessControls(Control control, params Control[] controls)
+        {
+            bool allEmpty = true;
+
+            foreach (Control subControl in controls)
+            {
+                if (subControl.Visible)
+                {
+                    allEmpty = false;
+                }
+            }
+
+            if (allEmpty)
+            {
+                control.Visible = false;
             }
         }
 
@@ -73,17 +98,19 @@ namespace DrugProNET
             ProcessRow(null, cell_component1, protein.GOCellComponent1, protein.GOCellComponent1URL);
             ProcessRow(null, cell_component2, protein.GOCellComponent2, protein.GOCellComponent2URL);
             ProcessRow(null, cell_component3, protein.GOCellComponent3, protein.GOCellComponent3URL);
-            ProcessControl(cell_component_table, protein.GOCellComponent1, protein.GOCellComponent2, protein.GOCellComponent3);
+            ProcessControl(cell_component_row, protein.GOCellComponent1, protein.GOCellComponent2, protein.GOCellComponent3);
 
             ProcessRow(null, mo1, protein.GOMolFunction1, protein.GOCellComponent1URL);
             ProcessRow(null, mo2, protein.GOMolFunction2, protein.GOCellComponent2URL);
             ProcessRow(null, mo3, protein.GOMolFunction3, protein.GOCellComponent3URL);
-            ProcessControl(molecular_function_table, protein.GOMolFunction1, protein.GOMolFunction2, protein.GOMolFunction3);
+            ProcessControl(molecular_function_row, protein.GOMolFunction1, protein.GOMolFunction2, protein.GOMolFunction3);
 
             ProcessRow(null, bo1, protein.GOBioProcess1, protein.GOBioProcess1URL);
             ProcessRow(null, bo2, protein.GOBioProcess2, protein.GOBioProcess2URL);
             ProcessRow(null, bo3, protein.GOBioProcess3, protein.GOBioProcess3URL);
-            ProcessControl(biological_process_table, protein.GOBioProcess1, protein.GOBioProcess2, protein.GOBioProcess3);
+            ProcessControl(biological_process_row, protein.GOBioProcess1, protein.GOBioProcess2, protein.GOBioProcess3);
+
+            ProcessControls(group_gene_ontology_terms, cell_component_row, molecular_function_row, biological_process_row);
 
             ProcessRow(mass_da_row, mass_da, protein.Protein_Mass);
             ProcessRow(number_aa_row, number_aa, protein.Protein_AA_Number);

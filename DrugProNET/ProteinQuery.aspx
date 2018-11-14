@@ -75,7 +75,6 @@
                     <asp:DropDownList CssClass="drop-down" ID="search_drop_down" runat="server">
                         <asp:ListItem Text="Select from list of output options" Value="0" />
                     </asp:DropDownList>
-                    <p style="color: white; padding: 0" ID="loading_label" runat="server">Loading...</p>
                 </contenttemplate>
                 <triggers>
                     <asp:AsyncPostBackTrigger ControlID="search_textBox" EventName="TextChanged" />

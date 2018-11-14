@@ -28,8 +28,7 @@ namespace DrugProNET
             {
                 try
                 {
-                    // Add stuff to values list for autocomplete results
-                    valuesList.AddRange(new string[] { "A", "B", "C", "D" });
+                    
                 }
                 catch (Exception ex)
                 {

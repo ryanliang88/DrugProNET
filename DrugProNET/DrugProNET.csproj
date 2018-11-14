@@ -165,6 +165,7 @@
       <DependentUpon>DrugProNET_Model.edmx</DependentUpon>
       <LastGenOutput>DrugProNET_Model1.cs</LastGenOutput>
     </Content>
+    <Content Include="Images\DrugProNETBanner.png" />
     <Content Include="Scripts\3DViewer\D_3DViewer_Info.js" />
     <Content Include="SNVDrugQuery.aspx" />
     <Content Include="SNVDrugResult.aspx" />
@@ -194,7 +195,6 @@
     <Content Include="Images\AminoAcidImages\Tyrosine-Tyr-Y.jpg" />
     <Content Include="Images\AminoAcidImages\Valine-Val-V.jpg" />
     <Content Include="QueryResult.aspx" />
-    <Content Include="Images\DrugProNETBanner.png" />
     <Content Include="Other\Templates\Form 2 Column Template.aspx" />
     <Content Include="Other\Templates\Form 3 Column Template.aspx" />
     <Content Include="Global.asax" />

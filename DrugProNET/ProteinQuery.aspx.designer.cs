@@ -85,15 +85,6 @@ namespace DrugProNET {
         protected global::System.Web.UI.WebControls.DropDownList search_drop_down;
         
         /// <summary>
-        /// loading_label control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl loading_label;
-        
-        /// <summary>
         /// interaction_distance_drop_down control.
         /// </summary>
         /// <remarks>
