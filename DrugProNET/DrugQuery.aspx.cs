@@ -30,7 +30,7 @@ namespace DrugProNET
 
             List<Protein_Information> proteinList = new List<Protein_Information>();
 
-            Drug_Information drug = EF_Data.GetDrug(search_textBox.Text);
+            Drug_Information drug = EF_Data.GetDrugUsingDropDownName(search_textBox.Text);
 
             if (drug != null)
             {
@@ -84,10 +84,7 @@ namespace DrugProNET
 
                         foreach (Drug_Information d in dbSet.ToList())
                         {
-                            AddIfExists(valuesList,
-                                d.Compound_CAS_ID,
-                                d.PubChem_SID, // CID or SID?
-                                d.ChEMBL_ID);
+                           valuesList.Add(d.Drug_Name_for_Pull_Down_Menu);
                         }
                     }
                 }

@@ -39,6 +39,7 @@ namespace DrugProNET
             int firstHyphen = SNV_Key.IndexOf('-');
             int secondHyphen = SNV_Key.Substring(firstHyphen + 1).IndexOf('-') + firstHyphen;
 
+            // extra '-' at end
             string amino_acid_specification = SNV_Key.Substring(firstHyphen + 1, secondHyphen - 2);
 
             PDB_Interactions interaction = EF_Data.GetPDB_Interaction(protein.Uniprot_ID, drug.Drug_PDB_ID, amino_acid_specification);
