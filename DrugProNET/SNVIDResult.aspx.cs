@@ -22,10 +22,6 @@ namespace DrugProNET
             string drug_specification = Request.QueryString["drug_specification"];
             string SNV_Key = Request.QueryString["snv_id_key"];
 
-            //protein_specification = "O00141";
-            //drug_specification = "MMG";
-            //amino_acid_specification = "ALA-125";
-
             Protein_Information protein = EF_Data.GetProtein(protein_specification);
             Drug_Information drug = EF_Data.GetDrug(drug_specification);
 
@@ -36,11 +32,7 @@ namespace DrugProNET
 
             PDB_Information PDB = EF_Data.GetPDBInfo(protein.Uniprot_ID, drug.Drug_PDB_ID);
 
-            int firstHyphen = SNV_Key.IndexOf('-');
-            int secondHyphen = SNV_Key.Substring(firstHyphen + 1).IndexOf('-') + firstHyphen;
-
-            // extra '-' at end
-            string amino_acid_specification = SNV_Key.Substring(firstHyphen + 1, secondHyphen - 2);
+            string amino_acid_specification = SNV_Key.Split('-')[1] + '-' + SNV_Key.Split('-')[2];
 
             PDB_Interactions interaction = EF_Data.GetPDB_Interaction(protein.Uniprot_ID, drug.Drug_PDB_ID, amino_acid_specification);
             mutation = EF_Data.GetMutationBySNVKey(SNV_Key);

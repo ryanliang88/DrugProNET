@@ -15,8 +15,7 @@ namespace DrugProNET
         private List<SNV_Mutations> mutations;
         private List<PDB_Interactions> interactions;
 
-        // TEST - NC_000004.12(BMPR1B):c.94759093T>G(p.Tyr281STOP)
-        string SNV_ID_Key;
+        public string SNV_ID_Key;
 
         protected new void Page_Load(object sender, EventArgs e)
         {
@@ -24,11 +23,12 @@ namespace DrugProNET
 
             SNV_ID_Key = Request.QueryString["query_string"];
 
-            const string regexPattern = @"p\..{6}";
-            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex(regexPattern, System.Text.RegularExpressions.RegexOptions.IgnoreCase);
-            string specifiedAA = regex.Match(SNV_ID_Key).Value.Substring(2).Insert(3, "-");
+            string stringAfterPDot = SNV_ID_Key.Substring(SNV_ID_Key.IndexOf("p.") + 2);
+            string specifiedAAType = new string(stringAfterPDot.TakeWhile(c => char.IsLetter(c)).ToArray());
+            string specifiedAANumber = new string(stringAfterPDot.Substring(specifiedAAType.Length).TakeWhile(c => char.IsNumber(c)).ToArray());
+            string specifiedAA = specifiedAAType + "-" + specifiedAANumber;
 
-            mutations = EF_Data.GetMutationsBySNVIDKey(SNV_ID_Key); // Used to get a protein's uniprot number.
+            mutations = EF_Data.GetMutationsBySNVIDKey(SNV_ID_Key);
             Protein_Information protein = EF_Data.GetProtein(EF_Data.GetMutationBySNVIDKey(SNV_ID_Key).UniProt_ID);
 
             interactions = new List<PDB_Interactions>();
@@ -38,10 +38,11 @@ namespace DrugProNET
                 Drug_Information drug = EF_Data.GetDrug(mutation.Drug_PDB_ID);
 
                 drugs.Add(drug);
-                interactions.Add(EF_Data.GetPDB_Interaction(mutation.UniProt_ID, mutation.Drug_PDB_ID, specifiedAA));
-            }
 
-            interactions.OrderBy(i => i.Interaction_Distance_Ratio);
+                PDB_Interactions interaction = EF_Data.GetPDB_Interaction(mutation.UniProt_ID, mutation.Drug_PDB_ID, specifiedAA);
+
+                interactions.Add(interaction);
+            }
 
             Session["drugs"] = drugs;
             Session["interactions"] = interactions;
@@ -49,7 +50,7 @@ namespace DrugProNET
             Session["SNV_ID_Key"] = SNV_ID_Key;
 
             LoadSNVID(SNV_ID_Key);
-            LoadTargetGeneID(protein, mutations[0]); // Recommended by compiler
+            LoadTargetGeneID(protein, mutations[0]);
 
             CreateIDofPDILinkedSNVTable(drugs, interactions, mutations);
         }
@@ -85,10 +86,11 @@ namespace DrugProNET
 
             IDofPDILinkedSNVTable.Rows.Add(tableHeaderRow);
 
-            for (int i = 0; i < mutations.Count; i++)
+            for (int i = 0; i < drugs.Count; i++)
             {
                 TableRow tableRow = CreateTableRow(drugs[i], interactions[i], mutations[i]);
-
+                
+                // NOT SORTED
                 IDofPDILinkedSNVTable.Rows.Add(tableRow);
             }
         }
@@ -102,7 +104,15 @@ namespace DrugProNET
             tableRow.Cells.Add(new TableCell() { Text = mutation.Drug_PDB_ID });
             tableRow.Cells.Add(new TableCell() { Text = drug.PubChem_CID });
             tableRow.Cells.Add(new TableCell() { Text = drug.ChEMBL_ID });
-            tableRow.Cells.Add(new TableCell() { Text = double.Parse(interaction.Interaction_Distance_Ratio).ToString("0.0") });
+
+            if (double.TryParse(interaction?.Interaction_Distance_Ratio, out double result))
+            {
+                tableRow.Cells.Add(new TableCell() { Text = result.ToString("0.0") });
+            }
+            else
+            {
+                tableRow.Cells.Add(new TableCell() { Text = "" });
+            }
 
             string predictedEffiency = FindPredictedEffiency(mutation);
 
