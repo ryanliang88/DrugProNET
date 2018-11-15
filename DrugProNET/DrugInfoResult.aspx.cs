@@ -13,7 +13,9 @@ namespace DrugProNET
 {
     public partial class DrugInfoResult : Advertisement.AdvertiseablePage
     {
-        Drug_Information drug;
+        private const string QUERY_PAGE = "DrugInfo.aspx";
+
+        private Drug_Information drug;
 
         protected new void Page_Load(object sender, EventArgs e)
         {
@@ -29,7 +31,7 @@ namespace DrugProNET
             }
             else
             {
-                ExceptionUtilities.Redirect(this, "DrugInfo.aspx");
+                ExceptionUtilities.Redirect(this, QUERY_PAGE);
             }
 
         }

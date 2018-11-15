@@ -12,6 +12,10 @@ namespace DrugProNET
 {
     public partial class QueryResult : AdvertiseablePage
     {
+        private const string PROTEIN_QUERY_PAGE = "ProteinQuery.aspx";
+        private const string DRUG_QUERY_PAGE = "DrugQuery.aspx";
+        private const string DEFAULT_REDIRECT_PAGE = "Default.aspx";
+
         private string drug_specification;
         private string protein_specification;
         private double interaction_distance;
@@ -74,15 +78,14 @@ namespace DrugProNET
                 {
                     if (fromPage != null)
                     {
-                        ExceptionUtilities.Redirect(this, fromPage.Equals("drug") ? "DrugQuery.aspx" : "ProteinQuery.aspx");
+                        ExceptionUtilities.Redirect(this, fromPage.Equals("drug") ? DRUG_QUERY_PAGE : PROTEIN_QUERY_PAGE);
                     }
                     else
                     {
-                        ExceptionUtilities.Redirect(this, "Default.aspx");
+                        ExceptionUtilities.Redirect(this, DEFAULT_REDIRECT_PAGE);
                     }
 
                 }
-
 
                 Session["interaction_distance"] = interaction_distance;
                 Session["protein_chain"] = protein_chain;

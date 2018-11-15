@@ -13,6 +13,8 @@ namespace DrugProNET
 {
     public partial class ProteinInfoResult : AdvertiseablePage
     {
+        private const string QUERY_PAGE = "ProteinInfo.aspx";
+
         protected new void Page_Load(object sender, EventArgs e)
         {
             base.Page_Load(sender, e);
@@ -27,7 +29,7 @@ namespace DrugProNET
             }
             else
             {
-                ExceptionUtilities.Redirect(this, "ProteinInfo.aspx");
+                ExceptionUtilities.Redirect(this, QUERY_PAGE);
             }
          
         }
