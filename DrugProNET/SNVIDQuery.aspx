@@ -5,11 +5,12 @@
 <asp:Content runat="server" ContentPlaceHolderID="HeadContentPlaceHolder">
     <link rel="stylesheet" href="./css/3_column.css" />
     <link rel="stylesheet" href="./css/snv_id_query.css" />
+    <link rel="stylesheet" href="./css/loading_icon.css" />
 
     <%-- Needs to be inline for some reason --%>
     <script type="text/javascript">
         function RefreshUpdatePanel() {
-            __doPostBack('<%= search_drop_down_UpdatePanel.ClientID %>', '');
+            __doPostBack('<%= drug_drop_down_UpdatePanel.ClientID %>', '');
         };
     </script>
 
@@ -78,10 +79,11 @@
             <h3 class="h3-body-title">Step 2 - Drug Specification</h3>
             <p>Use the pull-down menu below to select for the drug of interest.</p>
 
-            <asp:UpdatePanel ID="search_drop_down_UpdatePanel" runat="server" UpdateMode="Conditional">
+            <asp:UpdatePanel ID="drug_drop_down_UpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="false">
                 <ContentTemplate>
                     <asp:DropDownList CssClass="drop-down" ID="drug_specification_drop_down" runat="server" onchange="RefreshUpdatePanel2();" OnSelectedIndexChanged="LoadAminoAcidDropDown">
                     </asp:DropDownList>
+                    <p runat="server" id="loading_drug_specification_drop_down" class="loading">Loading<span>.</span><span>.</span><span>.</span></p>
                 </ContentTemplate>
                 <Triggers>
                     <asp:AsyncPostBackTrigger ControlID="search_textBox" EventName="TextChanged" />
@@ -107,6 +109,7 @@
                 <ContentTemplate>
                     <asp:DropDownList CssClass="drop-down" ID="amino_acid_specification_drop_down" runat="server">
                     </asp:DropDownList>
+                      <p runat="server" id="loading_amino_acid_specification_drop_down" class="loading">Loading<span>.</span><span>.</span><span>.</span></p>
                 </ContentTemplate>
                 <Triggers>
                     <asp:AsyncPostBackTrigger ControlID="drug_specification_drop_down" EventName="SelectedIndexChanged" />
