@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DrugProNET.Utility;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Diagnostics;
@@ -21,7 +22,16 @@ namespace DrugProNET
             string query = Request.QueryString["query_string"];
 
             drug = EF_Data.GetDrug(query);
-            LoadData(drug);
+
+            if (drug != null)
+            {
+                LoadData(drug);
+            }
+            else
+            {
+                ExceptionUtilities.Redirect(this, "DrugInfo.aspx");
+            }
+
         }
 
         protected void Page_LoadComplete(object sender, EventArgs e)

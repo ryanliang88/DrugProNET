@@ -31,10 +31,10 @@ namespace DrugProNET
 
             if (protein == null || drug == null)
             {
-                ExceptionHandler.DisplayAlert(this, "SNVIDQuery.aspx");
+                ExceptionUtilities.DisplayAlert(this, "SNVIDQuery.aspx");
             }
 
-            PDB_Information PDB = EF_Data.GetPDBInfo(protein.Uniprot_ID, drug.Drug_PDB_ID);
+            PDB_Information PDB = EF_Data.GetPDBInfo(protein, drug);
 
             int firstHyphen = SNV_Key.IndexOf('-');
             int secondHyphen = SNV_Key.Substring(firstHyphen + 1).IndexOf('-') + firstHyphen;

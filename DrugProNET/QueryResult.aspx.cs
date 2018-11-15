@@ -6,11 +6,14 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DrugProNET.CalculateDistance;
 using System.Web.UI.HtmlControls;
+using DrugProNET.Utility;
 
 namespace DrugProNET
 {
     public partial class QueryResult : AdvertiseablePage
     {
+        private string drug_specification;
+        private string protein_specification;
         private double interaction_distance;
         private bool protein_chain;
         private bool protein_atoms;
@@ -30,12 +33,56 @@ namespace DrugProNET
 
             if (!IsPostBack)
             {
-                interaction_distance = double.Parse(Request.QueryString["interaction_distance"]);
-                protein_chain = bool.Parse(Request.QueryString["protein_chain"]);
-                protein_atoms = bool.Parse(Request.QueryString["protein_atoms"]);
-                protein_residues = bool.Parse(Request.QueryString["protein_residues"]);
-                protein_residue_numbers = bool.Parse(Request.QueryString["protein_residue_numbers"]);
-                drug_atoms = bool.Parse(Request.QueryString["drug_atoms"]);
+                string fromPage = null;
+
+                string query_string = Request.QueryString["query_string"];
+
+                drug_specification = Request.QueryString["drug_specification"];
+                protein_specification = Request.QueryString["protein_specification"];
+
+
+                if (drug_specification == null)
+                {
+                    drug_specification = query_string;
+                    fromPage = "drug";
+                }
+                else if (protein_specification == null)
+                {
+                    protein_specification = query_string;
+                    fromPage = "protein";
+                }
+
+                drug = EF_Data.GetDrugUsingDropDownName(drug_specification);
+                protein = EF_Data.GetProtein(protein_specification);
+                PDB = EF_Data.GetPDBInfo(protein, drug);
+
+                try
+                {
+                    interaction_distance = double.Parse(Request.QueryString["interaction_distance"]);
+                    protein_chain = bool.Parse(Request.QueryString["protein_chain"]);
+                    protein_atoms = bool.Parse(Request.QueryString["protein_atoms"]);
+                    protein_residues = bool.Parse(Request.QueryString["protein_residues"]);
+                    protein_residue_numbers = bool.Parse(Request.QueryString["protein_residue_numbers"]);
+                    drug_atoms = bool.Parse(Request.QueryString["drug_atoms"]);
+                }
+                catch (Exception ex)
+                {
+                    fromPage = null;
+                }
+
+                if (drug == null || protein == null || PDB == null)
+                {
+                    if (fromPage != null)
+                    {
+                        ExceptionUtilities.Redirect(this, fromPage.Equals("drug") ? "DrugQuery.aspx" : "ProteinQuery.aspx");
+                    }
+                    else
+                    {
+                        ExceptionUtilities.Redirect(this, "Default.aspx");
+                    }
+
+                }
+
 
                 Session["interaction_distance"] = interaction_distance;
                 Session["protein_chain"] = protein_chain;
@@ -43,24 +90,6 @@ namespace DrugProNET
                 Session["protein_residues"] = protein_residues;
                 Session["protein_residue_numbers"] = protein_residue_numbers;
                 Session["drug_atoms"] = drug_atoms;
-
-                string drug_specification = Request.QueryString["drug_specification"];
-                string protein_specification = Request.QueryString["protein_specification"];
-
-                string query_string = Request.QueryString["query_string"];
-
-                if (drug_specification == null)
-                {
-                    drug_specification = query_string;
-                }
-                else if (protein_specification == null)
-                {
-                    protein_specification = query_string;
-                }
-
-                drug = EF_Data.GetDrugUsingDropDownName(drug_specification);
-                protein = EF_Data.GetProtein(protein_specification);
-                PDB = EF_Data.GetPDBInfo(protein.Uniprot_ID, drug.Drug_PDB_ID);
 
                 LoadProtein(protein);
                 LoadDrug(drug, PDB);

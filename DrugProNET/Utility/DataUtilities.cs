@@ -6,7 +6,7 @@ using System.Web.UI.WebControls;
 
 namespace DrugProNET.Utility
 {
-    public class DataUtility
+    public class DataUtilities
     {
 
         public static void AddIfExists(List<string> list, params string[] values)

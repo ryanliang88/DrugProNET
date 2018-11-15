@@ -68,7 +68,7 @@ namespace DrugProNET
 
                         foreach (Protein_Information p in dbSet.ToList())
                         {
-                            DataUtility.AddIfExists(valuesList,
+                            DataUtilities.AddIfExists(valuesList,
                                 p.Protein_Short_Name,
                                 p.Protein_Full_Name,
                                 p.PDB_Protein_Name,
