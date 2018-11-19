@@ -78,34 +78,37 @@ namespace DrugProNET
                 {
                     if (fromPage != null)
                     {
-                        ExceptionUtilities.Redirect(this, fromPage.Equals("drug") ? DRUG_QUERY_PAGE : PROTEIN_QUERY_PAGE);
+                        ExceptionUtilities.DisplayAlert(this, fromPage.Equals("drug") ? DRUG_QUERY_PAGE : PROTEIN_QUERY_PAGE);
                     }
                     else
                     {
-                        ExceptionUtilities.Redirect(this, DEFAULT_REDIRECT_PAGE);
+                        ExceptionUtilities.DisplayAlert(this, DEFAULT_REDIRECT_PAGE);
                     }
 
                 }
+                else
+                {
+                    Session["interaction_distance"] = interaction_distance;
+                    Session["protein_chain"] = protein_chain;
+                    Session["protein_atoms"] = protein_atoms;
+                    Session["protein_residues"] = protein_residues;
+                    Session["protein_residue_numbers"] = protein_residue_numbers;
+                    Session["drug_atoms"] = drug_atoms;
 
-                Session["interaction_distance"] = interaction_distance;
-                Session["protein_chain"] = protein_chain;
-                Session["protein_atoms"] = protein_atoms;
-                Session["protein_residues"] = protein_residues;
-                Session["protein_residue_numbers"] = protein_residue_numbers;
-                Session["drug_atoms"] = drug_atoms;
+                    LoadProtein(protein);
+                    LoadDrug(drug, PDB);
+                    LoadPDB_Info(PDB);
 
-                LoadProtein(protein);
-                LoadDrug(drug, PDB);
-                LoadPDB_Info(PDB);
+                    GetDrugAtomNumberingImage(drug);
 
-                GetDrugAtomNumberingImage(drug);
+                    CreateInteractionList(PDB, interaction_distance, protein_chain, protein_atoms, protein_residues, protein_residue_numbers, drug_atoms);
 
-                CreateInteractionList(PDB, interaction_distance, protein_chain, protein_atoms, protein_residues, protein_residue_numbers, drug_atoms);
+                    CreateInteractionSummary();
 
-                CreateInteractionSummary();
+                    ScriptManager.RegisterStartupScript(Page, GetType(), "D_3DViewer", "javascript:loadDrugLigand('" + drug.Drug_PDB_ID + "');", true);
+                    ScriptManager.RegisterStartupScript(Page, GetType(), "PDB_3DViewer", "javascript:loadStage('" + drug.PDB_File_ID + "', '" + drug.Drug_PDB_ID + "');", true);
+                }
 
-                ScriptManager.RegisterStartupScript(Page, GetType(), "D_3DViewer", "javascript:loadDrugLigand('" + drug.Drug_PDB_ID + "');", true);
-                ScriptManager.RegisterStartupScript(Page, GetType(), "PDB_3DViewer", "javascript:loadStage('" + drug.PDB_File_ID + "', '" + drug.Drug_PDB_ID + "');", true);
             }
         }
 

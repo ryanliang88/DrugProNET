@@ -17,8 +17,6 @@ namespace DrugProNET
             {
                 DbSet<Drug_Information> dbSet = context.Drug_Information;
 
-                query = query.ToLower();
-
                 foreach (Drug_Information d in dbSet)
                 {
                     if (IsQueryInValues(query,

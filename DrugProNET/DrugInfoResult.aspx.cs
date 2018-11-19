@@ -31,14 +31,14 @@ namespace DrugProNET
             }
             else
             {
-                ExceptionUtilities.Redirect(this, QUERY_PAGE);
+                ExceptionUtilities.DisplayAlert(this, QUERY_PAGE);
             }
 
         }
 
         protected void Page_LoadComplete(object sender, EventArgs e)
         {
-            ScriptManager.RegisterStartupScript(Page, GetType(), "D_3DViewer_Info", "javascript:loadDrugLigandInfo('" + drug.Drug_PDB_ID + "');", true);
+            //ScriptManager.RegisterStartupScript(Page, GetType(), "D_3DViewer_Info", "javascript:loadDrugLigandInfo('" + drug.Drug_PDB_ID + "');", true);
         }
 
         private void ProcessRow(Control control, Control textControl, string text, string url = null)
