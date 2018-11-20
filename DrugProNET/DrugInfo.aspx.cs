@@ -25,13 +25,7 @@ namespace DrugProNET
         protected void RetrieveData(object sender, EventArgs e)
         {
             string query = search_textBox.Text;
-            Drug_Information drug = EF_Data.GetDrug(query);
-
-            if (drug != null)
-            { 
-                Response.Redirect("DrugInfoResult.aspx?query_string=" + query, false);
-                Context.ApplicationInstance.CompleteRequest();
-            }
+            Response.Redirect("DrugInfoResult.aspx?query_string=" + query, true);
         }
 
         protected void ResetForm(object sender, EventArgs e)
@@ -55,7 +49,7 @@ namespace DrugProNET
 
                         foreach (Drug_Information d in dbSet.ToList())
                         {
-                            DataUtility.AddIfExists(valuesList,
+                            DataUtilities.AddIfExists(valuesList,
                                 d.Compound_CAS_ID,
                                 d.ChEMBL_ID,
                                 d.PubChem_SID,

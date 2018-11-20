@@ -1,4 +1,5 @@
 ﻿using DrugProNET.Advertisement;
+using DrugProNET.Utility;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -12,6 +13,8 @@ namespace DrugProNET
 {
     public partial class ProteinInfoResult : AdvertiseablePage
     {
+        private const string QUERY_PAGE = "ProteinInfo.aspx";
+
         protected new void Page_Load(object sender, EventArgs e)
         {
             base.Page_Load(sender, e);
@@ -19,7 +22,16 @@ namespace DrugProNET
             string query = Request.QueryString["query_string"];
 
             Protein_Information protein = EF_Data.GetProtein(query);
-            LoadData(protein);
+
+            if (protein != null)
+            {
+                LoadData(protein);
+            }
+            else
+            {
+                ExceptionUtilities.Redirect(this, QUERY_PAGE);
+            }
+         
         }
 
         private static void ProcessRow(Control control, Control textControl, string text, string url = null)

@@ -17,8 +17,6 @@ namespace DrugProNET
             {
                 DbSet<Drug_Information> dbSet = context.Drug_Information;
 
-                query = query.ToLower();
-
                 foreach (Drug_Information d in dbSet)
                 {
                     if (IsQueryInValues(query,
@@ -154,9 +152,17 @@ namespace DrugProNET
             return PDB_interaction;
         }
 
-        public static PDB_Information GetPDBInfo(string uniprot_ID, string drug_PDB_ID)
+        public static PDB_Information GetPDBInfo(Protein_Information protein, Drug_Information drug)
         {
             PDB_Information PDBInfo = null;
+
+            if (protein == null || drug == null)
+            {
+                return PDBInfo;
+            }
+
+            string uniprot_ID = protein.Uniprot_ID;
+            string drug_PDB_ID = drug.Drug_PDB_ID;
 
             using (DrugProNETEntities context = new DrugProNETEntities())
             {

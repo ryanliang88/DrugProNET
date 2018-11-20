@@ -20,13 +20,8 @@ namespace DrugProNET
         protected void RetrieveData(object sender, EventArgs e)
         {
             string query = search_textBox.Text;
-            Protein_Information protein = EF_Data.GetProtein(query);
-
-            if (protein != null)
-            {
-                Response.Redirect("ProteinInfoResult.aspx?query_string=" + query, false);
-                Context.ApplicationInstance.CompleteRequest();
-            }
+            Response.Redirect("ProteinInfoResult.aspx?query_string=" + query, false);
+            Context.ApplicationInstance.CompleteRequest();
         }
 
         protected void ResetForm(object sender, EventArgs e)

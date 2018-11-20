@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DrugProNET.Utility;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Diagnostics;
@@ -12,7 +13,9 @@ namespace DrugProNET
 {
     public partial class DrugInfoResult : Advertisement.AdvertiseablePage
     {
-        Drug_Information drug;
+        private const string QUERY_PAGE = "DrugInfo.aspx";
+
+        private Drug_Information drug;
 
         protected new void Page_Load(object sender, EventArgs e)
         {
@@ -21,12 +24,21 @@ namespace DrugProNET
             string query = Request.QueryString["query_string"];
 
             drug = EF_Data.GetDrug(query);
-            LoadData(drug);
+
+            if (drug != null)
+            {
+                LoadData(drug);
+            }
+            else
+            {
+                ExceptionUtilities.DisplayAlert(this, QUERY_PAGE);
+            }
+
         }
 
         protected void Page_LoadComplete(object sender, EventArgs e)
         {
-            ScriptManager.RegisterStartupScript(Page, GetType(), "D_3DViewer_Info", "javascript:loadDrugLigandInfo('" + drug.Drug_PDB_ID + "');", true);
+            //ScriptManager.RegisterStartupScript(Page, GetType(), "D_3DViewer_Info", "javascript:loadDrugLigandInfo('" + drug.Drug_PDB_ID + "');", true);
         }
 
         private void ProcessRow(Control control, Control textControl, string text, string url = null)

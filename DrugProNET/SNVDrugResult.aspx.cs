@@ -11,6 +11,8 @@ namespace DrugProNET
 {
     public partial class SNVDrugResult : AdvertiseablePage
     {
+        private const string QUERY_PAGE = "SNVDrugQuery.aspx";
+
         private List<Drug_Information> drugs;
         private List<SNV_Mutations> mutations;
         private List<PDB_Interactions> interactions;

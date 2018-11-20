@@ -76,7 +76,7 @@ namespace DrugProNET
             {
                 Protein_Information protein = EF_Data.GetProtein(search_textBox.Text);
                 Drug_Information drug = EF_Data.GetDrugUsingDropDownName(drug_specification_drop_down.SelectedItem.Value);
-                PDB_Information PDB = EF_Data.GetPDBInfo(protein.Uniprot_ID, drug.Drug_PDB_ID);
+                PDB_Information PDB = EF_Data.GetPDBInfo(protein, drug);
 
                 List<SNV_Mutations> mutations = EF_Data.GetMutations(protein.Uniprot_ID, drug.Drug_PDB_ID, PDB.PDB_File_ID);
 
