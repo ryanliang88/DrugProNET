@@ -29,3 +29,7 @@ p {
 .white {
     color: #FFFFFF;
 }
+
+.textBox {
+    width: 400px;
+}

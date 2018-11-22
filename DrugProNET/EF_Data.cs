@@ -9,55 +9,83 @@ namespace DrugProNET
 {
     public static class EF_Data
     {
-        public static Drug_Information GetDrug(string query)
+        public static Drug_Information GetDrugUsingDropDownName(string query)
         {
             Drug_Information drug = null;
 
             using (DrugProNETEntities context = new DrugProNETEntities())
             {
-                DbSet<Drug_Information> dbSet = context.Drug_Information;
+                drug = context.Drug_Information.Where(d =>
+                    d.Drug_Name_for_Pull_Down_Menu.ToLower().Contains(query.ToLower())).FirstOrDefault();
+            }
 
-                foreach (Drug_Information d in dbSet)
-                {
-                    if (IsQueryInValues(query,
-                        d.Compound_CAS_ID,
-                        d.ChEMBL_ID,
-                        d.PubChem_SID,
-                        d.Drug_PDB_ID,
-                        d.Drug_Common_Name,
-                        d.Drug_Chemical_Name,
-                        d.Other_Drug_Name_Alias,
-                        d.Drug_InChl,
-                        d.ChemSpider_ID,
-                        d.ChEBI_ID))
-                    {
-                        drug = d;
-                        break;
-                    }
-                }
+            return drug;
+        }
+        public static Drug_Information GetDrugByDrugPDBID(string query)
+        {
+            Drug_Information drug = null;
+
+            using (DrugProNETEntities context = new DrugProNETEntities())
+            {
+                drug = context.Drug_Information.Where(d =>
+                    d.Drug_PDB_ID.ToLower().Contains(query.ToLower())).FirstOrDefault();
             }
 
             return drug;
         }
 
-        public static Drug_Information GetDrugUsingDropDownName(string dropDownName)
+        public static List<Drug_Information> GetDrugsQuery(string query)
         {
-            Drug_Information drug = null;
+            List<Drug_Information> drugs = new List<Drug_Information>();
 
             using (DrugProNETEntities context = new DrugProNETEntities())
             {
-                DbSet<Drug_Information> drugSet = context.Drug_Information;
-
-                foreach (Drug_Information d in drugSet)
-                {
-                    if (d.Drug_Name_for_Pull_Down_Menu.Equals(dropDownName))
-                    {
-                        drug = d;
-                    }
-                }
+                drugs = context.Drug_Information.Where(d =>
+                    d.Other_Drug_Name_Alias.ToLower().Contains(query.ToLower())
+                    || d.Drug_Common_Name.ToLower().Contains(query.ToLower())
+                    || d.Drug_Chemical_Name.ToLower().Contains(query.ToLower())
+                    || d.Compound_CAS_ID.ToLower().Contains(query.ToLower())
+                    || d.PubChem_CID.ToLower().Contains(query.ToLower())
+                    || d.ChEMBL_ID.ToLower().Contains(query.ToLower())
+                 ).ToList();
             }
 
-            return drug;
+            return drugs;
+        }
+
+        public static List<Drug_Information> GetDrugsInfoQuery(string query)
+        {
+            List<Drug_Information> drugs = new List<Drug_Information>();
+
+            using (DrugProNETEntities context = new DrugProNETEntities())
+            {
+                drugs = context.Drug_Information.Where(d =>
+                d.Compound_CAS_ID.ToLower().Contains(query.ToLower())
+                || d.ChEMBL_ID.ToLower().Contains(query.ToLower())
+                || d.PubChem_SID.ToLower().Contains(query.ToLower())
+                || d.Drug_PDB_ID.ToLower().Contains(query.ToLower())
+                || d.Drug_Common_Name.ToLower().Contains(query.ToLower())
+                || d.Drug_Chemical_Name.ToLower().Contains(query.ToLower())
+                || d.Other_Drug_Name_Alias.ToLower().Contains(query.ToLower())
+                || d.Drug_InChl.ToLower().Contains(query.ToLower())
+                || d.ChemSpider_ID.ToLower().Contains(query.ToLower())
+                || d.ChEBI_ID.ToLower().Contains(query.ToLower())
+                ).ToList();
+            }
+
+            return drugs;
+        }
+
+        public static Protein_Information GetProteinByUniprotID(string uniprotID)
+        {
+            Protein_Information protein = null;
+
+            using (DrugProNETEntities context = new DrugProNETEntities())
+            {
+                protein = context.Protein_Information.Where(p => p.Uniprot_ID.ToLower().Contains(uniprotID.ToLower())).FirstOrDefault();
+            }
+
+            return protein;
         }
 
         public static Protein_Information GetProtein(string query)
@@ -89,13 +117,37 @@ namespace DrugProNET
             return protein;
         }
 
+        public static List<Protein_Information> GetProteinsInfoQuery(string query)
+        {
+            List<Protein_Information> proteins = new List<Protein_Information>();
+
+            using (DrugProNETEntities context = new DrugProNETEntities())
+            {
+                proteins = context.Protein_Information.Where(p =>
+                    p.Protein_Short_Name.ToLower().Contains(query.ToLower())
+                    || p.Protein_Full_Name.ToLower().Contains(query.ToLower())
+                    || p.NCBI_Gene_ID.ToLower().Contains(query.ToLower())
+                    || p.PDB_Protein_Name.ToLower().Contains(query.ToLower())
+                    || p.Protein_Alias.ToLower().Contains(query.ToLower())
+                    || p.Uniprot_ID.ToLower().Contains(query.ToLower())
+                    || p.NCBI_RefSeq_NP_ID.ToLower().Contains(query.ToLower())
+                    || p.NCBI_Gene_Name.ToLower().Contains(query.ToLower())
+                    || p.PhosphoNET_Name.ToLower().Contains(query.ToLower())
+                ).ToList();
+            }
+
+            return proteins;
+        }
+
         public static List<PDB_Distances> GetPDB_Distances(string pdb_entry, double interaction_distance)
         {
             List<PDB_Distances> distances = new List<PDB_Distances>();
 
             using (DrugProNETEntities context = new DrugProNETEntities())
             {
-                foreach (PDB_Distances distance in context.PDB_Distances.Where(d => d.PDB_Entry == pdb_entry))
+                List<PDB_Distances> temp = context.PDB_Distances.Where(d => d.PDB_Entry.ToLower().Contains(pdb_entry.ToLower())).ToList();
+
+                foreach (PDB_Distances distance in temp)
                 {
                     if (double.Parse(distance.Distance) < interaction_distance)
                     {
@@ -128,10 +180,10 @@ namespace DrugProNET
 
             using (DrugProNETEntities context = new DrugProNETEntities())
             {
-                foreach (PDB_Interactions interaction in context.PDB_Interactions.Where(i => i.UniProt_ID == uniprot_ID && i.Drug_PDB_ID == drug_pdb_id))
-                {
-                    interactions.Add(interaction);
-                }
+                interactions = context.PDB_Interactions.Where(i => 
+                    i.UniProt_ID.ToLower().Contains(uniprot_ID.ToLower())
+                    && i.Drug_PDB_ID.ToLower().Contains(drug_pdb_id.ToLower())
+                ).ToList();
             }
 
             return interactions.OrderByDescending(i => double.Parse(i.Interaction_Distance_Ratio)).ToList();
@@ -144,9 +196,10 @@ namespace DrugProNET
             using (DrugProNETEntities context = new DrugProNETEntities())
             {
                 PDB_interaction = context.PDB_Interactions
-                    .Where(i => i.UniProt_ID.Equals(uniprot_ID, StringComparison.OrdinalIgnoreCase)
-                    && i.Drug_PDB_ID.Equals(drug_PDB_ID, StringComparison.OrdinalIgnoreCase)
-                    && i.AA_Residue_Type_And_Number.Equals(amino_acid_specification, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+                    .Where(i => i.UniProt_ID.ToLower().Contains(uniprot_ID.ToLower())
+                    && i.Drug_PDB_ID.ToLower().Contains(drug_PDB_ID.ToLower())
+                    && i.AA_Residue_Type_And_Number.ToLower().Contains(amino_acid_specification.ToLower())
+                ).FirstOrDefault();
             }
 
             return PDB_interaction;
@@ -186,14 +239,8 @@ namespace DrugProNET
 
             using (DrugProNETEntities context = new DrugProNETEntities())
             {
-                DbSet<PDB_Information> dbSet = context.PDB_Information;
-                foreach (PDB_Information pdb in dbSet)
-                {
-                    if (pdb.Uniprot_ID == uniprot_ID)
-                    {
-                        list.Add(pdb);
-                    }
-                }
+                list = context.PDB_Information.Where(pdb =>
+                    pdb.Uniprot_ID.ToLower().Contains(uniprot_ID.ToLower())).ToList();
             }
 
             return list;
@@ -201,21 +248,15 @@ namespace DrugProNET
 
         public static List<PDB_Information> GetPDBInfoUsingDrug(string drug_pdb_id)
         {
-            List<PDB_Information> list = new List<PDB_Information>();
+            List<PDB_Information> PDB_information = new List<PDB_Information>();
 
             using (DrugProNETEntities context = new DrugProNETEntities())
             {
-                DbSet<PDB_Information> dbSet = context.PDB_Information;
-                foreach (PDB_Information pdb in dbSet)
-                {
-                    if (pdb.Drug_PDB_ID == drug_pdb_id)
-                    {
-                        list.Add(pdb);
-                    }
-                }
+                PDB_information = context.PDB_Information.Where(p =>
+                    p.Drug_PDB_ID.ToLower().Contains(drug_pdb_id.ToLower())).ToList();
             }
 
-            return list;
+            return PDB_information;
         }
 
         public static List<SNV_Mutations> GetMutations(string uniprot_ID, string drug_PDB_ID, string PDB_File_ID)
@@ -224,17 +265,10 @@ namespace DrugProNET
 
             using (DrugProNETEntities context = new DrugProNETEntities())
             {
-                DbSet<SNV_Mutations> mutationSet = context.SNV_Mutations;
-
-                foreach (SNV_Mutations mutation in mutationSet)
-                {
-                    if (mutation.UniProt_ID.Equals(uniprot_ID, StringComparison.OrdinalIgnoreCase)
-                        && mutation.Drug_PDB_ID.Equals(drug_PDB_ID, StringComparison.OrdinalIgnoreCase)
-                        && mutation.PDB_File_No.Equals(PDB_File_ID, StringComparison.OrdinalIgnoreCase))
-                    {
-                        SNV_mutations.Add(mutation);
-                    }
-                }
+                SNV_mutations = context.SNV_Mutations.Where(m =>
+                    m.UniProt_ID.Equals(uniprot_ID, StringComparison.OrdinalIgnoreCase)
+                    && m.Drug_PDB_ID.Equals(drug_PDB_ID, StringComparison.OrdinalIgnoreCase)
+                    && m.PDB_File_No.Equals(PDB_File_ID, StringComparison.OrdinalIgnoreCase)).ToList();
             }
 
             return SNV_mutations;
@@ -265,7 +299,7 @@ namespace DrugProNET
 
             using (DrugProNETEntities context = new DrugProNETEntities())
             {
-                IQueryable<SNV_Mutations> mutations = context.SNV_Mutations.Where(m =>
+                SNV_mutations = context.SNV_Mutations.Where(m =>
                        m.SNV_P1W_ID.Equals(SNV_ID_Key, StringComparison.OrdinalIgnoreCase)
                     || m.SNV_P2W_ID.Equals(SNV_ID_Key, StringComparison.OrdinalIgnoreCase)
                     || m.SNV_P3W_ID.Equals(SNV_ID_Key, StringComparison.OrdinalIgnoreCase)
@@ -278,9 +312,32 @@ namespace DrugProNET
                     || m.SNV_P3M1_ID.Equals(SNV_ID_Key, StringComparison.OrdinalIgnoreCase)
                     || m.SNV_P3M2_ID.Equals(SNV_ID_Key, StringComparison.OrdinalIgnoreCase)
                     || m.SNV_P3M3_ID.Equals(SNV_ID_Key, StringComparison.OrdinalIgnoreCase)
-                );
+                ).ToList();
+            }
 
-                SNV_mutations = mutations.ToList();
+            return SNV_mutations;
+        }
+
+        public static List<SNV_Mutations> GetMutationsBySNVIDKeyContains(string SNV_ID_Key)
+        {
+            List<SNV_Mutations> SNV_mutations = new List<SNV_Mutations>();
+
+            using (DrugProNETEntities context = new DrugProNETEntities())
+            {
+                SNV_mutations = context.SNV_Mutations.Where(m =>
+                       m.SNV_P1W_ID.ToLower().Contains(SNV_ID_Key.ToLower())
+                    || m.SNV_P2W_ID.ToLower().Contains(SNV_ID_Key.ToLower())
+                    || m.SNV_P3W_ID.ToLower().Contains(SNV_ID_Key.ToLower())
+                    || m.SNV_P1M1_ID.ToLower().Contains(SNV_ID_Key.ToLower())
+                    || m.SNV_P1M2_ID.ToLower().Contains(SNV_ID_Key.ToLower())
+                    || m.SNV_P1M3_ID.ToLower().Contains(SNV_ID_Key.ToLower())
+                    || m.SNV_P2M1_ID.ToLower().Contains(SNV_ID_Key.ToLower())
+                    || m.SNV_P2M2_ID.ToLower().Contains(SNV_ID_Key.ToLower())
+                    || m.SNV_P2M3_ID.ToLower().Contains(SNV_ID_Key.ToLower())
+                    || m.SNV_P3M1_ID.ToLower().Contains(SNV_ID_Key.ToLower())
+                    || m.SNV_P3M2_ID.ToLower().Contains(SNV_ID_Key.ToLower())
+                    || m.SNV_P3M3_ID.ToLower().Contains(SNV_ID_Key.ToLower())
+                ).ToList();
             }
 
             return SNV_mutations;

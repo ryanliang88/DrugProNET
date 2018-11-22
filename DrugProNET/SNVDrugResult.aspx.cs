@@ -1,8 +1,8 @@
 ﻿using DrugProNET.Advertisement;
+using DrugProNET.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
@@ -13,9 +13,11 @@ namespace DrugProNET
     {
         private const string QUERY_PAGE = "SNVDrugQuery.aspx";
 
-        private List<Drug_Information> drugs;
+        private List<Drug_Information> drugs = new List<Drug_Information>();
         private List<SNV_Mutations> mutations;
-        private List<PDB_Interactions> interactions;
+        private List<PDB_Interactions> interactions = new List<PDB_Interactions>();
+        private Protein_Information protein;
+        private SNV_Mutations proteinMutation;
 
         public string SNV_ID_Key;
 
@@ -25,36 +27,43 @@ namespace DrugProNET
 
             SNV_ID_Key = Request.QueryString["query_string"];
 
-            string stringAfterPDot = SNV_ID_Key.Substring(SNV_ID_Key.IndexOf("p.") + 2);
-            string specifiedAAType = new string(stringAfterPDot.TakeWhile(c => char.IsLetter(c)).ToArray());
-            string specifiedAANumber = new string(stringAfterPDot.Substring(specifiedAAType.Length).TakeWhile(c => char.IsNumber(c)).ToArray());
-            string specifiedAA = specifiedAAType + "-" + specifiedAANumber;
-
-            mutations = EF_Data.GetMutationsBySNVIDKey(SNV_ID_Key);
-            Protein_Information protein = EF_Data.GetProtein(EF_Data.GetMutationBySNVIDKey(SNV_ID_Key).UniProt_ID);
-
-            interactions = new List<PDB_Interactions>();
-            drugs = new List<Drug_Information>();
-            foreach (SNV_Mutations mutation in mutations)
+            try
             {
-                Drug_Information drug = EF_Data.GetDrug(mutation.Drug_PDB_ID);
+                string stringAfterPDot = SNV_ID_Key.Substring(SNV_ID_Key.IndexOf("p.") + 2);
+                string specifiedAAType = new string(stringAfterPDot.TakeWhile(c => char.IsLetter(c)).ToArray());
+                string specifiedAANumber = new string(stringAfterPDot.Substring(specifiedAAType.Length).TakeWhile(c => char.IsNumber(c)).ToArray());
+                string specifiedAA = specifiedAAType + "-" + specifiedAANumber;
 
-                drugs.Add(drug);
+                mutations = EF_Data.GetMutationsBySNVIDKey(SNV_ID_Key);
+                proteinMutation = EF_Data.GetMutationBySNVIDKey(SNV_ID_Key);
+                protein = EF_Data.GetProteinByUniprotID(proteinMutation.UniProt_ID);
 
-                PDB_Interactions interaction = EF_Data.GetPDB_Interaction(mutation.UniProt_ID, mutation.Drug_PDB_ID, specifiedAA);
+                foreach (SNV_Mutations mutation in mutations)
+                {
+                    Drug_Information drug = EF_Data.GetDrugByDrugPDBID(mutation.Drug_PDB_ID);
 
-                interactions.Add(interaction);
+                    drugs.Add(drug);
+
+                    PDB_Interactions interaction = EF_Data.GetPDB_Interaction(mutation.UniProt_ID, mutation.Drug_PDB_ID, specifiedAA);
+
+                    interactions.Add(interaction);
+                }
+
+                Session["drugs"] = drugs;
+                Session["interactions"] = interactions;
+                Session["mutations"] = mutations;
+                Session["SNV_ID_Key"] = SNV_ID_Key;
+
+                LoadSNVID(SNV_ID_Key);
+                LoadTargetGeneID(protein, mutations[0]);
+
+                CreateIDofPDILinkedSNVTable(drugs, interactions, mutations);
             }
-
-            Session["drugs"] = drugs;
-            Session["interactions"] = interactions;
-            Session["mutations"] = mutations;
-            Session["SNV_ID_Key"] = SNV_ID_Key;
-
-            LoadSNVID(SNV_ID_Key);
-            LoadTargetGeneID(protein, mutations[0]);
-
-            CreateIDofPDILinkedSNVTable(drugs, interactions, mutations);
+            catch (Exception)
+            {
+                Page.Master.FindControl("BodyContentPlaceHolder").Visible = false;
+                ExceptionUtilities.DisplayAlert(this, QUERY_PAGE);
+            }
         }
 
         private void LoadSNVID(string SNV_Key)
@@ -88,14 +97,33 @@ namespace DrugProNET
 
             IDofPDILinkedSNVTable.Rows.Add(tableHeaderRow);
 
+            List<DrugResultRow> rows = new List<DrugResultRow>();
+
             for (int i = 0; i < drugs.Count; i++)
             {
-                TableRow tableRow = CreateTableRow(drugs[i], interactions[i], mutations[i]);
-                
-                // NOT SORTED
-                IDofPDILinkedSNVTable.Rows.Add(tableRow);
+                rows.Add(new DrugResultRow
+                {
+                    drug = drugs[i],
+                    interaction = interactions[i],
+                    mutation = mutations[i]
+                });
+            }
+
+            rows = rows.OrderByDescending(r => double.Parse(r.interaction?.Interaction_Distance_Ratio ?? "0")).ToList();
+
+            for (int i = 0; i < rows.Count; i++)
+            {
+                IDofPDILinkedSNVTable.Rows.Add(CreateTableRow(rows[i].drug, rows[i].interaction, rows[i].mutation));
             }
         }
+
+        public class DrugResultRow {
+
+            public Drug_Information drug;
+            public PDB_Interactions interaction;
+            public SNV_Mutations mutation;
+        }
+
 
         private TableRow CreateTableRow(Drug_Information drug, PDB_Interactions interaction, SNV_Mutations mutation)
         {
@@ -167,10 +195,13 @@ namespace DrugProNET
 
         protected void Download_Button_Click(object sender, EventArgs e)
         {
+            SNV_ID_Key = (string)Session["SNV_ID_Key"];
+
             Response.ClearContent();
             Response.Clear();
             Response.ContentType = "application/x-unknown";
-            Response.AddHeader("Content-Disposition", "attachment; filename=spreadsheet.xlsx");
+            Response.AddHeader("Content-Disposition", "attachment; " +
+                "filename=DrugProNET_SNV ID " + SNV_ID_Key + ".xlsx");
 
             List<string> header = new List<string>() { "Drug Name", "PDB File No.", "Drug PDB No.",
                 "Drug PubChem CID",  "Drug ChEMBL ID", "Importance for Drug", "Effect of Mutation" };
@@ -178,7 +209,6 @@ namespace DrugProNET
             drugs = (List<Drug_Information>)Session["drugs"];
             interactions = (List<PDB_Interactions>)Session["interactions"];
             mutations = (List<SNV_Mutations>)Session["mutations"];
-            SNV_ID_Key = (string)Session["SNV_ID_Key"];
 
             List<List<string>> data = new List<List<string>>();
 

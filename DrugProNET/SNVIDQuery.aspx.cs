@@ -1,13 +1,10 @@
-﻿using DrugProNET.Scripts;
+﻿using DrugProNET.Utility;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Diagnostics;
 using System.Linq;
-using System.Web;
 using System.Web.Script.Services;
 using System.Web.Services;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace DrugProNET
@@ -36,7 +33,7 @@ namespace DrugProNET
             amino_acid_specification_drop_down.Items.Clear();
             amino_acid_specification_drop_down.Items.Add(DROP_DOWN_PROMPT_MESSAGE);
 
-            Protein_Information protein = EF_Data.GetProtein(search_textBox.Text);
+            Protein_Information protein = EF_Data.GetProteinsInfoQuery(search_textBox.Text).FirstOrDefault();
 
             if (protein != null)
             {
@@ -45,7 +42,7 @@ namespace DrugProNET
 
                 foreach (PDB_Information pdb in pdbList)
                 {
-                    Drug_Information drug = EF_Data.GetDrug(pdb.Drug_PDB_ID);
+                    Drug_Information drug = EF_Data.GetDrugByDrugPDBID(pdb.Drug_PDB_ID);
                     if (drug != null)
                     {
                         drugList.Add(drug);
@@ -93,26 +90,11 @@ namespace DrugProNET
                     amino_acid_specification_drop_down.Items.Add(DROP_DOWN_NO_MATCHES_MESSAGE);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 amino_acid_specification_drop_down.Items.Clear();
                 amino_acid_specification_drop_down.Items.Add(DROP_DOWN_PROMPT_MESSAGE);
             }
-        }
-
-        private List<ListItem> GenerateListItemsFromValues(params string[] values)
-        {
-            List<ListItem> listItemList = new List<ListItem>();
-
-            foreach (string value in values)
-            {
-                if (!string.IsNullOrEmpty(value))
-                {
-                    listItemList.Add(new ListItem(value, value, true));
-                }
-            }
-
-            return listItemList;
         }
 
         [WebMethod]
@@ -126,25 +108,19 @@ namespace DrugProNET
             {
                 try
                 {
-                    using (DrugProNETEntities context = new DrugProNETEntities())
-                    {
-                        DbSet<Protein_Information> dbSet = context.Protein_Information;
+                    List<Protein_Information> proteins = EF_Data.GetProteinsInfoQuery(prefixText);
 
-                        foreach (Protein_Information p in dbSet)
-                        {
-                            if (HasMatch(prefixText,
-                                p.NCBI_Gene_Name,
-                                p.Protein_Full_Name,
-                                p.Protein_Short_Name,
-                                p.Uniprot_ID,
-                                p.NCBI_RefSeq_NP_ID))
-                            {
-                                if (!string.IsNullOrEmpty(p.Uniprot_ID))
-                                {
-                                    valuesList.Add(p.Uniprot_ID);
-                                }
-                            }
-                        }
+                    foreach (Protein_Information p in proteins)
+                    {
+                        valuesList.Add(p.Protein_Short_Name);
+                        valuesList.Add(p.Protein_Full_Name);
+                        valuesList.Add(p.NCBI_Gene_ID);
+                        valuesList.Add(p.PDB_Protein_Name);
+                        valuesList.Add(p.Protein_Alias);
+                        valuesList.Add(p.Uniprot_ID);
+                        valuesList.Add(p.NCBI_RefSeq_NP_ID);
+                        valuesList.Add(p.NCBI_Gene_Name);
+                        valuesList.Add(p.PhosphoNET_Name);
                     }
                 }
                 catch (Exception ex)
@@ -153,9 +129,7 @@ namespace DrugProNET
                 }
             }
 
-            const int maxAutocompleteLength = 5;
-
-            return valuesList.Count >= maxAutocompleteLength ? valuesList.GetRange(0, 5) : valuesList;
+            return DataUtilities.FilterDropdownList(valuesList, prefixText, true);
         }
 
         protected void Generate(object sender, EventArgs e)
@@ -168,7 +142,8 @@ namespace DrugProNET
             {
                 Response.Redirect("SNVIDResult.aspx?query_string=" + search_textBox.Text
                     + "&drug_specification=" + drug_specification_drop_down.SelectedItem.Value
-                    + "&snv_id_key=" + amino_acid_specification_drop_down.SelectedItem.Value, true);
+                    + "&snv_id_key=" + amino_acid_specification_drop_down.SelectedItem.Value, false);
+                Context.ApplicationInstance.CompleteRequest();
             }
         }
 

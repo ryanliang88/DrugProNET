@@ -1,31 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Collections;
-using System.Xml;
-using System.IO;
-using System.Diagnostics;
-
-using DrugProNET.Advertisement;
-using System.Web.Services;
-using System.Web.Script.Services;
-using DrugProNET.Scripts;
-using System.Data.Entity;
+﻿using DrugProNET.Advertisement;
 using DrugProNET.Utility;
+using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Web.Script.Services;
+using System.Web.Services;
+using System.Web.UI.WebControls;
 
 namespace DrugProNET
 {
     public partial class DrugInfo : AdvertiseablePage
     {
-        private static List<string> cached;
-
         protected void RetrieveData(object sender, EventArgs e)
         {
             string query = search_textBox.Text;
-            Response.Redirect("DrugInfoResult.aspx?query_string=" + query, true);
+            Response.Redirect("DrugInfoResult.aspx?query_string=" + query, false);
+            Context.ApplicationInstance.CompleteRequest();
         }
 
         protected void ResetForm(object sender, EventArgs e)
@@ -37,35 +28,18 @@ namespace DrugProNET
         [ScriptMethod]
         public static List<string> GetAutoCompleteData(string prefixText, int count)
         {
-            if (cached == null)
+            const int minPrefixLength = 3;
+            List<string> valuesList = new List<string>();
+
+            if (prefixText.Length >= minPrefixLength)
             {
                 try
                 {
-                    List<string> valuesList = new List<string>();
+                    List<Drug_Information> drugs = EF_Data.GetDrugsInfoQuery(prefixText);
 
-                    using (DrugProNETEntities context = new DrugProNETEntities())
+                    foreach (Drug_Information drug in drugs)
                     {
-                        DbSet<Drug_Information> dbSet = context.Drug_Information;
-
-                        foreach (Drug_Information d in dbSet.ToList())
-                        {
-                            DataUtilities.AddIfExists(valuesList,
-                                d.Compound_CAS_ID,
-                                d.ChEMBL_ID,
-                                d.PubChem_SID,
-                                d.Drug_PDB_ID,
-                                d.Drug_Common_Name,
-                                d.Drug_Chemical_Name,
-                                d.Other_Drug_Name_Alias,
-                                d.Drug_InChl,
-                                d.ChemSpider_ID,
-                                d.ChEBI_ID);
-                        }
-
-                        if (valuesList.Count != 0)
-                        {
-                            cached = valuesList;
-                        }
+                        valuesList.Add(drug.Drug_Name_for_Pull_Down_Menu);
                     }
                 }
                 catch (Exception ex)
@@ -74,8 +48,7 @@ namespace DrugProNET
                 }
             }
 
-            int maxResultSize = 5;
-            return MatchFinder.FindTopNMatches(prefixText, cached, maxResultSize);
+            return DataUtilities.FilterDropdownList(valuesList);
         }
     }
 }

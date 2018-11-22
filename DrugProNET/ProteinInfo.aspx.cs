@@ -1,22 +1,17 @@
 ﻿using DrugProNET.Advertisement;
-using DrugProNET.Scripts;
+using DrugProNET.Utility;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Diagnostics;
 using System.Linq;
-using System.Web;
 using System.Web.Script.Services;
 using System.Web.Services;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace DrugProNET
 {
     public partial class ProteinInfo : AdvertiseablePage
     {
-        private static List<string> cached;
-
         protected void RetrieveData(object sender, EventArgs e)
         {
             string query = search_textBox.Text;
@@ -36,32 +31,23 @@ namespace DrugProNET
             const int minPrefixLength = 3;
             List<string> valuesList = new List<string>();
 
-            if (cached == null && prefixText.Length >= minPrefixLength)
+            if (prefixText.Length >= minPrefixLength)
             {
                 try
                 {
-                    using (DrugProNETEntities context = new DrugProNETEntities())
+                    List<Protein_Information> proteins = EF_Data.GetProteinsInfoQuery(prefixText);
+
+                    foreach (Protein_Information p in proteins)
                     {
-                        DbSet<Protein_Information> dbSet = context.Protein_Information;
-
-                        foreach (Protein_Information p in dbSet.ToList())
-                        {
-                            AddIfExists(valuesList,
-                                p.Protein_Short_Name,
-                                p.Protein_Full_Name,
-                                p.NCBI_Gene_ID,
-                                p.PDB_Protein_Name,
-                                p.Protein_Alias,
-                                p.Uniprot_ID,
-                                p.NCBI_RefSeq_NP_ID,
-                                p.NCBI_Gene_Name,
-                                p.PhosphoNET_Name);
-                        }
-
-                        if (valuesList.Count != 0)
-                        {
-                            cached = valuesList;
-                        }
+                        valuesList.Add(p.Protein_Short_Name);
+                        valuesList.Add(p.Protein_Full_Name);
+                        valuesList.Add(p.NCBI_Gene_ID);
+                        valuesList.Add(p.PDB_Protein_Name);
+                        valuesList.Add(p.Protein_Alias);
+                        valuesList.Add(p.Uniprot_ID);
+                        valuesList.Add(p.NCBI_RefSeq_NP_ID);
+                        valuesList.Add(p.NCBI_Gene_Name);
+                        valuesList.Add(p.PhosphoNET_Name);
                     }
                 }
                 catch (Exception ex)
@@ -70,19 +56,7 @@ namespace DrugProNET
                 }
             }
 
-            const int maxResultSize = 5;
-            return MatchFinder.FindTopNMatches(prefixText, cached, maxResultSize);
-        }
-
-        private static void AddIfExists(List<string> list, params string[] values)
-        {
-            foreach (string value in values)
-            {
-                if (!string.IsNullOrEmpty(value))
-                {
-                    list.Add(value);
-                }
-            }
+            return DataUtilities.FilterDropdownList(valuesList, prefixText, true);
         }
     }
 }

@@ -21,7 +21,7 @@ namespace DrugProNET
 
             string query = Request.QueryString["query_string"];
 
-            Protein_Information protein = EF_Data.GetProtein(query);
+            Protein_Information protein = EF_Data.GetProteinsInfoQuery(query).FirstOrDefault();
 
             if (protein != null)
             {
@@ -29,7 +29,8 @@ namespace DrugProNET
             }
             else
             {
-                ExceptionUtilities.Redirect(this, QUERY_PAGE);
+                Page.Master.FindControl("BodyContentPlaceHolder").Visible = false;
+                ExceptionUtilities.DisplayAlert(this, QUERY_PAGE);
             }
          
         }
@@ -75,7 +76,7 @@ namespace DrugProNET
             if (allEmpty)
             {
                 control.Visible = false;
-            }   
+            }
         }
 
         private static void ProcessControls(Control control, params Control[] controls)

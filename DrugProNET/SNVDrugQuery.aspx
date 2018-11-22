@@ -55,7 +55,7 @@
         <div class="c-col side-content"></div>
         <div class="c-col body-content">
             <asp:TextBox CssClass="textBox" ID="snv_specification_textbox" runat="server" value="" placeholder="Type in the SNV according to format above" />
-            <asp:AutoCompleteExtender ID="AutoCompleteExtender" runat="server" ServiceMethod="GetAutoCompleteData" TargetControlID="snv_specification_textbox" CompletionInterval="100" CompletionSetCount="5" MinimumPrefixLength="1" />
+            <asp:AutoCompleteExtender ID="AutoCompleteExtender" runat="server" ServiceMethod="GetAutoCompleteData" TargetControlID="snv_specification_textbox" CompletionInterval="1000" CompletionListCssClass="completionList" CompletionListItemCssClass="listItem" CompletionListHighlightedItemCssClass="listItemHighlighted" EnableCaching="true" />
         </div>
     </div>
 

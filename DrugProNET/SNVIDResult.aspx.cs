@@ -2,8 +2,6 @@
 using DrugProNET.Utility;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
@@ -20,22 +18,22 @@ namespace DrugProNET
         {
             base.Page_Load(sender, e);
 
-            string protein_specification = Request.QueryString["query_string"];
-            string drug_specification = Request.QueryString["drug_specification"];
-            string SNV_Key = Request.QueryString["snv_id_key"];
-
-            // Any one of the EF_Data functions could return a null for this page
             try
             {
+                string protein_specification = Request.QueryString["query_string"];
+                string drug_specification = Request.QueryString["drug_specification"];
+                string SNV_Key = Request.QueryString["snv_id_key"];
+
+                Session["SNV_Key"] = SNV_Key;
+
                 Protein_Information protein = EF_Data.GetProtein(protein_specification);
-                Drug_Information drug = EF_Data.GetDrug(drug_specification);
+                Drug_Information drug = EF_Data.GetDrugUsingDropDownName(drug_specification);
                 PDB_Information PDB = EF_Data.GetPDBInfo(protein, drug);
 
-                int firstHyphen = SNV_Key.IndexOf('-');
-                int secondHyphen = SNV_Key.Substring(firstHyphen + 1).IndexOf('-') + firstHyphen;
+                string[] SNV_KEYsplit = SNV_Key.Split('-');
 
-                // extra '-' at end
-                string amino_acid_specification = SNV_Key.Substring(firstHyphen + 1, secondHyphen - 2);
+                // Retrieve second and third elements
+                string amino_acid_specification = SNV_KEYsplit[1] + "-" + SNV_KEYsplit[2];
 
                 PDB_Interactions interaction = EF_Data.GetPDB_Interaction(protein.Uniprot_ID, drug.Drug_PDB_ID, amino_acid_specification);
                 mutation = EF_Data.GetMutationBySNVKey(SNV_Key);
@@ -48,11 +46,11 @@ namespace DrugProNET
 
                 CreateSNVIdentificationTable(mutation);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                ExceptionUtilities.Redirect(this, QUERY_PAGE);
+                Page.Master.FindControl("BodyContentPlaceHolder").Visible = false;
+                ExceptionUtilities.DisplayAlert(this, QUERY_PAGE);
             }
-           
         }
 
         public void LoadProtein(Protein_Information protein, PDB_Interactions interaction, SNV_Mutations mutation)
@@ -94,7 +92,8 @@ namespace DrugProNET
             Response.ClearContent();
             Response.Clear();
             Response.ContentType = "application/x-unknown";
-            Response.AddHeader("Content-Disposition", "attachment; filename=spreadsheet.xlsx");
+            Response.AddHeader("Content-Disposition", "attachment; " +
+                "filename=DrugProNET_SNV " + Session["SNV_Key"] + ".xlsx");
 
             mutation = (SNV_Mutations)Session["mutation"];
 

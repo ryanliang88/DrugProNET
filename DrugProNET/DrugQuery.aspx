@@ -12,6 +12,12 @@
             __doPostBack('<%= search_drop_down_UpdatePanel.ClientID %>', '');
         };
     </script>
+    <script type="text/javascript">
+        function selectedItem(sender, args) {
+            __doPostBack(sender.get_element().name, '');
+        };
+    </script>
+
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="BodyContentPlaceHolder">
@@ -57,7 +63,7 @@
             </p>
 
             <asp:TextBox CssClass="textBox" ID="search_textBox" runat="server" value="" placeholder="Type in at least 3 letters of the search term" OnTextChanged="Search_Textbox_Changed" onkeyup="RefreshUpdatePanel();" />
-            <asp:AutoCompleteExtender ID="AutoCompleteExtender" runat="server" ServiceMethod="GetAutoCompleteData" TargetControlID="search_textBox" CompletionInterval="100" CompletionSetCount="5" MinimumPrefixLength="1" />
+            <asp:AutoCompleteExtender ID="AutoCompleteExtender" OnClientItemSelected="selectedItem" runat="server" ServiceMethod="GetAutoCompleteData" TargetControlID="search_textBox" CompletionInterval="1000" CompletionListCssClass="completionList" CompletionListItemCssClass="listItem" CompletionListHighlightedItemCssClass="listItemHighlighted" EnableCaching="true" />
         </div>
     </div>
 
@@ -90,21 +96,21 @@
             <p>Use the pull-down menu below to select the maximum value for interaction distance (in Angstroms) between atoms.</p>
 
             <asp:DropDownList CssClass="drop-down" ID="interaction_distance_drop_down" runat="server" value="">
-                <asp:ListItem Text="5" Value="5"></asp:ListItem>
-                <asp:ListItem Text="0.5" Value="0.5"></asp:ListItem>
-                <asp:ListItem Text="1" Value="1"></asp:ListItem>
-                <asp:ListItem Text="1.5" Value="1.5"></asp:ListItem>
-                <asp:ListItem Text="2" Value="2"></asp:ListItem>
-                <asp:ListItem Text="2.5" Value="2.5"></asp:ListItem>
-                <asp:ListItem Text="3" Value="3"></asp:ListItem>
-                <asp:ListItem Text="3.5" Value="3.5"></asp:ListItem>
-                <asp:ListItem Text="4" Value="4"></asp:ListItem>
-                <asp:ListItem Text="4.5" Value="4.5"></asp:ListItem>
-                <asp:ListItem Text="5.5" Value="5.5"></asp:ListItem>
-                <asp:ListItem Text="6" Value="6"></asp:ListItem>
-                <asp:ListItem Text="6.5" Value="6.5"></asp:ListItem>
-                <asp:ListItem Text="7" Value="7"></asp:ListItem>
-                <asp:ListItem Text="7.5" Value="7.5"></asp:ListItem>
+                <asp:ListItem Text="0.5" Value="0.5" />
+                <asp:ListItem Text="1" Value="1" />
+                <asp:ListItem Text="1.5" Value="1.5" />
+                <asp:ListItem Text="2" Value="2" />
+                <asp:ListItem Text="2.5" Value="2.5" />
+                <asp:ListItem Text="3" Value="3" />
+                <asp:ListItem Text="3.5" Value="3.5" />
+                <asp:ListItem Text="4" Value="4" />
+                <asp:ListItem Text="4.5" Value="4.5" />
+                <asp:ListItem Text="5" Value="5" Selected="True" />
+                <asp:ListItem Text="5.5" Value="5.5" />
+                <asp:ListItem Text="6" Value="6" />
+                <asp:ListItem Text="6.5" Value="6.5" />
+                <asp:ListItem Text="7" Value="7" />
+                <asp:ListItem Text="7.5" Value="7.5" />
             </asp:DropDownList>
         </div>
     </div>

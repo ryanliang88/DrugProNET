@@ -12,6 +12,11 @@
             __doPostBack('<%= search_drop_down_UpdatePanel.ClientID %>', '');
         };
     </script>
+    <script type="text/javascript">
+        function selectedItem(sender, args) {
+            __doPostBack(sender.get_element().name, '');
+        };
+    </script>
 
 </asp:Content>
 
@@ -33,15 +38,15 @@
         </div>
         <div class="c-col advertisment-content">
             <asp:UpdatePanel ID="ad_update_panel" runat="server" UpdateMode="Conditional">
-                <contenttemplate>
+                <ContentTemplate>
                     <asp:Timer ID="ad_refresh_timer" runat="server" Interval="10000" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
                     <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server">
                         <asp:Image ImageUrl="imageUrl" runat="server" ID="adBanner" AlternateText="" />
                     </asp:HyperLink>
-                </contenttemplate>
-                <triggers>
+                </ContentTemplate>
+                <Triggers>
                     <asp:AsyncPostBackTrigger ControlID="ad_refresh_timer" EventName="Tick" />
-                </triggers>
+                </Triggers>
             </asp:UpdatePanel>
         </div>
     </div>
@@ -59,7 +64,8 @@
             </p>
 
             <asp:TextBox CssClass="textBox" ID="search_textBox" runat="server" value="" placeholder="Type in at least 3 letters of the search term" OnTextChanged="Search_Textbox_Changed" onkeyup="RefreshUpdatePanel();" />
-            <asp:AutoCompleteExtender ID="AutoCompleteExtender" runat="server" ServiceMethod="GetAutoCompleteData" TargetControlID="search_textBox" CompletionInterval="100" CompletionSetCount="5" MinimumPrefixLength="1" />
+            <asp:AutoCompleteExtender ID="AutoCompleteExtender" runat="server" ServiceMethod="GetAutoCompleteData" TargetControlID="search_textBox" CompletionInterval="1000" CompletionListCssClass="completionList" CompletionListItemCssClass="listItem" CompletionListHighlightedItemCssClass="listItemHighlighted" EnableCaching="true"
+                OnClientItemSelected="selectedItem" />
         </div>
     </div>
 
@@ -71,14 +77,14 @@
             <p>Use the pull-down menu below to select for the drug of interest.</p>
 
             <asp:UpdatePanel ID="search_drop_down_UpdatePanel" runat="server" UpdateMode="Conditional">
-                <contenttemplate>
+                <ContentTemplate>
                     <asp:DropDownList CssClass="drop-down" ID="search_drop_down" runat="server">
                         <asp:ListItem Text="Select from list of output options" Value="0" />
                     </asp:DropDownList>
-                </contenttemplate>
-                <triggers>
+                </ContentTemplate>
+                <Triggers>
                     <asp:AsyncPostBackTrigger ControlID="search_textBox" EventName="TextChanged" />
-                </triggers>
+                </Triggers>
             </asp:UpdatePanel>
 
         </div>
@@ -91,7 +97,6 @@
             <h3 class="h3-body-title">Step 3 - Interaction Distance Specification</h3>
             <p>Use the pull-down menu below to select the maximum value for interaction distance (in Angstroms) between atoms.</p>
             <asp:DropDownList CssClass="drop-down" ID="interaction_distance_drop_down" runat="server" value="">
-                <asp:ListItem Text="5" Value="5" />
                 <asp:ListItem Text="0.5" Value="0.5" />
                 <asp:ListItem Text="1" Value="1" />
                 <asp:ListItem Text="1.5" Value="1.5" />
@@ -101,6 +106,7 @@
                 <asp:ListItem Text="3.5" Value="3.5" />
                 <asp:ListItem Text="4" Value="4" />
                 <asp:ListItem Text="4.5" Value="4.5" />
+                <asp:ListItem Text="5" Value="5" Selected="True"/>
                 <asp:ListItem Text="5.5" Value="5.5" />
                 <asp:ListItem Text="6" Value="6" />
                 <asp:ListItem Text="6.5" Value="6.5" />

@@ -21,7 +21,7 @@
 </head>
 <body>
     <form runat="server">
-        <asp:ScriptManager ID="script_manager" runat="server" EnablePageMethods="true" EnableCdn="true" EnablePartialRendering="true"/>
+        <asp:ScriptManager ID="script_manager" runat="server" EnablePageMethods="true" EnableCdn="true" EnablePartialRendering="true" />
         <div class="main-container">
             <div id="website-banner" class="banner">
                 <img id="banner-image" src="./images/DrugProNETBanner.png" alt="Unable to display image" usemap="#banner-map">
@@ -39,7 +39,7 @@
                     <li><a id="4" href="http://www.onconet.ca" target="_blank">OncoNET</a></li>
                     <li><a id="5" href="http://www.kinasenet.ca" target="_blank">KinaseNET</a></li>
                     <li><a id="6" href="http://www.drugkinet.ca" target="_blank">DrugKiNET</a></li>
-                    <li><a id="7" href="http://www.drugpronet.ca" target="_blank">DrugProNET</a></li>
+                    <li><a id="7" href="http://www.drugpronet.ca">DrugProNET</a></li>
                     <li><a id="8" href="http://www.kinet-am.ca" target="_blank">KiNET-AM</a></li>
                     <li><a id="9" href="http://www.kinexus.ca/kinetica" target="_blank">Kinetica Online</a></li>
                 </ul>
@@ -64,7 +64,7 @@
                 <ul class="secondary-navigation horizontal-list col">
                     <div class="float-left">
                         <li class="updated_text">
-                            <p class="updated_text">Updated December 2018</p>
+                            <p class="updated_text">Updated January 2019</p>
                         </li>
                     </div>
                     <div>
@@ -110,7 +110,7 @@
                     </ul>
                 </div>
                 <footer class="c-col body-content footer-content">
-                    <h2>Copyright © 2018 Kinexus Bioinformatics Corporation. All rights reserved.</h2>
+                    <h2>Copyright © 2019 Kinexus Bioinformatics Corporation. All rights reserved.</h2>
                 </footer>
             </div>
         </div>

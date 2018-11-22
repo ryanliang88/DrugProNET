@@ -301,3 +301,26 @@ footer {
 .updated_text {
     color: #8D86C0 !important;
 }
+
+.completionList {
+    width: auto;
+    border: solid 1px #444444;
+    margin: 0px;
+    padding: 2px;
+    height: auto;
+    max-height: 200px;
+    overflow: auto;
+    background-color: #FFFFFF;
+}
+
+.listItem {
+    list-style-type: none;
+    margin-left: 0px;
+    background-color: white;
+    color: black;
+}
+
+.listItemHighlighted {
+    background-color: #1E90FF;
+    color: white;
+}

@@ -1,17 +1,13 @@
-﻿using DrugProNET.Utility;
+﻿using DrugProNET.Advertisement;
+using DrugProNET.Utility;
 using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Diagnostics;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace DrugProNET
 {
-    public partial class DrugInfoResult : Advertisement.AdvertiseablePage
+    public partial class DrugInfoResult : AdvertiseablePage
     {
         private const string QUERY_PAGE = "DrugInfo.aspx";
 
@@ -23,22 +19,32 @@ namespace DrugProNET
 
             string query = Request.QueryString["query_string"];
 
-            drug = EF_Data.GetDrug(query);
-
-            if (drug != null)
+            try
             {
-                LoadData(drug);
-            }
-            else
-            {
-                ExceptionUtilities.DisplayAlert(this, QUERY_PAGE);
-            }
+                drug = EF_Data.GetDrugUsingDropDownName(query);
 
+                if (drug != null)
+                {
+                    LoadData(drug);
+                }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
 
         protected void Page_LoadComplete(object sender, EventArgs e)
         {
-            //ScriptManager.RegisterStartupScript(Page, GetType(), "D_3DViewer_Info", "javascript:loadDrugLigandInfo('" + drug.Drug_PDB_ID + "');", true);
+            try
+            {
+                ScriptManager.RegisterStartupScript(Page, GetType(), "D_3DViewer_Info", "javascript:loadDrugLigandInfo('" + drug.Drug_PDB_ID + "');", true);
+            }
+            catch (Exception)
+            {
+                Page.Master.FindControl("BodyContentPlaceHolder").Visible = false;
+                ExceptionUtilities.DisplayAlert(this, QUERY_PAGE);
+            }
         }
 
         private void ProcessRow(Control control, Control textControl, string text, string url = null)
@@ -58,7 +64,7 @@ namespace DrugProNET
             }
             else
             {
-                ((HtmlGenericControl)control).Visible = false;
+                control.Visible = false;
             }
         }
 

@@ -1,6 +1,8 @@
 ﻿using DrugProNET.Advertisement;
+using DrugProNET.Utility;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Script.Services;
@@ -21,14 +23,23 @@ namespace DrugProNET
         [ScriptMethod]
         public static List<string> GetAutoCompleteData(string prefixText, int count)
         {
-            const int minPrefixLength = 3;
             List<string> valuesList = new List<string>();
 
+            const int minPrefixLength = 14;
             if (prefixText.Length >= minPrefixLength)
             {
                 try
                 {
-                    
+                    List<SNV_Mutations> SNV_mutations = EF_Data.GetMutationsBySNVIDKeyContains(prefixText);
+
+                    foreach (SNV_Mutations mutation in SNV_mutations)
+                    {
+                        valuesList.AddRange(new List<string> {  mutation.SNV_P1W_ID, mutation.SNV_P2W_ID, mutation.SNV_P3W_ID,
+                                                    mutation.SNV_P1M1_ID, mutation.SNV_P1M2_ID,mutation.SNV_P1M3_ID,
+                                                    mutation.SNV_P2M1_ID, mutation.SNV_P2M2_ID, mutation.SNV_P2M3_ID,
+                                                    mutation.SNV_P3M1_ID, mutation.SNV_P3M2_ID, mutation.SNV_P3M3_ID, }
+                        );
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -36,14 +47,13 @@ namespace DrugProNET
                 }
             }
 
-            const int maxAutocompleteLength = 5;
-
-            return valuesList.Count >= maxAutocompleteLength ? valuesList.GetRange(0, 5) : valuesList;
+            return DataUtilities.FilterDropdownList(valuesList, prefixText, true);
         }
 
         protected void Generate(object sender, EventArgs e)
         {
-            Response.Redirect("SNVDrugResult.aspx?query_string=" + snv_specification_textbox.Text);
+            Response.Redirect("SNVDrugResult.aspx?query_string=" + snv_specification_textbox.Text, false);
+            Context.ApplicationInstance.CompleteRequest();
         }
 
         protected void Reset(object sender, EventArgs e)

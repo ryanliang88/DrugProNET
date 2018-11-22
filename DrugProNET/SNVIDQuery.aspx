@@ -19,6 +19,12 @@
             __doPostBack('<%= amino_acid_specification_updatePanel.ClientID %>', '');
         };
     </script>
+
+    <script type="text/javascript">
+        function selectedItem(sender, args) {
+            __doPostBack(sender.get_element().name, '');
+        };
+    </script>
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="BodyContentPlaceHolder">
@@ -67,7 +73,8 @@
             </p>
 
             <asp:TextBox CssClass="textBox" ID="search_textBox" runat="server" value="" placeholder="Type in at least 3 letters of the search term" OnTextChanged="Search_Textbox_Changed" onkeyup="RefreshUpdatePanel();" />
-            <asp:AutoCompleteExtender ID="AutoCompleteExtender" runat="server" ServiceMethod="GetAutoCompleteData" TargetControlID="search_textBox" CompletionInterval="100" CompletionSetCount="5" MinimumPrefixLength="1" />
+            <asp:AutoCompleteExtender ID="AutoCompleteExtender" runat="server" ServiceMethod="GetAutoCompleteData" TargetControlID="search_textBox" CompletionInterval="1000" CompletionListCssClass="completionList" CompletionListItemCssClass="listItem" CompletionListHighlightedItemCssClass="listItemHighlighted" EnableCaching="true"
+                OnClientItemSelected="selectedItem" />
         </div>
     </div>
 
@@ -83,7 +90,6 @@
                 <ContentTemplate>
                     <asp:DropDownList CssClass="drop-down" ID="drug_specification_drop_down" runat="server" onchange="RefreshUpdatePanel2();" OnSelectedIndexChanged="LoadAminoAcidDropDown">
                     </asp:DropDownList>
-                    <p runat="server" id="loading_drug_specification_drop_down" class="loading">Loading<span>.</span><span>.</span><span>.</span></p>
                 </ContentTemplate>
                 <Triggers>
                     <asp:AsyncPostBackTrigger ControlID="search_textBox" EventName="TextChanged" />
@@ -109,7 +115,6 @@
                 <ContentTemplate>
                     <asp:DropDownList CssClass="drop-down" ID="amino_acid_specification_drop_down" runat="server">
                     </asp:DropDownList>
-                      <p runat="server" id="loading_amino_acid_specification_drop_down" class="loading">Loading<span>.</span><span>.</span><span>.</span></p>
                 </ContentTemplate>
                 <Triggers>
                     <asp:AsyncPostBackTrigger ControlID="drug_specification_drop_down" EventName="SelectedIndexChanged" />
@@ -127,7 +132,7 @@
             <h3 class="h3-body-title">Step 4 - Report Generation</h3>
             <p>Click on the box below to produce custom tables with results or to reset the parameters.</p>
 
-            <asp:Button ID="generate_table_button" CssClass="button" Text="Generate Table" runat="server" OnClick="Generate"/>
+            <asp:Button ID="generate_table_button" CssClass="button" Text="Generate Table" runat="server" OnClick="Generate" />
             <span>&emsp;&emsp;</span>
             <asp:Button ID="reset_button" CssClass="button" Text="Reset" runat="server" />
         </div>

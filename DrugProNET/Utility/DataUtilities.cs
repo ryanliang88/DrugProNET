@@ -6,9 +6,8 @@ using System.Web.UI.WebControls;
 
 namespace DrugProNET.Utility
 {
-    public class DataUtilities
+    public static class DataUtilities
     {
-
         public static void AddIfExists(List<string> list, params string[] values)
         {
             foreach (string value in values)
@@ -33,6 +32,23 @@ namespace DrugProNET.Utility
             }
 
             return listItemList;
+        }
+
+        public static List<string> FilterDropdownList(List<string> valuesList, string prefixText = null, bool startsWith = false)
+        {
+            if (prefixText != null)
+            {
+                if (startsWith)
+                {
+                    valuesList = valuesList.Where(v => v.ToLower().StartsWith(prefixText.ToLower())).ToList();
+                }
+                else
+                {
+                    valuesList = valuesList.Where(v => v.ToLower().Contains(prefixText.ToLower())).ToList();
+                }
+            }
+
+            return valuesList.Where(s => !string.IsNullOrEmpty(s.Trim())).Distinct(StringComparer.CurrentCultureIgnoreCase).OrderBy(alphabet => alphabet).ToList();
         }
     }
 }

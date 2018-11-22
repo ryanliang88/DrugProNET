@@ -46,7 +46,7 @@
             <asp:UpdatePanel ID="search_textBox_UpdatePanel" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
                     <asp:TextBox CssClass="textBox" ID="search_textBox" runat="server" placeholder="Type in at least 3 letters of the search term" />
-                    <asp:AutoCompleteExtender ID="AutoCompleteExtender" runat="server" ServiceMethod="GetAutoCompleteData" TargetControlID="search_textBox" CompletionInterval="100" CompletionSetCount="5" MinimumPrefixLength="1"></asp:AutoCompleteExtender>
+                    <asp:AutoCompleteExtender ID="AutoCompleteExtender" runat="server" ServiceMethod="GetAutoCompleteData" TargetControlID="search_textBox" CompletionInterval="1000" CompletionListCssClass="completionList" CompletionListItemCssClass="listItem" CompletionListHighlightedItemCssClass="listItemHighlighted" EnableCaching="true" />
                 </ContentTemplate>
             </asp:UpdatePanel>
             <h3 class="h3-body-title">Step 2 - Retrieve Compound Information</h3>

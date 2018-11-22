@@ -1,14 +1,11 @@
 ﻿using DrugProNET.Advertisement;
-using DrugProNET.Scripts;
+using DrugProNET.Utility;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Diagnostics;
 using System.Linq;
-using System.Web;
 using System.Web.Script.Services;
 using System.Web.Services;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace DrugProNET
@@ -24,36 +21,49 @@ namespace DrugProNET
         {
             List<Protein_Information> proteinList = new List<Protein_Information>();
 
-            Drug_Information drug = EF_Data.GetDrugUsingDropDownName(search_textBox.Text);
-
-            if (drug != null)
+            const int minPrefixLength = 3;
+            if (search_textBox.Text.Length >= minPrefixLength)
             {
-                List<PDB_Information> pdbInfoList = EF_Data.GetPDBInfoUsingDrug(drug.Drug_PDB_ID);
+                Drug_Information drug = EF_Data.GetDrugsQuery(search_textBox.Text).FirstOrDefault();
 
-                foreach (PDB_Information pdb in pdbInfoList)
+                if (drug != null)
                 {
-                    Protein_Information protein = EF_Data.GetProtein(pdb.Uniprot_ID);
-                    if (protein != null)
+                    List<PDB_Information> pdbInfoList = EF_Data.GetPDBInfoUsingDrug(drug.Drug_PDB_ID);
+
+                    foreach (PDB_Information pdb in pdbInfoList)
                     {
-                        proteinList.Add(protein);
+                        Protein_Information protein = EF_Data.GetProteinByUniprotID(pdb.Uniprot_ID);
+
+                        if (protein != null)
+                        {
+                            proteinList.Add(protein);
+                        }
                     }
                 }
-            }
 
-            if (proteinList.Count > 0)
-            {
-                search_drop_down.Items.Clear();
-                foreach (Protein_Information protein in proteinList)
+                if (proteinList.Count > 0)
                 {
-                    search_drop_down.Items.AddRange(
-                        GenerateListItemsFromValues(
-                            protein.Uniprot_ID,
-                            protein.Protein_Short_Name,
-                            protein.Protein_Full_Name,
-                            protein.Protein_Alias,
-                            protein.NCBI_RefSeq_NP_ID,
-                            protein.PhosphoNET_Name,
-                            protein.PDB_Protein_Name).ToArray());
+                    search_drop_down.Items.Clear();
+
+                    List<string> valuesList = new List<string>();
+
+                    foreach (Protein_Information protein in proteinList)
+                    {
+                        valuesList.Add(protein.Uniprot_ID);
+                        valuesList.Add(protein.Protein_Short_Name);
+                        valuesList.Add(protein.Protein_Full_Name);
+                        valuesList.Add(protein.Protein_Alias);
+                        valuesList.Add(protein.NCBI_RefSeq_NP_ID);
+                        valuesList.Add(protein.PhosphoNET_Name);
+                        valuesList.Add(protein.PDB_Protein_Name);
+                    }
+
+                    valuesList = DataUtilities.FilterDropdownList(valuesList);
+
+                    foreach (string value in valuesList)
+                    {
+                        search_drop_down.Items.Add(new ListItem(value, value, true));
+                    }
                 }
             }
         }
@@ -69,25 +79,16 @@ namespace DrugProNET
             {
                 try
                 {
-                    Drug_Information drug = EF_Data.GetDrug(prefixText);
+                    List<Drug_Information> drugs = EF_Data.GetDrugsQuery(prefixText);
 
-                    using (DrugProNETEntities context = new DrugProNETEntities())
+                    foreach (Drug_Information drug in drugs)
                     {
-                        DbSet<Drug_Information> dbSet = context.Drug_Information;
-
-                        foreach (Drug_Information d in dbSet.ToList())
-                        {
-                            if (d.Other_Drug_Name_Alias.StartsWith(prefixText, StringComparison.OrdinalIgnoreCase) 
-                                || d.Drug_Common_Name.StartsWith(prefixText, StringComparison.OrdinalIgnoreCase)
-                                || d.Drug_Chemical_Name.StartsWith(prefixText, StringComparison.OrdinalIgnoreCase)
-                                || d.Compound_CAS_ID.StartsWith(prefixText, StringComparison.OrdinalIgnoreCase)
-                                || d.PubChem_CID.StartsWith(prefixText, StringComparison.OrdinalIgnoreCase)
-                                || d.PubChem_SID.StartsWith(prefixText, StringComparison.OrdinalIgnoreCase)
-                                || d.ChEMBL_ID.StartsWith(prefixText, StringComparison.OrdinalIgnoreCase))
-                            {
-                                valuesList.Add(d.Drug_Name_for_Pull_Down_Menu);
-                            }
-                        }
+                        valuesList.Add(drug.Other_Drug_Name_Alias);
+                        valuesList.Add(drug.Drug_Common_Name);
+                        valuesList.Add(drug.Drug_Chemical_Name);
+                        valuesList.Add(drug.Compound_CAS_ID);
+                        valuesList.Add(drug.PubChem_CID);
+                        valuesList.Add(drug.ChEMBL_ID);
                     }
                 }
                 catch (Exception ex)
@@ -96,8 +97,9 @@ namespace DrugProNET
                 }
             }
 
-            const int maxResultSize = 5;
-            return valuesList.Count >= maxResultSize ? valuesList.GetRange(0, 5) : valuesList;
+                valuesList = DataUtilities.FilterDropdownList(valuesList, prefixText);
+
+            return valuesList;
         }
 
         protected void Reset_Button_Click(object sender, EventArgs e)
@@ -126,32 +128,6 @@ namespace DrugProNET
                 + "&protein_residue_numbers=" + protein_residue_number_checkbox.Checked
                 + "&drug_atoms=" + drug_atoms_checkbox.Checked, false);
             Context.ApplicationInstance.CompleteRequest();
-        }
-
-        private static void AddIfExists(List<string> list, params string[] values)
-        {
-            foreach (string value in values)
-            {
-                if (!string.IsNullOrEmpty(value))
-                {
-                    list.Add(value);
-                }
-            }
-        }
-
-        private List<ListItem> GenerateListItemsFromValues(params string[] values)
-        {
-            List<ListItem> listItemList = new List<ListItem>();
-
-            foreach (string value in values)
-            {
-                if (!string.IsNullOrEmpty(value))
-                {
-                    listItemList.Add(new ListItem(value, value, true));
-                }
-            }
-
-            return listItemList;
         }
     }
 }

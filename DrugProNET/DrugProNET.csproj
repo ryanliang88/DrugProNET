@@ -393,7 +393,6 @@
     <Compile Include="ProteinQuery.aspx.designer.cs">
       <DependentUpon>ProteinQuery.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Scripts\MatchFinder.cs" />
     <Compile Include="SNV_Mutations.cs">
       <DependentUpon>DrugProNET_Model.tt</DependentUpon>
     </Compile>
@@ -422,6 +421,7 @@
     <Content Include="Libraries\Bootstrap 3.3.7\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Libraries\Bootstrap 3.3.7\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Temp\spreadsheet.xlsx" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
