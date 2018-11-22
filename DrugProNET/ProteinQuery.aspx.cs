@@ -110,13 +110,13 @@ namespace DrugProNET
 
             search_drop_down.SelectedIndex = 0;
 
-            interaction_distance_drop_down.SelectedIndex = 0;
+            interaction_distance_drop_down.SelectedIndex = 9;
 
-            protein_chain_checkbox.Checked = false;
-            protein_atoms_checkbox.Checked = false;
-            protein_residues_checkbox.Checked = false;
-            protein_residue_number_checkbox.Checked = false;
-            drug_atoms_checkbox.Checked = false;
+            protein_chain_checkbox.Checked = true;
+            protein_atoms_checkbox.Checked = true;
+            protein_residues_checkbox.Checked = true;
+            protein_residue_number_checkbox.Checked = true;
+            drug_atoms_checkbox.Checked = true;
         }
 
         protected void Generate_Table_Button_Click(object sender, EventArgs e)
