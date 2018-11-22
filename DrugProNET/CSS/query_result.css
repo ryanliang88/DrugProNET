@@ -115,47 +115,6 @@ td {
     width: 2%;
 }
 
-.interaction-summary {
-}
-
-    .interaction-summary tr:nth-of-type(2n+1) {
-        background-color: white;
-    }
-
-    .interaction-summary tr:nth-of-type(2n) {
-        background-color: #F3F3FD;
-    }
-
-    .interaction-summary th {
-        background-color: #F3F3FD;
-    }
-
-    .interaction-summary td {
-    }
-
-.interaction-summary-container {
-    padding-top: 1em;
-}
-
-.interaction-list {
-}
-
-    .interaction-list tr:nth-of-type(2n+1) {
-        background-color: white;
-    }
-
-    .interaction-list tr:nth-of-type(2n) {
-        background-color: #F3F3FD;
-    }
-
-    .interaction-list th {
-        background-color: #F3F3FD;
-    }
-
-.interaction_list_container {
-    padding-top: 1em;
-}
-
 .top-spacing {
     padding-top: 2em;
 }

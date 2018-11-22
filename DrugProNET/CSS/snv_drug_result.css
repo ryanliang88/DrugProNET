@@ -57,60 +57,19 @@ p:not(.p-white):not(.p-side) {
     padding-bottom: .5em;
 }
 
-
-
-th {
-    text-align: center; /* Removes previous th*/
-}
-
 table {
-    border-collapse: collapse;
-    text-align: left;
-    color: black;
-    overflow-y: auto;
-    max-height: 500px;
-    width: 100%;
-    display: block;
+    overflow-x: auto !important;
 }
 
-tbody {
-    border: none;
-}
-
-thead tr th {
-    position: sticky;
-    text-align: center;
-    top: 0;
-}
-
-tr td:first-child {
-    text-align: left;
-    width: 25%;
-}
-
-tr td:not(:first-child):not(:last-child) {
+td, tr {
     text-align: center;
 }
 
-tr td:last-child {
-    text-align: left;
-    width: 25%;
-}
-
-.IDofPDILinkedSNVTable {
-    margin-top: 2em;
-    margin-bottom: 2em;
-}
-
-.IDofPDILinkedSNVTable tr:nth-of-type(2n) {
+tr:nth-of-type(2n) {
     background-color: white;
 }
 
-.IDofPDILinkedSNVTable tr:nth-of-type(2n+1) {
-    background-color: #F3F3FD;
-}
-
-.IDofPDILinkedSNVTable th {
-    background-color: #F3F3FD;
+tr:nth-of-type(2n+1) {
+    background-color: #e2e2ff;
 }
 
