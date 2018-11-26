@@ -263,7 +263,7 @@
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
         <div class="c-col body-content-long longDiv" style="padding-top: 2em">
-            <asp:Table runat="server" ID="SNV_Identification_Table" CssClass="SNV-Identification-Table">
+            <asp:Table runat="server" ID="SNV_Identification_Table">
             </asp:Table>
         </div>
     </div>

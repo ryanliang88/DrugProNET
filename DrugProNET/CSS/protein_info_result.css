@@ -52,3 +52,7 @@ p {
     .white-link:hover {
         color: #d6d6d6 !important;
     }
+
+td, tr, th, table, tbody {
+    background-color: transparent !important;
+}
