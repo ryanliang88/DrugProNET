@@ -46,15 +46,15 @@ namespace DrugProNET
                     drug_specification = Request.QueryString["drug_specification"];
                     protein_specification = Request.QueryString["protein_specification"];
 
-                    if (string.IsNullOrEmpty(drug_specification))
-                    {
-                        drug_specification = query_string;
-                        fromPage = "drug";
-                    }
-                    else if (string.IsNullOrEmpty(protein_specification))
+                    if (!string.IsNullOrEmpty(drug_specification))
                     {
                         protein_specification = query_string;
                         fromPage = "protein";
+                    }
+                    else if (!string.IsNullOrEmpty(protein_specification))
+                    {
+                        drug_specification = query_string;
+                        fromPage = "drug";
                     }
 
                     drug = EF_Data.GetDrugsQuery(drug_specification).FirstOrDefault();

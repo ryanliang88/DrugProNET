@@ -214,7 +214,7 @@
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
         <div class="c-col body-content">
-            <asp:HyperLink ID="drug_information_result_url" runat="server" NavigateUrl="navigateurl" />
+            <asp:HyperLink ID="drug_information_result_url" runat="server" NavigateUrl="navigateurl" Target="_blank"/>
         </div>
     </div>
 
