@@ -101,8 +101,8 @@
         </div>
     </div>
 
-    
-    <div class="c-row" >
+
+    <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
         <div class="c-col body-content">
@@ -148,8 +148,7 @@
             <p>
                 "Importance for Drug" is based on the total number of atomic interactions of the amino acid residue 
                     specified by the nucleotide with the drug atoms divided by the average bond distance (in Angstroms) 
-                    for all of the interactions. The higher the score, the more importance this amino acid residue may 
-                    have for drug binding
+                    for all of the interactions. The higher the score, the more important this amino acid residue may have for drug binding.
             </p>
         </div>
     </div>
