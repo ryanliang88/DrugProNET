@@ -45,7 +45,7 @@
         <div class="c-col body-content">
             <h3 class="h3-body-title">Step 1 - SNV Specification</h3>
             <p>Provide the SNV exactly with the format shown here. After a few letters are entered, select from one of the options presented in the pull down menu. Required format:</p>
-            <p><span class="yellow">NCBI Gene Location ID</span><span class="gray">(<span class="white">HGNC Gene Name</span>):c</span><span class="yellow">Nucleotide Number</span><span class="white">Common Nucleotide Base Type</span><span class="gray">></span><span class="yellow">Variant Nucleotide Base</span><span class="gray">(p.<span class="white">Original Amino Acid Residue Type</span><span class="yellow">Amino Acid Residue Number</span><span class="white">Variant Amino Acid Residue Type</span>)</span></p>
+            <p><span class="yellow">NCBI Gene Location ID</span><span class="gray">(<span class="white">HGNC Gene Name</span>):c.</span><span class="yellow">Nucleotide Number</span><span class="white">Common Nucleotide Base Type</span><span class="gray">></span><span class="yellow">Variant Nucleotide Base</span><span class="gray">(p.<span class="white">Original Amino Acid Residue Type</span><span class="yellow">Amino Acid Residue Number</span><span class="white">Variant Amino Acid Residue Type</span>)</span></p>
             <p>e.g.&nbsp;<span class="white">NC_000007.14(EGFR):c.55022236A>C(p.Met987Leu)</span></p>
         </div>
     </div>
