@@ -16,6 +16,7 @@ namespace DrugProNET
         {
             string query = search_textBox.Text;
             Response.Redirect("DrugInfoResult.aspx?query_string=" + query, false);
+
             Context.ApplicationInstance.CompleteRequest();
         }
 

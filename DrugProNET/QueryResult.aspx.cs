@@ -46,12 +46,12 @@ namespace DrugProNET
                     drug_specification = Request.QueryString["drug_specification"];
                     protein_specification = Request.QueryString["protein_specification"];
 
-                    if (string.IsNullOrEmpty(drug_specification?.Trim()))
+                    if (string.IsNullOrEmpty(drug_specification))
                     {
                         drug_specification = query_string;
                         fromPage = "drug";
                     }
-                    else if (string.IsNullOrEmpty(protein_specification?.Trim()))
+                    else if (string.IsNullOrEmpty(protein_specification))
                     {
                         protein_specification = query_string;
                         fromPage = "protein";
@@ -73,7 +73,6 @@ namespace DrugProNET
                 }
                 catch (Exception)
                 {
-                    fromPage = null;
                 }
 
                 if (drug == null || protein == null || PDB == null)
