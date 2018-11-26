@@ -134,17 +134,12 @@ namespace DrugProNET
 
         protected void Generate(object sender, EventArgs e)
         {
-            if (!drug_specification_drop_down.SelectedItem.Value.Equals(DROP_DOWN_PROMPT_MESSAGE)
-                && !drug_specification_drop_down.SelectedItem.Value.Equals(DROP_DOWN_NO_MATCHES_MESSAGE)
-                && !amino_acid_specification_drop_down.SelectedItem.Value.Equals(DROP_DOWN_PROMPT_MESSAGE)
-                && !amino_acid_specification_drop_down.SelectedItem.Value.Equals(DROP_DOWN_NO_MATCHES_MESSAGE)
-                && !search_textBox.Text.Equals(string.Empty))
-            {
+
                 Response.Redirect("SNVIDResult.aspx?query_string=" + search_textBox.Text
                     + "&drug_specification=" + drug_specification_drop_down.SelectedItem.Value
                     + "&snv_id_key=" + amino_acid_specification_drop_down.SelectedItem.Value, false);
                 Context.ApplicationInstance.CompleteRequest();
-            }
+            
         }
 
         protected void Reset(object sender, EventArgs e)

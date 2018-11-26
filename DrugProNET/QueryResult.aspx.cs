@@ -259,7 +259,7 @@ namespace DrugProNET
                 + " (BINDINGDB); Kd(nM): " + PDB_Info.Kd_nM_
                 + " (BINDINGDB)");
 
-            ProcessRow(drug_information_result_url_row, drug_information_result_url, "Link to further drug information", "DrugInfoResult.aspx?query_string=" + drug.Drug_PDB_ID);
+            ProcessRow(drug_information_result_url_row, drug_information_result_url, "Link to further drug information", "DrugInfoResult.aspx?query_string=" + drug.Drug_Name_for_Pull_Down_Menu);
         }
 
         public void LoadProtein(Protein_Information protein)
