@@ -120,24 +120,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-10v0.1.jpg" />
-    <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-11v0.1.jpg" />
-    <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-12v0.1.jpg" />
-    <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-13v0.1.jpg" />
-    <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-14v0.1.jpg" />
-    <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-15v0.1.jpg" />
-    <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-16v0.1.jpg" />
-    <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-17v0.1.jpg" />
-    <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-1v0.1.jpg" />
-    <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-2v0.1.jpg" />
-    <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-3v0.1.jpg" />
-    <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-4v0.1.jpg" />
-    <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-5v0.1.jpg" />
-    <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-6v0.1.jpg" />
-    <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-7v0.1.jpg" />
-    <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-8v0.1.jpg" />
-    <Content Include="Advertisement\Images\10MY25WebsiteBannerAds-9v0.1.jpg" />
     <Content Include="Advertisement\Images\ads_xml.xml" />
+    <Content Include="Advertisement\Images\WebsiteBannerAds-1.jpg" />
+    <Content Include="Advertisement\Images\WebsiteBannerAds-10.jpg" />
+    <Content Include="Advertisement\Images\WebsiteBannerAds-11.jpg" />
+    <Content Include="Advertisement\Images\WebsiteBannerAds-12.jpg" />
+    <Content Include="Advertisement\Images\WebsiteBannerAds-13.jpg" />
+    <Content Include="Advertisement\Images\WebsiteBannerAds-14.jpg" />
+    <Content Include="Advertisement\Images\WebsiteBannerAds-15.jpg" />
+    <Content Include="Advertisement\Images\WebsiteBannerAds-16.jpg" />
+    <Content Include="Advertisement\Images\WebsiteBannerAds-17.jpg" />
+    <Content Include="Advertisement\Images\WebsiteBannerAds-2.jpg" />
+    <Content Include="Advertisement\Images\WebsiteBannerAds-3.jpg" />
+    <Content Include="Advertisement\Images\WebsiteBannerAds-4.jpg" />
+    <Content Include="Advertisement\Images\WebsiteBannerAds-5.jpg" />
+    <Content Include="Advertisement\Images\WebsiteBannerAds-6.jpg" />
+    <Content Include="Advertisement\Images\WebsiteBannerAds-7.jpg" />
+    <Content Include="Advertisement\Images\WebsiteBannerAds-8.jpg" />
+    <Content Include="Advertisement\Images\WebsiteBannerAds-9.jpg" />
     <Content Include="Credits.aspx" />
     <Content Include="CSS\3_column.css" />
     <Content Include="CSS\base_style.css" />
