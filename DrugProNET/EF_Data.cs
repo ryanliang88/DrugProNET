@@ -139,15 +139,15 @@ namespace DrugProNET
             return proteins;
         }
 
-        public static List<PDB_Distances> GetPDB_Distances(string pdb_entry, double interaction_distance)
+        public static List<PDB_Distance> GetPDB_Distance(string pdb_entry, double interaction_distance)
         {
-            List<PDB_Distances> distances = new List<PDB_Distances>();
+            List<PDB_Distance> distances = new List<PDB_Distance>();
 
             using (DrugProNETEntities context = new DrugProNETEntities())
             {
-                List<PDB_Distances> temp = context.PDB_Distances.Where(d => d.PDB_Entry.ToLower().Contains(pdb_entry.ToLower())).ToList();
+                List<PDB_Distance> temp = context.PDB_Distance.Where(d => d.PDB_Entry.ToLower().Contains(pdb_entry.ToLower())).ToList();
 
-                foreach (PDB_Distances distance in temp)
+                foreach (PDB_Distance distance in temp)
                 {
                     if (double.Parse(distance.Distance) < interaction_distance)
                     {
@@ -159,13 +159,13 @@ namespace DrugProNET
             return distances.OrderBy(d => double.Parse(d.Distance)).ToList();
         }
 
-        public static List<PDB_Interactions> GetPDB_Interactions(string uniprot_ID)
+        public static List<PDB_Interaction> GetPDB_Interaction(string uniprot_ID)
         {
-            List<PDB_Interactions> interactions = new List<PDB_Interactions>();
+            List<PDB_Interaction> interactions = new List<PDB_Interaction>();
 
             using (DrugProNETEntities context = new DrugProNETEntities())
             {
-                foreach (PDB_Interactions interaction in context.PDB_Interactions.Where(i => i.UniProt_ID == uniprot_ID))
+                foreach (PDB_Interaction interaction in context.PDB_Interaction.Where(i => i.UniProt_ID == uniprot_ID))
                 {
                     interactions.Add(interaction);
                 }
@@ -174,13 +174,13 @@ namespace DrugProNET
             return interactions.OrderByDescending(i => double.Parse(i.Interaction_Distance_Ratio)).ToList();
         }
 
-        public static List<PDB_Interactions> GetPDB_Interactions(string uniprot_ID, string drug_pdb_id)
+        public static List<PDB_Interaction> GetPDB_Interaction(string uniprot_ID, string drug_pdb_id)
         {
-            List<PDB_Interactions> interactions = new List<PDB_Interactions>();
+            List<PDB_Interaction> interactions = new List<PDB_Interaction>();
 
             using (DrugProNETEntities context = new DrugProNETEntities())
             {
-                interactions = context.PDB_Interactions.Where(i => 
+                interactions = context.PDB_Interaction.Where(i => 
                     i.UniProt_ID.ToLower().Contains(uniprot_ID.ToLower())
                     && i.Drug_PDB_ID.ToLower().Contains(drug_pdb_id.ToLower())
                 ).ToList();
@@ -189,13 +189,13 @@ namespace DrugProNET
             return interactions.OrderByDescending(i => double.Parse(i.Interaction_Distance_Ratio)).ToList();
         }
 
-        public static PDB_Interactions GetPDB_Interaction(string uniprot_ID, string drug_PDB_ID, string amino_acid_specification)
+        public static PDB_Interaction GetPDB_Interaction(string uniprot_ID, string drug_PDB_ID, string amino_acid_specification)
         {
-            PDB_Interactions PDB_interaction = new PDB_Interactions();
+            PDB_Interaction PDB_interaction = new PDB_Interaction();
 
             using (DrugProNETEntities context = new DrugProNETEntities())
             {
-                PDB_interaction = context.PDB_Interactions
+                PDB_interaction = context.PDB_Interaction
                     .Where(i => i.UniProt_ID.ToLower().Contains(uniprot_ID.ToLower())
                     && i.Drug_PDB_ID.ToLower().Contains(drug_PDB_ID.ToLower())
                     && i.AA_Residue_Type_And_Number.ToLower().Contains(amino_acid_specification.ToLower())
@@ -259,47 +259,47 @@ namespace DrugProNET
             return PDB_information;
         }
 
-        public static List<SNV_Mutations> GetMutations(string uniprot_ID, string drug_PDB_ID, string PDB_File_ID)
+        public static List<SNV_Mutation> GetMutations(string uniprot_ID, string drug_PDB_ID, string PDB_File_ID)
         {
-            List<SNV_Mutations> SNV_mutations = new List<SNV_Mutations>();
+            List<SNV_Mutation> SNV_Mutation = new List<SNV_Mutation>();
 
             using (DrugProNETEntities context = new DrugProNETEntities())
             {
-                SNV_mutations = context.SNV_Mutations.Where(m =>
+                SNV_Mutation = context.SNV_Mutation.Where(m =>
                     m.UniProt_ID.Equals(uniprot_ID, StringComparison.OrdinalIgnoreCase)
                     && m.Drug_PDB_ID.Equals(drug_PDB_ID, StringComparison.OrdinalIgnoreCase)
                     && m.PDB_File_No.Equals(PDB_File_ID, StringComparison.OrdinalIgnoreCase)).ToList();
             }
 
-            return SNV_mutations;
+            return SNV_Mutation;
         }
 
-        public static SNV_Mutations GetMutationBySNVKey(string SNV_Key)
+        public static SNV_Mutation GetMutationBySNVKey(string SNV_Key)
         {
-            SNV_Mutations SNV_mutation = new SNV_Mutations();
+            SNV_Mutation SNV_mutation = new SNV_Mutation();
 
             using (DrugProNETEntities context = new DrugProNETEntities())
             {
-                SNV_mutation = context.SNV_Mutations.Where(m => m.SNV_Key.Equals(SNV_Key, StringComparison.OrdinalIgnoreCase)).SingleOrDefault();
+                SNV_mutation = context.SNV_Mutation.Where(m => m.SNV_Key.Equals(SNV_Key, StringComparison.OrdinalIgnoreCase)).SingleOrDefault();
             }
 
             return SNV_mutation;
         }
 
-        public static SNV_Mutations GetMutationBySNVIDKey(string SNV_ID_Key)
+        public static SNV_Mutation GetMutationBySNVIDKey(string SNV_ID_Key)
         {
-            SNV_Mutations SNV_mutation = GetMutationsBySNVIDKey(SNV_ID_Key).First();
+            SNV_Mutation SNV_mutation = GetMutationsBySNVIDKey(SNV_ID_Key).First();
 
             return SNV_mutation;
         }
 
-        public static List<SNV_Mutations> GetMutationsBySNVIDKey(string SNV_ID_Key)
+        public static List<SNV_Mutation> GetMutationsBySNVIDKey(string SNV_ID_Key)
         {
-            List<SNV_Mutations> SNV_mutations = new List<SNV_Mutations>();
+            List<SNV_Mutation> SNV_Mutation = new List<SNV_Mutation>();
 
             using (DrugProNETEntities context = new DrugProNETEntities())
             {
-                SNV_mutations = context.SNV_Mutations.Where(m =>
+                SNV_Mutation = context.SNV_Mutation.Where(m =>
                        m.SNV_P1W_ID.Equals(SNV_ID_Key, StringComparison.OrdinalIgnoreCase)
                     || m.SNV_P2W_ID.Equals(SNV_ID_Key, StringComparison.OrdinalIgnoreCase)
                     || m.SNV_P3W_ID.Equals(SNV_ID_Key, StringComparison.OrdinalIgnoreCase)
@@ -315,16 +315,16 @@ namespace DrugProNET
                 ).ToList();
             }
 
-            return SNV_mutations;
+            return SNV_Mutation;
         }
 
-        public static List<SNV_Mutations> GetMutationsBySNVIDKeyContains(string SNV_ID_Key)
+        public static List<SNV_Mutation> GetMutationsBySNVIDKeyContains(string SNV_ID_Key)
         {
-            List<SNV_Mutations> SNV_mutations = new List<SNV_Mutations>();
+            List<SNV_Mutation> SNV_Mutation = new List<SNV_Mutation>();
 
             using (DrugProNETEntities context = new DrugProNETEntities())
             {
-                SNV_mutations = context.SNV_Mutations.Where(m =>
+                SNV_Mutation = context.SNV_Mutation.Where(m =>
                        m.SNV_P1W_ID.ToLower().Contains(SNV_ID_Key.ToLower())
                     || m.SNV_P2W_ID.ToLower().Contains(SNV_ID_Key.ToLower())
                     || m.SNV_P3W_ID.ToLower().Contains(SNV_ID_Key.ToLower())
@@ -340,7 +340,7 @@ namespace DrugProNET
                 ).ToList();
             }
 
-            return SNV_mutations;
+            return SNV_Mutation;
         }
 
         private static bool IsQueryInValues(string query, params string[] values)

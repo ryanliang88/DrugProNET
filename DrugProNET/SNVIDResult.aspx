@@ -15,19 +15,14 @@
         <div class="c-col body-content">
             <h3 class="h3-body-title">Protein-Drug Interaction SNV Identification</h3>
             <p class="description">
-                This query provides identification of single nucleotide variants (SNVs) in 
-                the human genome that may affect specific protein-drug interactions. Using 
-                critical amino acid residues in a target protein implicated in a specific 
-                drug binding from a previous DrugProNET query. SNVs of these amino acids 
-                are identified for their locations in the human genome and the consequence 
-                of their mutation on binding of a speciic drug is predicted.
+                This query provides identification of single nucleotide variants (SNV’s) in the human genome that may affect specific protein- drug interactions. Using critical amino acids residues in a target protein implicated in a specific drug binding from a previous DrugProNET query, SNV’s of these amino acids are identified for their locations in the human genome and the consequence of their mutation on binding of a specific drug is predicted. 
             </p>
         </div>
         <div class="c-col advertisment-content">
             <asp:UpdatePanel ID="ad_update_panel" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
                     <asp:Timer ID="ad_refresh_timer" runat="server" Interval="10000" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
-                    <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server">
+                    <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server" Target="_blank">
                         <asp:Image ImageUrl="imageUrl" runat="server" ID="adBanner" AlternateText="" />
                     </asp:HyperLink>
                 </ContentTemplate>
@@ -236,7 +231,7 @@
             <p class="p-side">PDB Entry:</p>
         </div>
         <div class="c-col body-content-long">
-            <p class="p-white" id="PDB_entry" runat="server"></p>
+            <asp:HyperLink ID="PDB_entry" runat="server" NavigateUrl="navigateurl" Target="_blank"/>
         </div>
     </div>
     <div class="c-row">

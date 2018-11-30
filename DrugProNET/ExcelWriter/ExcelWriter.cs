@@ -24,12 +24,7 @@ namespace DrugProNET
      * Response.Flush();
      * Response.End();
      * ----------------------------------------------------------------------------------
-     * 
-     * Writing into Temp folder
-     * ----------------------------------------------------------------------------------
-     * ExcelWriter.CreateInTemp(header, data);
-     * ----------------------------------------------------------------------------------
-     * 
+     *  
      **/
     public static class ExcelWriter
     {
@@ -39,16 +34,6 @@ namespace DrugProNET
         public static MemoryStream CreateAsStream(List<string> header, List<List<string>> data)
         {
             return new MemoryStream(CreateExcelPackage(header, data).GetAsByteArray());
-        }
-
-        public static void CreateInTemp(List<string> header, List<List<string>> data, string fileName = DEFAULT_FILE_NAME)
-        {
-            ExcelPackage excelPackage = CreateExcelPackage(header, data);
-
-            string path = HttpContext.Current.Server.MapPath(TEMP_PATH + "/" + fileName);
-            FileInfo file = new FileInfo(path);
-
-            excelPackage.SaveAs(file);
         }
 
         private static ExcelPackage CreateExcelPackage(List<string> header, List<List<string>> data)

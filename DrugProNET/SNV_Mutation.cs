@@ -12,7 +12,7 @@ namespace DrugProNET
     using System;
     using System.Collections.Generic;
     
-    public partial class SNV_Mutations
+    public partial class SNV_Mutation
     {
         public string UniProt_ID { get; set; }
         public string SNV_Key { get; set; }

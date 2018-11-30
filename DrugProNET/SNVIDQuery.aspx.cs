@@ -33,6 +33,13 @@ namespace DrugProNET
             amino_acid_specification_drop_down.Items.Clear();
             amino_acid_specification_drop_down.Items.Add(DROP_DOWN_PROMPT_MESSAGE);
 
+            const int minPrefixLength = 3;
+
+            if (search_textBox.Text.Length < minPrefixLength)
+            {
+                return;
+            }
+
             Protein_Information protein = EF_Data.GetProteinsInfoQuery(search_textBox.Text).FirstOrDefault();
 
             if (protein != null)
@@ -51,9 +58,17 @@ namespace DrugProNET
 
                 if (drugList.Count > 0)
                 {
+                    List<string> dropdownValues = new List<string>();
                     foreach (Drug_Information drug in drugList)
                     {
-                        drug_specification_drop_down.Items.Add(drug.Drug_Name_for_Pull_Down_Menu);
+                        dropdownValues.Add(drug.Drug_Name_for_Pull_Down_Menu);
+                    }
+
+                    dropdownValues = DataUtilities.FilterDropdownList(dropdownValues);
+
+                    foreach (string dropdownValue in dropdownValues)
+                    {
+                        drug_specification_drop_down.Items.Add(dropdownValue);
                     }
                 }
                 else
@@ -71,23 +86,35 @@ namespace DrugProNET
 
             try
             {
-                Protein_Information protein = EF_Data.GetProtein(search_textBox.Text);
-                Drug_Information drug = EF_Data.GetDrugUsingDropDownName(drug_specification_drop_down.SelectedItem.Value);
-                PDB_Information PDB = EF_Data.GetPDBInfo(protein, drug);
-
-                List<SNV_Mutations> mutations = EF_Data.GetMutations(protein.Uniprot_ID, drug.Drug_PDB_ID, PDB.PDB_File_ID);
-
-                if (mutations.Count > 0)
+                if (drug_specification_drop_down.SelectedItem.Value != DROP_DOWN_PROMPT_MESSAGE)
                 {
-                    foreach (SNV_Mutations mutation in mutations)
+                    Protein_Information protein = EF_Data.GetProtein(search_textBox.Text);
+                    Drug_Information drug = EF_Data.GetDrugUsingDropDownName(drug_specification_drop_down.SelectedItem.Value);
+                    PDB_Information PDB = EF_Data.GetPDBInfo(protein, drug);
+
+                    List<SNV_Mutation> mutations = EF_Data.GetMutations(protein.Uniprot_ID, drug.Drug_PDB_ID, PDB.PDB_File_ID);
+
+                    if (mutations.Count > 0)
                     {
-                        amino_acid_specification_drop_down.Items.Add(mutation.SNV_Key);
+                        List<string> dropdownValues = new List<string>();
+
+                        foreach (SNV_Mutation mutation in mutations)
+                        {
+                            dropdownValues.Add(mutation.SNV_Key);
+                        }
+
+                        dropdownValues = DataUtilities.FilterDropdownList(dropdownValues);
+
+                        foreach (string dropdownValue in dropdownValues)
+                        {
+                            amino_acid_specification_drop_down.Items.Add(dropdownValue);
+                        }
                     }
-                }
-                else
-                {
-                    amino_acid_specification_drop_down.Items.Clear();
-                    amino_acid_specification_drop_down.Items.Add(DROP_DOWN_NO_MATCHES_MESSAGE);
+                    else
+                    {
+                        amino_acid_specification_drop_down.Items.Clear();
+                        amino_acid_specification_drop_down.Items.Add(DROP_DOWN_NO_MATCHES_MESSAGE);
+                    }
                 }
             }
             catch (Exception)
@@ -134,45 +161,10 @@ namespace DrugProNET
 
         protected void Generate(object sender, EventArgs e)
         {
-
-                Response.Redirect("SNVIDResult.aspx?query_string=" + search_textBox.Text
-                    + "&drug_specification=" + drug_specification_drop_down.SelectedItem.Value
-                    + "&snv_id_key=" + amino_acid_specification_drop_down.SelectedItem.Value, false);
-                Context.ApplicationInstance.CompleteRequest();
-            
-        }
-
-        protected void Reset(object sender, EventArgs e)
-        {
-            search_textBox.Text = string.Empty;
-            drug_specification_drop_down.Items.Clear();
-            drug_specification_drop_down.Items.Add(DROP_DOWN_PROMPT_MESSAGE);
-            amino_acid_specification_drop_down.Items.Clear();
-            amino_acid_specification_drop_down.Items.Add(DROP_DOWN_PROMPT_MESSAGE);
-        }
-
-        private static bool HasMatch(string searchTerm, params string[] values)
-        {
-            foreach (string value in values)
-            {
-                if (!string.IsNullOrEmpty(value) && value.IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0)
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
-        private static void AddIfExists(List<string> list, params string[] values)
-        {
-            foreach (string value in values)
-            {
-                if (!string.IsNullOrEmpty(value))
-                {
-                    list.Add(value);
-                }
-            }
+            Response.Redirect("SNVIDResult.aspx?query_string=" + search_textBox.Text
+                + "&drug_specification=" + drug_specification_drop_down.SelectedItem.Value
+                + "&snv_id_key=" + amino_acid_specification_drop_down.SelectedItem.Value, false);
+            Context.ApplicationInstance.CompleteRequest();
         }
     }
 }

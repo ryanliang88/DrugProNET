@@ -72,6 +72,5 @@ namespace DrugProNET
         public string Reference_2 { get; set; }
         public string Commercial_Vendor { get; set; }
         public string Drug_PDB_ID_URL { get; set; }
-        public string Column_58 { get; set; }
     }
 }

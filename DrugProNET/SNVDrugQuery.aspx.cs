@@ -30,9 +30,9 @@ namespace DrugProNET
             {
                 try
                 {
-                    List<SNV_Mutations> SNV_mutations = EF_Data.GetMutationsBySNVIDKeyContains(prefixText);
+                    List<SNV_Mutation> SNV_Mutation = EF_Data.GetMutationsBySNVIDKeyContains(prefixText);
 
-                    foreach (SNV_Mutations mutation in SNV_mutations)
+                    foreach (SNV_Mutation mutation in SNV_Mutation)
                     {
                         valuesList.AddRange(new List<string> {  mutation.SNV_P1W_ID, mutation.SNV_P2W_ID, mutation.SNV_P3W_ID,
                                                     mutation.SNV_P1M1_ID, mutation.SNV_P1M2_ID,mutation.SNV_P1M3_ID,

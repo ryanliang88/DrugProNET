@@ -24,7 +24,7 @@
             <asp:UpdatePanel ID="ad_update_panel" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
                     <asp:Timer ID="ad_refresh_timer" runat="server" Interval="10000" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
-                    <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server">
+                    <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server" Target="_blank">
                         <asp:Image ImageUrl="imageUrl" runat="server" ID="adBanner" AlternateText="" />
                     </asp:HyperLink>
                 </ContentTemplate>

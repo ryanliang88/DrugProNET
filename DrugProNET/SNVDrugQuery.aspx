@@ -16,17 +16,14 @@
         <div class="c-col body-content">
             <h3 class="h3-body-title">SNV-focused Protein-Drug interaction Identification</h3>
             <p>
-                This query provides a listing of protein interactions that may be affected by a specific single nucleotide variant (SNV)
-                in the human genome. The SNV must be documented in the DrugProNET database as selected from the examination of atom-to-atom 
-                interaction pairs between a small drug molecule and a protein target based on the extracted fro coordinate information of 
-                co-crystalization files in the RCSB PDB Protein Data Bank.
+                This query provides a listing of protein-drug interactions that may be affected by a specific single nucleotide variant (SNV) in the human genome. The SNV must be documented in the DrugProNET database as selected from the examination of atom-to-atom interaction pairs between a small drug molecule and a protein target based on the extracted from coordinate information of co-crystallization files in the RCSB PDB Protein Data Bank. 
             </p>
         </div>
         <div class="c-col advertisment-content">
             <asp:UpdatePanel ID="ad_update_panel" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
                     <asp:Timer ID="ad_refresh_timer" runat="server" Interval="10000" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
-                    <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server">
+                    <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server" Target="_blank">
                         <asp:Image ImageUrl="imageUrl" runat="server" ID="adBanner" AlternateText="" />
                     </asp:HyperLink>
                 </ContentTemplate>
@@ -69,9 +66,7 @@
 
             <asp:Button ID="generate_table_button" CssClass="button" Text="Generate Table" OnClick="Generate" runat="server" OnClientClick="target='_blank'" />
             <span>&emsp;&emsp;</span>
-            <asp:Button ID="reset_button" CssClass="button" Text="Reset" runat="server" OnClick="Reset" />
-
+            <asp:Button ID="reset_button" CssClass="button" Text="Reset" runat="server" OnClientClick="window.location.reload(); return false;"  />
         </div>
     </div>
-
 </asp:Content>

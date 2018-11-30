@@ -18,13 +18,16 @@
         </div>
         <div class="c-col body-content">
             <h3 class="h3-body-title">Compound Description</h3>
-            <p class="p-general-info">This report provides detailed information on one of over 2000 drugs that have been experimentally identified as inhibitors for proteins and co-crystallized with these proteins. The data has been annotated from multiple sources, including the US National Center for Biotechnology Information,  EMBL and other reputable databases and direct url links are provided to their websites.</p>
+            <p class="p-general-info">
+                This report provides detailed information on one of over 2000 drugs that have been experimentally identified as inhibitors for proteins and co-crystallized with these proteins. The data has been annotated from multiple sources, including the US National Center for Biotechnology Information,  EMBL and other reputable databases and direct url links are provided to their websites.
+
+            </p>
         </div>
         <div class="c-col advertisment-content">
             <asp:UpdatePanel ID="ad_update_panel" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
                     <asp:Timer ID="ad_refresh_timer" runat="server" Interval="10000" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
-                    <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server">
+                    <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server" Target="_blank">
                         <asp:Image ImageUrl="imageUrl" runat="server" ID="adBanner" AlternateText="" />
                     </asp:HyperLink>
                 </ContentTemplate>
@@ -126,7 +129,7 @@
             <p class="p-side">PDB Drug ID:</p>
         </div>
         <div class="c-col body-content">
-            <asp:HyperLink class="white-link" ID="pdb_drug_id" NavigateUrl="navigateurl" runat="server" />
+            <asp:HyperLink class="white-link" ID="pdb_drug_id" NavigateUrl="navigateurl" runat="server" Target="_blank" />
         </div>
         <div class="c-col advertisement-content"></div>
     </div>
@@ -146,7 +149,7 @@
             <p class="p-side">PubChem CID:</p>
         </div>
         <div class="c-col body-content">
-            <asp:HyperLink class="white-link" ID="pubchem_cid" NavigateUrl="navigateurl" runat="server" />
+            <asp:HyperLink class="white-link" ID="pubchem_cid" NavigateUrl="navigateurl" runat="server" Target="_blank" />
         </div>
         <div class="c-col advertisement-content"></div>
     </div>
@@ -156,7 +159,7 @@
             <p class="p-side">ChEMBL ID:</p>
         </div>
         <div class="c-col body-content">
-            <asp:HyperLink class="white-link" ID="chembl_id" NavigateUrl="navigateurl" runat="server" />
+            <asp:HyperLink class="white-link" ID="chembl_id" NavigateUrl="navigateurl" runat="server" Target="_blank" />
         </div>
         <div class="c-col advertisement-content"></div>
     </div>
@@ -166,7 +169,7 @@
             <p class="p-side">Kinase SARfair:</p>
         </div>
         <div class="c-col body-content">
-            <asp:HyperLink class="white-link" ID="kinase_sarfair" NavigateUrl="navigateurl" runat="server" />
+            <asp:HyperLink class="white-link" ID="kinase_sarfair" NavigateUrl="navigateurl" runat="server" Target="_blank" />
         </div>
         <div class="c-col advertisement-content"></div>
     </div>
@@ -176,7 +179,7 @@
             <p class="p-side">PubChem SID:</p>
         </div>
         <div class="c-col body-content">
-            <asp:HyperLink class="white-link" ID="pubchem_sid" NavigateUrl="navigateurl" runat="server" />
+            <asp:HyperLink class="white-link" ID="pubchem_sid" NavigateUrl="navigateurl" runat="server" Target="_blank" />
         </div>
         <div class="c-col advertisement-content"></div>
     </div>
@@ -186,7 +189,7 @@
             <p class="p-side">ChemSpider SID:</p>
         </div>
         <div class="c-col body-content">
-            <asp:HyperLink class="white-link" ID="chemspider_sid" NavigateUrl="navigateurl" runat="server" />
+            <asp:HyperLink class="white-link" ID="chemspider_sid" NavigateUrl="navigateurl" runat="server" Target="_blank" />
         </div>
         <div class="c-col advertisement-content"></div>
     </div>
@@ -196,7 +199,7 @@
             <p class="p-side">ChEBI ID:</p>
         </div>
         <div class="c-col body-content">
-            <asp:HyperLink class="white-link" ID="chebi_id" NavigateUrl="navigateurl" runat="server" />
+            <asp:HyperLink class="white-link" ID="chebi_id" NavigateUrl="navigateurl" runat="server" Target="_blank" />
         </div>
         <div class="c-col advertisement-content"></div>
     </div>
@@ -206,7 +209,7 @@
             <p class="p-side">BindingDB ID:</p>
         </div>
         <div class="c-col body-content">
-            <asp:HyperLink class="white-link" ID="bindingdb_id" NavigateUrl="navigateurl" runat="server" />
+            <asp:HyperLink class="white-link" ID="bindingdb_id" NavigateUrl="navigateurl" runat="server" Target="_blank" />
         </div>
         <div class="c-col advertisement-content"></div>
     </div>
@@ -216,7 +219,7 @@
             <p class="p-side">DrugBank ID:</p>
         </div>
         <div class="c-col body-content">
-            <asp:HyperLink class="white-link" ID="drugbank_id" NavigateUrl="navigateurl" runat="server" />
+            <asp:HyperLink class="white-link" ID="drugbank_id" NavigateUrl="navigateurl" runat="server" Target="_blank" />
         </div>
         <div class="c-col advertisement-content"></div>
     </div>
@@ -236,7 +239,7 @@
             <p class="p-side">KEGG Drug ID:</p>
         </div>
         <div class="c-col body-content">
-            <asp:HyperLink class="white-link" ID="kegg_drug_id" NavigateUrl="navigateurl" runat="server" />
+            <asp:HyperLink class="white-link" ID="kegg_drug_id" NavigateUrl="navigateurl" runat="server" Target="_blank" />
         </div>
         <div class="c-col advertisement-content"></div>
     </div>
@@ -246,7 +249,7 @@
             <p class="p-side">Therapeutic Targets ID:</p>
         </div>
         <div class="c-col body-content">
-            <asp:HyperLink class="white-link" ID="therapeutic_target_id" NavigateUrl="navigateurl" runat="server"></asp:HyperLink>
+            <asp:HyperLink class="white-link" ID="therapeutic_target_id" NavigateUrl="navigateurl" runat="server" Target="_blank" />
         </div>
         <div class="c-col advertisement-content"></div>
     </div>
@@ -256,7 +259,7 @@
             <p class="p-side">PharmGKB ID:</p>
         </div>
         <div class="c-col body-content">
-            <asp:HyperLink class="white-link" ID="pharmgkb_id" NavigateUrl="navigateurl" runat="server" />
+            <asp:HyperLink class="white-link" ID="pharmgkb_id" NavigateUrl="navigateurl" runat="server" Target="_blank" />
         </div>
         <div class="c-col advertisement-content"></div>
     </div>
@@ -266,7 +269,7 @@
             <p class="p-side">HET ID:</p>
         </div>
         <div class="c-col body-content">
-            <asp:HyperLink class="white-link" ID="het_id" NavigateUrl="navigateurl" runat="server" />
+            <asp:HyperLink class="white-link" ID="het_id" NavigateUrl="navigateurl" runat="server" Target="_blank" />
         </div>
         <div class="c-col advertisement-content"></div>
     </div>
@@ -276,7 +279,7 @@
             <p class="p-side">Drug Product ID:</p>
         </div>
         <div class="c-col body-content">
-            <asp:HyperLink class="white-link" ID="drug_product_id" NavigateUrl="navigateurl" runat="server" />
+            <asp:HyperLink class="white-link" ID="drug_product_id" NavigateUrl="navigateurl" runat="server" Target="_blank" />
         </div>
         <div class="c-col advertisement-content"></div>
     </div>
@@ -286,7 +289,7 @@
             <p class="p-side">RxList ID:</p>
         </div>
         <div class="c-col body-content">
-            <asp:HyperLink class="white-link" ID="rxlist_id" NavigateUrl="navigateurl" runat="server" />
+            <asp:HyperLink class="white-link" ID="rxlist_id" NavigateUrl="navigateurl" runat="server" Target="_blank" />
         </div>
         <div class="c-col advertisement-content"></div>
     </div>
@@ -296,7 +299,7 @@
             <p class="p-side">Drugs.com ID:</p>
         </div>
         <div class="c-col body-content">
-            <asp:HyperLink class="white-link" ID="drugs_com_id" NavigateUrl="navigateurl" runat="server" />
+            <asp:HyperLink class="white-link" ID="drugs_com_id" NavigateUrl="navigateurl" runat="server" Target="_blank" />
         </div>
         <div class="c-col advertisement-content"></div>
     </div>
@@ -306,7 +309,7 @@
             <p class="p-side">Wikipedia:</p>
         </div>
         <div class="c-col body-content">
-            <asp:HyperLink class="white-link" ID="wikipedia" NavigateUrl="navigateurl" runat="server" />
+            <asp:HyperLink class="white-link" ID="wikipedia" NavigateUrl="navigateurl" runat="server" Target="_blank" />
         </div>
         <div class="c-col advertisement-content"></div>
     </div>
@@ -330,7 +333,7 @@
         </div>
         <div class="c-col advertisement-content"></div>
     </div>
-    
+
     <%-- ---------- --%>
 
     <div class="c-row" id="commentary_row" runat="server">

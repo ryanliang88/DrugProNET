@@ -69,25 +69,25 @@
                     </div>
                     <div>
                         <li>
-                            <a href="Default.aspx">Home</a>
+                            <asp:HyperLink NavigateUrl="~/Default.aspx" runat="server" Text="Home" />
                         </li>
                         <li>
                             <p>|</p>
                         </li>
                         <li>
-                            <a href="http://www.kinexus.ca/kinetica">Kinexus</a>
+                            <asp:HyperLink NavigateUrl="http://www.kinexus.ca/kinetica" runat="server" Text="Kinexus" Target="_blank"/>
                         </li>
                         <li>
                             <p>|</p>
                         </li>
                         <li>
-                            <a href="http://www.kinexus.ca/contact/contact.html">Contact</a>
+                            <asp:HyperLink NavigateUrl="http://www.kinexus.ca/contact/contact.html" runat="server" Text="Contact"/>
                         </li>
                         <li>
                             <p>|</p>
                         </li>
                         <li>
-                            <a href="Credits.aspx">Credits</a>
+                            <asp:HyperLink NavigateUrl="~/Credits.aspx" runat="server" Text="Credits"/>
                         </li>
                     </div>
                 </ul>
@@ -105,7 +105,7 @@
                             <span class="left-sidebar-link-divider">|</span>
                         </li>
                         <li>
-                            <a href="#website-banner">Top</a>
+                            <a href="#">Top</a>
                         </li>
                     </ul>
                 </div>

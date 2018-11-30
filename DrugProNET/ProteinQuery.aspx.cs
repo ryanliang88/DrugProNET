@@ -22,7 +22,6 @@ namespace DrugProNET
             List<Drug_Information> drugList = new List<Drug_Information>();
 
             const int minPrefixLength = 3;
-
             if (search_textBox.Text.Length < minPrefixLength)
             {
                 return;
@@ -108,6 +107,9 @@ namespace DrugProNET
         {
             search_textBox.Text = string.Empty;
 
+
+            search_drop_down.Items.Clear();
+            search_drop_down.Items.Add(new ListItem("Select from list of output options", "0", true));
             search_drop_down.SelectedIndex = 0;
 
             interaction_distance_drop_down.SelectedIndex = 9;

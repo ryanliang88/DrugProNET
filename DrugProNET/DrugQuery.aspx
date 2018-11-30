@@ -29,17 +29,14 @@
         <div class="c-col body-content">
             <h3 class="h3-body-title">Drug-focused Protein Identification</h3>
             <p>
-                This query provides listings of atom-to-atom interaction pairs between a  small drug molecule and a protein. Interactions are 
-            defined by distance between the atoms, which are measured in Angstroms. The data in this database are extracted from coordinate 
-            information of co-crystallization files in the RCSB PDB Protein Data Bank. The Protein Drug Interaction database currently 
-            contains data from over 4500 co-crystallization files.
+                This query provides listings of atom-to-atom interaction pairs between a small drug molecule and a protein. Interactions are defined by distance between the atoms, which are measured in Angstroms. The data in this database are extracted from coordinate information of co-crystallization files in the RCSB PDB Protein Data Bank. The Protein Drug Interaction database currently contains data from over 4500 co-crystallization files. 
             </p>
         </div>
         <div class="c-col advertisment-content">
             <asp:UpdatePanel ID="ad_update_panel" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
                     <asp:Timer ID="ad_refresh_timer" runat="server" Interval="10000" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
-                    <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server">
+                    <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server" Target="_blank">
                         <asp:Image ImageUrl="imageUrl" runat="server" ID="adBanner" AlternateText="" />
                     </asp:HyperLink>
                 </ContentTemplate>
@@ -58,8 +55,7 @@
         <div class="c-col body-content">
             <h3 class="h3-body-title">Step 1 - Drug Specification</h3>
             <p>
-                Provide the drug name, CAS ID, PubChem ID, or ChEMBL 
-                ID of the compound of interest as a search term.
+                Provide the drug name, CAS ID, PubChem ID or ChEMBL ID of the compound of interest as a search term.
             </p>
 
             <asp:TextBox CssClass="textBox" ID="search_textBox" runat="server" value="" placeholder="Type in at least 3 letters of the search term" OnTextChanged="Search_Textbox_Changed" onkeyup="RefreshUpdatePanel();" />
@@ -139,8 +135,7 @@
 
             <asp:Button ID="generate_table_button" CssClass="button" Text="Generate Table" runat="server" OnClick="Generate_Table_Button_Click" OnClientClick="target='_blank'" />
             <span>&emsp;&emsp;</span>
-            <asp:Button ID="reset_button" CssClass="button" Text="Reset" runat="server" OnClick="Reset_Button_Click" />
-
+            <asp:Button ID="reset_button" CssClass="button" Text="Reset" runat="server" OnClientClick="window.location.reload(); return false;"  />
         </div>
     </div>
 </asp:Content>

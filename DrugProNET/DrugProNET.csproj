@@ -255,8 +255,6 @@
     <Compile Include="BasePage.Master.designer.cs">
       <DependentUpon>BasePage.Master</DependentUpon>
     </Compile>
-    <Compile Include="CalculateDistance\Atom.cs" />
-    <Compile Include="CalculateDistance\PDBFileParser.cs" />
     <Compile Include="Credits.aspx.cs">
       <DependentUpon>Credits.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -288,16 +286,21 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="DrugProNET_Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DrugProNET_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Drug_Information.cs">
       <DependentUpon>DrugProNET_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="PDB_Distances.cs">
+    <Compile Include="PDB_Distance.cs">
       <DependentUpon>DrugProNET_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="PDB_Information.cs">
       <DependentUpon>DrugProNET_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="PDB_Interactions.cs">
+    <Compile Include="PDB_Interaction.cs">
       <DependentUpon>DrugProNET_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Protein_Information.cs">
@@ -393,7 +396,7 @@
     <Compile Include="ProteinQuery.aspx.designer.cs">
       <DependentUpon>ProteinQuery.aspx</DependentUpon>
     </Compile>
-    <Compile Include="SNV_Mutations.cs">
+    <Compile Include="SNV_Mutation.cs">
       <DependentUpon>DrugProNET_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Utility\DataUtilities.cs" />
@@ -420,7 +423,6 @@
     <Content Include="Libraries\Bootstrap 3.3.7\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Libraries\Bootstrap 3.3.7\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Libraries\Bootstrap 3.3.7\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Temp\spreadsheet.xlsx" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

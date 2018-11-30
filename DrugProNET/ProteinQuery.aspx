@@ -30,17 +30,14 @@
         <div class="c-col body-content">
             <h3 class="h3-body-title">Protein-focused Drug Identification</h3>
             <p>
-                This query provides listings of atom-to-atom interaction pairs between a protein and a small drug molecule. Interactions are 
-            defined by distance between the atoms, which are measured in Angstroms. The data in this database are extracted from coordinate 
-            information of co-crystallization files in the RCSB PDB Protein Data Bank. The Protein Drug Interaction database currently 
-            contains data from over 4500 co-crystallization files.
+                This query provides listings of atom-to-atom interaction pairs between a protein and a small drug molecule. Interactions are defined by distance between the atoms, which are measured in Angstroms. The data in this database are extracted from coordinate information of co-crystallization files in the RCSB PDB Protein Data Bank. The Protein Drug Interaction database currently contains data from over 4500 co-crystallization files. 
             </p>
         </div>
         <div class="c-col advertisment-content">
             <asp:UpdatePanel ID="ad_update_panel" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
                     <asp:Timer ID="ad_refresh_timer" runat="server" Interval="10000" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
-                    <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server">
+                    <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server" Target="_blank">
                         <asp:Image ImageUrl="imageUrl" runat="server" ID="adBanner" AlternateText="" />
                     </asp:HyperLink>
                 </ContentTemplate>
@@ -59,8 +56,7 @@
         <div class="c-col body-content">
             <h3 class="h3-body-title">Step 1 - Protein Specification</h3>
             <p>
-                Provide the gene name, protein name, UniProt ID, or NCBI RefSeq 
-                ID of the target human protein as a search term.
+                Provide the gene name, protein name, UniProt ID or NCBI RefSeq ID of the target human protein as a search term.
             </p>
 
             <asp:TextBox CssClass="textBox" ID="search_textBox" runat="server" value="" placeholder="Type in at least 3 letters of the search term" OnTextChanged="Search_Textbox_Changed" onkeyup="RefreshUpdatePanel();" />
@@ -138,7 +134,7 @@
             <p>Click on the box below to produce custom tables with results or to reset the parameters.</p>
             <asp:Button ID="generate_table" CssClass="button" Text="Generate Table" runat="server" OnClick="Generate_Table_Button_Click" OnClientClick="target='_blank'" />
             <span>&emsp;&emsp;</span>
-            <asp:Button ID="reset" CssClass="button" Text="Reset" runat="server" OnClick="Reset_Button_Click" />
+            <asp:Button ID="reset_button" CssClass="button" Text="Reset" runat="server" OnClientClick="window.location.reload(); return false;"  />
         </div>
     </div>
 </asp:Content>

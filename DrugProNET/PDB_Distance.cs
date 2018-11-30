@@ -12,7 +12,7 @@ namespace DrugProNET
     using System;
     using System.Collections.Generic;
     
-    public partial class PDB_Distances
+    public partial class PDB_Distance
     {
         public string PDB_Entry { get; set; }
         public string Distance { get; set; }

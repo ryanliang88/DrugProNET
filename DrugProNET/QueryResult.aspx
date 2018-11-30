@@ -24,7 +24,7 @@
             <asp:UpdatePanel ID="ad_update_panel" runat="server" class="ad_banner">
                 <ContentTemplate>
                     <asp:Timer ID="ad_refresh_timer" runat="server" Interval="10000" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
-                    <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server">
+                    <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server" Target="_blank">
                         <asp:Image ImageUrl="imageUrl" runat="server" ID="adBanner" AlternateText="" />
                     </asp:HyperLink>
                 </ContentTemplate>
@@ -232,7 +232,7 @@
             <p class="p-side">PDB Entry:</p>
         </div>
         <div class="c-col body-content">
-            <p id="PDB_entry" runat="server"></p>
+            <asp:HyperLink ID="PDB_entry" runat="server" NavigateUrl="navigateurl" Target="_blank"/>
         </div>
     </div>
     <div class="c-row" id="release_date_row" runat="server">

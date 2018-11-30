@@ -23,7 +23,7 @@
             <asp:UpdatePanel ID="ad_update_panel" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
                     <asp:Timer ID="ad_refresh_timer" runat="server" Interval="10000" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
-                    <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server">
+                    <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server" Target="_blank">
                         <asp:Image ImageUrl="imageUrl" runat="server" ID="adBanner" AlternateText="" />
                     </asp:HyperLink>
                 </ContentTemplate>
@@ -53,9 +53,9 @@
             <p>
                 Click on the buttons below to retrieve information on the compound of interest or to reset the parameters for a new query.
             </p>
-            <asp:Button ID="retrieve_button" CssClass="button" Text="Retrieve Information" runat="server" OnClick="RetrieveData" OnClientClick="target='_blank'"/>
+            <asp:Button ID="retrieve_button" CssClass="button" Text="Retrieve Information" runat="server" OnClick="RetrieveData" OnClientClick="target='_blank'" />
             <span>&emsp;&emsp;</span>
-            <asp:Button ID="reset_button" CssClass="button" Text="Reset" runat="server" OnClick="ResetForm" />
+            <asp:Button ID="reset_button" CssClass="button" Text="Reset" runat="server" OnClientClick="window.location.reload(); return false;"  />
         </div>
     </div>
 </asp:Content>

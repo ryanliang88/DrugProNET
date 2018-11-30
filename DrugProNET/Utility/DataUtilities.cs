@@ -36,6 +36,8 @@ namespace DrugProNET.Utility
 
         public static List<string> FilterDropdownList(List<string> valuesList, string prefixText = null, bool startsWith = false)
         {
+            valuesList = valuesList.Where(s => !string.IsNullOrEmpty(s?.Trim())).ToList();
+
             if (prefixText != null)
             {
                 if (startsWith)
@@ -48,7 +50,7 @@ namespace DrugProNET.Utility
                 }
             }
 
-            return valuesList.Where(s => !string.IsNullOrEmpty(s.Trim())).Distinct(StringComparer.CurrentCultureIgnoreCase).OrderBy(alphabet => alphabet).ToList();
+            return valuesList.Distinct(StringComparer.CurrentCultureIgnoreCase).OrderBy(alphabet => alphabet).ToList();
         }
     }
 }

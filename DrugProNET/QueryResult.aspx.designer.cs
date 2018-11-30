@@ -406,7 +406,7 @@ namespace DrugProNET {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl PDB_entry;
+        protected global::System.Web.UI.WebControls.HyperLink PDB_entry;
         
         /// <summary>
         /// release_date_row control.

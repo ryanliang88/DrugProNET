@@ -19,11 +19,6 @@ namespace DrugProNET
             Context.ApplicationInstance.CompleteRequest();
         }
 
-        protected void ResetForm(object sender, EventArgs e)
-        {
-            search_textBox.Text = string.Empty;
-        }
-
         [WebMethod]
         [ScriptMethod]
         public static List<string> GetAutoCompleteData(string prefixText, int count)
@@ -54,6 +49,8 @@ namespace DrugProNET
                 {
                     throw ex;
                 }
+
+                System.Diagnostics.Debug.WriteLine("A");
             }
 
             return DataUtilities.FilterDropdownList(valuesList, prefixText, true);

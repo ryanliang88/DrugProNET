@@ -12,7 +12,7 @@ namespace DrugProNET
     using System;
     using System.Collections.Generic;
     
-    public partial class PDB_Interactions
+    public partial class PDB_Interaction
     {
         public string PDB_Entry { get; set; }
         public string Drug_PDB_ID { get; set; }

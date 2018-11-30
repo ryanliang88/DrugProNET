@@ -37,11 +37,7 @@
         <div class="c-col body-content">
             <h3 class="h3-body-title">Protein-Drug Interaction SNV Identification</h3>
             <p>
-                This query provides identification of single nucleotide variants (SNVs) in the human genome that 
-                may affect specific protein drug interactions. Using critical amino acid residues in a target 
-                protein implicated in a specific drug binding from a previous DrugProNET query, SNVs of these 
-                amino acids are identified for their locations in the human genome and the consequence of their 
-                mutation on binding of a specific drug is predicted
+                This query provides identification of single nucleotide variants (SNV’s) in the human genome that may affect specific protein- drug interactions. Using critical amino acids residues in a target protein implicated in a specific drug binding from a previous DrugProNET query, SNV’s of these amino acids are identified for their locations in the human genome and the consequence of their mutation on binding of a specific drug is predicted. 
             </p>
         </div>
         <div class="c-col advertisment-content">
@@ -49,7 +45,7 @@
             <asp:Timer ID="ad_refresh_timer" runat="server" Interval="10000" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
             <asp:UpdatePanel ID="ad_update_panel" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
-                    <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server">
+                    <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server" Target="_blank">
                         <asp:Image ImageUrl="imageUrl" runat="server" ID="adBanner" AlternateText="" />
                     </asp:HyperLink>
                 </ContentTemplate>
@@ -68,8 +64,7 @@
         <div class="c-col body-content">
             <h3 class="h3-body-title">Step 1 - Protein Specification</h3>
             <p>
-                Provide the gene name, protein name, UniProt ID, or NCBI RefSeq ID of the target human
-                protein as a search term.
+                Provide the gene name, protein name, UniProt ID or NCBI RefSeq ID of the target human protein as a search term.
             </p>
 
             <asp:TextBox CssClass="textBox" ID="search_textBox" runat="server" value="" placeholder="Type in at least 3 letters of the search term" OnTextChanged="Search_Textbox_Changed" onkeyup="RefreshUpdatePanel();" />
@@ -107,8 +102,7 @@
 
             <h3 class="h3-body-title">Step 3 - Protein Amino Acid Specification</h3>
             <p>
-                Use the pull-down menu below to select the amino acid in the proteins for which you wish to 
-                identify SNPs that affect the specified drug binding.
+                Use the pull-down menu below to select the amino acid in the proteins for which you wish to identify SNP’s that affect the specificed drug binding. 
             </p>
 
             <asp:UpdatePanel ID="amino_acid_specification_updatePanel" runat="server" UpdateMode="Conditional">
@@ -134,8 +128,7 @@
 
             <asp:Button ID="generate_table_button" CssClass="button" Text="Generate Table" runat="server" OnClick="Generate" OnClientClick="target='_blank'" />
             <span>&emsp;&emsp;</span>
-            <asp:Button ID="reset_button" CssClass="button" Text="Reset" runat="server" />
+            <asp:Button ID="reset_button" CssClass="button" Text="Reset" runat="server" OnClientClick="window.location.reload(); return false;"  />
         </div>
     </div>
-
 </asp:Content>

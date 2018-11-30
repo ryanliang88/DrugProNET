@@ -27,8 +27,8 @@ namespace DrugProNET
         private Protein_Information protein;
         private PDB_Information PDB;
 
-        private List<PDB_Distances> distances = new List<PDB_Distances>();
-        private List<PDB_Interactions> interactions = new List<PDB_Interactions>();
+        private List<PDB_Distance> distances = new List<PDB_Distance>();
+        private List<PDB_Interaction> interactions = new List<PDB_Interaction>();
 
         protected new void Page_Load(object sender, EventArgs e)
         {
@@ -73,6 +73,7 @@ namespace DrugProNET
                 }
                 catch (Exception)
                 {
+
                 }
 
                 if (drug == null || protein == null || PDB == null)
@@ -113,6 +114,23 @@ namespace DrugProNET
             }
         }
 
+        public class InteractionSummaryRow
+        {
+            public string proteinAAResidue;
+            public double numberOfInteractionsWithDrugAtom;
+            public double averageDistanceOfAllInteractions;
+            public double interactionToDistanceRatio;
+
+            public InteractionSummaryRow(string proteinAAResidue, double numberOfInteractionsWithDrugAtom,
+                double averageDistanceOfAllInteractions, double interactionToDistanceRatio)
+            {
+                this.proteinAAResidue = proteinAAResidue;
+                this.numberOfInteractionsWithDrugAtom = numberOfInteractionsWithDrugAtom;
+                this.averageDistanceOfAllInteractions = averageDistanceOfAllInteractions;
+                this.interactionToDistanceRatio = interactionToDistanceRatio;
+            }
+        }
+
         private void CreateInteractionSummary()
         {
             TableHeaderRow tableHeaderRow = new TableHeaderRow
@@ -127,17 +145,52 @@ namespace DrugProNET
 
             interaction_summary.Rows.Add(tableHeaderRow);
 
-            List<PDB_Interactions> interactions = EF_Data.GetPDB_Interactions(protein.Uniprot_ID, drug.Drug_PDB_ID);
-            Session["interactions"] = interactions;
+            // List<PDB_Interaction> interactions = EF_Data.GetPDB_Interaction(protein.Uniprot_ID, drug.Drug_PDB_ID);
+            // Session["interactions"] = interactions;
 
-            for (int i = 0; i < interactions.Count; i++)
+            List<PDB_Distance> distances = (List<PDB_Distance>)Session["distances"];
+
+            // Actual distance value is stored in DB as datatype string
+            Dictionary<string, List<string>> proteinAAResidueAndDistances = new Dictionary<string, List<string>>();
+
+            foreach (PDB_Distance distance in distances)
+            {
+                string proteinAAResidueValue = distance.Protein_Residue + "-" + distance.Protein_Residue_;
+                if (!proteinAAResidueAndDistances.ContainsKey(proteinAAResidueValue))
+                {
+                    proteinAAResidueAndDistances.Add(proteinAAResidueValue, new List<string>() { distance.Distance, });
+                }
+                else
+                {
+                    proteinAAResidueAndDistances[proteinAAResidueValue].Add(distance.Distance);
+                }
+            }
+
+            List<InteractionSummaryRow> interactionSummaryRows = new List<InteractionSummaryRow>();
+
+            foreach (KeyValuePair<string, List<string>> proteinAAResidueAndDistance in proteinAAResidueAndDistances)
+            {
+                double numberOfInteractionsWithDrugAtom = proteinAAResidueAndDistance.Value.Count;
+
+                List<double> distancesNumericForm = proteinAAResidueAndDistance.Value.Select(x => double.Parse(x)).ToList();
+                double averageDistanceOfAllInteractions = distancesNumericForm.Average();
+
+                double interactionToDistanceRatio = numberOfInteractionsWithDrugAtom / averageDistanceOfAllInteractions;
+
+                interactionSummaryRows.Add(new InteractionSummaryRow(proteinAAResidueAndDistance.Key, numberOfInteractionsWithDrugAtom, averageDistanceOfAllInteractions, interactionToDistanceRatio));
+            }
+
+            interactionSummaryRows = interactionSummaryRows.OrderByDescending(i => i.interactionToDistanceRatio).ToList();
+            Session["interactionSummaryRows"] = interactionSummaryRows;
+
+            foreach (InteractionSummaryRow interactionSummaryRow in interactionSummaryRows)
             {
                 TableRow tableRow = new TableRow();
 
-                tableRow.Cells.Add(new TableCell { Text = interactions[i].AA_Residue_Type_And_Number });
-                tableRow.Cells.Add(new TableCell { Text = interactions[i].Number_of_Atomic_Interactions });
-                tableRow.Cells.Add(new TableCell { Text = double.Parse(interactions[i].Average_Distance_Between_Atoms).ToString("0.00") });
-                tableRow.Cells.Add(new TableCell { Text = double.Parse(interactions[i].Interaction_Distance_Ratio).ToString("0.00") });
+                tableRow.Cells.Add(new TableCell { Text = interactionSummaryRow.proteinAAResidue });
+                tableRow.Cells.Add(new TableCell { Text = interactionSummaryRow.numberOfInteractionsWithDrugAtom.ToString() });
+                tableRow.Cells.Add(new TableCell { Text = interactionSummaryRow.averageDistanceOfAllInteractions.ToString("0.00") });
+                tableRow.Cells.Add(new TableCell { Text = interactionSummaryRow.interactionToDistanceRatio.ToString("0.00") });
 
                 interaction_summary.Rows.Add(tableRow);
             }
@@ -176,7 +229,7 @@ namespace DrugProNET
 
             interaction_list.Rows.Add(tableHeaderRow);
 
-            distances = EF_Data.GetPDB_Distances(PDB.PDB_File_ID, interaction_distance);
+            distances = EF_Data.GetPDB_Distance(PDB.PDB_File_ID, interaction_distance);
             Session["distances"] = distances;
 
             for (int i = 0; i < distances.Count; i++)
@@ -237,7 +290,7 @@ namespace DrugProNET
 
         public void LoadPDB_Info(PDB_Information PDB_Info)
         {
-            ProcessRow(PDB_entry_row, PDB_entry, PDB_Info.PDB_File_ID);
+            ProcessRow(PDB_entry_row, PDB_entry, PDB_Info.PDB_File_ID, "https://www.rcsb.org/structure/" + PDB_Info.PDB_File_ID);
             ProcessRow(release_date_row, release_date, PDB_Info.PDB_Released);
             ProcessRow(resolution_row, resolution, PDB_Info.Resolution);
             ProcessRow(title_row, title, PDB_Info.PDB_Entry_Title);
@@ -304,18 +357,18 @@ namespace DrugProNET
                     "# Interactions : Distance Ratio",
                 };
 
-                interactions = (List<PDB_Interactions>)Session["interactions"];
+                List<InteractionSummaryRow> interactionSummaryRows = (List<InteractionSummaryRow>) Session["interactionSummaryRows"];
 
                 List<List<string>> data = new List<List<string>>();
 
-                for (int i = 0; i < interactions.Count; i++)
+                foreach (InteractionSummaryRow interactionSummaryRow in interactionSummaryRows)
                 {
                     List<string> dataRow = new List<string>
                     {
-                        interactions[i].AA_Residue_Type_And_Number,
-                        interactions[i].Number_of_Atomic_Interactions,
-                        interactions[i].Average_Distance_Between_Atoms,
-                        interactions[i].Interaction_Distance_Ratio
+                        interactionSummaryRow.proteinAAResidue,
+                        interactionSummaryRow.numberOfInteractionsWithDrugAtom.ToString(),
+                        interactionSummaryRow.averageDistanceOfAllInteractions.ToString(),
+                        interactionSummaryRow.interactionToDistanceRatio.ToString(),
                     };
 
                     data.Add(dataRow);
@@ -337,7 +390,7 @@ namespace DrugProNET
         {
             try
             {
-                distances = (List<PDB_Distances>)Session["distances"];
+                distances = (List<PDB_Distance>)Session["distances"];
                 interaction_distance = (double)Session["interaction_distance"];
                 protein_chain = (bool)Session["protein_chain"];
                 protein_atoms = (bool)Session["protein_atoms"];

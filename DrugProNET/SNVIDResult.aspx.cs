@@ -12,7 +12,7 @@ namespace DrugProNET
     {
         private const string QUERY_PAGE = "SNVIDQuery.aspx";
 
-        private SNV_Mutations mutation;
+        private SNV_Mutation mutation;
 
         protected new void Page_Load(object sender, EventArgs e)
         {
@@ -35,7 +35,7 @@ namespace DrugProNET
                 // Retrieve second and third elements
                 string amino_acid_specification = SNV_KEYsplit[1] + "-" + SNV_KEYsplit[2];
 
-                PDB_Interactions interaction = EF_Data.GetPDB_Interaction(protein.Uniprot_ID, drug.Drug_PDB_ID, amino_acid_specification);
+                PDB_Interaction interaction = EF_Data.GetPDB_Interaction(protein.Uniprot_ID, drug.Drug_PDB_ID, amino_acid_specification);
                 mutation = EF_Data.GetMutationBySNVKey(SNV_Key);
 
                 Session["mutation"] = mutation;
@@ -53,7 +53,7 @@ namespace DrugProNET
             }
         }
 
-        public void LoadProtein(Protein_Information protein, PDB_Interactions interaction, SNV_Mutations mutation)
+        public void LoadProtein(Protein_Information protein, PDB_Interaction interaction, SNV_Mutation mutation)
         {
             ProcessRow(gene_name_row, gene_name, mutation.NCBI_Gene_Name);
             ProcessRow(uniprot_id_row, uniprot_id, mutation.UniProt_ID, protein.UniProt_Entry_URL);
@@ -69,7 +69,7 @@ namespace DrugProNET
             ProcessRow(interaction_distance_ratio_row, interaction_distance_ratio, interaction.Interaction_Distance_Ratio);
         }
 
-        public void LoadDrug(Drug_Information drug, SNV_Mutations mutation)
+        public void LoadDrug(Drug_Information drug, SNV_Mutation mutation)
         {
             ProcessRow(PDB_drug_ID_row, PDB_drug_ID, mutation.Drug_PDB_ID, drug.Drug_PDB_ID_URL);
             ProcessRow(drug_name_row, drug_name, drug.Drug_Common_Name);
@@ -84,7 +84,7 @@ namespace DrugProNET
 
         public void LoadPDB_Info(PDB_Information PDB_Info)
         {
-            ProcessRow(PDB_entry_row, PDB_entry, PDB_Info.PDB_File_ID);
+            ProcessRow(PDB_entry_row, PDB_entry, PDB_Info.PDB_File_ID, "https://www.rcsb.org/structure/" + PDB_Info.PDB_File_ID);
         }
 
         protected void Download_SNV_Identification_Click(object sender, EventArgs e)
@@ -95,7 +95,7 @@ namespace DrugProNET
             Response.AddHeader("Content-Disposition", "attachment; " +
                 "filename=DrugProNET_SNV " + Session["SNV_Key"] + ".xlsx");
 
-            mutation = (SNV_Mutations)Session["mutation"];
+            mutation = (SNV_Mutation)Session["mutation"];
 
             List<string> header = new List<string>() { "Variant ID", "SNV", "Predicted Effect on Drug Binding" };
             List<List<string>> data = new List<List<string>>() {
@@ -120,7 +120,7 @@ namespace DrugProNET
             System.Web.HttpContext.Current.ApplicationInstance.CompleteRequest();
         }
 
-        private void CreateSNVIdentificationTable(SNV_Mutations mutation)
+        private void CreateSNVIdentificationTable(SNV_Mutation mutation)
         {
             TableHeaderRow tableHeaderRow = new TableHeaderRow { TableSection = TableRowSection.TableHeader };
 
