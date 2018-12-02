@@ -21,7 +21,7 @@
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="BodyContentPlaceHolder">
-    <div class="c-row">
+    <div class="c-row ad_row_min_height">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
             <h3 class="h3-side-title">Query Type</h3>
