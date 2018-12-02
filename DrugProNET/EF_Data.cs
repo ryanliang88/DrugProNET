@@ -180,7 +180,7 @@ namespace DrugProNET
 
             using (DrugProNETEntities context = new DrugProNETEntities())
             {
-                interactions = context.PDB_Interaction.Where(i => 
+                interactions = context.PDB_Interaction.Where(i =>
                     i.UniProt_ID.ToLower().Contains(uniprot_ID.ToLower())
                     && i.Drug_PDB_ID.ToLower().Contains(drug_pdb_id.ToLower())
                 ).ToList();
@@ -198,7 +198,7 @@ namespace DrugProNET
                 PDB_interaction = context.PDB_Interaction
                     .Where(i => i.UniProt_ID.ToLower().Contains(uniprot_ID.ToLower())
                     && i.Drug_PDB_ID.ToLower().Contains(drug_PDB_ID.ToLower())
-                    && i.AA_Residue_Type_And_Number.ToLower().Contains(amino_acid_specification.ToLower())
+                    && (i.AA_Residue_Type + "-" + i.Uniprot_Residue_Number).ToLower().Contains(amino_acid_specification.ToLower())
                 ).FirstOrDefault();
             }
 
@@ -284,6 +284,27 @@ namespace DrugProNET
             }
 
             return SNV_mutation;
+        }
+
+        public static Dictionary<PDB_Distance, string> GetUniprotResidueNumberByDistance(List<PDB_Distance> distances)
+        {
+            Dictionary<PDB_Distance, string> DistanceAndUniprotResidueNumbers = new Dictionary<PDB_Distance, string>();
+
+            using (DrugProNETEntities context = new DrugProNETEntities())
+            {
+                foreach (PDB_Distance distance in distances)
+                {
+                    PDB_Interaction interaction = context.PDB_Interaction.Where(i =>
+                        i.PDB_Entry.ToLower().Equals(distance.PDB_Entry)
+                        && i.AA_Residue_Type.Equals(distance.Protein_Residue)
+                        && distance.Protein_Residue_.Equals(i.PDB_Residue_Number)
+                    ).FirstOrDefault();
+
+                    DistanceAndUniprotResidueNumbers.Add(distance, interaction.Uniprot_Residue_Number);
+                }
+            }
+
+            return DistanceAndUniprotResidueNumbers;
         }
 
         public static SNV_Mutation GetMutationBySNVIDKey(string SNV_ID_Key)

@@ -112,7 +112,7 @@
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
         </div>
-        <div class="c-col body-content">
+        <div class="c-col body-content" style="padding-bottom: 10px">
             <div class="c-col advertisement-content">
                 <div class="image-content">
                     <p class="h3-body-title">Drug 3D Structure</p>

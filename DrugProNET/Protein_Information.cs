@@ -49,8 +49,8 @@ namespace DrugProNET
         public string International_Prot_ID { get; set; }
         public string PhosphoNET_Name { get; set; }
         public string PhosphoNET_URL { get; set; }
-        public string PhosphoSIte_Plus_Entry { get; set; }
-        public string PhosphoSIte_Plus_Entry_URL { get; set; }
+        public string PhosphoSite_Plus_Entry { get; set; }
+        public string PhosphoSite_Plus_Entry_URL { get; set; }
         public string KinaseNET_URL { get; set; }
         public string OncoNET_URL { get; set; }
         public string Kinex_Product_Links { get; set; }

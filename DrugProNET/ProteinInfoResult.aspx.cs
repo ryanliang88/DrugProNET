@@ -135,7 +135,7 @@ namespace DrugProNET
             ProcessRow(ncbi_refseq_id_row, ncbi_refseq_id, protein.NCBI_RefSeq_NP_ID, protein.NCBI_RefSeq_NP_ID_URL);
             ProcessRow(int_protein_id_row, int_protein_id, protein.International_Prot_ID);
             ProcessRow(phosphonet_id_row, phosphonet_id, protein.PhosphoNET_Name, protein.PhosphoNET_URL);
-            ProcessRow(phosphositeplus_row, phosphositeplus, protein.PhosphoSIte_Plus_Entry, protein.PhosphoSIte_Plus_Entry_URL);
+            ProcessRow(phosphositeplus_row, phosphositeplus, protein.PhosphoSite_Plus_Entry, protein.PhosphoSite_Plus_Entry_URL);
             ProcessRow(kinasenet_id_row, kinasenet_id, protein.Uniprot_ID, protein.KinaseNET_URL);
             ProcessRow(onconet_id_row, onconet_id, protein.Uniprot_ID, protein.OncoNET_URL);
             ProcessRow(chromosome_no_row, chromosome_no, protein.Human_Chromosome_Number);

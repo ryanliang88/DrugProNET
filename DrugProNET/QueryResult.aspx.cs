@@ -145,24 +145,23 @@ namespace DrugProNET
 
             interaction_summary.Rows.Add(tableHeaderRow);
 
-            // List<PDB_Interaction> interactions = EF_Data.GetPDB_Interaction(protein.Uniprot_ID, drug.Drug_PDB_ID);
-            // Session["interactions"] = interactions;
-
             List<PDB_Distance> distances = (List<PDB_Distance>)Session["distances"];
 
             // Actual distance value is stored in DB as datatype string
             Dictionary<string, List<string>> proteinAAResidueAndDistances = new Dictionary<string, List<string>>();
 
-            foreach (PDB_Distance distance in distances)
+            Dictionary<PDB_Distance, string> DistanceAndUniprotResidueNumbers = (Dictionary<PDB_Distance, string>)Session["DistanceAndUniprotResidueNumbers"];
+
+            foreach (KeyValuePair<PDB_Distance, string> kvp in DistanceAndUniprotResidueNumbers)
             {
-                string proteinAAResidueValue = distance.Protein_Residue + "-" + distance.Protein_Residue_;
+                string proteinAAResidueValue = kvp.Key.Protein_Residue + "-" + kvp.Value;
                 if (!proteinAAResidueAndDistances.ContainsKey(proteinAAResidueValue))
                 {
-                    proteinAAResidueAndDistances.Add(proteinAAResidueValue, new List<string>() { distance.Distance, });
+                    proteinAAResidueAndDistances.Add(proteinAAResidueValue, new List<string>() { kvp.Key.Distance, });
                 }
                 else
                 {
-                    proteinAAResidueAndDistances[proteinAAResidueValue].Add(distance.Distance);
+                    proteinAAResidueAndDistances[proteinAAResidueValue].Add(kvp.Key.Distance);
                 }
             }
 
@@ -230,37 +229,40 @@ namespace DrugProNET
             interaction_list.Rows.Add(tableHeaderRow);
 
             distances = EF_Data.GetPDB_Distance(PDB.PDB_File_ID, interaction_distance);
-            Session["distances"] = distances;
 
-            for (int i = 0; i < distances.Count; i++)
+            Dictionary<PDB_Distance, string> DistanceAndUniprotResidueNumbers = EF_Data.GetUniprotResidueNumberByDistance(distances);
+
+            Session["DistanceAndUniprotResidueNumbers"] = DistanceAndUniprotResidueNumbers;
+
+            foreach (KeyValuePair<PDB_Distance, string> kvp in DistanceAndUniprotResidueNumbers)
             {
                 TableRow tableRow = new TableRow();
 
-                tableRow.Cells.Add(new TableCell { Text = (double.Parse(distances[i].Distance)).ToString("0.00") });
+                tableRow.Cells.Add(new TableCell { Text = (double.Parse(kvp.Key.Distance)).ToString("0.00") });
 
                 if (protein_chain)
                 {
-                    tableRow.Cells.Add(new TableCell { Text = distances[i].Protein_Chain });
+                    tableRow.Cells.Add(new TableCell { Text = kvp.Key.Protein_Chain });
                 }
 
                 if (protein_residue_numbers)
                 {
-                    tableRow.Cells.Add(new TableCell { Text = distances[i].Protein_Residue_ });
+                    tableRow.Cells.Add(new TableCell { Text = kvp.Value });
                 }
 
                 if (protein_residues)
                 {
-                    tableRow.Cells.Add(new TableCell { Text = distances[i].Protein_Residue });
+                    tableRow.Cells.Add(new TableCell { Text = kvp.Key.Protein_Residue });
                 }
 
                 if (protein_atoms)
                 {
-                    tableRow.Cells.Add(new TableCell { Text = distances[i].Protein_Atom });
+                    tableRow.Cells.Add(new TableCell { Text = kvp.Key.Protein_Atom });
                 }
 
                 if (drug_atoms)
                 {
-                    tableRow.Cells.Add(new TableCell { Text = distances[i].Compound_Atom });
+                    tableRow.Cells.Add(new TableCell { Text = kvp.Key.Compound_Atom });
                 }
 
                 interaction_list.Rows.Add(tableRow);
@@ -390,7 +392,7 @@ namespace DrugProNET
         {
             try
             {
-                distances = (List<PDB_Distance>)Session["distances"];
+                Dictionary<PDB_Distance, string> DistanceAndUniprotResidueNumbers = (Dictionary<PDB_Distance, string>)Session["DistanceAndUniprotResidueNumbers"];
                 interaction_distance = (double)Session["interaction_distance"];
                 protein_chain = (bool)Session["protein_chain"];
                 protein_atoms = (bool)Session["protein_atoms"];
@@ -437,36 +439,36 @@ namespace DrugProNET
 
                 List<List<string>> data = new List<List<string>>();
 
-                for (int i = 0; i < distances.Count; i++)
+                foreach (KeyValuePair<PDB_Distance, string> kvp in DistanceAndUniprotResidueNumbers)
                 {
                     List<string> dataRow = new List<string>
                     {
-                        distances[i].Distance
+                        kvp.Key.Distance
                     };
 
                     if (protein_chain)
                     {
-                        dataRow.Add(distances[i].Protein_Chain);
+                        dataRow.Add(kvp.Key.Protein_Chain);
                     }
 
                     if (protein_residue_numbers)
                     {
-                        dataRow.Add(distances[i].Protein_Residue_);
+                        dataRow.Add(kvp.Value);
                     }
 
                     if (protein_residues)
                     {
-                        dataRow.Add(distances[i].Protein_Residue);
+                        dataRow.Add(kvp.Key.Protein_Residue);
                     }
 
                     if (protein_atoms)
                     {
-                        dataRow.Add(distances[i].Protein_Atom);
+                        dataRow.Add(kvp.Key.Protein_Atom);
                     }
 
                     if (drug_atoms)
                     {
-                        dataRow.Add(distances[i].Compound_Atom);
+                        dataRow.Add(kvp.Key.Compound_Atom);
                     }
 
                     data.Add(dataRow);
