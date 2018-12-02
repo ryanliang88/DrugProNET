@@ -28,14 +28,17 @@ namespace DrugProNET
      **/
     public static class ExcelWriter
     {
-        private const string TEMP_PATH = "Temp";
-        private const string DEFAULT_FILE_NAME = "spreadsheet.xlsx";
-
+        /// <summary>
+        /// Author: Andy Tang
+        /// </summary>
         public static MemoryStream CreateAsStream(List<string> header, List<List<string>> data)
         {
             return new MemoryStream(CreateExcelPackage(header, data).GetAsByteArray());
         }
 
+        /// <summary>
+        /// Author: Andy Tang
+        /// </summary>
         private static ExcelPackage CreateExcelPackage(List<string> header, List<List<string>> data)
         {
             ExcelPackage excel = new ExcelPackage();
@@ -51,6 +54,9 @@ namespace DrugProNET
             return excel;
         }
 
+        /// <summary>
+        /// Author: Andy Tang
+        /// </summary>
         private static void AddHeader(ExcelWorksheet worksheet, List<string> header)
         {
             List<string[]> row = new List<string[]>
@@ -68,6 +74,9 @@ namespace DrugProNET
             worksheet.Cells[range].Style.Font.Color.SetColor(Color.White);
         }
 
+        /// <summary>
+        /// Author: Andy Tang
+        /// </summary>
         private static void AddData(ExcelWorksheet worksheet, List<List<string>> data)
         {
             for (int i = 0; i < data.Count; i++)

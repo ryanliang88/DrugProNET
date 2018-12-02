@@ -12,6 +12,9 @@ namespace DrugProNET
 {
     public partial class ProteinInfo : AdvertiseablePage
     {
+        /// <summary>
+        /// Author: Andy Tang
+        /// </summary>
         protected void RetrieveData(object sender, EventArgs e)
         {
             string query = search_textBox.Text;
@@ -19,6 +22,9 @@ namespace DrugProNET
             Context.ApplicationInstance.CompleteRequest();
         }
 
+        /// <summary>
+        /// Author: Andy Tang
+        /// </summary>
         [WebMethod]
         [ScriptMethod]
         public static List<string> GetAutoCompleteData(string prefixText, int count)

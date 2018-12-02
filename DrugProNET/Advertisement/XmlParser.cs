@@ -15,6 +15,9 @@ namespace DrugProNET.Advertisement
     {
         XmlDocument xml;
 
+        /// <summary>
+        /// Author: Andy Tang
+        /// </summary>
         public XmlNode Parse(string path, string baseSearchTag)
         {
             xml = new XmlDocument();
@@ -23,6 +26,9 @@ namespace DrugProNET.Advertisement
             return node;
         }
 
+        /// <summary>
+        /// Author: Andy Tang
+        /// </summary>
         public List<XmlNode> GetAllUnder(XmlNode n)
         {
             List<XmlNode> nodes = new List<XmlNode>();

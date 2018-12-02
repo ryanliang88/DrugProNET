@@ -9,6 +9,9 @@ namespace DrugProNET
 {
     public static class EF_Data
     {
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         public static Drug_Information GetDrugUsingDropDownName(string query)
         {
             Drug_Information drug = null;
@@ -22,6 +25,9 @@ namespace DrugProNET
             return drug;
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         public static Drug_Information GetDrugByDrugPDBID(string query)
         {
             Drug_Information drug = null;
@@ -35,6 +41,9 @@ namespace DrugProNET
             return drug;
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         public static List<Drug_Information> GetDrugsQuery(string query)
         {
             List<Drug_Information> drugs = new List<Drug_Information>();
@@ -54,6 +63,9 @@ namespace DrugProNET
             return drugs;
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         public static List<Drug_Information> GetDrugsInfoQuery(string query)
         {
             List<Drug_Information> drugs = new List<Drug_Information>();
@@ -77,6 +89,9 @@ namespace DrugProNET
             return drugs;
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         public static Protein_Information GetProteinByUniprotID(string uniprotID)
         {
             Protein_Information protein = null;
@@ -89,6 +104,9 @@ namespace DrugProNET
             return protein;
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         public static Protein_Information GetProtein(string query)
         {
             Protein_Information protein = null;
@@ -118,6 +136,9 @@ namespace DrugProNET
             return protein;
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         public static List<Protein_Information> GetProteinsInfoQuery(string query)
         {
             List<Protein_Information> proteins = new List<Protein_Information>();
@@ -140,6 +161,9 @@ namespace DrugProNET
             return proteins;
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         public static List<PDB_Distance> GetPDB_Distance(string pdb_entry, double interaction_distance)
         {
             List<PDB_Distance> distances = new List<PDB_Distance>();
@@ -160,6 +184,9 @@ namespace DrugProNET
             return distances.OrderBy(d => double.Parse(d.Distance)).ToList();
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         public static List<PDB_Interaction> GetPDB_Interaction(string uniprot_ID)
         {
             List<PDB_Interaction> interactions = new List<PDB_Interaction>();
@@ -175,6 +202,9 @@ namespace DrugProNET
             return interactions.OrderByDescending(i => double.Parse(i.Interaction_Distance_Ratio)).ToList();
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         public static List<PDB_Interaction> GetPDB_Interaction(string uniprot_ID, string drug_pdb_id)
         {
             List<PDB_Interaction> interactions = new List<PDB_Interaction>();
@@ -190,6 +220,9 @@ namespace DrugProNET
             return interactions.OrderByDescending(i => double.Parse(i.Interaction_Distance_Ratio)).ToList();
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         public static PDB_Interaction GetPDB_Interaction(string uniprot_ID, string drug_PDB_ID, string amino_acid_specification)
         {
             PDB_Interaction PDB_interaction = new PDB_Interaction();
@@ -206,6 +239,9 @@ namespace DrugProNET
             return PDB_interaction;
         }
 
+        /// <summary>
+        /// Author: Andy Tang
+        /// </summary>
         public static PDB_Information GetPDBInfo(Protein_Information protein, Drug_Information drug)
         {
             PDB_Information PDBInfo = null;
@@ -234,6 +270,9 @@ namespace DrugProNET
             return PDBInfo;
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         public static List<PDB_Information> GetPDBInfoUsingProtein(string uniprot_ID)
         {
             List<PDB_Information> list = new List<PDB_Information>();
@@ -247,6 +286,9 @@ namespace DrugProNET
             return list;
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         public static List<PDB_Information> GetPDBInfoUsingDrug(string drug_pdb_id)
         {
             List<PDB_Information> PDB_information = new List<PDB_Information>();
@@ -260,6 +302,9 @@ namespace DrugProNET
             return PDB_information;
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         public static List<SNV_Mutation> GetMutations(string uniprot_ID, string drug_PDB_ID, string PDB_File_ID)
         {
             List<SNV_Mutation> SNV_Mutation = new List<SNV_Mutation>();
@@ -275,6 +320,9 @@ namespace DrugProNET
             return SNV_Mutation;
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         public static SNV_Mutation GetMutationBySNVKey(string SNV_Key)
         {
             SNV_Mutation SNV_mutation = new SNV_Mutation();
@@ -287,6 +335,9 @@ namespace DrugProNET
             return SNV_mutation;
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         public static Dictionary<PDB_Distance, string> GetUniprotResidueNumberByDistance(List<PDB_Distance> distances)
         {
             Dictionary<PDB_Distance, string> DistanceAndUniprotResidueNumbers = new Dictionary<PDB_Distance, string>();
@@ -308,6 +359,9 @@ namespace DrugProNET
             return DistanceAndUniprotResidueNumbers;
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         public static SNV_Mutation GetMutationBySNVIDKey(string SNV_ID_Key)
         {
             SNV_Mutation SNV_mutation = GetMutationsBySNVIDKey(SNV_ID_Key).First();
@@ -315,6 +369,9 @@ namespace DrugProNET
             return SNV_mutation;
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         public static List<SNV_Mutation> GetMutationsBySNVIDKey(string SNV_ID_Key)
         {
             List<SNV_Mutation> SNV_Mutation = new List<SNV_Mutation>();
@@ -340,6 +397,9 @@ namespace DrugProNET
             return SNV_Mutation;
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         public static List<SNV_Mutation> GetMutationsBySNVIDKeyContains(string SNV_ID_Key)
         {
             List<SNV_Mutation> SNV_Mutation = new List<SNV_Mutation>();
@@ -365,6 +425,9 @@ namespace DrugProNET
             return SNV_Mutation;
         }
 
+        /// <summary>
+        /// Author: Andy Tang
+        /// </summary>
         private static bool IsQueryInValues(string query, params string[] values)
         {
             return values.Select(value => value?.ToLower()).ToArray().Contains(query?.ToLower());

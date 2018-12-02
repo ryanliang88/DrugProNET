@@ -3,6 +3,9 @@
     clipDist: 1
 });
 
+/*
+Author: Andy Tang
+*/
 function loadDrugLigand(fileName) {
 
     var loadFileUrl = "//files.rcsb.org//ligands/view/" + fileName + ".cif";

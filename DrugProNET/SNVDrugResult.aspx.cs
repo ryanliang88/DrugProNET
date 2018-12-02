@@ -21,6 +21,9 @@ namespace DrugProNET
 
         public string SNV_ID_Key;
 
+        /// <summary>
+        /// Author: Garth Nelson
+        /// </summary>
         protected new void Page_Load(object sender, EventArgs e)
         {
             base.Page_Load(sender, e);
@@ -66,11 +69,17 @@ namespace DrugProNET
             }
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         private void LoadSNVID(string SNV_Key)
         {
             ProcessRow(snv_id_row, snv_id, SNV_Key);
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         private void LoadTargetGeneID(Protein_Information protein, SNV_Mutation mutation)
         {
             ProcessRow(gene_name_row, gene_name, mutation.NCBI_Gene_Name);
@@ -83,6 +92,9 @@ namespace DrugProNET
             gene_and_protein_info_url.Target = "_blank";
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         private void CreateIDofPDILinkedSNVTable(List<Drug_Information> drugs, List<PDB_Interaction> interactions, List<SNV_Mutation> mutations)
         {
             TableHeaderRow tableHeaderRow = new TableHeaderRow();
@@ -118,13 +130,14 @@ namespace DrugProNET
         }
 
         public class DrugResultRow {
-
             public Drug_Information drug;
             public PDB_Interaction interaction;
             public SNV_Mutation mutation;
         }
 
-
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         private TableRow CreateTableRow(Drug_Information drug, PDB_Interaction interaction, SNV_Mutation mutation)
         {
             TableRow tableRow = new TableRow();
@@ -151,6 +164,9 @@ namespace DrugProNET
             return tableRow;
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         private string FindPredictedEffiency(SNV_Mutation mutation)
         {
             if (mutation.SNV_P1M1_ID.Equals(SNV_ID_Key, StringComparison.OrdinalIgnoreCase))
@@ -193,6 +209,9 @@ namespace DrugProNET
             return null;
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         protected void Download_Button_Click(object sender, EventArgs e)
         {
             SNV_ID_Key = (string)Session["SNV_ID_Key"];
@@ -235,6 +254,9 @@ namespace DrugProNET
             System.Web.HttpContext.Current.ApplicationInstance.CompleteRequest();
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         private static void ProcessRow(Control rowControl, Control textControl, string text, string url = null)
         {
             string[] arr = { "N/A" };

@@ -28,8 +28,10 @@ namespace DrugProNET
         private PDB_Information PDB;
 
         private List<PDB_Distance> distances = new List<PDB_Distance>();
-        private List<PDB_Interaction> interactions = new List<PDB_Interaction>();
 
+        /// <summary>
+        /// Author: Andy Tang, Ryan Liang
+        /// </summary>
         protected new void Page_Load(object sender, EventArgs e)
         {
             base.Page_Load(sender, e);
@@ -73,7 +75,7 @@ namespace DrugProNET
                 }
                 catch (Exception)
                 {
-
+                    throw;
                 }
 
                 if (drug == null || protein == null || PDB == null)
@@ -131,6 +133,9 @@ namespace DrugProNET
             }
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         private void CreateInteractionSummary()
         {
             TableHeaderRow tableHeaderRow = new TableHeaderRow
@@ -212,6 +217,9 @@ namespace DrugProNET
             }
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         private void CreateInteractionList(PDB_Information PDB, double interaction_distance, bool protein_chain, bool protein_atoms, bool protein_residues, bool protein_residue_numbers, bool drug_atoms)
         {
             TableHeaderRow tableHeaderRow = new TableHeaderRow { TableSection = TableRowSection.TableHeader };
@@ -286,6 +294,9 @@ namespace DrugProNET
             }
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         private Control GetControlThatCausedPostBack(Page page)
         {
             //initialize a control and set it to null
@@ -300,6 +311,9 @@ namespace DrugProNET
             return ctrl;
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         private void GetDrugAtomNumberingImage(Drug_Information drug)
         {
             selected_amino_acid_residue_atom_numbering.ImageUrl =
@@ -307,6 +321,9 @@ namespace DrugProNET
                 drug.Drug_PDB_ID.Substring(0, 1) + "/" + drug.Drug_PDB_ID + "/" + drug.Drug_PDB_ID + "-large.png";
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         public void LoadPDB_Info(PDB_Information PDB_Info)
         {
             ProcessRow(PDB_entry_row, PDB_entry, PDB_Info.PDB_File_ID, "https://www.rcsb.org/structure/" + PDB_Info.PDB_File_ID);
@@ -317,6 +334,9 @@ namespace DrugProNET
             ProcessRow(reference_row, reference, PDB_Info.Journal_Reference);
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         public void LoadDrug(Drug_Information drug, PDB_Information PDB_Info)
         {
             ProcessRow(PDB_drug_ID_row, PDB_drug_ID, drug.Drug_PDB_ID);
@@ -334,6 +354,9 @@ namespace DrugProNET
             ProcessRow(drug_information_result_url_row, drug_information_result_url, "Link to further drug information", "DrugInfoResult.aspx?query_string=" + drug.Drug_Name_for_Pull_Down_Menu);
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         public void LoadProtein(Protein_Information protein)
         {
             ProcessRow(protein_name_row, protein_name, protein.Protein_Short_Name);
@@ -350,13 +373,19 @@ namespace DrugProNET
             ProcessRow(protein_information_result_url_row, protein_information_result_url, "Link to further protein information", "ProteinInfoResult.aspx?query_string=" + protein.Uniprot_ID);
         }
 
-        // Called via ASP control
+        /// <summary>
+        /// Author: Ryan Liang
+        /// Called via ASP control
+        /// </summary>
         public void AminoAcidImage_Change(object sender, EventArgs e)
         {
             string amino_acid_name = ((ListControl)sender).SelectedValue;
             drug_atom_numbering.ImageUrl = "~/Images/AminoAcidImages/" + amino_acid_name + ".jpg";
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         protected void Download_Summary_Click(object sender, EventArgs e)
         {
             try
@@ -405,6 +434,9 @@ namespace DrugProNET
             }
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         protected void Download_List_Click(object sender, EventArgs e)
         {
             try
@@ -503,6 +535,9 @@ namespace DrugProNET
             }
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         private static void ProcessRow(Control rowControl, Control textControl, string text, string url = null)
         {
             string[] arr = { "N/A" };

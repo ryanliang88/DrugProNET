@@ -10,6 +10,9 @@ namespace DrugProNET.Advertisement
         private string navigateURL;
         private string alternateText;
 
+        /// <summary>
+        /// Author: Andy Tang
+        /// </summary>
         public Ad(XmlNode n)
         {
             foreach (XmlNode node in n)
@@ -19,7 +22,7 @@ namespace DrugProNET.Advertisement
                     case "ImageUrl":
                         imageURL = node.InnerText;
                         break;
-                    case "NavigatorUrl":                   
+                    case "NavigatorUrl":
                     case "NavigateUrl":
                         navigateURL = node.InnerText;
                         break;
@@ -30,16 +33,25 @@ namespace DrugProNET.Advertisement
             }
         }
 
+        /// <summary>
+        /// Author: Andy Tang
+        /// </summary>
         public string GetImageURL()
         {
             return imageURL;
         }
 
+        /// <summary>
+        /// Author: Andy Tang
+        /// </summary>
         public string GetNavigateURL()
         {
             return navigateURL;
         }
 
+        /// <summary>
+        /// Author: Andy Tang
+        /// </summary>
         public string GetAlternateText()
         {
             return alternateText;

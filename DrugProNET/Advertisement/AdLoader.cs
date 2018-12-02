@@ -9,6 +9,9 @@ namespace DrugProNET.Advertisement
 {
     public class AdLoader
     {
+        /// <summary>
+        /// Author: Andy Tang
+        /// </summary>
         public static void SetAdvertisement(Image adBanner, HyperLink adLink, string nodePath)
         {
             XmlParser xmlp = new XmlParser();

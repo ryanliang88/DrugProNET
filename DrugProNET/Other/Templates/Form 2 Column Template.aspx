@@ -1,4 +1,5 @@
 ﻿<%-- THIS PAGE IS INTENDED TO BE AS A TEMPLATE FOR CREATING OTHER PAGES WITH 3 COLUMNS, THIS PAGE SHOULD NEVER BE LINKED TO! --%>
+<%-- Author: Andy Tang --%>
 
 <%-- 
 #######################################################################

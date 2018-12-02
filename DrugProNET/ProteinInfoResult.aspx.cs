@@ -15,6 +15,9 @@ namespace DrugProNET
     {
         private const string QUERY_PAGE = "ProteinInfo.aspx";
 
+        /// <summary>
+        /// Author: Andy Tang
+        /// </summary>
         protected new void Page_Load(object sender, EventArgs e)
         {
             base.Page_Load(sender, e);
@@ -32,9 +35,11 @@ namespace DrugProNET
                 Page.Master.FindControl("BodyContentPlaceHolder").Visible = false;
                 ExceptionUtilities.DisplayAlert(this, QUERY_PAGE);
             }
-         
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         private static void ProcessRow(Control control, Control textControl, string text, string url = null)
         {
             string[] arr = { "N/A" };
@@ -59,6 +64,9 @@ namespace DrugProNET
             }
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         private static void ProcessControl(Control control, params string[] texts)
         {
             string[] arr = { "N/A" };
@@ -79,6 +87,9 @@ namespace DrugProNET
             }
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         private static void ProcessControls(Control control, params Control[] controls)
         {
             bool allEmpty = true;
@@ -97,6 +108,9 @@ namespace DrugProNET
             }
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         private void LoadData(Protein_Information protein)
         {
             ProcessRow(protein_short_name_row, protein_short_name, protein.Protein_Short_Name);

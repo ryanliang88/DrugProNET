@@ -14,6 +14,9 @@ namespace DrugProNET
 
         private SNV_Mutation mutation;
 
+        /// <summary>
+        /// Author: Garth Nelson
+        /// </summary>
         protected new void Page_Load(object sender, EventArgs e)
         {
             base.Page_Load(sender, e);
@@ -53,6 +56,9 @@ namespace DrugProNET
             }
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         public void LoadProtein(Protein_Information protein, PDB_Interaction interaction, SNV_Mutation mutation)
         {
             ProcessRow(gene_name_row, gene_name, mutation.NCBI_Gene_Name);
@@ -69,6 +75,9 @@ namespace DrugProNET
             ProcessRow(interaction_distance_ratio_row, interaction_distance_ratio, interaction.Interaction_Distance_Ratio);
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         public void LoadDrug(Drug_Information drug, SNV_Mutation mutation)
         {
             ProcessRow(PDB_drug_ID_row, PDB_drug_ID, mutation.Drug_PDB_ID, drug.Drug_PDB_ID_URL);
@@ -82,11 +91,17 @@ namespace DrugProNET
                 "DrugInfoResult.aspx?query_string=" + drug.Drug_Name_for_Pull_Down_Menu);
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         public void LoadPDB_Info(PDB_Information PDB_Info)
         {
             ProcessRow(PDB_entry_row, PDB_entry, PDB_Info.PDB_File_ID, "https://www.rcsb.org/structure/" + PDB_Info.PDB_File_ID);
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         protected void Download_SNV_Identification_Click(object sender, EventArgs e)
         {
             Response.ClearContent();
@@ -120,6 +135,9 @@ namespace DrugProNET
             System.Web.HttpContext.Current.ApplicationInstance.CompleteRequest();
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         private void CreateSNVIdentificationTable(SNV_Mutation mutation)
         {
             TableHeaderRow tableHeaderRow = new TableHeaderRow { TableSection = TableRowSection.TableHeader };
@@ -144,6 +162,9 @@ namespace DrugProNET
             SNV_Identification_Table.Rows.Add(CreateSNVIDTableRow(mutation.P3M3, mutation.SNV_P3M3_ID, mutation.Drug_Inter__Pred__P3M3));
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         private TableRow CreateSNVIDTableRow(string variantID, string SNV, string predictedEffect)
         {
             TableRow tableRow = new TableRow();
@@ -166,6 +187,9 @@ namespace DrugProNET
             return tableRow;
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         private static void ProcessRow(Control rowControl, Control textControl, string text, string url = null)
         {
             string[] arr = { "N/A" };

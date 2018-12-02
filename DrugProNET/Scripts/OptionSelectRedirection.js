@@ -1,5 +1,7 @@
 ﻿const pageType = ".aspx";
-
+/*
+Author: Andy Tang
+*/
 $(document).ready(function ($) {
     var selectInput = $('query-selector');
     $(document).on('change', selectInput, function (e) {
@@ -7,6 +9,9 @@ $(document).ready(function ($) {
     });
 });
 
+/*
+Author: Andy Tang
+*/
 function redirect(value) {
     if (value !== '') {
         document.location.href = value + pageType;

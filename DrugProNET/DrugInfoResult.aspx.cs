@@ -13,6 +13,9 @@ namespace DrugProNET
 
         private Drug_Information drug;
 
+        /// <summary>
+        /// Author: Andy Tang
+        /// </summary>
         protected new void Page_Load(object sender, EventArgs e)
         {
             base.Page_Load(sender, e);
@@ -34,6 +37,9 @@ namespace DrugProNET
             }
         }
 
+        /// <summary>
+        /// Author: Andy Tang
+        /// </summary>
         protected void Page_LoadComplete(object sender, EventArgs e)
         {
             try
@@ -47,6 +53,9 @@ namespace DrugProNET
             }
         }
 
+        /// <summary>
+        /// Author: Andy Tang
+        /// </summary>
         private void ProcessRow(Control control, Control textControl, string text, string url = null)
         {
             string[] arr = { "N/A", "NULL" };
@@ -68,6 +77,9 @@ namespace DrugProNET
             }
         }
 
+        /// <summary>
+        /// Author: Andy Tang
+        /// </summary>
         private void ProcessImage(Control imageControl, string src)
         {
             string[] arr = { "N/A" };
@@ -78,6 +90,9 @@ namespace DrugProNET
             }
         }
 
+        /// <summary>
+        /// Author: Andy Tang
+        /// </summary>
         private void LoadData(Drug_Information drug)
         {
             ProcessRow(compound_name_row, compound_name, drug.Drug_Common_Name);

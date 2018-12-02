@@ -3,6 +3,9 @@ var stage = new NGL.Stage("viewport", { // MUST BE NAMED "viewport" in ngl for u
     clipDist: 1
 });
 
+/*
+Author: Andy Tang
+*/
 function loadStage(pdb, drug) {
     console.log(pdb + " " + drug);
 

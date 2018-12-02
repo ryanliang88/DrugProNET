@@ -14,11 +14,17 @@ namespace DrugProNET
 {
     public partial class SNVDrugQuery : AdvertiseablePage
     {
+        /// <summary>
+        /// Author: Andy Tang
+        /// </summary>
         protected new void Page_Load(object sender, EventArgs e)
         {
             base.Page_Load(sender, e);
         }
 
+        /// <summary>
+        /// Author: Andy Tang
+        /// </summary>
         [WebMethod]
         [ScriptMethod]
         public static List<string> GetAutoCompleteData(string prefixText, int count)
@@ -50,12 +56,18 @@ namespace DrugProNET
             return DataUtilities.FilterDropdownList(valuesList, prefixText, true);
         }
 
+        /// <summary>
+        /// Author: Andy Tang
+        /// </summary>
         protected void Generate(object sender, EventArgs e)
         {
             Response.Redirect("SNVDrugResult.aspx?query_string=" + snv_specification_textbox.Text, false);
             Context.ApplicationInstance.CompleteRequest();
         }
 
+        /// <summary>
+        /// Author: Andy Tang
+        /// </summary>
         protected void Reset(object sender, EventArgs e)
         {
             snv_specification_textbox.Text = string.Empty;

@@ -15,11 +15,17 @@ namespace DrugProNET
         private const string DROP_DOWN_PROMPT_MESSAGE = "Select from list of output options";
         private const string DROP_DOWN_NO_MATCHES_MESSAGE = "No matching items found";
 
+        /// <summary>
+        /// Author: Garth Nelson
+        /// </summary>
         protected new void Page_Load(object sender, EventArgs e)
         {
             base.Page_Load(sender, e);
         }
 
+        /// <summary>
+        /// Author: Andy Tang
+        /// </summary>
         protected void Search_Textbox_Changed(object sender, EventArgs e)
         {
             search_drop_down.Items.Clear();
@@ -78,6 +84,9 @@ namespace DrugProNET
             }
         }
 
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         [WebMethod]
         [ScriptMethod]
         public static List<string> GetAutoCompleteData(string prefixText, int count)
@@ -110,6 +119,9 @@ namespace DrugProNET
             return DataUtilities.FilterDropdownList(valuesList, prefixText);
         }
 
+        /// <summary>
+        /// Author: Andy Tang
+        /// </summary>
         protected void Reset_Button_Click(object sender, EventArgs e)
         {
             search_textBox.Text = string.Empty;
@@ -125,6 +137,9 @@ namespace DrugProNET
             drug_atoms_checkbox.Checked = false;
         }
 
+        /// <summary>
+        /// Author: Andy Tang
+        /// </summary>
         protected void Generate_Table_Button_Click(object sender, EventArgs e)
         {
             Response.Redirect("QueryResult.aspx?query_string=" + search_textBox.Text

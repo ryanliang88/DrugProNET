@@ -14,6 +14,9 @@ namespace DrugProNET.Advertisement
         private Image adBanner;
         private HyperLink adLink;
 
+        /// <summary>
+        /// Author: Andy Tang
+        /// </summary>
         protected void Page_Load(object sender, EventArgs e)
         {
             SetTimerInterval();
@@ -22,11 +25,17 @@ namespace DrugProNET.Advertisement
             adLink = Master.FindControl("BodyContentPlaceHolder").FindControl("adLink") as HyperLink;
         }
 
+        /// <summary>
+        /// Author: Andy Tang
+        /// </summary>
         protected void RenewAdvertisement(object sender, EventArgs e)
         {
             AdLoader.SetAdvertisement(adBanner, adLink, Server.MapPath("./Advertisement/Images/ads_xml.xml"));
         }
 
+        /// <summary>
+        /// Author: Andy Tang
+        /// </summary>
         public void SetTimerInterval()
         {
             Timer t = Master.FindControl("BodyContentPlaceHolder").FindControl("ad_refresh_timer") as Timer;

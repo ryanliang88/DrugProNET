@@ -11,13 +11,19 @@ namespace DrugProNET.Utility
     {
         private const string DEFAULT_MSG = "Could not complete your request";
 
-        // Cannot display message as the page will still load but with blanks
+        /// <summary>
+        /// Author: Andy Tang
+        /// Cannot display message as the page will still load but with blanks
+        /// </summary>
         public static void DisplayAlert(Page page, string url, string message = DEFAULT_MSG)
         {
-            page.ClientScript.RegisterStartupScript(page.GetType(), 
-                "_redirect_", "alert('" + message + "');" + "window.location='" + page.Request.ApplicationPath + url + "';", true);
+            page.ClientScript.RegisterStartupScript(page.GetType(),
+                "_redirect_", "alert('" + message + "');window.location='" + page.Request.ApplicationPath + url + "';", true);
         }
 
+        /// <summary>
+        /// Author: Andy Tang
+        /// </summary>
         public static void Redirect(Page page, string url)
         {
             page.Response.Redirect(url);

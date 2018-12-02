@@ -8,32 +8,9 @@ namespace DrugProNET.Utility
 {
     public static class DataUtilities
     {
-        public static void AddIfExists(List<string> list, params string[] values)
-        {
-            foreach (string value in values)
-            {
-                if (!string.IsNullOrEmpty(value))
-                {
-                    list.Add(value);
-                }
-            }
-        }
-
-        public static List<ListItem> GenerateListItemsFromValues(params string[] values)
-        {
-            List<ListItem> listItemList = new List<ListItem>();
-
-            foreach (string value in values)
-            {
-                if (!string.IsNullOrEmpty(value))
-                {
-                    listItemList.Add(new ListItem(value, value, true));
-                }
-            }
-
-            return listItemList;
-        }
-
+        /// <summary>
+        /// Author: Ryan Liang
+        /// </summary>
         public static List<string> FilterDropdownList(List<string> valuesList, string prefixText = null, bool startsWith = false)
         {
             valuesList = valuesList.Where(s => !string.IsNullOrEmpty(s?.Trim())).ToList();
