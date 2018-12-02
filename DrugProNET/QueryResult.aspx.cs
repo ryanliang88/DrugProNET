@@ -204,6 +204,7 @@ namespace DrugProNET
 
                 proteinAminoAcidResidueCell.Controls.Add(new HyperLink()
                 {
+                    Target = "_blank",
                     NavigateUrl = navigateUrl,
                     Text = interactionSummaryRow.proteinAAResidue,
                 });

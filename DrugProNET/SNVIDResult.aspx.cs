@@ -177,6 +177,7 @@ namespace DrugProNET
 
             SNVCell.Controls.Add(new HyperLink()
             {
+                Target = "_blank",
                 NavigateUrl = navigateUrl,
                 Text = SNV,
             });
