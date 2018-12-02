@@ -28,9 +28,9 @@ namespace DrugProNET
                     LoadData(drug);
                 }
             }
-            catch(Exception ex)
+            catch(Exception)
             {
-                throw ex;
+                throw;
             }
         }
 

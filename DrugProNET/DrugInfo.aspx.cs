@@ -38,9 +38,9 @@ namespace DrugProNET
                         valuesList.Add(drug.Drug_Name_for_Pull_Down_Menu);
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    throw ex;
+                    throw;
                 }
             }
 

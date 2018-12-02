@@ -51,8 +51,6 @@ namespace DrugProNET
 
             if (proteinList.Count > 0)
             {
-                search_drop_down.Items.Clear();
-
                 List<string> valuesList = new List<string>();
 
                 foreach (Protein_Information protein in proteinList)
@@ -78,7 +76,6 @@ namespace DrugProNET
                 search_drop_down.Items.Clear();
                 search_drop_down.Items.Add(DROP_DOWN_NO_MATCHES_MESSAGE);
             }
-
         }
 
         [WebMethod]
@@ -104,15 +101,13 @@ namespace DrugProNET
                         valuesList.Add(drug.ChEMBL_ID);
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    throw ex;
+                    throw;
                 }
             }
 
-            valuesList = DataUtilities.FilterDropdownList(valuesList, prefixText);
-
-            return valuesList;
+            return DataUtilities.FilterDropdownList(valuesList, prefixText);
         }
 
         protected void Reset_Button_Click(object sender, EventArgs e)

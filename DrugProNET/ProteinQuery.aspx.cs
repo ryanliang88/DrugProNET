@@ -51,8 +51,6 @@ namespace DrugProNET
 
             if (drugList.Count > 0)
             {
-                search_drop_down.Items.Clear();
-
                 List<string> valuesList = new List<string>();
 
                 foreach (Drug_Information drug in drugList)
@@ -105,9 +103,9 @@ namespace DrugProNET
                         valuesList.Add(p.PhosphoNET_Name);
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    throw ex;
+                    throw;
                 }
             }
 
@@ -117,7 +115,6 @@ namespace DrugProNET
         protected void Reset_Button_Click(object sender, EventArgs e)
         {
             search_textBox.Text = string.Empty;
-
 
             search_drop_down.Items.Clear();
             search_drop_down.Items.Add(new ListItem("Select from list of output options", "0", true));

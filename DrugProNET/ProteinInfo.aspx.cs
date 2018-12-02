@@ -45,9 +45,9 @@ namespace DrugProNET
                         valuesList.Add(p.PhosphoNET_Name);
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    throw ex;
+                    throw;
                 }
 
                 System.Diagnostics.Debug.WriteLine("A");

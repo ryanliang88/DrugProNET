@@ -21,6 +21,7 @@ namespace DrugProNET
 
             return drug;
         }
+
         public static Drug_Information GetDrugByDrugPDBID(string query)
         {
             Drug_Information drug = null;

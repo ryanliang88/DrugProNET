@@ -41,9 +41,9 @@ namespace DrugProNET
                         );
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    throw ex;
+                    throw;
                 }
             }
 
