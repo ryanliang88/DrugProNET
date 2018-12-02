@@ -12,6 +12,9 @@ namespace DrugProNET
 {
     public partial class ProteinQuery : AdvertiseablePage
     {
+        private const string DROP_DOWN_PROMPT_MESSAGE = "Select from list of output options";
+        private const string DROP_DOWN_NO_MATCHES_MESSAGE = "No matching items found";
+
         protected new void Page_Load(object sender, EventArgs e)
         {
             base.Page_Load(sender, e);
@@ -19,6 +22,9 @@ namespace DrugProNET
 
         protected void Search_Textbox_Changed(object sender, EventArgs e)
         {
+            search_drop_down.Items.Clear();
+            search_drop_down.Items.Add(DROP_DOWN_PROMPT_MESSAGE);
+
             List<Drug_Information> drugList = new List<Drug_Information>();
 
             const int minPrefixLength = 3;
@@ -65,6 +71,11 @@ namespace DrugProNET
                 {
                     search_drop_down.Items.Add(new ListItem(value, value, true));
                 }
+            }
+            else
+            {
+                search_drop_down.Items.Clear();
+                search_drop_down.Items.Add(DROP_DOWN_NO_MATCHES_MESSAGE);
             }
         }
 

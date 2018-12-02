@@ -12,6 +12,9 @@ namespace DrugProNET
 {
     public partial class DrugQuery : AdvertiseablePage
     {
+        private const string DROP_DOWN_PROMPT_MESSAGE = "Select from list of output options";
+        private const string DROP_DOWN_NO_MATCHES_MESSAGE = "No matching items found";
+
         protected new void Page_Load(object sender, EventArgs e)
         {
             base.Page_Load(sender, e);
@@ -19,53 +22,63 @@ namespace DrugProNET
 
         protected void Search_Textbox_Changed(object sender, EventArgs e)
         {
+            search_drop_down.Items.Clear();
+            search_drop_down.Items.Add(DROP_DOWN_PROMPT_MESSAGE);
+
             List<Protein_Information> proteinList = new List<Protein_Information>();
 
             const int minPrefixLength = 3;
-            if (search_textBox.Text.Length >= minPrefixLength)
+            if (search_textBox.Text.Length < minPrefixLength)
             {
-                Drug_Information drug = EF_Data.GetDrugsQuery(search_textBox.Text).FirstOrDefault();
+                return;
+            }
+            Drug_Information drug = EF_Data.GetDrugsQuery(search_textBox.Text).FirstOrDefault();
 
-                if (drug != null)
+            if (drug != null)
+            {
+                List<PDB_Information> pdbInfoList = EF_Data.GetPDBInfoUsingDrug(drug.Drug_PDB_ID);
+
+                foreach (PDB_Information pdb in pdbInfoList)
                 {
-                    List<PDB_Information> pdbInfoList = EF_Data.GetPDBInfoUsingDrug(drug.Drug_PDB_ID);
+                    Protein_Information protein = EF_Data.GetProteinByUniprotID(pdb.Uniprot_ID);
 
-                    foreach (PDB_Information pdb in pdbInfoList)
+                    if (protein != null)
                     {
-                        Protein_Information protein = EF_Data.GetProteinByUniprotID(pdb.Uniprot_ID);
-
-                        if (protein != null)
-                        {
-                            proteinList.Add(protein);
-                        }
-                    }
-                }
-
-                if (proteinList.Count > 0)
-                {
-                    search_drop_down.Items.Clear();
-
-                    List<string> valuesList = new List<string>();
-
-                    foreach (Protein_Information protein in proteinList)
-                    {
-                        valuesList.Add(protein.Uniprot_ID);
-                        valuesList.Add(protein.Protein_Short_Name);
-                        valuesList.Add(protein.Protein_Full_Name);
-                        valuesList.Add(protein.Protein_Alias);
-                        valuesList.Add(protein.NCBI_RefSeq_NP_ID);
-                        valuesList.Add(protein.PhosphoNET_Name);
-                        valuesList.Add(protein.PDB_Protein_Name);
-                    }
-
-                    valuesList = DataUtilities.FilterDropdownList(valuesList);
-
-                    foreach (string value in valuesList)
-                    {
-                        search_drop_down.Items.Add(new ListItem(value, value, true));
+                        proteinList.Add(protein);
                     }
                 }
             }
+
+            if (proteinList.Count > 0)
+            {
+                search_drop_down.Items.Clear();
+
+                List<string> valuesList = new List<string>();
+
+                foreach (Protein_Information protein in proteinList)
+                {
+                    valuesList.Add(protein.Uniprot_ID);
+                    valuesList.Add(protein.Protein_Short_Name);
+                    valuesList.Add(protein.Protein_Full_Name);
+                    valuesList.Add(protein.Protein_Alias);
+                    valuesList.Add(protein.NCBI_RefSeq_NP_ID);
+                    valuesList.Add(protein.PhosphoNET_Name);
+                    valuesList.Add(protein.PDB_Protein_Name);
+                }
+
+                valuesList = DataUtilities.FilterDropdownList(valuesList);
+
+                foreach (string value in valuesList)
+                {
+                    search_drop_down.Items.Add(new ListItem(value, value, true));
+                }
+            }
+            else
+            {
+                search_drop_down.Items.Clear();
+                search_drop_down.Items.Add(DROP_DOWN_NO_MATCHES_MESSAGE);
+            }
+
         }
 
         [WebMethod]
@@ -97,7 +110,7 @@ namespace DrugProNET
                 }
             }
 
-                valuesList = DataUtilities.FilterDropdownList(valuesList, prefixText);
+            valuesList = DataUtilities.FilterDropdownList(valuesList, prefixText);
 
             return valuesList;
         }

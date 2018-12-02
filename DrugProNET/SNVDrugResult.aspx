@@ -144,7 +144,7 @@
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
-        <div class="c-col body-content-long">
+        <div class="c-col body-content-long" style="padding-top: 0.5em">
             <p>
                 "Importance for Drug" is based on the total number of atomic interactions of the amino acid residue 
                     specified by the nucleotide with the drug atoms divided by the average bond distance (in Angstroms) 
