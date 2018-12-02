@@ -186,7 +186,24 @@ namespace DrugProNET
             {
                 TableRow tableRow = new TableRow();
 
-                tableRow.Cells.Add(new TableCell { Text = interactionSummaryRow.proteinAAResidue });
+                TableCell proteinAminoAcidResidueCell = new TableCell();
+
+                string navigateUrl =
+                    "http://www.drugpronet.ca/SNVIDResult.aspx" +
+                    "?query_string=" +
+                    protein_specification +
+                    "&drug_specification=" +
+                    drug_specification +
+                    "&snv_id_key=" +
+                    protein_specification + "-" + interactionSummaryRow.proteinAAResidue + "-" + drug.Drug_PDB_ID + "-" + PDB.PDB_File_ID;
+
+                proteinAminoAcidResidueCell.Controls.Add(new HyperLink()
+                {
+                    NavigateUrl = navigateUrl,
+                    Text = interactionSummaryRow.proteinAAResidue,
+                });
+                tableRow.Cells.Add(proteinAminoAcidResidueCell);
+
                 tableRow.Cells.Add(new TableCell { Text = interactionSummaryRow.numberOfInteractionsWithDrugAtom.ToString() });
                 tableRow.Cells.Add(new TableCell { Text = interactionSummaryRow.averageDistanceOfAllInteractions.ToString("0.00") });
                 tableRow.Cells.Add(new TableCell { Text = interactionSummaryRow.interactionToDistanceRatio.ToString("0.00") });

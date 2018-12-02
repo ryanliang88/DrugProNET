@@ -149,7 +149,18 @@ namespace DrugProNET
             TableRow tableRow = new TableRow();
 
             tableRow.Cells.Add(new TableCell() { Text = variantID });
-            tableRow.Cells.Add(new TableCell() { Text = SNV });
+
+            TableCell SNVCell = new TableCell();
+
+            string navigateUrl = "http://www.drugpronet.ca/SNVDrugResult.aspx?query_string=" + SNV;
+
+            SNVCell.Controls.Add(new HyperLink()
+            {
+                NavigateUrl = navigateUrl,
+                Text = SNV,
+            });
+            tableRow.Cells.Add(SNVCell);
+
             tableRow.Cells.Add(new TableCell() { Text = predictedEffect });
 
             return tableRow;
