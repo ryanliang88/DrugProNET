@@ -1,4 +1,4 @@
-﻿<%@ Page ClientIDMode="Static" Language="C#" Title="DrugProNET | Query Result" AutoEventWireup="true" MasterPageFile="~/BasePage.Master" CodeBehind="QueryResult.aspx.cs" Inherits="DrugProNET.QueryResult" %>
+﻿<%@ Page Language="C#" Title="DrugProNET | Query Result" AutoEventWireup="true" MasterPageFile="~/BasePage.Master" CodeBehind="QueryResult.aspx.cs" Inherits="DrugProNET.QueryResult" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="HeadContentPlaceHolder">
     <link rel="stylesheet" href="./css/3_column.css" />
@@ -25,7 +25,7 @@
                 <ContentTemplate>
                     <asp:Timer ID="ad_refresh_timer" runat="server" Interval="10000" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
                     <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server" Target="_blank">
-                        <asp:Image ImageUrl="imageUrl" runat="server" ID="adBanner" AlternateText="" Width="288px"/>
+                        <asp:Image ImageUrl="imageUrl" runat="server" ID="adBanner" AlternateText="" Width="288px" style="float: right"/>
                     </asp:HyperLink>
                 </ContentTemplate>
                 <Triggers>
