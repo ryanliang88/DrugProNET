@@ -358,3 +358,7 @@ tr:nth-of-type(2n) {
 .ad_row_min_height {
     min-height: 170px;
 }
+
+#adBanner {
+    float: right;
+}

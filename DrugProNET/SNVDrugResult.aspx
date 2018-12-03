@@ -1,4 +1,4 @@
-﻿<%@ Page Title="DrugProNET | SNV Drug Result" Language="C#" MasterPageFile="~/BasePage.Master" AutoEventWireup="true" CodeBehind="SNVDrugResult.aspx.cs" Inherits="DrugProNET.SNVDrugResult" %>
+﻿<%@ Page ClientIDMode="Static" Title="DrugProNET | SNV Drug Result" Language="C#" MasterPageFile="~/BasePage.Master" AutoEventWireup="true" CodeBehind="SNVDrugResult.aspx.cs" Inherits="DrugProNET.SNVDrugResult" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="HeadContentPlaceHolder">
     <link rel="stylesheet" href="./css/3_column.css" />

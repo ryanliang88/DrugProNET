@@ -75,13 +75,13 @@
                             <p>|</p>
                         </li>
                         <li>
-                            <asp:HyperLink NavigateUrl="http://www.kinexus.ca/kinetica" runat="server" Text="Kinexus" Target="_blank"/>
+                            <asp:HyperLink NavigateUrl="http://www.kinexus.ca/" runat="server" Text="Kinexus" Target="_blank"/>
                         </li>
                         <li>
                             <p>|</p>
                         </li>
                         <li>
-                            <asp:HyperLink NavigateUrl="http://www.kinexus.ca/contact/contact.html" runat="server" Text="Contact"/>
+                            <asp:HyperLink NavigateUrl="http://www.kinexus.ca/contact/contact.html" runat="server" Text="Contact" Target="_blank"/>
                         </li>
                         <li>
                             <p>|</p>

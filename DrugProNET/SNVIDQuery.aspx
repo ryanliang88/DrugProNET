@@ -1,4 +1,4 @@
-﻿<%@ Page Title="DrugProNET | SNV ID Query" Language="C#" MasterPageFile="~/BasePage.Master" AutoEventWireup="true" CodeBehind="SNVIDQuery.aspx.cs" Inherits="DrugProNET.SNVIDQuery" EnableEventValidation="false" MaintainScrollPositionOnPostback="true" %>
+﻿<%@ Page ClientIDMode="Static" Title="DrugProNET | SNV ID Query" Language="C#" MasterPageFile="~/BasePage.Master" AutoEventWireup="true" CodeBehind="SNVIDQuery.aspx.cs" Inherits="DrugProNET.SNVIDQuery" EnableEventValidation="false" MaintainScrollPositionOnPostback="true" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 

@@ -235,12 +235,12 @@ namespace DrugProNET
             {
                 List<string> dataRow = new List<string>
                 {
-                    drugs[i].Drug_Common_Name,
-                    mutations[i].PDB_File_No,
-                    mutations[i].Drug_PDB_ID,
-                    drugs[i].PubChem_CID,
-                    drugs[i].ChEMBL_ID,
-                    interactions[i].Interaction_Distance_Ratio,
+                    drugs[i]?.Drug_Common_Name,
+                    mutations[i]?.PDB_File_No,
+                    mutations[i]?.Drug_PDB_ID,
+                    drugs[i]?.PubChem_CID,
+                    drugs[i]?.ChEMBL_ID,
+                    interactions[i]?.Interaction_Distance_Ratio,
                     FindPredictedEffiency(mutations[i])
                 };
 

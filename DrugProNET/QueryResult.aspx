@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" Title="DrugProNET | Query Result" AutoEventWireup="true" MasterPageFile="~/BasePage.Master" CodeBehind="QueryResult.aspx.cs" Inherits="DrugProNET.QueryResult" %>
+﻿<%@ Page ClientIDMode="Static" Language="C#" Title="DrugProNET | Query Result" AutoEventWireup="true" MasterPageFile="~/BasePage.Master" CodeBehind="QueryResult.aspx.cs" Inherits="DrugProNET.QueryResult" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="HeadContentPlaceHolder">
     <link rel="stylesheet" href="./css/3_column.css" />
