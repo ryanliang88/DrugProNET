@@ -1,6 +1,6 @@
 # DrugProNET
 
-## What is Plan Your Vote
+## What is DrugProNET
 DrugProNET is an open-access, knowledgebase developed by Kinexus Bioinformatics Corporation to foster the identification of the most critical atomic interactions between drugs and their protein targets based on 3D x-ray crystallographic analyses.
 
 ## Links for Live Sites
