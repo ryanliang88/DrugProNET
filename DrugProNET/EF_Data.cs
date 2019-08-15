@@ -170,7 +170,7 @@ namespace DrugProNET
 
             using (DrugProNETEntities context = new DrugProNETEntities())
             {
-                List<PDB_Distance> temp = context.PDB_Distance.Where(d => d.PDB_Entry.ToLower().Contains(pdb_entry.ToLower())).ToList();
+                List<PDB_Distance> temp = context.PDB_Distance.Where(d => d.PDB_File_ID.ToLower().Contains(pdb_entry.ToLower())).ToList();
 
                 foreach (PDB_Distance distance in temp)
                 {
@@ -347,9 +347,9 @@ namespace DrugProNET
                 foreach (PDB_Distance distance in distances)
                 {
                     PDB_Interaction interaction = context.PDB_Interaction.Where(i =>
-                        i.PDB_Entry.ToLower().Equals(distance.PDB_Entry)
+                        i.PDB_File_ID.ToLower().Equals(distance.PDB_File_ID)
                         && i.AA_Residue_Type.Equals(distance.Protein_Residue)
-                        && distance.Protein_Residue_.Equals(i.PDB_Residue_Number)
+                        && distance.Protein_Residue_Number.Equals(i.PDB_Residue_Number)
                     ).FirstOrDefault();
 
                     DistanceAndUniprotResidueNumbers.Add(distance, interaction.Uniprot_Residue_Number);

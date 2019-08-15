@@ -18,7 +18,7 @@ namespace DrugProNET
         public string Protein_Short_Name { get; set; }
         public string Protein_Full_Name { get; set; }
         public string Protein_Alias { get; set; }
-        public string Protein_Type_Specific_ { get; set; }
+        public string Protein_Type_Specific { get; set; }
         public string Kinase_Group { get; set; }
         public string Kinase_Family { get; set; }
         public string Kinase_Subfamily { get; set; }

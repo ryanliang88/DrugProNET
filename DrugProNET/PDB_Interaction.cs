@@ -15,7 +15,7 @@ namespace DrugProNET
     public partial class PDB_Interaction
     {
         public string UniProt_ID { get; set; }
-        public string PDB_Entry { get; set; }
+        public string PDB_File_ID { get; set; }
         public string Drug_PDB_ID { get; set; }
         public string AA_Residue_Type { get; set; }
         public string Uniprot_Residue_Number { get; set; }

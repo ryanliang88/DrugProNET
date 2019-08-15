@@ -97,6 +97,5 @@ namespace DrugProNET
         public string NCBI_Gene_Name { get; set; }
         public string NCBI_geneID { get; set; }
         public string chain { get; set; }
-        public string SNV_Key_orig { get; set; }
     }
 }

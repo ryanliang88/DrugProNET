@@ -117,7 +117,7 @@ namespace DrugProNET
             ProcessRow(protein_full_name_row, protein_full_name, protein.Protein_Full_Name);
             ProcessRow(gene_name_row, gene_name, protein.NCBI_Gene_Name);
             ProcessRow(alias_row, alias, protein.Protein_Alias);
-            ProcessRow(protein_type_row, protein_type, protein.Protein_Type_Specific_);
+            ProcessRow(protein_type_row, protein_type, protein.Protein_Type_Specific);
             ProcessRow(kinase_group_row, kinase_group, protein.Kinase_Group);
             ProcessRow(kinase_family_row, kinase_family, protein.Kinase_Family);
             ProcessRow(kinase_subfamily_row, kinase_subfamily, protein.Kinase_Subfamily);

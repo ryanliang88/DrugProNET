@@ -365,7 +365,7 @@ namespace DrugProNET
             ProcessRow(p_alias_row, p_alias, protein.Protein_Alias);
             ProcessRow(uniprot_ID_row, uniprot_ID, protein.Uniprot_ID);
             ProcessRow(NCBI_ID_row, NCBI_ID, protein.NCBI_RefSeq_NP_ID);
-            ProcessRow(protein_type_row, protein_type, protein.Protein_Type_Specific_);
+            ProcessRow(protein_type_row, protein_type, protein.Protein_Type_Specific);
             ProcessRow(kinase_group_row, kinase_group, protein.Kinase_Group);
             ProcessRow(kinase_family_row, kinase_family, protein.Kinase_Family);
             ProcessRow(number_aa_row, number_aa, protein.Protein_AA_Number);
@@ -406,7 +406,7 @@ namespace DrugProNET
                     "# Interactions : Distance Ratio",
                 };
 
-                List<InteractionSummaryRow> interactionSummaryRows = (List<InteractionSummaryRow>) Session["interactionSummaryRows"];
+                List<InteractionSummaryRow> interactionSummaryRows = (List<InteractionSummaryRow>)Session["interactionSummaryRows"];
 
                 List<List<string>> data = new List<List<string>>();
 
