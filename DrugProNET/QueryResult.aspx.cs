@@ -153,7 +153,7 @@ namespace DrugProNET
             List<PDB_Distance> distances = (List<PDB_Distance>)Session["distances"];
 
             // Actual distance value is stored in DB as datatype string
-            Dictionary<string, List<string>> proteinAAResidueAndDistances = new Dictionary<string, List<string>>();
+            Dictionary<string, List<double>> proteinAAResidueAndDistances = new Dictionary<string, List<double>>();
 
             Dictionary<PDB_Distance, string> DistanceAndUniprotResidueNumbers = (Dictionary<PDB_Distance, string>)Session["DistanceAndUniprotResidueNumbers"];
 
@@ -162,7 +162,7 @@ namespace DrugProNET
                 string proteinAAResidueValue = kvp.Key.Protein_Residue + "-" + kvp.Value;
                 if (!proteinAAResidueAndDistances.ContainsKey(proteinAAResidueValue))
                 {
-                    proteinAAResidueAndDistances.Add(proteinAAResidueValue, new List<string>() { kvp.Key.Distance, });
+                    proteinAAResidueAndDistances.Add(proteinAAResidueValue, new List<double>() { kvp.Key.Distance, });
                 }
                 else
                 {
@@ -172,11 +172,11 @@ namespace DrugProNET
 
             List<InteractionSummaryRow> interactionSummaryRows = new List<InteractionSummaryRow>();
 
-            foreach (KeyValuePair<string, List<string>> proteinAAResidueAndDistance in proteinAAResidueAndDistances)
+            foreach (KeyValuePair<string, List<double>> proteinAAResidueAndDistance in proteinAAResidueAndDistances)
             {
                 double numberOfInteractionsWithDrugAtom = proteinAAResidueAndDistance.Value.Count;
 
-                List<double> distancesNumericForm = proteinAAResidueAndDistance.Value.Select(x => double.Parse(x)).ToList();
+                List<double> distancesNumericForm = proteinAAResidueAndDistance.Value.ToList();
                 double averageDistanceOfAllInteractions = distancesNumericForm.Average();
 
                 double interactionToDistanceRatio = numberOfInteractionsWithDrugAtom / averageDistanceOfAllInteractions;
@@ -254,9 +254,7 @@ namespace DrugProNET
 
             interaction_list.Rows.Add(tableHeaderRow);
 
-            distances = EF_Data.GetPDB_Distance(PDB.PDB_File_ID, interaction_distance);
-
-            Dictionary<PDB_Distance, string> DistanceAndUniprotResidueNumbers = EF_Data.GetUniprotResidueNumberByDistance(distances);
+            var DistanceAndUniprotResidueNumbers = EF_Data.GetDistanceAndUniprotResidueNumbers(PDB.PDB_File_ID, interaction_distance);
 
             Session["DistanceAndUniprotResidueNumbers"] = DistanceAndUniprotResidueNumbers;
 
@@ -264,7 +262,7 @@ namespace DrugProNET
             {
                 TableRow tableRow = new TableRow();
 
-                tableRow.Cells.Add(new TableCell { Text = (double.Parse(kvp.Key.Distance)).ToString("0.00") });
+                tableRow.Cells.Add(new TableCell { Text = kvp.Key.Distance.ToString("0.00") });
 
                 if (protein_chain)
                 {
@@ -493,7 +491,7 @@ namespace DrugProNET
                 {
                     List<string> dataRow = new List<string>
                     {
-                        kvp.Key.Distance
+                        kvp.Key.Distance.ToString()
                     };
 
                     if (protein_chain)
