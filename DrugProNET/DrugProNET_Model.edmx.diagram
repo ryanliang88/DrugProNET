@@ -5,12 +5,12 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="d0bbea9f71da4bde99b0a7293d021507" Name="Diagram1" ZoomLevel="68" DisplayType="true" ShowGrid="true">
+        <EntityTypeShape EntityType="DrugProNETModel.Drug_Information" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="DrugProNETModel.PDB_Distance" Width="1.5" PointX="2.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DrugProNETModel.SNV_Mutation" Width="1.5" PointX="2.75" PointY="4.75" />
-        <EntityTypeShape EntityType="DrugProNETModel.PDB_Information" Width="1.5" PointX="4.75" PointY="4.75" />
-        <EntityTypeShape EntityType="DrugProNETModel.Drug_Information" Width="1.5" PointX="6.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DrugProNETModel.PDB_Interaction" Width="1.5" PointX="4.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DrugProNETModel.Protein_Information" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DrugProNETModel.PDB_Information" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DrugProNETModel.PDB_Interaction" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DrugProNETModel.SNV_Mutation" Width="1.5" PointX="2.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DrugProNETModel.Protein_Information" Width="1.5" PointX="5.375" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

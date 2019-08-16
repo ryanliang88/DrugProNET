@@ -164,65 +164,6 @@ namespace DrugProNET
         /// <summary>
         /// Author: Ryan Liang
         /// </summary>
-        public static List<PDB_Distance> GetPDB_Distance(string pdb_entry, double interaction_distance)
-        {
-            List<PDB_Distance> distances = new List<PDB_Distance>();
-
-            using (DrugProNETEntities context = new DrugProNETEntities())
-            {
-                List<PDB_Distance> temp = context.PDB_Distance.Where(d => d.PDB_Entry.ToLower().Contains(pdb_entry.ToLower())).ToList();
-
-                foreach (PDB_Distance distance in temp)
-                {
-                    if (double.Parse(distance.Distance) < interaction_distance)
-                    {
-                        distances.Add(distance);
-                    }
-                }
-            }
-
-            return distances.OrderBy(d => double.Parse(d.Distance)).ToList();
-        }
-
-        /// <summary>
-        /// Author: Ryan Liang
-        /// </summary>
-        public static List<PDB_Interaction> GetPDB_Interaction(string uniprot_ID)
-        {
-            List<PDB_Interaction> interactions = new List<PDB_Interaction>();
-
-            using (DrugProNETEntities context = new DrugProNETEntities())
-            {
-                foreach (PDB_Interaction interaction in context.PDB_Interaction.Where(i => i.UniProt_ID == uniprot_ID))
-                {
-                    interactions.Add(interaction);
-                }
-            }
-
-            return interactions.OrderByDescending(i => double.Parse(i.Interaction_Distance_Ratio)).ToList();
-        }
-
-        /// <summary>
-        /// Author: Ryan Liang
-        /// </summary>
-        public static List<PDB_Interaction> GetPDB_Interaction(string uniprot_ID, string drug_pdb_id)
-        {
-            List<PDB_Interaction> interactions = new List<PDB_Interaction>();
-
-            using (DrugProNETEntities context = new DrugProNETEntities())
-            {
-                interactions = context.PDB_Interaction.Where(i =>
-                    i.UniProt_ID.ToLower().Contains(uniprot_ID.ToLower())
-                    && i.Drug_PDB_ID.ToLower().Contains(drug_pdb_id.ToLower())
-                ).ToList();
-            }
-
-            return interactions.OrderByDescending(i => double.Parse(i.Interaction_Distance_Ratio)).ToList();
-        }
-
-        /// <summary>
-        /// Author: Ryan Liang
-        /// </summary>
         public static PDB_Interaction GetPDB_Interaction(string uniprot_ID, string drug_PDB_ID, string amino_acid_specification)
         {
             PDB_Interaction PDB_interaction = new PDB_Interaction();
@@ -302,6 +243,41 @@ namespace DrugProNET
             return PDB_information;
         }
 
+        public static Dictionary<PDB_Distance, string> GetDistanceAndUniprotResidueNumbers(string PDB_File_ID, double interaction_distance)
+        {
+            var DistanceAndUniprotResidueNumbers = new Dictionary<PDB_Distance, string>();
+
+            using (DrugProNETEntities context = new DrugProNETEntities())
+            {
+                DistanceAndUniprotResidueNumbers = context.PDB_Distance.Where(distance =>
+                   distance.PDB_File_ID == PDB_File_ID
+                   && distance.Distance <= interaction_distance)
+                   .Join(context.PDB_Interaction,
+                   distance => new
+                   {
+                       PDB_File_ID = distance.PDB_File_ID,
+                       Protein_Residue = distance.Protein_Residue,
+                       Protein_Residue_Number = distance.Protein_Residue_Number,
+                   },
+                   interaction => new
+                   {
+                       PDB_File_ID = interaction.PDB_File_ID,
+                       Protein_Residue = interaction.AA_Residue_Type,
+                       Protein_Residue_Number = interaction.PDB_Residue_Number,
+                   },
+                   (distance, interaction) => new
+                   {
+                       distance,
+                       interaction,
+                   }
+                   )
+                   .OrderBy(a => a.distance.Distance)
+                   .ToDictionary(a => a.distance, a => a.interaction.PDB_Residue_Number);
+            }
+
+            return DistanceAndUniprotResidueNumbers;
+        }
+
         /// <summary>
         /// Author: Ryan Liang
         /// </summary>
@@ -333,30 +309,6 @@ namespace DrugProNET
             }
 
             return SNV_mutation;
-        }
-
-        /// <summary>
-        /// Author: Ryan Liang
-        /// </summary>
-        public static Dictionary<PDB_Distance, string> GetUniprotResidueNumberByDistance(List<PDB_Distance> distances)
-        {
-            Dictionary<PDB_Distance, string> DistanceAndUniprotResidueNumbers = new Dictionary<PDB_Distance, string>();
-
-            using (DrugProNETEntities context = new DrugProNETEntities())
-            {
-                foreach (PDB_Distance distance in distances)
-                {
-                    PDB_Interaction interaction = context.PDB_Interaction.Where(i =>
-                        i.PDB_Entry.ToLower().Equals(distance.PDB_Entry)
-                        && i.AA_Residue_Type.Equals(distance.Protein_Residue)
-                        && distance.Protein_Residue_.Equals(i.PDB_Residue_Number)
-                    ).FirstOrDefault();
-
-                    DistanceAndUniprotResidueNumbers.Add(distance, interaction.Uniprot_Residue_Number);
-                }
-            }
-
-            return DistanceAndUniprotResidueNumbers;
         }
 
         /// <summary>
