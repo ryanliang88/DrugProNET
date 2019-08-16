@@ -268,11 +268,11 @@ namespace DrugProNET
                    (distance, interaction) => new
                    {
                        distance,
-                       interaction.UniProt_ID,
+                       interaction,
                    }
                    )
                    .OrderBy(a => a.distance.Distance)
-                   .ToDictionary(x => x.distance, interaction => interaction.UniProt_ID);
+                   .ToDictionary(a => a.distance, a => a.interaction.PDB_Residue_Number);
             }
 
             return DistanceAndUniprotResidueNumbers;
