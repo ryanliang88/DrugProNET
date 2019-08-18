@@ -16,7 +16,7 @@ namespace DrugProNET
     {
         public string UniProt_ID { get; set; }
         public string SNV_Key { get; set; }
-        public string PDB_File_No { get; set; }
+        public string PDB_File_ID { get; set; }
         public string Drug_PDB_ID { get; set; }
         public string Human_Gene_Location { get; set; }
         public string Nucleotide_1_Position { get; set; }

@@ -14,7 +14,7 @@ namespace DrugProNET
     
     public partial class Protein_Information
     {
-        public string Uniprot_ID { get; set; }
+        public string UniProt_ID { get; set; }
         public string Protein_Short_Name { get; set; }
         public string Protein_Full_Name { get; set; }
         public string Protein_Alias { get; set; }

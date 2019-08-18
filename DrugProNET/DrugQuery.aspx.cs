@@ -46,7 +46,7 @@ namespace DrugProNET
 
                 foreach (PDB_Information pdb in pdbInfoList)
                 {
-                    Protein_Information protein = EF_Data.GetProteinByUniprotID(pdb.Uniprot_ID);
+                    Protein_Information protein = EF_Data.GetProteinByUniprotID(pdb.UniProt_ID);
 
                     if (protein != null)
                     {
@@ -61,7 +61,7 @@ namespace DrugProNET
 
                 foreach (Protein_Information protein in proteinList)
                 {
-                    valuesList.Add(protein.Uniprot_ID);
+                    valuesList.Add(protein.UniProt_ID);
                     valuesList.Add(protein.Protein_Short_Name);
                     valuesList.Add(protein.Protein_Full_Name);
                     valuesList.Add(protein.Protein_Alias);

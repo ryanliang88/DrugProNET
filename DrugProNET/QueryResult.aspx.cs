@@ -325,7 +325,7 @@ namespace DrugProNET
         /// </summary>
         public void LoadPDB_Info(PDB_Information PDB_Info)
         {
-            ProcessRow(PDB_entry_row, PDB_entry, PDB_Info.PDB_File_ID, "https://www.rcsb.org/structure/" + PDB_Info.PDB_File_ID);
+            ProcessRow(PDB_File_ID_row, PDB_File_ID, PDB_Info.PDB_File_ID, "https://www.rcsb.org/structure/" + PDB_Info.PDB_File_ID);
             ProcessRow(release_date_row, release_date, PDB_Info.PDB_Released);
             ProcessRow(resolution_row, resolution, PDB_Info.Resolution);
             ProcessRow(title_row, title, PDB_Info.PDB_Entry_Title);
@@ -361,7 +361,7 @@ namespace DrugProNET
             ProcessRow(protein_name_row, protein_name, protein.Protein_Short_Name);
             ProcessRow(protein_full_name_row, protein_full_name, protein.Protein_Full_Name);
             ProcessRow(p_alias_row, p_alias, protein.Protein_Alias);
-            ProcessRow(uniprot_ID_row, uniprot_ID, protein.Uniprot_ID);
+            ProcessRow(uniprot_ID_row, uniprot_ID, protein.UniProt_ID);
             ProcessRow(NCBI_ID_row, NCBI_ID, protein.NCBI_RefSeq_NP_ID);
             ProcessRow(protein_type_row, protein_type, protein.Protein_Type_Specific);
             ProcessRow(kinase_group_row, kinase_group, protein.Kinase_Group);
@@ -369,7 +369,7 @@ namespace DrugProNET
             ProcessRow(number_aa_row, number_aa, protein.Protein_AA_Number);
             ProcessRow(protein_mass_da_row, protein_mass_da, protein.Protein_Mass);
 
-            ProcessRow(protein_information_result_url_row, protein_information_result_url, "Link to further protein information", "ProteinInfoResult.aspx?query_string=" + protein.Uniprot_ID);
+            ProcessRow(protein_information_result_url_row, protein_information_result_url, "Link to further protein information", "ProteinInfoResult.aspx?query_string=" + protein.UniProt_ID);
         }
 
         /// <summary>

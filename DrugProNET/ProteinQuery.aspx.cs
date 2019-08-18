@@ -43,7 +43,7 @@ namespace DrugProNET
 
             if (protein != null)
             {
-                List<PDB_Information> pdbInfoList = EF_Data.GetPDBInfoUsingProtein(protein.Uniprot_ID);
+                List<PDB_Information> pdbInfoList = EF_Data.GetPDBInfoUsingProtein(protein.UniProt_ID);
 
                 foreach (PDB_Information pdb in pdbInfoList)
                 {
@@ -106,7 +106,7 @@ namespace DrugProNET
                         valuesList.Add(p.NCBI_Gene_ID);
                         valuesList.Add(p.PDB_Protein_Name);
                         valuesList.Add(p.Protein_Alias);
-                        valuesList.Add(p.Uniprot_ID);
+                        valuesList.Add(p.UniProt_ID);
                         valuesList.Add(p.NCBI_RefSeq_NP_ID);
                         valuesList.Add(p.NCBI_Gene_Name);
                         valuesList.Add(p.PhosphoNET_Name);

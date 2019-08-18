@@ -16,7 +16,7 @@ namespace DrugProNET
     {
         public string PDB_File_ID { get; set; }
         public string Drug_PDB_ID { get; set; }
-        public string Uniprot_ID { get; set; }
+        public string UniProt_ID { get; set; }
         public string Drugs_and_Other_Ligands { get; set; }
         public string Method { get; set; }
         public string Resolution { get; set; }

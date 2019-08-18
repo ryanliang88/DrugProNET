@@ -38,8 +38,7 @@ namespace DrugProNET
                 string specifiedAA = specifiedAAType + "-" + specifiedAANumber;
 
                 mutations = EF_Data.GetMutationsBySNVIDKey(SNV_ID_Key);
-                proteinMutation = EF_Data.GetMutationBySNVIDKey(SNV_ID_Key);
-                protein = EF_Data.GetProteinByUniprotID(proteinMutation.UniProt_ID);
+                protein = EF_Data.GetProteinByUniprotID(mutations[0].UniProt_ID); // Needs better error handling in the future
 
                 foreach (SNV_Mutation mutation in mutations)
                 {
@@ -83,12 +82,12 @@ namespace DrugProNET
         private void LoadTargetGeneID(Protein_Information protein, SNV_Mutation mutation)
         {
             ProcessRow(gene_name_row, gene_name, mutation.NCBI_Gene_Name);
-            ProcessRow(uniprot_id_row, uniprot_id, protein.Uniprot_ID);
+            ProcessRow(uniprot_id_row, uniprot_id, protein.UniProt_ID);
             ProcessRow(ncbi_refseq_id_row, ncbi_refseq_id, protein.NCBI_RefSeq_NP_ID);
             ProcessRow(chromosome_location_row, chromosome_location, protein.Human_Chromosome_Location);
 
             gene_and_protein_info_url.Text = "Link to further gene and protein information";
-            gene_and_protein_info_url.NavigateUrl = "ProteinInfoResult.aspx?query_string=" + protein.Uniprot_ID;
+            gene_and_protein_info_url.NavigateUrl = "ProteinInfoResult.aspx?query_string=" + protein.UniProt_ID;
             gene_and_protein_info_url.Target = "_blank";
         }
 
@@ -129,7 +128,8 @@ namespace DrugProNET
             }
         }
 
-        public class DrugResultRow {
+        public class DrugResultRow
+        {
             public Drug_Information drug;
             public PDB_Interaction interaction;
             public SNV_Mutation mutation;
@@ -143,7 +143,7 @@ namespace DrugProNET
             TableRow tableRow = new TableRow();
 
             tableRow.Cells.Add(new TableCell() { Text = drug.Drug_Common_Name });
-            tableRow.Cells.Add(new TableCell() { Text = mutation.PDB_File_No });
+            tableRow.Cells.Add(new TableCell() { Text = mutation.PDB_File_ID });
             tableRow.Cells.Add(new TableCell() { Text = mutation.Drug_PDB_ID });
             tableRow.Cells.Add(new TableCell() { Text = drug.PubChem_CID });
             tableRow.Cells.Add(new TableCell() { Text = drug.ChEMBL_ID });
@@ -236,7 +236,7 @@ namespace DrugProNET
                 List<string> dataRow = new List<string>
                 {
                     drugs[i]?.Drug_Common_Name,
-                    mutations[i]?.PDB_File_No,
+                    mutations[i]?.PDB_File_ID,
                     mutations[i]?.Drug_PDB_ID,
                     drugs[i]?.PubChem_CID,
                     drugs[i]?.ChEMBL_ID,
