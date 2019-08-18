@@ -44,7 +44,7 @@ namespace DrugProNET
 
             if (protein != null)
             {
-                List<PDB_Information> pdbList = EF_Data.GetPDBInfoUsingProtein(protein.Uniprot_ID);
+                List<PDB_Information> pdbList = EF_Data.GetPDBInfoUsingProtein(protein.UniProt_ID);
                 List<Drug_Information> drugList = new List<Drug_Information>();
 
                 foreach (PDB_Information pdb in pdbList)
@@ -92,7 +92,7 @@ namespace DrugProNET
                     Drug_Information drug = EF_Data.GetDrugUsingDropDownName(drug_specification_drop_down.SelectedItem.Value);
                     PDB_Information PDB = EF_Data.GetPDBInfo(protein, drug);
 
-                    List<SNV_Mutation> mutations = EF_Data.GetMutations(protein.Uniprot_ID, drug.Drug_PDB_ID, PDB.PDB_File_ID);
+                    List<SNV_Mutation> mutations = EF_Data.GetMutations(protein.UniProt_ID, drug.Drug_PDB_ID, PDB.PDB_File_ID);
 
                     if (mutations.Count > 0)
                     {
@@ -144,7 +144,7 @@ namespace DrugProNET
                         valuesList.Add(p.NCBI_Gene_ID);
                         valuesList.Add(p.PDB_Protein_Name);
                         valuesList.Add(p.Protein_Alias);
-                        valuesList.Add(p.Uniprot_ID);
+                        valuesList.Add(p.UniProt_ID);
                         valuesList.Add(p.NCBI_RefSeq_NP_ID);
                         valuesList.Add(p.NCBI_Gene_Name);
                         valuesList.Add(p.PhosphoNET_Name);

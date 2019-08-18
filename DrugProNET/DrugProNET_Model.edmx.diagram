@@ -9,8 +9,8 @@
         <EntityTypeShape EntityType="DrugProNETModel.PDB_Distance" Width="1.5" PointX="2.75" PointY="0.75" />
         <EntityTypeShape EntityType="DrugProNETModel.PDB_Information" Width="1.5" PointX="4.75" PointY="0.75" />
         <EntityTypeShape EntityType="DrugProNETModel.PDB_Interaction" Width="1.5" PointX="6.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DrugProNETModel.SNV_Mutation" Width="1.5" PointX="2.75" PointY="6.75" />
-        <EntityTypeShape EntityType="DrugProNETModel.Protein_Information" Width="1.5" PointX="5.375" PointY="6.75" />
+        <EntityTypeShape EntityType="DrugProNETModel.Protein_Information" Width="1.5" PointX="2.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DrugProNETModel.SNV_Mutation" Width="1.5" PointX="6.75" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

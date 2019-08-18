@@ -38,7 +38,7 @@ namespace DrugProNET
                 // Retrieve second and third elements
                 string amino_acid_specification = SNV_KEYsplit[1] + "-" + SNV_KEYsplit[2];
 
-                PDB_Interaction interaction = EF_Data.GetPDB_Interaction(protein.Uniprot_ID, drug.Drug_PDB_ID, amino_acid_specification);
+                PDB_Interaction interaction = EF_Data.GetPDB_Interaction(protein.UniProt_ID, drug.Drug_PDB_ID, amino_acid_specification);
                 mutation = EF_Data.GetMutationBySNVKey(SNV_Key);
 
                 Session["mutation"] = mutation;
@@ -68,7 +68,7 @@ namespace DrugProNET
             ProcessRow(gene_id_row, gene_id, protein.NCBI_Gene_ID, protein.NCBI_Gene_URL);
             ProcessRow(chromosome_location_row, chromosome_location, protein.Human_Chromosome_Location);
             ProcessRow(gene_location_row, gene_location, protein.Human_Gene_Location);
-            ProcessRow(aa_residue_no_row, aa_residue_no, interaction.Uniprot_Residue_Number);
+            ProcessRow(aa_residue_no_row, aa_residue_no, interaction.UniProt_Residue_Number);
             ProcessRow(atomic_interactions_row, atomic_interactions, interaction.Number_of_Atomic_Interactions);
             ProcessRow(aa_residue_type_row, aa_residue_type, interaction.AA_Residue_Type);
             ProcessRow(avg_atom_distance_row, avg_atom_distance, interaction.Average_Distance_Between_Atoms);

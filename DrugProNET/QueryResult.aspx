@@ -17,7 +17,7 @@
         <div class="c-col body-content">
             <h3 class="h3-body-title">Protein-Drug Interaction Report</h3>
             <p class="descriptive">
-                This report provides a listing of atom-to-atom interactions between a protein of interest and a small drug molecule that have been documented in co-crystallization files retrieved from the RCSB PDB Protein Data Bank. In the second table, each row represents a unique interaction between an atom on the protein and an atom on the drug molecule. The distances between the atom pairs are measured in Angstroms, and the shorter the distance, the more important the atom pairs are likely to be for drug binding. Based on this data, the most important amino acid residues involved in drug binding are identified in the first table. 
+                This report provides a listing of atom-to-atom interactions between a protein of interest and a small drug molecule that have been documented in co-crystallization files retrieved from the RCSB PDB Protein Data Bank. In the second table, each row represents a unique interaction between an atom on the protein and an atom on the drug molecule. The distances between the atom pairs are measured in Angstroms, and the shorter the distance, the more important the atom pairs are likely to be for drug binding. Based on this data, the most important amino acid residues involved in drug binding are identified in the first table.
             </p>
         </div>
         <div class="c-col advertisment-content">
@@ -25,7 +25,7 @@
                 <ContentTemplate>
                     <asp:Timer ID="ad_refresh_timer" runat="server" Interval="10000" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
                     <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server" Target="_blank">
-                        <asp:Image ImageUrl="imageUrl" runat="server" ID="adBanner" AlternateText="" Width="288px" style="float: right"/>
+                        <asp:Image ImageUrl="imageUrl" runat="server" ID="adBanner" AlternateText="" Width="288px" Style="float: right" />
                     </asp:HyperLink>
                 </ContentTemplate>
                 <Triggers>
@@ -135,10 +135,9 @@
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
         <div class="c-col body-content">
-            <asp:HyperLink ID="protein_information_result_url" runat="server" NavigateUrl="navigateurl" Target="_blank"/>
+            <asp:HyperLink ID="protein_information_result_url" runat="server" NavigateUrl="navigateurl" Target="_blank" />
         </div>
     </div>
-
 
     <div class="c-row">
         <div class="c-col side-spacing"></div>
@@ -214,10 +213,9 @@
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
         <div class="c-col body-content">
-            <asp:HyperLink ID="drug_information_result_url" runat="server" NavigateUrl="navigateurl" Target="_blank"/>
+            <asp:HyperLink ID="drug_information_result_url" runat="server" NavigateUrl="navigateurl" Target="_blank" />
         </div>
     </div>
-
 
     <div class="c-row">
         <div class="c-col side-spacing"></div>
@@ -226,13 +224,13 @@
             <h3 class="h3-body-title">Specified PDB Information</h3>
         </div>
     </div>
-    <div class="c-row" id="PDB_entry_row" runat="server">
+    <div class="c-row" id="PDB_File_ID_row" runat="server">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content">
-            <p class="p-side">PDB Entry:</p>
+            <p class="p-side">PDB File ID:</p>
         </div>
         <div class="c-col body-content">
-            <asp:HyperLink ID="PDB_entry" runat="server" NavigateUrl="navigateurl" Target="_blank"/>
+            <asp:HyperLink ID="PDB_File_ID" runat="server" NavigateUrl="navigateurl" Target="_blank" />
         </div>
     </div>
     <div class="c-row" id="release_date_row" runat="server">
@@ -281,8 +279,6 @@
         </div>
     </div>
 
-
-
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
@@ -300,7 +296,6 @@
             </div>
         </div>
     </div>
-
 
     <div class="c-row">
         <div class="c-col side-spacing"></div>
@@ -327,7 +322,6 @@
             </div>
         </div>
     </div>
-
 
     <div class="c-row">
         <div class="c-col side-spacing"></div>
@@ -363,7 +357,6 @@
         </div>
     </div>
 
-
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
@@ -371,7 +364,6 @@
             <h3 class="h3-body-title">Interaction Summary of Critical Amino Acid Residues Implicated in Drug Binding</h3>
         </div>
     </div>
-
 
     <div class="c-row">
         <div class="c-col side-spacing"></div>
@@ -382,7 +374,6 @@
         </div>
     </div>
 
-
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
@@ -392,7 +383,6 @@
         </div>
     </div>
 
-
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
@@ -400,7 +390,6 @@
             <h3 class="h3-body-title">Interaction List of Critical Amino Acid Residues Atoms Implicated in Drug Atom Binding</h3>
         </div>
     </div>
-
 
     <div class="c-row">
         <div class="c-col side-spacing"></div>
@@ -423,5 +412,4 @@
             </asp:Table>
         </div>
     </div>
-
 </asp:Content>

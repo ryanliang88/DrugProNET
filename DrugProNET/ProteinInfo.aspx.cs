@@ -45,7 +45,7 @@ namespace DrugProNET
                         valuesList.Add(p.NCBI_Gene_ID);
                         valuesList.Add(p.PDB_Protein_Name);
                         valuesList.Add(p.Protein_Alias);
-                        valuesList.Add(p.Uniprot_ID);
+                        valuesList.Add(p.UniProt_ID);
                         valuesList.Add(p.NCBI_RefSeq_NP_ID);
                         valuesList.Add(p.NCBI_Gene_Name);
                         valuesList.Add(p.PhosphoNET_Name);

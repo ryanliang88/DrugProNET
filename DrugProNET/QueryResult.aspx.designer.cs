@@ -391,22 +391,22 @@ namespace DrugProNET {
         protected global::System.Web.UI.WebControls.HyperLink drug_information_result_url;
         
         /// <summary>
-        /// PDB_entry_row control.
+        /// PDB_File_ID_row control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl PDB_entry_row;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl PDB_File_ID_row;
         
         /// <summary>
-        /// PDB_entry control.
+        /// PDB_File_ID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink PDB_entry;
+        protected global::System.Web.UI.WebControls.HyperLink PDB_File_ID;
         
         /// <summary>
         /// release_date_row control.

@@ -18,7 +18,7 @@ namespace DrugProNET
         public string PDB_File_ID { get; set; }
         public string Drug_PDB_ID { get; set; }
         public string AA_Residue_Type { get; set; }
-        public string Uniprot_Residue_Number { get; set; }
+        public string UniProt_Residue_Number { get; set; }
         public string PDB_Residue_Number { get; set; }
         public string Number_of_Atomic_Interactions { get; set; }
         public string Average_Distance_Between_Atoms { get; set; }

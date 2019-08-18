@@ -142,18 +142,18 @@ namespace DrugProNET
             ProcessRow(mass_da_row, mass_da, protein.Protein_Mass);
             ProcessRow(number_aa_row, number_aa, protein.Protein_AA_Number);
 
-            ProcessRow(null, uniprot_id, protein.Uniprot_ID, protein.UniProt_Entry_URL);
+            ProcessRow(null, uniprot_id, protein.UniProt_ID, protein.UniProt_Entry_URL);
             ProcessRow(null, uniprot_entry, protein.Entry_ID, protein.UniProt_Entry_URL);
-            ProcessControl(uniprot_row, protein.Uniprot_ID, protein.Entry_ID);
+            ProcessControl(uniprot_row, protein.UniProt_ID, protein.Entry_ID);
 
             ProcessRow(ncbi_refseq_id_row, ncbi_refseq_id, protein.NCBI_RefSeq_NP_ID, protein.NCBI_RefSeq_NP_ID_URL);
             ProcessRow(int_protein_id_row, int_protein_id, protein.International_Prot_ID);
             ProcessRow(phosphonet_id_row, phosphonet_id, protein.PhosphoNET_Name, protein.PhosphoNET_URL);
             ProcessRow(phosphositeplus_row, phosphositeplus, protein.PhosphoSite_Plus_Entry, protein.PhosphoSite_Plus_Entry_URL);
-            ProcessRow(kinasenet_id_row, kinasenet_id, protein.Uniprot_ID, protein.KinaseNET_URL);
+            ProcessRow(kinasenet_id_row, kinasenet_id, protein.UniProt_ID, protein.KinaseNET_URL);
             kinasenet_id_row.Visible = !string.IsNullOrEmpty(protein.KinaseNET_URL?.Trim());
 
-            ProcessRow(onconet_id_row, onconet_id, protein.Uniprot_ID, protein.OncoNET_URL);
+            ProcessRow(onconet_id_row, onconet_id, protein.UniProt_ID, protein.OncoNET_URL);
             onconet_id_row.Visible = !string.IsNullOrEmpty(protein.OncoNET_URL?.Trim());
             ProcessRow(chromosome_no_row, chromosome_no, protein.Human_Chromosome_Number);
             ProcessRow(chromosome_location_row, chromosome_location, protein.Human_Chromosome_Location);

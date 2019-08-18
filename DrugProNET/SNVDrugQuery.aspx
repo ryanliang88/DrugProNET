@@ -16,7 +16,7 @@
         <div class="c-col body-content">
             <h3 class="h3-body-title">SNV-focused Protein-Drug interaction Identification</h3>
             <p>
-                This query provides a listing of protein-drug interactions that may be affected by a specific single nucleotide variant (SNV) in the human genome. The SNV must be documented in the DrugProNET database as selected from the examination of atom-to-atom interaction pairs between a small drug molecule and a protein target based on the extracted from coordinate information of co-crystallization files in the RCSB PDB Protein Data Bank. 
+                This query provides a listing of protein-drug interactions that may be affected by a specific single nucleotide variant (SNV) in the human genome. The SNV must be documented in the DrugProNET database as selected from the examination of atom-to-atom interaction pairs between a small drug molecule and a protein target based on the extracted from coordinate information of co-crystallization files in the RCSB PDB Protein Data Bank.
             </p>
         </div>
         <div class="c-col advertisment-content">
@@ -24,7 +24,7 @@
                 <ContentTemplate>
                     <asp:Timer ID="ad_refresh_timer" runat="server" Interval="10000" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
                     <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server" Target="_blank">
-                        <asp:Image ImageUrl="imageUrl" runat="server" ID="adBanner" AlternateText="" Width="288px"/>
+                        <asp:Image ImageUrl="imageUrl" runat="server" ID="adBanner" AlternateText="" Width="288px" />
                     </asp:HyperLink>
                 </ContentTemplate>
                 <Triggers>
@@ -43,7 +43,7 @@
             <h3 class="h3-body-title">Step 1 - SNV Specification</h3>
             <p>Provide the SNV exactly with the format shown here. After a few letters are entered, select from one of the options presented in the pull down menu. Required format:</p>
             <p><span class="yellow">NCBI Gene Location ID</span><span class="gray">(<span class="white">HGNC Gene Name</span>):c.</span><span class="yellow">Nucleotide Number</span><span class="white">Common Nucleotide Base Type</span><span class="gray">></span><span class="yellow">Variant Nucleotide Base</span><span class="gray">(p.<span class="white">Original Amino Acid Residue Type</span><span class="yellow">Amino Acid Residue Number</span><span class="white">Variant Amino Acid Residue Type</span>)</span></p>
-            <p>e.g.&nbsp;<span class="white">NC_000007.14(EGFR):c.55022236A>C(p.Met987Leu)</span></p>
+            e.g. <a href="http://www.drugpronet.ca/SNVDrugResult.aspx?query_string=NC_000006.12(SGK1):g.134173484T%3EG(p.Ile104Ser)">NC_000006.12(SGK1):g.134173484T%3EG(p.Ile104Ser)</a>
         </div>
     </div>
 
@@ -66,7 +66,7 @@
 
             <asp:Button ID="generate_table_button" CssClass="button" Text="Generate Table" OnClick="Generate" runat="server" OnClientClick="target='_blank'" />
             <span>&emsp;&emsp;</span>
-            <asp:Button ID="reset_button" CssClass="button" Text="Reset" runat="server" OnClientClick="window.location.reload(); return false;"  />
+            <asp:Button ID="reset_button" CssClass="button" Text="Reset" runat="server" OnClientClick="window.location.reload(); return false;" />
         </div>
     </div>
 </asp:Content>
