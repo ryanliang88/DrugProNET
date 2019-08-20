@@ -16,7 +16,7 @@
             <h3 class="h3-body-title">SNV-based Identification of Protein-Drug Interactions</h3>
             <p>
                 This query provides prediction of the effects of mutation of critical amino acids in proteins involved in drug
-                interactions starting with a defined single nucleotide variant (SNV) in the human genome. The interaction of 
+                interactions starting with a defined single nucleotide variant (SNV) in the human genome. The interaction of
                 multiple drugs with a particular amino acid residue in a target protein of interest may be identified.
             </p>
         </div>
@@ -25,7 +25,7 @@
                 <ContentTemplate>
                     <asp:Timer ID="ad_refresh_timer" runat="server" Interval="10000" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
                     <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server" Target="_blank">
-                        <asp:Image ImageUrl="imageUrl" runat="server" ID="adBanner" AlternateText="" Width="288px"/>
+                        <asp:Image ImageUrl="imageUrl" runat="server" ID="adBanner" AlternateText="" Width="288px" />
                     </asp:HyperLink>
                 </ContentTemplate>
                 <Triggers>
@@ -101,15 +101,13 @@
         </div>
     </div>
 
-
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
         <div class="c-col body-content">
-            <asp:HyperLink ID="gene_and_protein_info_url" runat="server" NavigateUrl="navigateurl" />
+            <asp:HyperLink ID="gene_and_protein_info_url" runat="server" NavigateUrl="navigateurl" CssClass="BrightHyperlinkHover" />
         </div>
     </div>
-
 
     <div class="c-row">
         <div class="c-col side-spacing"></div>
@@ -136,8 +134,7 @@
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
         <div class="c-col body-content-long">
-            <asp:Table runat="server" ID="IDofPDILinkedSNVTable" CssClass="IDofPDILinkedSNVTable">
-            </asp:Table>
+            <asp:Table runat="server" ID="IDofPDILinkedSNVTable" CssClass="IDofPDILinkedSNVTable"></asp:Table>
         </div>
     </div>
 
@@ -146,12 +143,10 @@
         <div class="c-col side-content"></div>
         <div class="c-col body-content-long" style="padding-top: 0.5em">
             <p>
-                "Importance for Drug" is based on the total number of atomic interactions of the amino acid residue 
-                    specified by the nucleotide with the drug atoms divided by the average bond distance (in Angstroms) 
+                "Importance for Drug" is based on the total number of atomic interactions of the amino acid residue
+                    specified by the nucleotide with the drug atoms divided by the average bond distance (in Angstroms)
                     for all of the interactions. The higher the score, the more important this amino acid residue may have for drug binding.
             </p>
         </div>
     </div>
-
 </asp:Content>
-

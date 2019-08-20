@@ -135,7 +135,7 @@
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
         <div class="c-col body-content">
-            <asp:HyperLink ID="protein_information_result_url" runat="server" NavigateUrl="navigateurl" Target="_blank" />
+            <asp:HyperLink ID="protein_information_result_url" runat="server" NavigateUrl="navigateurl" Target="_blank" CssClass="BrightHyperlinkHover" />
         </div>
     </div>
 
@@ -213,7 +213,7 @@
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
         <div class="c-col body-content">
-            <asp:HyperLink ID="drug_information_result_url" runat="server" NavigateUrl="navigateurl" Target="_blank" />
+            <asp:HyperLink ID="drug_information_result_url" runat="server" NavigateUrl="navigateurl" Target="_blank" CssClass="BrightHyperlinkHover" />
         </div>
     </div>
 
@@ -230,7 +230,7 @@
             <p class="p-side">PDB File ID:</p>
         </div>
         <div class="c-col body-content">
-            <asp:HyperLink ID="PDB_File_ID" runat="server" NavigateUrl="navigateurl" Target="_blank" />
+            <asp:HyperLink ID="PDB_File_ID" runat="server" NavigateUrl="navigateurl" Target="_blank" CssClass="BrightHyperlinkHover" />
         </div>
     </div>
     <div class="c-row" id="release_date_row" runat="server">
@@ -408,8 +408,7 @@
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
         <div class="c-col body-content-long interaction_list_container">
-            <asp:Table runat="server" ID="interaction_list" CssClass="interaction-list">
-            </asp:Table>
+            <asp:Table runat="server" ID="interaction_list" CssClass="interaction-list" />
         </div>
     </div>
 </asp:Content>

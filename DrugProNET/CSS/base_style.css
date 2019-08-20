@@ -362,3 +362,7 @@ tr:nth-of-type(2n) {
 #adBanner {
     float: right;
 }
+
+a.BrightHyperlinkHover:hover {
+    color: #93bde1;
+}

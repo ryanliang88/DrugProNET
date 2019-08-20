@@ -15,7 +15,7 @@
         <div class="c-col body-content">
             <h3 class="h3-body-title">Protein-Drug Interaction SNV Identification</h3>
             <p class="description">
-                This query provides identification of single nucleotide variants (SNV’s) in the human genome that may affect specific protein- drug interactions. Using critical amino acids residues in a target protein implicated in a specific drug binding from a previous DrugProNET query, SNV’s of these amino acids are identified for their locations in the human genome and the consequence of their mutation on binding of a specific drug is predicted. 
+                This query provides identification of single nucleotide variants (SNV’s) in the human genome that may affect specific protein- drug interactions. Using critical amino acids residues in a target protein implicated in a specific drug binding from a previous DrugProNET query, SNV’s of these amino acids are identified for their locations in the human genome and the consequence of their mutation on binding of a specific drug is predicted.
             </p>
         </div>
         <div class="c-col advertisment-content">
@@ -23,7 +23,7 @@
                 <ContentTemplate>
                     <asp:Timer ID="ad_refresh_timer" runat="server" Interval="10000" OnPreRender="RenewAdvertisement" OnTick="RenewAdvertisement"></asp:Timer>
                     <asp:HyperLink ID="adLink" NavigateUrl="navigateurl" runat="server" Target="_blank">
-                        <asp:Image ImageUrl="imageUrl" runat="server" ID="adBanner" AlternateText="" Width="288px"/>
+                        <asp:Image ImageUrl="imageUrl" runat="server" ID="adBanner" AlternateText="" Width="288px" />
                     </asp:HyperLink>
                 </ContentTemplate>
                 <Triggers>
@@ -148,7 +148,6 @@
         </div>
     </div>
 
-
     <div class="c-row">
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
@@ -214,7 +213,7 @@
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
         <div class="c-col body-content">
-            <asp:HyperLink ID="drug_information_result_url" runat="server" NavigateUrl="navigateurl" Target="_blank"/>
+            <asp:HyperLink ID="drug_information_result_url" runat="server" NavigateUrl="navigateurl" Target="_blank" CssClass="BrightHyperlinkHover" />
         </div>
     </div>
 
@@ -231,7 +230,7 @@
             <p class="p-side">PDB Entry:</p>
         </div>
         <div class="c-col body-content-long">
-            <asp:HyperLink ID="PDB_entry" runat="server" NavigateUrl="navigateurl" Target="_blank"/>
+            <asp:HyperLink ID="PDB_entry" runat="server" NavigateUrl="navigateurl" Target="_blank" CssClass="BrightHyperlinkHover" />
         </div>
     </div>
     <div class="c-row">
@@ -258,9 +257,7 @@
         <div class="c-col side-spacing"></div>
         <div class="c-col side-content"></div>
         <div class="c-col body-content-long longDiv" style="padding-top: 0.5em">
-            <asp:Table runat="server" ID="SNV_Identification_Table">
-            </asp:Table>
+            <asp:Table runat="server" ID="SNV_Identification_Table" />
         </div>
     </div>
-
 </asp:Content>
