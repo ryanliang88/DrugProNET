@@ -64,7 +64,7 @@
                 <ul class="secondary-navigation horizontal-list col">
                     <div class="float-left">
                         <li class="updated_text">
-                            <p class="updated_text">Updated January 2019</p>
+                            <p class="updated_text">Updated September 2019</p>
                         </li>
                     </div>
                     <div>
@@ -75,19 +75,19 @@
                             <p>|</p>
                         </li>
                         <li>
-                            <asp:HyperLink NavigateUrl="http://www.kinexus.ca/" runat="server" Text="Kinexus" Target="_blank"/>
+                            <asp:HyperLink NavigateUrl="http://www.kinexus.ca/" runat="server" Text="Kinexus" Target="_blank" />
                         </li>
                         <li>
                             <p>|</p>
                         </li>
                         <li>
-                            <asp:HyperLink NavigateUrl="http://www.kinexus.ca/contact/contact.html" runat="server" Text="Contact" Target="_blank"/>
+                            <asp:HyperLink NavigateUrl="http://www.kinexus.ca/contact/contact.html" runat="server" Text="Contact" Target="_blank" />
                         </li>
                         <li>
                             <p>|</p>
                         </li>
                         <li>
-                            <asp:HyperLink NavigateUrl="~/Credits.aspx" runat="server" Text="Credits"/>
+                            <asp:HyperLink NavigateUrl="~/Credits.aspx" runat="server" Text="Credits" />
                         </li>
                     </div>
                 </ul>
